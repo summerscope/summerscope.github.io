@@ -1,0 +1,136 @@
+/**
+ * AK theme for reveal.js.
+ *
+ */
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+// // Include theme-specific fonts
+// @import url(../../lib/font/league-gothic/league-gothic.css);
+// @import url(https://fonts.googleapis.com/css?family=WorkSans:300,400);
+// @import url(https://fonts.googleapis.com/css?family=RobotoSlab:100,300,700);
+
+@font-face {
+    font-family: 'work_sansbold';
+    src: url('../fonts/worksans-bold-webfont.eot');
+    src: url('../fonts/worksans-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/worksans-bold-webfont.woff2') format('woff2'),
+         url('../fonts/worksans-bold-webfont.woff') format('woff'),
+         url('../fonts/worksans-bold-webfont.ttf') format('truetype'),
+         url('../fonts/worksans-bold-webfont.svg#work_sansbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'work_sansextralight';
+    src: url('../fonts/worksans-extralight-webfont.eot');
+    src: url('../fonts/worksans-extralight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/worksans-extralight-webfont.woff2') format('woff2'),
+         url('../fonts/worksans-extralight-webfont.woff') format('woff'),
+         url('../fonts/worksans-extralight-webfont.ttf') format('truetype'),
+         url('../fonts/worksans-extralight-webfont.svg#work_sansextralight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'work_sanslight';
+    src: url('../fonts/worksans-light-webfont.eot');
+    src: url('../fonts/worksans-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/worksans-light-webfont.woff2') format('woff2'),
+         url('../fonts/worksans-light-webfont.woff') format('woff'),
+         url('../fonts/worksans-light-webfont.ttf') format('truetype'),
+         url('worksans-light-webfont.svg#work_sanslight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'work_sansregular';
+    src: url('../fonts/worksans-regular-webfont.eot');
+    src: url('../fonts/worksans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/worksans-regular-webfont.woff2') format('woff2'),
+         url('../fonts/worksans-regular-webfont.woff') format('woff'),
+         url('../fonts/worksans-regular-webfont.ttf') format('truetype'),
+         url('../fonts/worksans-regular-webfont.svg#work_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'work_sansthin';
+    src: url('../fonts/worksans-thin-webfont.eot');
+    src: url('../fonts/worksans-thin-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/worksans-thin-webfont.woff2') format('woff2'),
+         url('../fonts/worksans-thin-webfont.woff') format('woff'),
+         url('../fonts/worksans-thin-webfont.ttf') format('truetype'),
+         url('../fonts/worksans-thin-webfont.svg#work_sansthin') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'roboto_slabregular';
+    src: url('../fonts/robotoslab-regular-webfont.eot');
+    src: url('../fonts/robotoslab-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/robotoslab-regular-webfont.woff2') format('woff2'),
+         url('../fonts/robotoslab-regular-webfont.woff') format('woff'),
+         url('../fonts/robotoslab-regular-webfont.ttf') format('truetype'),
+         url('../fonts/robotoslab-regular-webfont.svg#roboto_slabregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'roboto_slabbold';
+    src: url('../fonts/robotoslab-bold-webfont.eot');
+    src: url('../fonts/robotoslab-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/robotoslab-bold-webfont.woff2') format('woff2'),
+         url('../fonts/robotoslab-bold-webfont.woff') format('woff'),
+         url('../fonts/robotoslab-bold-webfont.ttf') format('truetype'),
+         url('../fonts/robotoslab-bold-webfont.svg#roboto_slabbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+// Override theme settings (see ../template/settings.scss)
+$mainFont: 'work_sanslight', sans-serif;
+$mainFontSize: 48px;
+$headingFont: 'Raleway', sans-serif;
+$headingFontWeight: 900;
+$headingTextTransform: none;
+$mainColor: #333;
+$headingColor: #333;
+$headingTextShadow: none;
+$backgroundColor: #dfd1de;
+$linkColor: #419b9e;
+$linkColorHover: lighten( $linkColor, 20% );
+$selectionBackgroundColor: rgba(79, 64, 28, 0.99);
+$heading1TextShadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 20px 20px rgba(0,0,0,.15);
+$heading1Size: 2.5em;
+$heading2Size: 1.5833em;
+$heading3Size: 1.3333em;
+$heading4Size: 1.00em;
+
+
+// Background generator
+@mixin bodyBackground() {
+	@include radial-gradient( rgba(223,209,222,1), rgba(255,255,205,1) );
+}
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+.reveal pre{
+    box-shadow: none;
+}
+
+.dark-bg{
+	color: white;
+	text-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+.reveal .dark-bg h1, .reveal .dark-bg h2, .reveal .dark-bg h3, .reveal .dark-bg h4, .reveal .dark-bg h5, .reveal .dark-bg h6 {
+	color: white;
+	text-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
