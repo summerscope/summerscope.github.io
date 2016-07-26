@@ -1,3 +1,10 @@
+/* CSS Animations */
+
+
+
+/* Layout styling */
+
+
 .wrap{
 	max-width: 44em;
 }
@@ -29,26 +36,50 @@ h4{ font-size: 1.5rem; }
 .header h1 {margin-bottom: 0;}
 .header h2 {margin-top: 0;}
 
-address a img{ width: 48px; max-width: 15%; opacity: 0.5;}
+address a img{ 
+	width: 48px; 
+	max-width: 15%; 
+	opacity: 0.5;
+	-webkit-transition: all 200ms; /* Safari */
+	transition: all 200ms;
+}
+
 address a:hover img,
 address a:active img
 address a:focus img{opacity: 1; }
 
 @media only screen and (min-width: 48em) {
-	address a img{ width: 36px; height: 48px;}
-	address a:hover img, address a:active img, address a:focus img{width: 44px; } 
+	address a img{ width: 32px; height: 48px;}
+	address a:hover img, address a:active img, address a:focus img{ width: 44px; } 
 }
 
 blockquote{ 
 	font-style: oblique; 
 	font-size: 1.125rem; 
 	line-height: 1.4; 
-	margin: 0;
+	margin: 0 0.75rem;
 }
 
 @media only screen and (min-width: 48em) {
 	blockquote{  font-size: 1.5rem; margin: 0 3rem;}
 }
 
+section{ padding: 5rem 0; border-bottom: 1px solid grey; }
 
-section{ padding: 10rem 0; border-bottom: 1px solid grey; }
+@media only screen and (min-width: 48em) {
+	section{ padding: 10rem 0; }
+}
+
+.sr-only{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+
+
