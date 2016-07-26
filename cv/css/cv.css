@@ -1,8 +1,11 @@
 /* CSS Animations */
 
 .transition{
-	-webkit-transition: all 200ms; /* Safari */
-	transition: all 200ms;
+	-webkit-transition: all 200ms ease; /* Safari */
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
 }
 
 /* Layout styling */
@@ -85,6 +88,26 @@ section{ padding: 5rem 0; border-bottom: 1px solid grey; }
 	.companies a:hover img,
 	.companies a:active img
 	.companies a:focus img{ width: 88%; }
+}
+
+article.accordion .time-node{
+	display: block;
+	overflow: hidden;
+	height: 4.25rem;
+}
+
+article.accordion .time-node:target{
+	height: 11rem;
+}
+
+@media only screen and (min-width: 48em) {
+	article.accordion .time-node:target{
+		height: 15rem;
+	}
+}
+
+article.accordion .time-node:target h4{
+	color: red;
 }
 
 .time-wrap{ background: url('../img/white-square.png') repeat-y 50% 0; position: relative;}
