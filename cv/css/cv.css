@@ -70,10 +70,10 @@ section{ padding: 5rem 0; border-bottom: 1px solid grey; }
 	section{ padding: 10rem 0; }
 }
 
-/*.companies .row > div { height: 4rem;}*/
 .companies a img{ 
 	opacity: 0.5;
-	width: 60%;
+	width: 75%;
+	height: 80px;
 }
 
 .companies a:hover img,
@@ -81,11 +81,10 @@ section{ padding: 5rem 0; border-bottom: 1px solid grey; }
 .companies a:focus img{ opacity: 1; }
 
 @media only screen and (min-width: 48em) {
-	/*.companies .row > div { height: 10rem; }*/
-	.companies a img{ width: 75%; } 
+	.companies a img{ width: 84%;  height: 100px; } 
 	.companies a:hover img,
 	.companies a:active img
-	.companies a:focus img{ width: 78%; }
+	.companies a:focus img{ width: 88%; }
 }
 
 .time-wrap{ background: url('../img/white-square.png') repeat-y 50% 0; position: relative;}
