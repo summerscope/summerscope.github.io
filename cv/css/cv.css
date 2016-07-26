@@ -13,18 +13,42 @@ h1, h2, h3, h4, h5, h6{
 	letter-spacing: -0.05rem;
 }
 
-h1{ font-size: 4rem; }
+h1{ font-size: 3.5rem; }
 h2{ font-size: 1.5rem; }
 h3{ font-size: 1.85rem; }
 h4{ font-size: 1.5rem; }
 
+@media only screen and (min-width: 48em) {
+	h1{ font-size: 4rem; }
+}
+
+
 /*.row{ outline: 1px solid red; }
 .row > *{ outline: 1px solid blue; }*/
 
+.header h1 {margin-bottom: 0;}
+.header h2 {margin-top: 0;}
+
+address a img{ width: 48px; max-width: 15%; opacity: 0.5;}
+address a:hover img,
+address a:active img
+address a:focus img{opacity: 1; }
+
+@media only screen and (min-width: 48em) {
+	address a img{ width: 36px; height: 48px;}
+	address a:hover img, address a:active img, address a:focus img{width: 44px; } 
+}
+
 blockquote{ 
 	font-style: oblique; 
-	font-size: 1.5rem; 
+	font-size: 1.125rem; 
 	line-height: 1.4; 
+	margin: 0;
 }
+
+@media only screen and (min-width: 48em) {
+	blockquote{  font-size: 1.5rem; margin: 0 3rem;}
+}
+
 
 section{ padding: 10rem 0; border-bottom: 1px solid grey; }
