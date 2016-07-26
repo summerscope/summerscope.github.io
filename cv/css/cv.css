@@ -24,6 +24,7 @@ h1{ font-size: 3.5rem; }
 h2{ font-size: 1.5rem; }
 h3{ font-size: 1.85rem; }
 h4{ font-size: 1.5rem; }
+h5{ font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1rem; }
 
 @media only screen and (min-width: 48em) {
 	h1{ font-size: 4rem; }
@@ -37,6 +38,7 @@ h4{ font-size: 1.5rem; }
 .header h2 {margin-top: 0;}
 
 address a img{ 
+	margin-top: 5px;
 	width: 48px; 
 	max-width: 15%; 
 	opacity: 0.5;
@@ -49,7 +51,8 @@ address a:active img
 address a:focus img{opacity: 1; }
 
 @media only screen and (min-width: 48em) {
-	address a img{ width: 32px; height: 48px;}
+	address a img{ width: 32px; height: 48px; 	margin-top: 0px;
+}
 	address a:hover img, address a:active img, address a:focus img{ width: 44px; } 
 }
 
@@ -68,6 +71,15 @@ section{ padding: 5rem 0; border-bottom: 1px solid grey; }
 
 @media only screen and (min-width: 48em) {
 	section{ padding: 10rem 0; }
+}
+
+.time-node{ margin: 1rem 0; background-color: white; padding: 1rem 1.5rem; }
+.time-node h4{ margin: 0.25rem 0 0 0; }
+.time-node h5{ margin: 0.25rem 0 0 0; text-transform: uppercase; letter-spacing: 0.1rem; }
+.time-node time{ font-style: oblique; }
+
+@media only screen and (min-width: 48em) {
+	.time-node{ margin: 0; }
 }
 
 .sr-only{
