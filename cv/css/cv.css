@@ -11,6 +11,7 @@
 
 body, html, h3, h4, h5, h6{
 	font-family: 'Libre Baskerville', serif;
+	line-height: 1.4;
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -73,24 +74,64 @@ section{ padding: 5rem 0; border-bottom: 1px solid grey; }
 	section{ padding: 10rem 0; }
 }
 
+.time-wrap{ background: url('../img/white-square.png') repeat-y 50% 0; position: relative;}
+.time-wrap span{ 
+	position: absolute;
+	display: block;
+	width: 1rem;
+	height: 2rem;
+	right: 50%;
+	top: -8px;
+	margin-right: -8px;
+	-ms-transform: rotate(90deg); /* IE 9 */
+	-webkit-transform: rotate(90deg); /* Safari */
+	transform: rotate(90deg);
+	background-image: url('../img/icon-arrow-dropright.svg');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: 0 0}
+
+@media only screen and (min-width: 48em) {
+	.time-wrap span{
+		margin-right: 0px;
+		width: 0.5rem;
+		height: 1rem;
+	}
+	.time-wrap.start-sm span{
+		right: 50%;
+		top: 2.5rem;
+		-ms-transform: rotate(0deg); /* IE 9 */
+		-webkit-transform: rotate(0deg); /* Safari */
+		transform: rotate(0deg);
+	}
+	.time-wrap.end-sm span{
+		left: 50%;
+		top: 2.5rem;
+		-ms-transform: rotate(180deg); /* IE 9 */
+		-webkit-transform: rotate(180deg); /* Safari */
+		transform: rotate(180deg);
+	}
+}
+
 .time-node{ margin: 1rem 0; background-color: white; padding: 1rem 1.5rem; }
 .time-node h4{ margin: 0.25rem 0 0 0; }
 .time-node h5{ margin: 0.25rem 0 0 0; text-transform: uppercase; letter-spacing: 0.1rem; }
 .time-node time{ font-style: oblique; }
+.time-node p{ font-size: 85%; }
 
 @media only screen and (min-width: 48em) {
 	.time-node{ margin: 0; }
 }
 
 .sr-only{
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
 }
 
 
