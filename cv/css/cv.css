@@ -73,21 +73,38 @@ section{ padding: 5rem 0; border-bottom: 1px solid grey; }
 	section{ padding: 10rem 0; }
 }
 
+.companies .row {
+	height: 160px;
+}
+
+.companies a {
+	display: block;
+}
+
 .companies a img{ 
 	opacity: 0.5;
-	width: 75%;
-	height: 80px;
+	width: 80%;
 }
 
 .companies a:hover img,
 .companies a:active img
 .companies a:focus img{ opacity: 1; }
 
+@media only screen and (min-width: 32em) {
+	.companies .row {
+		height: 200px;
+	}
+	.companies a img{ 
+		width: 55%;
+	}
+}
+
 @media only screen and (min-width: 48em) {
-	.companies a img{ width: 84%;  height: 100px; } 
+	.companies .row { height: 100px; }
+	.companies a img{ width: 80%; } 
 	.companies a:hover img,
 	.companies a:active img
-	.companies a:focus img{ width: 88%; }
+	.companies a:focus img{ width: 84%; }
 }
 
 article.accordion .time-node{
