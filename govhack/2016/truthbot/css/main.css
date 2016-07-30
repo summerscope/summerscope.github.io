@@ -97,12 +97,33 @@ textarea {
 
 
 
+footer a.team{
+    font-size: 0.75em;
+    margin: 1em 0;
+    display: block;
+}
 
+footer img{
+    display: block;
+    width: 48px;
+    -o-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid #999;
+    margin: 0 auto;
+    
+}
 
-
-
-
-
+@media only screen and (min-width: 48em) {
+    footer a.team{
+        font-size: 0.875em;
+         margin: 0;
+    }
+    footer img{
+        display: inline-block;
+        width: 32px;
+    }
+}
 
 
 
