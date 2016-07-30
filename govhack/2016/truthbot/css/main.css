@@ -96,6 +96,15 @@ textarea {
    ========================================================================== */
 
 
+.ProfileAvatar-image {
+    -o-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    width: 200px;
+    border: 10px solid white;
+    margin-top: 2em;
+}
 
 footer a.team{
     font-size: 0.75em;
@@ -107,6 +116,7 @@ footer img{
     display: block;
     width: 48px;
     -o-border-radius: 3px;
+    -ms-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
     border: 1px solid #999;
@@ -117,7 +127,7 @@ footer img{
 @media only screen and (min-width: 48em) {
     footer a.team{
         font-size: 0.875em;
-         margin: 0;
+         margin: 0.5em 0 4em 0;
     }
     footer img{
         display: inline-block;
