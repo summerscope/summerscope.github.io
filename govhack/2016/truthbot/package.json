@@ -1,0 +1,30 @@
+{
+  "name": "truthbot",
+  "version": "1.0.0",
+  "description": "truthbot demo",
+  "main": "index.html",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "lite-server",
+    "dev": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/summerscope/summerscope.github.io.git"
+  },
+  "keywords": [
+    "truth",
+    "bot"
+  ],
+  "author": "Laura Summers, Anthony Mockler, Andy Kitchen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/summerscope/summerscope.github.io/issues"
+  },
+  "homepage": "https://github.com/summerscope/summerscope.github.io#readme",
+  "devDependencies": {
+    "lite-server": "^2.2.2"
+  }
+}
