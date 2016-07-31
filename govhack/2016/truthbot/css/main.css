@@ -95,6 +95,15 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+nav {
+    background-color: #333;
+    padding: 0.25rem 0;
+    font-size: 85%;
+    color: #999;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.05rem;
+}
 
 .ProfileAvatar-image {
     -o-border-radius: 8px;
@@ -104,6 +113,16 @@ textarea {
     width: 200px;
     border: 10px solid white;
     margin-top: 2em;
+}
+
+header, section{
+    padding: 4rem 0;
+    border-bottom: 1px solid #D2D8DB;
+}
+@media only screen and (min-width: 48em) {
+    header, section{
+        padding: 6rem 0;
+    }
 }
 
 twitterwidget {
@@ -131,6 +150,20 @@ twitterwidget {
     }
 }
 
+.video-wrapper{
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 .fact-matches{
     -o-border-radius: 4px;
     -ms-border-radius: 4px;
@@ -183,9 +216,17 @@ twitterwidget {
 }
 
 /* FOOTER */
+footer{
+    padding: 1rem 0;
+}
+
+@media only screen and (min-width: 48em) {
+    footer{
+        padding: 2rem 0;
+    }
+}
 footer a.team{
     font-size: 0.75em;
-    margin: 1em 0;
     display: block;
 }
 
