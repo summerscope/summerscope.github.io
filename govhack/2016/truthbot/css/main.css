@@ -193,6 +193,10 @@ twitterwidget {
     margin: 0;
 }
 
+.tweet a{
+    font-weight: normal;
+}
+
 .poli-tweet{
     background: url(../img/point-down.svg) center bottom  no-repeat;
     background-size: 92px 1rem;
