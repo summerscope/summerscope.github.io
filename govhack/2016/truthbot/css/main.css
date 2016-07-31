@@ -104,6 +104,21 @@ h1,h2,h3,h4,h5,h6{
    color: white; 
 }
 
+blockquote{
+    margin: 0;
+    font-size: 120%;
+    line-height: 1.4;
+}
+
+@media only screen and (min-width: 48em) {
+    blockquote{ margin: 0 9rem;}
+}
+
+
+@media only screen and (min-width: 60em) {
+    blockquote{ margin: 0 14rem;}
+}
+
 a{
     color: #60ccc7;
 }
