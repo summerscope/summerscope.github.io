@@ -43,16 +43,20 @@
             <div class="row center-xs">
                 <div class="col-xs-12">
                     <h2>What is Truthbot?</h2>
-                    <blockquote>Some high level explainer text here</blockquote>
+                    <blockquote>Truthbot is the world's first artificially intelligent fact checking robot. It monitors the Twitter feeds of Australian politicians and automaticallly fact checks their tweets, so you don't have to.</blockquote>
                 </div>
             </div>
         </section>
         <section>
             <div class="row center-xs">
                 <div class="col-xs-12">
-                    <h2>How does it work?</h2>
+                    <h2>How did we do it?</h2>
                     <blockquote>
-                        Truthbot uses a bleeding edge machine learning algorithm to train on tweets and the content of articles at the same time. 
+                        We used the <a href="http://arxiv.org/abs/1507.07998">very latest in Machine learning research</a> to implement a paragraph2vec model in <a href="http://www.tensorflow.org">Tensorflow</a>, trained on Australian politician's tweets and Fact Check articles from <a href="http://www.abc.net.au/news/factcheck/">The ABC</a>, <a href="http://theconversation.com/au/factcheck">The Conversation</a> and other <a href="http://www.data.gov.au">Government data sources</a>.
+						<br>
+						Then we used that model to find the fact check articles most relevant to each Politician's tweets.
+						<br>
+						Finally, we built a page for <a href="poli-index.html">each Australian politician</a> so that you can see what they tweeted, and which fact check article is most likely to set the record straight. In the future, <a href="http://www.twitter.com/truthbotau">Truthbot</a> will automatically tweet relevant explainers straight back at our pollies in real time.						
                     </blockquote>
                 </div>
             </div>
@@ -67,14 +71,33 @@
                             <a href="https://www.tensorflow.org" target="_blank">TensorFlow</a>
                         </div>
                         <div class="col-xs-6">
-                            <a href="http://jupyter.org" target="_blank">Jupyter</a>
+                            <a href="http://www.beautifulsoup.org" target="_blank">BeautifulSoup</a>
                         </div>
                     </div>
+					
+					<div class="row center-xs">
+                        <div class="col-xs-6">
+                            <a href="http://www.spacy.io" target="_blank">Spacy Natural Language Processing</a>
+                        </div>
+                        <div class="col-xs-6">
+                            <a href="http://pandas.pydata.org" target="_blank">Pandas</a>
+                        </div>
+                    </div>
+					
+					<div class="row center-xs">
+                        <div class="col-xs-6">
+                            <a href="http://www.jupyter.org" target="_blank">Jupyter Notebook</a>
+                        </div>
+                        <div class="col-xs-6">
+                            <a href="http://www.python.org" target="_blank">Python</a>
+                        </div>
+                    </div>
+					
                     <br>&nbsp;<br>
                     <h4>All code available opensource on Github</h4>
                     <div class="row center-xs">
                         <div class="col-xs-12">
-                            <p>Landing page
+                            <p>Web pages
                             <br>
                             <a href="https://github.com/summerscope/summerscope.github.io" target="_blank">https://github.com/summerscope/summerscope.github.io</a>
                             </p>
@@ -82,7 +105,7 @@
                     <div class="row center-xs">
                     </div>
                         <div class="col-xs-12">
-                            <p>Truthbot
+                            <p>Truthbot source code
                             <br>
                             <a href="https://bitbucket.org/iamcarbonatedmilk/govhack2016/" target="_blank">https://bitbucket.org/iamcarbonatedmilk/govhack2016/</a>
                             </p>
