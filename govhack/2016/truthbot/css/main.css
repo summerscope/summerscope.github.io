@@ -146,7 +146,7 @@ twitterwidget {
 }
 
 .tweet-right twitterwidget {
-    float: right;
+    float: right !important;
 }
 
 .poli-tweet{
