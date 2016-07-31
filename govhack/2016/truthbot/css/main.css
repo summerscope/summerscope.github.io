@@ -177,12 +177,20 @@ twitterwidget {
     margin: 20px 0 0 0;
 }
 
+.poli-tweet p{
+    padding: 1rem 0;
+}
+
 .poli-tweet{
-    background: url(../img/point-down.svg) 15% bottom  no-repeat;
+    background: url(../img/point-down.svg) center bottom  no-repeat;
     background-size: 92px 1rem;
 }
 
 @media only screen and (min-width: 48em) {
+    .poli-tweet p{
+        padding: 0 0  1rem 0;
+    }
+
     .tb-tweet{
         margin: 20px 0 0 0;
     }
