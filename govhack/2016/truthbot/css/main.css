@@ -137,24 +137,19 @@ twitterwidget {
     margin: 0 0 20px 0 !important;
 }
 
-twitterwidget {
-    width: 100% !important;
-    max-width: 100% !important;
-}
-
-.tweet-right twitterwidget {
+.tweet-right twitterwidget, .tweet-right twitterwidget .EmbeddedTweet{
     float: right !important;
 }
 
 .poli-tweet{
     background: url(../img/point-right.svg) center bottom  no-repeat;
-    background-size: 0.5rem 60px;
+    background-size: 0.5rem 46px;
 }
 
 @media only screen and (min-width: 48em) {
     .poli-tweet{
-        background: url(../img/point-right.svg) right -10px no-repeat;
-        background-size: 0.5rem 90px;
+        background: url(../img/point-right.svg) right 10px no-repeat;
+        background-size: 0.5rem 46px;
     }
 }
 
