@@ -97,10 +97,9 @@ textarea {
 
 nav {
     background-color: #333;
-    padding: 0.25rem 0;
+    padding: 0.5rem 0;
     font-size: 85%;
     color: #999;
-    text-transform: uppercase;
     font-weight: bold;
     letter-spacing: 0.05rem;
 }
