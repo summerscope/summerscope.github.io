@@ -95,8 +95,21 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+body{
+    background-color: #2b6982;
+    color: white;
+}
+
+h1,h2,h3,h4,h5,h6{
+   color: white; 
+}
+
+a{
+    color: #57bab5;
+}
+
 nav {
-    background-color: #333;
+    background-color: rgba(20,20,20,0.5);
     padding: 0.5rem 0;
     font-size: 85%;
     color: #999;
@@ -187,7 +200,7 @@ twitterwidget {
     -ms-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgba(255,255,255,0.1);
     border: 1px solid #e1e8ed;
     padding: 11.6px 20px;
 }
