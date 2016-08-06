@@ -51,7 +51,7 @@ address a:active img
 address a:focus img{ opacity: 1; }
 
 @media only screen and (min-width: 48em) {
-	address a img{ width: 32px; height: 48px; 	margin-top: 0px;
+	address a img{ width: 32px; height: 48px; margin-top: 0px;
 }
 	address a:hover img, address a:active img, address a:focus img{ width: 44px; } 
 }
@@ -181,5 +181,42 @@ article.accordion .time-node:target h4{
 	border: 0;
 }
 
+footer{
+	padding-bottom: 5rem;
+	background-image: url('../img/get-in-touch.svg');
+	background-size:  140px;
+	background-repeat: no-repeat;
+	background-position: right center;
+}
 
+footer address a{
+	display: block;
+	line-height: 34px;
+	margin-top: 10px;
+	white-space: nowrap;
+	font-size: 14px;
+	overflow: hidden; 
+	text-overflow: ellipsis;
+}
+
+footer address a img{ 
+	float: left;
+	margin-top: 0;
+	margin-right: 10px;
+	background-color: #007FFF;
+	-webkit-border-radius: 25px;
+	-moz-border-radius: 25px;
+	-ms-border-radius: 25px;
+	-o-border-radius: 25px;
+	border-radius: 25px;
+	padding: 5px;
+	width: 24px; 
+	max-width: 24px; 
+	opacity: 0.65;
+}
+
+@media only screen and (min-width: 48em) {
+	footer address a img{ width: 24px; height: 24px; margin-top: 0px; }
+	footer address a{ font-size: 16px; }
+}
 
