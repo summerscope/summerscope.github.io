@@ -11,7 +11,7 @@
 /* Layout styling */
 
 .wrap{
-	max-width: 44em;
+	max-width: 50em;
 }
 
 body, html, h3, h4, h5, h6{
@@ -39,6 +39,14 @@ h5{ font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1rem; }
 .header h1 {margin-bottom: 0;}
 .header h2 {margin-top: 0;}
 
+a, a:visited{
+	color: #54a6f9;
+}
+
+a:hover, a:focus, a:active{
+	color: #007FFF;
+}
+
 address a img{ 
 	margin-top: 5px;
 	width: 48px; 
@@ -63,8 +71,12 @@ blockquote{
 	margin: 0 0.75rem;
 }
 
+@media only screen and (min-width: 32em) {
+	blockquote{  font-size: 1.5rem; margin: 0 2rem;}
+}
+
 @media only screen and (min-width: 48em) {
-	blockquote{  font-size: 1.5rem; margin: 0 3rem;}
+	blockquote{  font-size: 1.5rem; margin: 0 4rem;}
 }
 
 section{ padding: 5rem 0; border-bottom: 1px solid grey; }
