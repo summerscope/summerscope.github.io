@@ -30,7 +30,7 @@ h1{ font-size: 3.5rem; }
 h2{ font-size: 1.5rem; }
 h3{ font-size: 1.85rem; }
 h4{ font-size: 1.5rem; }
-h5{ font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1rem; }
+h5{ font-size: 1rem; text-transform: uppercase; letter-spacing: 0.065em; }
 
 @media only screen and (min-width: 48em) {
 	h1{ font-size: 4rem; }
@@ -46,6 +46,12 @@ a, a:visited{
 a:hover, a:focus, a:active{
 	color: #007FFF;
 }
+
+ul li, ol li{
+	margin: 0.5em 0;
+}
+
+
 
 address a img{ 
 	margin-top: 5px;
@@ -255,7 +261,7 @@ article.accordion .time-node:target h4{
 .accordion .selector{ margin: 1rem 0; background-color: white; padding: 1rem 1.5rem; }
 .accordion .accordion-item{ text-align: start; }
 .accordion h4{ margin: 0.25rem 0 0 0; }
-.accordion h5{ margin: 0.25rem 0 0 0; text-transform: uppercase; letter-spacing: 0.065em; }
+.accordion h5{ margin: 0.25rem 0 0 0; }
 .accordion time{ font-style: oblique; }
 .accordion p, .accordion ul, .accordion ol{ font-size: 0.8125rem; }
 
@@ -274,12 +280,12 @@ article.accordion .time-node:target h4{
 	border: 0;
 }
 
+.no-margin{
+	margin: 0;
+}
+
 footer{
-	padding-bottom: 5rem;
-	/*background-image: url('../img/get-in-touch.svg');*/
-	background-size:  140px;
-	background-repeat: no-repeat;
-	background-position: right center;
+	padding: 5rem 0;
 }
 
 footer address a{
