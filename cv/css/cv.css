@@ -116,9 +116,19 @@ section{ padding: 5rem 0; border-bottom: 1px solid grey; }
 /* ACCORDION */
 
 .accordion {
-  padding: 0 10px;
-  margin: 0 auto;
+  padding: 0 10px; 
   list-style: none outside;
+   background: url('../img/white-square.png') repeat-y 50% 0;
+}
+
+.accordion .row{
+	margin-bottom: 15px;
+}
+
+@media only screen and (min-width: 48em) {
+	.accordion .row{
+		margin-bottom: 0;
+	}
 }
 
 .accordion li {
@@ -134,7 +144,6 @@ section{ padding: 5rem 0; border-bottom: 1px solid grey; }
 
 .accordion-item-input:checked ~ .accordion-item-bd {
   max-height: 1000px;
-  padding-top: 15px;
   padding-bottom: 15px;
   margin-bottom: 15px;
   -webkit-transition: max-height 1s ease-in, margin .3s ease-in, padding .3s ease-in;
@@ -204,7 +213,7 @@ article.accordion .time-node:target h4{
 	color: red;
 }*/
 
-.time-wrap{ background: url('../img/white-square.png') repeat-y 50% 0; position: relative;}
+/*.time-wrap{ background: url('../img/white-square.png') repeat-y 50% 0; position: relative;}*/
 .time-wrap span{ 
 	position: absolute;
 	display: block;
@@ -244,10 +253,11 @@ article.accordion .time-node:target h4{
 }
 
 .accordion .selector{ margin: 1rem 0; background-color: white; padding: 1rem 1.5rem; }
+
 .accordion h4{ margin: 0.25rem 0 0 0; }
 .accordion h5{ margin: 0.25rem 0 0 0; text-transform: uppercase; letter-spacing: 0.1rem; }
 .accordion time{ font-style: oblique; }
-.accordion p{ font-size: 0.8125rem; }
+.accordion p, .accordion ul, .accordion ol{ font-size: 0.8125rem; }
 
 @media only screen and (min-width: 48em) {
 	.time-node{ margin: 0; }
