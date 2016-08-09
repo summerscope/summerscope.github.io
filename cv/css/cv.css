@@ -253,7 +253,7 @@ article.accordion .time-node:target h4{
 }
 
 .accordion .selector{ margin: 1rem 0; background-color: white; padding: 1rem 1.5rem; }
-
+.accordion .accordion-item{ text-align: start; }
 .accordion h4{ margin: 0.25rem 0 0 0; }
 .accordion h5{ margin: 0.25rem 0 0 0; text-transform: uppercase; letter-spacing: 0.1rem; }
 .accordion time{ font-style: oblique; }
