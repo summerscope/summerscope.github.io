@@ -131,7 +131,7 @@ section{ padding: 5rem 0; border-bottom: 1px solid grey; }
 	}
 }
 
-.accordion li {
+.accordion li.accordion-item {
 	background-color: white;
 }
 
@@ -255,7 +255,7 @@ article.accordion .time-node:target h4{
 .accordion .selector{ margin: 1rem 0; background-color: white; padding: 1rem 1.5rem; }
 .accordion .accordion-item{ text-align: start; }
 .accordion h4{ margin: 0.25rem 0 0 0; }
-.accordion h5{ margin: 0.25rem 0 0 0; text-transform: uppercase; letter-spacing: 0.1rem; }
+.accordion h5{ margin: 0.25rem 0 0 0; text-transform: uppercase; letter-spacing: 0.065em; }
 .accordion time{ font-style: oblique; }
 .accordion p, .accordion ul, .accordion ol{ font-size: 0.8125rem; }
 
@@ -276,7 +276,7 @@ article.accordion .time-node:target h4{
 
 footer{
 	padding-bottom: 5rem;
-	background-image: url('../img/get-in-touch.svg');
+	/*background-image: url('../img/get-in-touch.svg');*/
 	background-size:  140px;
 	background-repeat: no-repeat;
 	background-position: right center;
