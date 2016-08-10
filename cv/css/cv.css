@@ -36,7 +36,7 @@ h5{ font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em; font-wei
 	h1{ font-size: 4rem; }
 }
 
-.header h1 {margin-bottom: 0;}
+.header h1 {margin-bottom: 0; margin-top: 1em;}
 .header h2 {margin-top: 0;}
 
 a, a:visited{
@@ -99,11 +99,15 @@ img.col3-img{
 	blockquote{  font-size: 1.5rem; margin: 0 4rem;}
 }
 
-section{ padding: 5rem 0; border-bottom: 1px solid grey; }
+section{ padding: 6rem 0; border-bottom: 1px solid grey; }
+
+section h3{ margin-top: 1em; }
 
 @media only screen and (min-width: 48em) {
 	section{ padding: 10rem 0; }
 }
+
+
 
 .companies a {
 	display: block;
