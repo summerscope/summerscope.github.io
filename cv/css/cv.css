@@ -30,7 +30,7 @@ h1{ font-size: 3.5rem; }
 h2{ font-size: 1.5rem; }
 h3{ font-size: 1.85rem; }
 h4{ font-size: 1.5rem; }
-h5{ font-size: 1rem; text-transform: uppercase; letter-spacing: 0.065em; }
+h5{ font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;}
 
 @media only screen and (min-width: 48em) {
 	h1{ font-size: 4rem; }
@@ -50,8 +50,6 @@ a:hover, a:focus, a:active{
 ul li, ol li{
 	margin: 0.5em 0;
 }
-
-
 
 address a img{ 
 	margin-top: 5px;
@@ -75,6 +73,22 @@ blockquote{
 	font-size: 1.125rem; 
 	line-height: 1.4; 
 	margin: 0 0.75rem;
+}
+
+img.col3-img{
+	width: 85%;
+}
+
+@media only screen and (min-width: 32em) {
+	img.col3-img{
+		width: 70%;
+	}
+}
+
+@media only screen and (min-width: 48em) {
+	img.col3-img{
+		width: 100%;
+	}
 }
 
 @media only screen and (min-width: 32em) {
