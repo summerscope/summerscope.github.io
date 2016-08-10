@@ -99,7 +99,13 @@ img.col3-img{
 	blockquote{  font-size: 1.5rem; margin: 0 4rem;}
 }
 
-section{ padding: 6rem 0; border-bottom: 1px solid grey; }
+section{ 
+	padding: 6rem 0;  
+	background-image: url('../img/divider.svg');
+	background-position: center bottom;
+	background-repeat: no-repeat;
+	background-size: 60px 14px;
+}
 
 section h3{ margin-top: 1em; }
 
