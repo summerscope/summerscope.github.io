@@ -296,6 +296,7 @@ article.accordion .time-node:target h4{
 	overflow: hidden;
 	clip: rect(0, 0, 0, 0);
 	border: 0;
+	display: inline-block;
 }
 
 .no-margin{
