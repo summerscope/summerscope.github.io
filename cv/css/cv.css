@@ -113,8 +113,6 @@ section h3{ margin-top: 1em; }
 	section{ padding: 10rem 0; }
 }
 
-
-
 .companies a {
 	display: block;
 }
@@ -172,6 +170,10 @@ section h3{ margin-top: 1em; }
   cursor: pointer;
 }
 
+.accordion .accordion-item-hd:hover .accordion-item-hd-cta,
+.accordion .accordion-item-hd:focus .accordion-item-hd-cta,
+.accordion .accordion-item-hd:active .accordion-item-hd-cta{ color: #54a6f9; }
+
 .accordion-item-input:checked ~ .accordion-item-bd {
   max-height: 1000px;
   padding-bottom: 15px;
@@ -184,7 +186,10 @@ section h3{ margin-top: 1em; }
   -webkit-transform: rotate(0);
   -ms-transform: rotate(0);
   transform: rotate(0);
+  color: #fff;
 }
+
+
 
 .accordion-item-hd-cta {
   display: block;
@@ -223,76 +228,33 @@ section h3{ margin-top: 1em; }
   left: -9999px;
 }
 
-/*article.accordion .time-node{
-	display: block;
-	overflow: hidden;
-	height: 4.25rem;
-}
-
-article.accordion .time-node:target{
-	height: 11rem;
-}
-
-@media only screen and (min-width: 48em) {
-	article.accordion .time-node:target{
-		height: 15rem;
-	}
-}
-
-article.accordion .time-node:target h4{
-	color: red;
-}*/
-
-/*.time-wrap{ background: url('../img/white-square.png') repeat-y 50% 0; position: relative;}*/
-.time-wrap span{ 
-	position: absolute;
-	display: block;
-	width: 1rem;
-	height: 2rem;
-	right: 50%;
-	top: -8px;
-	margin-right: -8px;
-	-ms-transform: rotate(90deg); /* IE 9 */
-	-webkit-transform: rotate(90deg); /* Safari */
-	transform: rotate(90deg);
-	background-image: url('../img/icon-arrow-dropright.svg');
-	background-size: 100%;
-	background-repeat: no-repeat;
-	background-position: 0 0}
-
-@media only screen and (min-width: 48em) {
-	.time-wrap span{
-		margin-right: 0px;
-		width: 0.5rem;
-		height: 1rem;
-	}
-	.time-wrap.start-sm span{
-		right: 50%;
-		top: 2.5rem;
-		-ms-transform: rotate(0deg); /* IE 9 */
-		-webkit-transform: rotate(0deg); /* Safari */
-		transform: rotate(0deg);
-	}
-	.time-wrap.end-sm span{
-		left: 50%;
-		top: 2.5rem;
-		-ms-transform: rotate(180deg); /* IE 9 */
-		-webkit-transform: rotate(180deg); /* Safari */
-		transform: rotate(180deg);
-	}
-}
-
 .accordion .selector{ margin: 1rem 0; background-color: white; padding: 1rem 1.5rem; }
 .accordion .accordion-item{ text-align: start; }
-.accordion h4{ margin: 0.25rem 0 0 0; }
-.accordion h5{ margin: 0.25rem 0 0 0; }
-.accordion time{ font-style: oblique; }
+.accordion .accordion-item-input ~ .accordion-item-hd h4{ margin: 0.25rem 0 0 0; }
+.accordion .accordion-item-input ~ .accordion-item-hd h5{ margin: 0.25rem 0 0 0; }
+.accordion .accordion-item-input ~ .accordion-item-hd time{ font-style: oblique; }
 .accordion p, .accordion ul, .accordion ol{ font-size: 0.8125rem; }
 
-@media only screen and (min-width: 48em) {
-	.time-node{ margin: 0; }
-}
 
+.accordion .accordion-item-hd:hover h4,
+.accordion .accordion-item-hd:focus h4,
+.accordion .accordion-item-hd:active h4{ color: #54a6f9;}
+.accordion .accordion-item-hd:hover time,
+.accordion .accordion-item-hd:focus time,
+.accordion .accordion-item-hd:active time{ color: #54a6f9;}
+.accordion .accordion-item-hd:hover h5,
+.accordion .accordion-item-hd:focus h5,
+.accordion .accordion-item-hd:active h5{ color: #54a6f9;}
+
+
+.accordion .accordion-item-input:checked ~ .accordion-item-hd {background-color: #54a6f9; }
+.accordion .accordion-item-input:checked ~ .accordion-item-hd h4{ color: #fff;}
+.accordion .accordion-item-input:checked ~ .accordion-item-hd time{ color: #fff;}
+.accordion .accordion-item-input:checked ~ .accordion-item-hd h5{ color: #fff;}
+
+
+
+/* Utilities*/
 .sr-only{
 	position: absolute;
 	width: 1px;
