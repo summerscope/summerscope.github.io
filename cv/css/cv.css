@@ -171,9 +171,7 @@ section h3{ margin-top: 1em; }
   cursor: pointer;
 }
 
-.accordion .accordion-item-hd:hover .accordion-item-hd-cta,
-.accordion .accordion-item-hd:focus .accordion-item-hd-cta,
-.accordion .accordion-item-hd:active .accordion-item-hd-cta{ color: #54a6f9; }
+.accordion .accordion-item-hd:hover .accordion-item-hd-cta{ color: #54a6f9; }
 
 .accordion-item-input:checked ~ .accordion-item-bd {
   max-height: 1000px;
@@ -183,31 +181,44 @@ section h3{ margin-top: 1em; }
   transition: max-height 1s ease-in, margin .3s ease-in, padding .3s ease-in;
 }
 
+.accordion .accordion-item-hd:hover .accordion-item-hd-cta svg path,
+.accordion .accordion-item-hd:focus .accordion-item-hd-cta svg path,
+.accordion .accordion-item-hd:active .accordion-item-hd-cta svg path{
+	fill: #54a6f9;
+}
+
 .accordion-item-input:checked ~ .accordion-item-hd > .accordion-item-hd-cta {
-  -webkit-transform: rotate(0);
-  -ms-transform: rotate(0);
-  transform: rotate(0);
+  -webkit-transform: rotate(-180deg);
+  -ms-transform: rotate(-180deg);
+  transform: rotate(-180deg);
   color: #fff;
 }
 
+.accordion-item-input:checked ~ .accordion-item-hd > .accordion-item-hd-cta svg path{
+	fill: #fff;
+}
 
 
 .accordion-item-hd-cta {
   display: block;
-  width: 30px;
+  width: 20px;
   position: absolute;
   top: calc(50% - 6px );
   /*minus half font-size*/
-  right: 0;
+  right: 15px;
   pointer-events: none;
   -webkit-transition: -webkit-transform .3s ease;
   transition: transform .3s ease;
-  -webkit-transform: rotate(-180deg);
-  -ms-transform: rotate(-180deg);
-  transform: rotate(-180deg);
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
   text-align: center;
   font-size: 12px;
   line-height: 1;
+}
+
+.accordion-item-hd-cta svg path{
+	fill: #000;
 }
 
 .accordion-item-bd {
@@ -252,7 +263,6 @@ section h3{ margin-top: 1em; }
 .accordion .accordion-item-input:checked ~ .accordion-item-hd h4{ color: #fff;}
 .accordion .accordion-item-input:checked ~ .accordion-item-hd time{ color: #fff;}
 .accordion .accordion-item-input:checked ~ .accordion-item-hd h5{ color: #fff;}
-
 
 
 /* Utilities*/
