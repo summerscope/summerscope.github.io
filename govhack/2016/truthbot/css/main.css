@@ -178,12 +178,8 @@ twitterwidget {
     float: right !important;
 }
 
-.tweet-right{
-    margin-top: 3em;
-}
-
 .tb-tweet{
-    margin: 20px 0 0 0;
+    margin: 3em 0 0 0;
 }
 
 .tweet{
