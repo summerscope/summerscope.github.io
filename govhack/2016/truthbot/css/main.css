@@ -273,7 +273,7 @@ twitterwidget {
     line-height: 1.2;
 }
 
-.fact-matches label{
+.fact-matches label, .keyword-matches label{
     letter-spacing: 0.065em;
     text-transform: uppercase;
     display: block;
