@@ -200,6 +200,11 @@ twitterwidget {
 
 .tweet a{
     font-weight: normal;
+    color: #199191;
+}
+
+.tweet a:hover{
+    color: #60ccc7;
 }
 
 .poli-tweet{
