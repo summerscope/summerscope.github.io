@@ -178,6 +178,10 @@ twitterwidget {
     float: right !important;
 }
 
+.tweet-right{
+    margin-top: 3em;
+}
+
 .tb-tweet{
     margin: 20px 0 0 0;
 }
@@ -241,7 +245,7 @@ twitterwidget {
     text-align: right;
 }
 
-.keyword-matches{ margin-top: 5px; }
+.keyword-matches{ margin: 5px 0 0 0; }
 .keyword-matches a{ font-weight: normal; }
 
 .fact-matches, .keyword-matches{
@@ -261,7 +265,7 @@ twitterwidget {
 
 .fact-matches{
     font-size: 0.7777777em;
-    margin: 5px 0 3em 0;
+    margin: 5px 0 0 0;
 }
 
 .fact-matches a{
