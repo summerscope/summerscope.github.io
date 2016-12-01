@@ -199,8 +199,11 @@ body { background: #bad5dd; }
  * LINKS
  *********************************************/
 .reveal a {
-  color: #4b9ae2;
+  /*color: #4b9ae2;*/
+  color: #7551b8;
   text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 2px solid rgba(173, 86, 205, 0.35);
   -webkit-transition: color .15s ease;
   -moz-transition: color .15s ease;
   transition: color .15s ease; 
@@ -208,9 +211,9 @@ body { background: #bad5dd; }
 }
 
 .reveal a:hover {
-  color: #238bd8;
-  text-shadow: none;
-  border: none; }
+  color: #ad56cd;
+  border-color: rgba(173, 86, 205, 0.65);
+  text-shadow: none; }
 
 .reveal .roll span:after {
   color: #fff;
