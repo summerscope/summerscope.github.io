@@ -1,0 +1,17 @@
+cat \
+convnetjs/src/convnet_init.js \
+convnetjs/src/convnet_util.js \
+convnetjs/src/convnet_vol.js \
+convnetjs/src/convnet_vol_util.js \
+convnetjs/src/convnet_layers_dotproducts.js \
+convnetjs/src/convnet_layers_pool.js \
+convnetjs/src/convnet_layers_input.js \
+convnetjs/src/convnet_layers_loss.js \
+convnetjs/src/convnet_layers_nonlinearities.js \
+convnetjs/src/convnet_layers_dropout.js \
+convnetjs/src/convnet_layers_normalization.js \
+convnetjs/src/convnet_net.js \
+convnetjs/src/convnet_trainers.js \
+convnetjs/src/convnet_magicnet.js \
+convnetjs/src/convnet_export.js \
+> convnetjs/build/convnet.js
