@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Composable components</title>
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h1>Composable components</h1>
+      </section>
+      <section>
+        <h2>Hi! I'm Laura</h2>
+        <p>
+          <a href="http://www.twitter.com/summerscope" target="_blank">@summerscope</a>
+        </p>
+      </section>
+      <section>
+        <h2>A case-study</h2>
+        <p>a button component I was working on...</p>
+      </section>
+      <section>
+        <p>
+          <img class="plain" src="images/ReactJS.png" width="200px" /> &nbsp;
+          <img class="plain" src="images/styled-components.png" width="200px" />
+          <aside class='notes'>
+            It was in a stack with React + styled components which is an all-in-js lib like glamorous. let's you declare your styles
+            for components all in 1 js file.
+          </aside>
+        </p>
+      </section>
+      <section>
+        <blockquote>"With so many tools at your disposal, it is incredibly easy for components to grow over time, become bloated and
+          do too much."</blockquote>
+        <p>
+          <small>
+            <a href="https://medium.com/dailyjs/techniques-for-decomposing-react-components-e8a1081ef5da">https://medium.com/dailyjs/techniques-for-decomposing-react-components-e8a1081ef5da</a>
+          </small>
+        </p>
+        <aside class='notes'>
+          Look at code snippet
+        </aside>
+      </section>
+      <section>
+        <p>This feels a bit complex...</p>
+        <aside class='notes'>
+          Single purpose principle
+        </aside>
+      </section>
+      <section>
+        <pre>
+<code>
+<buttonComponent aria-role="button" to={route}>
+  Take me there
+</buttonComponent>
+</code>
+        </pre>
+        <p class="fragment">😒
+          <code>aria-role</code> on a link
+          <br />(which behaves as a link)</p>
+        <aside class='notes'>
+          Unsemantic markup creeping in
+        </aside>
+      </section>
+      <section>
+        <p class="fragment">What is a component?</p>
+        <p class="fragment">How big should it be?</p>
+        <p class="fragment">What makes it composable?</p>
+        <p class="fragment">What is the right level of abstraction?</p>
+      </section>
+      <section>
+        <h2>So what's the fix?</h2>
+      </section>
+      <section>
+        <h2>Stand-alone components for primitives?</h2>
+        <p class="fragment">
+          <img class="plain" src="images/components.png" />
+        </p>
+        <p class="fragment">But how to style in a DRY way?</p>
+        <aside class="notes">The point of CSS-in-JS is that your CSS is defined literally in the same file where your markup is defined... Pulling
+          it out into a separate CSS file to then be inherited to different components feels a bit old skool hey... a bit
+          global-styles... </aside>
+      </section>
+      <section>
+        <h2>Style as a stand-alone component?</h2>
+        <p class="fragment">
+          <img class="plain" src="images/style-component.png" />
+        </p>
+        <p class="fragment">But adds markup jank...</p>
+        <aside class="notes">We don't want lots of divs around our interactive components especially. Also styled-components is designed to be
+          applied directly to a container and not as a piece of CSS in the abstraction. </aside>
+      </section>
+
+      <section>
+        <h2>Compose as sub-components?</h2>
+        <p class="fragment">
+          <img class="plain" src="images/sub-components.png" height="350px" />
+        </p>
+        <p class="fragment">Most promising...</p>
+        <aside class="notes">This approach would allow us to keep our css all together in the one wrapper index file. Having 3 components in the
+          render method when only 1 will be used is probably a little inefficient. </aside>
+      </section>
+
+      <section>
+        <h2>Leaving it as-is</h2>
+        <p>is 👌</p>
+        <aside class="notes">Maybe this could be better... but maybe changing will make it worse and also i have other things to do and this isn't
+          the biggest point of friction in the codebase RN... And maybe imperfect but usable is ok. </aside>
+      </section>
+      <section>
+        <blockquote>That itchy feeling you have in the back of your head that something could be more elegant... 24/7.</blockquote>
+        <aside class="notes">(It's just part of being a developer)</aside>
+      </section>
+      <section>
+        <h2>Thanks!!</h2>
+      </section>
+    </div>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+
+  <script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+      transition: 'fade',
+      dependencies: [
+        { src: 'plugin/markdown/marked.js' },
+        { src: 'plugin/markdown/markdown.js' },
+        { src: 'plugin/notes/notes.js', async: true },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+      ]
+    });
+  </script>
+</body>
+
+</html>
