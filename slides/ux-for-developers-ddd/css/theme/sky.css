@@ -210,6 +210,10 @@ body {
 .reveal small * {
   vertical-align: top; }
 
+.reveal .white {
+  color: white;
+}
+
 /*********************************************
  * LINKS
  *********************************************/
@@ -272,7 +276,7 @@ body {
 
 
 /*********************************************
- * Twitter handle BAR
+ * Twitter BAR
  *********************************************/
 .reveal .twitter {
   position: absolute;
