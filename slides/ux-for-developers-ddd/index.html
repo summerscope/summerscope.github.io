@@ -1,0 +1,515 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>UX for Developers</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/sky.css">
+	<link href="https://fonts.googleapis.com/css?family=Anton|Nanum+Myeongjo" rel="stylesheet">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<!-- Title slide-->
+				<h1>UX for developers</h1>
+				<aside class="notes">
+					Housekeeping. Intro. I work in startups across FED and UI / UX.
+				</aside>
+			</section>
+			<section>
+				<h1>-Or-</h1>
+				<h2>Congratulations, you're a designer now!</h2>
+				<aside class="notes">I truly believe that great UX and design ideas can come from anyone on the team. The important bit
+					is working out how to talk about design in a way that's constructive - and that's what this talk is for. </aside>
+			</section>
+			<!-- remove? -->
+			<section>
+				<h2>So what the bloody hell even is UX, anyway!?</h2>
+				<aside class="notes">
+					So who here feels like they've got a handle on what UX is...? (show of hands, unpack answers)
+				</aside>
+			</section>
+			<section>
+				<h1>2 design disciplines</h1>
+				<ul class="no-style">
+					<li class="fragment"><h2>UX = User Experience</h2></li>
+					<li class="fragment"><h2>UI = User Interface</h2></li>
+				</ul>
+			</section>
+			<section>
+				<h1>Important</h1>
+				<h2>UX != UI</h2>
+				<aside class="notes">Yes they are tightly coupled. But the important bit is that UX does not assume UI. UX is the work
+					of deciding what UI, if any, should be built.</aside>
+			</section>
+			<section data-background-image="images/ux-ui.png">
+				<aside class="notes">
+					Please don't think of UX'rs as wireframe factories. It's fundamentally missing the point.
+				</aside>
+			</section>
+			<section>
+				<img src="images/ux-ui-strategy.png" class="plain" width="600px" />
+				<aside class="notes">
+					This is more how I think of UX.
+				</aside>
+			</section>
+			<section>
+				<h2>Other terms you might hear</h2>
+				<ul>
+					<li class="fragment">Interaction / Interactive Designer</li>
+					<li class="fragment">CX = Customer Experience</li>
+					<li class="fragment">Service Design</li>
+					<li class="fragment">Human-Centered Design</li>
+					<li class="fragment">Design Thinking</li>
+					<li class="fragment">Others?</li>
+				</ul>
+				<aside class="notes">Explain terms</aside>
+			</section>
+			<section>
+				<h1>A dirty secret...</h1>
+				<aside class="notes">Ok so UX isn't a magic bullet... </aside>
+			</section>
+			<section data-background-image="images/wordcloud.svg">
+			</section>
+			<section>
+				<blockquote>
+					UX (user experience) as a discipline is messy, imperfect, filled with overlapping methodologies. It's an umbrella term that's
+					so broad it can feel meaningless. It sometimes lacks internal consistency. It's a work in progress. It's immature and
+					it needs to get better.
+				</blockquote>
+			</section>
+			<section>
+				<h1>But...</h1>
+				<h2 class="fragment">This isn't an exuse to dismiss UX</h2>
+			</section>
+			<section data-background-image="images/js-wordcloud.svg">
+				<aside class="notes">But, if this bothers you, or if you're now tempted to dismiss the work of UX, I'd like to invite
+					you to take a long hard look at </aside>
+			</section>
+			<section>
+				<h1>All of the javascript</h1>
+				<aside class="notes">because the growing pains that UX suffers from are perfectly analagous to the complex sprawling
+					mess that is currently front-end development, or even web and app development more broadly. </aside>
+			</section>
+			<section>
+				<h2>Why should I care about UX?</h2>
+			</section>
+			<section>
+				<blockquote>
+					Your ability to practice introspection and empathy and then use your learning in each to develop the other, in other words,
+					your ability to practice inpathy, shifts your mindset around how you interact with others.
+				</blockquote>
+				<p>-Aimee Gonzalez-Cameron</p>
+				<aside class="notes">In other words - this is about building better product, but also a better you. Better communication,
+					better teamwork, happier people.</aside>
+			</section>
+			<section data-background-video="images/terrible-login.mp4">
+				<!-- star trek snippet -->
+			</section>
+			<section>
+				<h1>UX domains</h1>
+				<ul class="no-style">
+					<li class="fragment"><h2>UX Research</h2></li>
+					<li class="fragment"><h2>UX Design</h2></li>
+				</ul>
+			</section>
+			<!-- ux research section-->
+			<section>
+				<h1>1. UX Research</h1>
+			</section>
+			<section>
+				<h2>Qualitative vs Quantitative data</h2>
+				<img src="images/quant-v-qual1.png" class="plain" width="600px" />
+				<aside class="notes">This shows how we can add more quant as volume goes up. To be honest tho I'm thinking that it could
+					be more like qual remains as a baseline while quant increases. </aside>
+			</section>
+			<section>
+				<h2>Qualitative vs Quantitative data</h2>
+				<img src="images/quant-v-qual2.png" class="plain" width="600px" />
+				<aside class="notes">Now I think of data capture more like this... Qual as the hearthstone and Quant increasing as the business grows. </aside>
+			</section>
+			<section>
+				<h1>Learn...</h1>
+				<p class="fragment">A. About the user</p>
+				<p class="fragment">B. Can they use the thing?</p>
+				<p class="fragment">C. Do they <em>want</em> to use the thing?</p>
+				<aside class="notes">Find out user pain points, motivators, likes, dislikes. Usability testing. Market Appetite</aside>
+			</section>
+			<section>
+				<h2>A. Learn about the user</h2>
+				<p class="fragment">User interviews</p>
+				<p class="fragment">Card sorting</p>
+				<p class="fragment">Diary studies</p>
+				<p class="fragment">Co-design workshops</p>
+				<p class="fragment">Ethnographic studies</p>
+				<p class="fragment">Quantitative surveys</p>
+			</section>
+			<section>
+				<h2>B. Can they use the thing?</h2>
+				<p class="fragment">Usability testing</p>
+				<p class="fragment">(Remote, in-person, in a lab)</p>
+				<p class="fragment">Guerilla testing</p>
+				<p class="fragment">A/B Testing</p>
+				<p class="fragment">Eye tracking</p>
+			</section>
+			<section>
+				<h2>C. Do they <em>want</em> to use the thing?</h2>
+				<p class="fragment">Product-market fit</p>
+				<p class="fragment">Gateway test</p>
+				<p class="fragment">A/B Testing</p>
+			</section>
+			<section>
+				<h1>So we have data, now what?</h1>
+			</section>
+			<section>
+				<h1>Synthesis</h1>
+				<p class="fragment">Affinity mapping</p>
+				<p class="fragment">Sharing themes and insights</p>
+				<p class="fragment">Quantitative metrics</p>
+				<p class="fragment">Thick data analysis</p>
+				<p class="fragment">UX artefacts to communicate learnings</p>
+			</section>
+			<section>
+				<h1>Research Artefacts</h1>
+			</section>
+			<section>
+				<h2>Affinity Mapping</h2>
+				<img src="images/affinity-mapping.jpeg" class="plain" width="800px" />
+			</section>
+			<section>
+				<h2>User Personas</h2>
+				<img src="images/user-persona.png" class="plain" width="600px" />
+			</section>
+			<section>
+				<h2>Customer Journey</h2>
+				<img src="images/Journey-Map.png" class="plain" width="600px" />
+			</section>
+			<section>
+				<h2>Empathy Mapping</h2>
+				<img src="images/empathy-map.jpeg" class="plain" width="600px" />
+			</section>
+			<section>
+				<h2>Diary Study</h2>
+				<img src="images/diary-study.jpeg" class="plain" width="600px" />
+			</section>
+			<section>
+				<h2>Further reading</h2>
+				<p><a href="http://guidetouxr.com/" target="_blank">Guide to UXR</a></p>
+				<p><a href="https://abookapart.com/products/just-enough-research" target="_blank">Just Enough Research</a></p>
+				<p><a href="https://medium.com/learning-ux/affinity-diagrams-tips-and-tricks-6225e8c1f0df" target="_blank">Affinity Mapping
+						Tips & Tricks</a></p>
+				<p><a href="https://blog.prototypr.io/lean-user-testing-a-complete-guide-to-testing-without-labs-experts-and-expense-5d34bb7f8723"
+					 target="_blank">Lean User Research</a></p>
+				<p><a href="https://stephenbolen.com/2018/03/lean-ux-hypothesis-statement-template/" target="_blank">Lean UX Hypothesis
+						Statement
+					</a></p>
+				<p><a href="https://rosenfeldmedia.com/books/lean-user-research/" target="_blank">Validating Product Ideas through Lean
+						User Research</a></p>
+				<!-- <p><a href="" target="_blank"></a></p> -->
+			</section>
+
+			<!-- design section-->
+			<section>
+				<h1>2. UX Design</h1>
+			</section>
+			<section>
+				<h2>UX Design considers</h2>
+				<p class="fragment">Cognitive load (how many nodes?)</p>
+				<p class="fragment">Mental map (how to get around)</p>
+				<p class="fragment">User empathy (emotions and needs)</p>
+				<p class="fragment">Business needs (how can we succeed?)</p>
+			</section>
+			<section>
+				<h2>UX Design decides</h2>
+				<p class="fragment">Which components go on the screen </p>
+				<p class="fragment">Which order they go in</p>
+				<p class="fragment">Animation and motion of UI</p>
+				<p class="fragment"> Accessibility (supporting users of all kinds)</p>
+				<p class="fragment">How to name & label elements on the screen</p>
+				<p class="fragment">Visual hierarchy and relationships</p>
+				<p class="fragment">User flows (multi-step processes)</p>
+			</section>
+			<section>
+				<h2>UX Design produces</h2>
+				<p class="fragment">Accessibility audits</p>
+				<p class="fragment">Site map</p>
+				<p class="fragment">User-centered labels</p>
+				<p class="fragment">User Stories</p>
+				<p class="fragment">User Flows</p>
+				<p class="fragment">Moodboards &amp; Storyboards</p>
+				<p class="fragment">Wireframes &amp; Prototypes</p>
+			</section>
+			<section>
+				<h2>Moodboards</h2>
+				<img src="images/moodboard.jpg" width="700px" class="plain" />
+			</section>
+			<section>
+				<h2>Storyboards</h2>
+				<img src="images/storyboard.png" width="700px" class="plain" />
+			</section>
+			<section>
+				<h2>Wireframes</h2>
+				<img src="images/wireframe.png" width="400px" class="plain" />
+			</section>
+			<section>
+				<h1>Cool story!</h1>
+				<h2 class="fragment">Now let's talk collaboration</h2>
+				<aside class="notes">Ok so now that we've gotten an idea of the work of UX and design disciplines, how do we talk to designers?</aside>
+			</section>
+			<section>
+				<h1>2 kinds of designers</h1>
+				<aside class="notes">Caveat: This is my world view. Maybe a spectrum not a binary. </aside>
+			</section>
+			<section data-background-image="images/diva.gif">
+				<aside class="notes">The Diva</aside>
+			</section>
+			<section data-background-image="images/know-nothing.gif">
+				<aside class="notes">The Jon Snow</aside>
+			</section>
+			<section>
+				<h2>Why can it be so hard to talk to designers about design?</h2>
+				<aside class="notes">Divas particularly are hard to talk to. Why?</aside>
+			</section>
+			<section>
+				<h2>Let's apply some user empathy</h2>
+				<aside class="notes">Any thoughts on this? Anecdotes to share?</aside>
+			</section>
+			<section>
+				<ul>
+					<li>feedback without context</li>
+					<li class="fragment">back seat designing</li>
+					<li class="fragment">git-blame or competetive work cultures</li>
+					<li class="fragment">focus on aesthetics or trends over strategy</li>
+				</ul>
+				<aside class="notes">cultures where designers are supposed to think they're right all the time. design review can be
+					brutal.
+				</aside>
+			</section>
+			<section>
+				<h2>If developers got feedback like designers...</h2>
+			</section>
+			<section>
+				<img src="images/pusheen.png" class="plain" width="500px" />
+				<blockquote>Hey! I know this isn't a PR yet, but why did you pick that class name...?
+				</blockquote>
+			</section>
+			<section>
+				<img src="images/pusheen.png" class="plain" width="500px" />
+				<blockquote>
+					Hey - FYI I think I saw that library in use at company XX the other day. Don't want to copy code, hey!
+				</blockquote>
+			</section>
+			<section>
+				<img src="images/pusheen.png" class="plain" width="500px" />
+				<blockquote>
+					I'm not a programmer, but, that function looks awfully complex... Shouldn't it be simpler!?
+				</blockquote>
+			</section>
+			<section>
+				<h2>So how do we do it better?</h2>
+				<aside class="notes">Canvas for ideas... Can we all be more like Jon Snow?</aside>
+			</section>
+			<section>
+				<h2>Focus on...</h2>
+				<p class="fragment">Getting the context</p>
+				<p class="fragment">The intended audience</p>
+				<p class="fragment">Design strategy</p>
+			</section>
+			<section>
+				<h2>For example</h2>
+				<blockquote>I had some responses to your design, but I'm not sure I have all the most recent context. Could you give
+					me a quick update before I offer any feedback? </blockquote>
+			</section>
+			<section>
+				<h2>For example</h2>
+				<blockquote>I'm concerned this design will be hard to use for our target audience because the added complexity increases
+					cognitive load... </blockquote>
+			</section>
+			<section>
+				<h2>For example</h2>
+				<blockquote>Can we chat about hierarchy of information on this view? I think the visual prominence given to XX 
+					is unnecessary given our strategy of getting users to focus on YY. </blockquote>
+			</section>
+			<section>
+				<h2>Aesthetic preference <br />-vs-<br /> Design strategy</h2>
+				<p class="fragment">We <em>try</em> not to get them mixed up</p>
+				<aside class="notes">Another issue which gets us off track is when we think about design in terms of our own preferences
+					rather than user needs or design strategy. </aside>
+			</section>
+			<!-- Multi choice activity -->
+			<section>
+				<h1>Activity time!</h1>
+				<h2 class="fragment">Let's practice some design critique</h2>
+			</section>
+			<section>
+				<h2>Given a door handle...</h2>
+				<p>Which choice do you think is more strategic <br/>(less about personal tastes)?</p>
+			</section>
+			<section>
+				<img src="images/door-handle2.jpeg" width="400px" class="plain" />
+				<ul class="no-style">
+					<li>A) Users may not see it on a black door</li>
+					<li>B) It just doesn't 'pop' enough</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Given a checkout flow...</h2>
+				<p>Which choice do you think is more strategic?</p>
+			</section>
+			<section>
+				<img src="images/checkout.jpg" width="600px" class="plain" />
+				<ul class="no-style">
+					<li>A) I don't like this shade of turquoise</li>
+					<li>B) I'm not sure which is the primary button</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Given this hospital software...</h2>
+				<p>Which feedback do you think is more strategic?</p>
+			</section>
+			<section>
+				<img src="images/EMR.jpg" width="800px" class="plain" />
+				<ul class="no-style">
+					<li>A) It's too much information to process </li>
+					<li>B) It looks old skool </li>
+				</ul>
+			</section>
+			<!-- Sketching activity -->
+			<section>
+				<h1>Activity time!</h1>
+				<h2>Let's practice some UX design</h2>
+				<aside class="notes">Break this down into sections. Do 1 sketch, then more with post its</aside>
+			</section>
+			<section>
+				<h1>The problem</h1>
+				<blockquote>Eric is trying to save money on household costs.</blockquote>
+			</section>
+			<section>
+				<h2>Research learnings</h2>
+				<ul>
+					<li class="fragment">He thinks he could probably spend less on food and cleaning supplies he buys regularly</li>
+					<li class="fragment">Doesn't want to compromise on ethics or quality</li>
+					<li class="fragment">He is time poor</li>
+					<li class="fragment">Doesn't enjoy shopping around</li>
+					<li class="fragment">He'd love to save time </li>
+				</ul>
+				<aside class="notes">This solution can be technology or not. Integrated into other systems or stand-alone. It can be hardware, software, machine learning, VR, anything you can imagine.</aside>
+			</section>
+			<section>
+				<h2>Bullet points & notes</h2>
+				<p>1 minute</p>
+				<aside class="notes">Start by just writing some words to capture ideas on how we might tackle this</aside>
+			</section>
+			<section>
+				<h2>Sketch your first idea</h2>
+				<p>2 minutes</p>
+				<aside class="notes">Start by just writing some words to capture ideas on how we might tackle this</aside>
+			</section>
+			<!-- <section>
+				<h2>Can we help Eric</h2>
+				<ul>
+					<li class="fragment">Reduce spending on repeating household purchases</li>
+					<li class="fragment">Avoid specific unethical products and brands</li>
+					<li class="fragment">Buy organics especially for specific produce</li>
+					<li class="fragment">?</li>
+				</ul>
+			</section> -->
+			<section>
+				<h1>Crazy 8s (mini) </h1>
+				<aside class="notes">Doing 4 quick round with 1 minute each. Share results?</aside>
+			</section>
+			<section>
+				<h1>Share &amp; compare </h1>
+				<h2>2 minutes</h2>
+				<aside class="notes">So did we come up with more ideas than our initial response to the brief? Was this surprising?</aside>
+			</section>
+			<section>
+				<h1>meta-solutions</h1>
+				<p class="fragment">The space of possible solutions to any given user problem is infinite</p>
+				<aside class="notes">This is why understanding and communicating the user problem is key. Don't try to reverse-engineer
+					problems from solutions.</aside>
+			</section>
+			<section data-background-image="images/solution-space.png">
+				<aside class="notes">Avoid getting anchored on any given solution, especially the first one we think of. Anchoring bias
+					is when we get attached to the first viable idea we hear especially if it's ours. </aside>
+			</section>
+			<section data-background-image="images/cognitive-bias-codex.jpeg">
+				<aside class="notes">All the ways our brain can deceive us...</aside>
+			</section>
+			<section>
+				<h2>More resources</h2>
+				<ul>
+					<li>Cognitive Bias Codex <a href="http://ritholtz.com/2016/09/cognitive-bias-codex/" target="_blank">http://ritholtz.com/2016/09/cognitive-bias-codex/</a></li>
+					<li>Julia Claviens: <a href="http://www.mmweekly.com/" target="_blank">http://www.mmweekly.com/</a></li>
+				</ul>
+			</section>
+			<section>
+				<h2>Further reading</h2>
+				<p><a href="https://lawsofux.com/" target="_blank">Laws of UX</a> &bull; <a href="https://goodui.org/" target="_blank">Good UI</a> &bull; <a href="https://uxchecklist.github.io/" target="_blank">UX Checklist</a></p>
+				<p><a href="https://uxplanet.org/user-experience-design-process-d91df1a45916" target="_blank">User Experience Design
+						Process
+					</a></p>
+				<p><a href="https://www.amazon.com/Design-Everyday-Things-Donald-Norman/dp/1452654123" target="_blank">The Design of
+						Everyday Things</a></p>
+				<p><a href="https://www.booktopia.com.au/don-t-make-me-think-revisited-steve-krug/prod9780321965516.html?gclid=EAIaIQobChMI8fzKuN-J3QIVCAQqCh3CGgRgEAAYASAAEgJB0_D_BwE"
+					 target="_blank">Don't Make Me Think, Revisited</a></p>
+				<p><a href="https://uxdesign.cc/ux-design-methods-deliverables-657f54ce3c7d" target="_blank">UX Design Methods and Deliverables</a></p>
+				<p><a href="https://www.smashingmagazine.com/2017/09/comprehensive-overview-ux-design-deliverables/" target="_blank">Smashing
+						Magazine UX Overview</a></p>
+			</section>
+			<section>
+				<h1>Bonus activity</h1>
+				<h2>😎😎😎</h2>
+			</section>
+			<section data-background-video="images/we-will-talk-to-you.mp4">
+				<h2 class="fragment white">Thanks!!</h2>
+				<p class="fragment white">Get the slides
+					<br />
+					<a href="http://summerscope.github.io/slides/ux-for-developers-ddd/" target="_blank">summerscope.github.io/slides/ux-for-developers-ddd</a>
+				</p>
+			</section>
+		</div>
+		<div class="twitter">
+			@summerscope
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			transition: 'fade',
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+			]
+		});
+	</script>
+</body>
+
+</html>
