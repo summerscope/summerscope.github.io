@@ -16,19 +16,19 @@
 
 <script>
 function myFunction() {
-  var intro = "The number is ";
   var x = "", i;
   for (i=1; i<=100; i++) {
+    x = x + "The number is " + i + "<br>";
     if (i % 3 === 0 && i % 5 === 0) {
-      x = x + intro + "CracklePop <br>";
+      x = x + "CracklePop";
     }
     if (i % 3 === 0) {
-      x = x + intro + "Crackle <br>";
+      x = x + "Crackle";
     }
     else if (i % 5 === 0) {
-      x = x + intro + "Pop <br>";
+      x = x + "Pop";
     } else {
-      x = x + intro + i + "<br>";
+      x = x + i;
     }
   }
   document.getElementById("demo").innerHTML = x;
