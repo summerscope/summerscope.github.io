@@ -1,0 +1,52 @@
+<html>
+  
+  <head>
+    <title>RBM Demo</title>
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/random-0.26-debug.js"></script>
+    <script src="js/numeric-1.2.6.js"></script>
+    <script src="js/app.js"></script>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/layout.css">
+    
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+      }
+
+      #output-canvas {
+        padding-bottom: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+
+      <div class="ten columns">
+        <canvas id="weights-canvas"></canvas>
+      </div>
+
+      <div class="six columns">
+        <canvas id="output-canvas"></canvas>
+
+        <button class="resample-hidden-button">Resample Hidden Features</button>
+        <button class="resample-button">Resample Visual Field</button>
+        <br>
+        <button class="run-button" data-iterations="1">Run 1</button>
+        <button class="run-button" data-iterations="10">Run 10</button>
+        <button class="run-button" data-iterations="100">Run 100</button>
+        <br>
+        <button class="clear-button">Clear</button>
+        <button class="lock-button">Lock</button>
+        <br>
+        <button class="noise-button" data-p="0.05">Noise 0.01</button>
+        <button class="noise-button" data-p="0.05">Noise 0.05</button>
+        <button class="noise-button" data-p="0.1">Noise 0.1</button>
+      </div>
+
+    </div>
+  </body>
+</html>
