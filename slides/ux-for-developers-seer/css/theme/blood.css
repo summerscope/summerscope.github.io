@@ -25,12 +25,12 @@ body {
 
 ::selection {
   color: #fff;
-  background: #a23;
+  background: #ed145b;
   text-shadow: none; }
 
 ::-moz-selection {
   color: #fff;
-  background: #a23;
+  background: #ed145b;
   text-shadow: none; }
 
 .reveal .slides > section,
@@ -206,11 +206,15 @@ body {
 .reveal small * {
   vertical-align: top; }
 
+.reveal ul.no-style {
+  list-style-type: none;
+}
+
 /*********************************************
  * LINKS
  *********************************************/
 .reveal a {
-  color: #a23;
+  color: #ed145b;
   text-decoration: none;
   -webkit-transition: color .15s ease;
   -moz-transition: color .15s ease;
@@ -245,21 +249,21 @@ body {
 
 .reveal a:hover img {
   background: rgba(255, 255, 255, 0.2);
-  border-color: #a23;
+  border-color: #ed145b;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
 
 /*********************************************
  * NAVIGATION CONTROLS
  *********************************************/
 .reveal .controls {
-  color: #a23; }
+  color: #ed145b; }
 
 /*********************************************
  * PROGRESS BAR
  *********************************************/
 .reveal .progress {
   background: rgba(0, 0, 0, 0.2);
-  color: #a23; }
+  color: #ed145b; }
 
 .reveal .progress span {
   -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
@@ -296,7 +300,7 @@ body {
   left: 20px;
   right: auto;
   z-index: 1;
-  color: #3b759e;
+  color: #ed145b;
   pointer-events: none;
   font-size: 32px; 
   font-family: 'Quicksand', sans-serif;
