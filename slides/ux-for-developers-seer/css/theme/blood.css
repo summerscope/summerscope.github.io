@@ -240,6 +240,7 @@ body {
 
 .reveal section img.plain {
   border: 0;
+  background: none;
   box-shadow: none; }
 
 .reveal a img {
