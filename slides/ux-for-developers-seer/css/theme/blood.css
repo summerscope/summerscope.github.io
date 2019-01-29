@@ -306,3 +306,12 @@ body {
   font-size: 32px; 
   font-family: 'Quicksand', sans-serif;
 }
+
+/*********************************************
+ * LIGHT BACKGROUND
+ *********************************************/
+.has-light-background.present *,
+.has-light-background *{
+  color: #222;
+  text-shadow: none;
+}
