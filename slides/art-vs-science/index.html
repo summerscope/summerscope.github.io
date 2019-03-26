@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Art vs. Science</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background-image="img/tile-dark.png" data-background-size="400px" data-background-repeat="repeat">
+					<h1>Art vs Science</h1>
+					<p class="fragment">UX research in the age of the reproducibility crisis</p>
+				</section>
+				<section>
+					So, should UX Research be reproducible?
+					<aside class="notes">I'm just going to skip to the end and tell you my take!</aside>
+				</section>
+				<section>
+					My answer is...
+					<aside class="notes">Possibly an inditment on the low attention society we find ourselves operating within.</aside>
+				</section>
+				<section>
+					<h1>Yes!<sup class="fragment">*</sup></h1>
+					<p class="fragment"><sup>*</sup>Sometimes</p>
+					<aside class="notes">My spicy hot take! #sorrynotsorry</aside>
+				</section>
+				<section data-background-image="img/hh2.jpg">
+					<aside class="notes">The answer to the question of the life, the universe, and everything</aside>
+				</section>
+				<section>
+					<p class="fragment shrink">The answer is useless</p>
+					<p class="fragment grow">Without first knowing the question</p>
+					<aside class="notes">Hitchiker's guide reference</aside>
+				</section>
+				<section>
+					What do we mean by reproducible?
+				</section>
+				<section>
+					Let's go back to the beginning...
+					<aside class="notes">To understand what we mean by reproducible we get to the heart of what's been causing a bunch of ruffled feathers in academia these past few years...</aside>
+				</section>
+				<section>
+					What is the reproducibility crisis?
+					<aside class="notes">This refers to a movement challenging the status quo in science and specifically asks whether current incentives to publish results are resulting in poor research design and supurious research results.</aside>
+				</section>
+				<section>
+					You'll never believe what happened when scientists attempted to replicate 100 experiments...
+					<p class="fragment"><em>Just wait til you see their results</em></p>
+					<aside class="notes">Psychologists tried to recreate the experiments conducted by 100 studies, all published recently in academic journals.</aside>
+				</section>
+				<section>
+					<blockquote>
+						"<b>97%</b> of the original results showed a statistically significant effect, this was reproduced in only <b>36%</b> of the replication attempts"
+					</blockquote>
+					<small><a href="https://digest.bps.org.uk/2015/08/27/this-is-what-happened-when-psychologists-tried-to-replicate-100-previously-published-findings/" target="_blank">https://digest.bps.org.uk/</a></small>
+				</section>
+				<section>
+					What's to blame? Clickbait! 
+					<aside class="notes">Seriously though, the incentives for publishing focus on new, unique findings. If those findings can turn into misleading clickbait so much the better!</aside>
+				</section>
+				<section>
+
+				</section>
+				<section>
+					Open science movement
+				</section>
+				<section>This movement is epitomised by OSM which is pressing for scientists to share research models and design earlier (before data are captured) </section>
+				</section>
+				<section>
+					How do we define 'reproducibility'?
+					<aside class="notes">To explore it we need to unpack the question more, and ask ourselves what we mean by reproducible </aside>
+				</section>
+				<section>Slide 2</section>
+				<section>Slide 2</section>
+				<section>Slide 2</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.configure({ 
+				slideNumber: true,
+				slideNumber: 'c/t',
+				transition: 'zoom'
+			});
+
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
