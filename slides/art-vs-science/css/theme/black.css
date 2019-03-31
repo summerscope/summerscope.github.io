@@ -275,7 +275,7 @@ body {
 /*********************************************
  * Twitter BAR
  *********************************************/
- .reveal .twitter {
+.reveal .twitter {
   position: absolute;
   top: auto;
   bottom: 24px;
@@ -287,3 +287,14 @@ body {
   font-family: 'Yanone Kaffeesatz', sans-serif;
   text-transform: uppercase;
   font-weight: 200;
+}
+
+.reveal .references {
+  column-count: 2;
+}
+
+.reveal .references p {
+  text-align: left;
+  margin-top: 10px;
+  font-size: 85%;
+}
