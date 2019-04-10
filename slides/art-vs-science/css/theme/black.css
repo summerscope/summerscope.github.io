@@ -293,6 +293,12 @@ body {
   column-count: 2;
 }
 
+.reveal .references twitter-widget {
+  -webkit-column-break-inside: avoid;
+            page-break-inside: avoid;
+                break-inside: avoid;
+}
+
 .reveal .references p {
   text-align: left;
   margin-top: 10px;
