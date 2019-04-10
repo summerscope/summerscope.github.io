@@ -298,3 +298,7 @@ body {
   margin-top: 10px;
   font-size: 85%;
 }
+
+.reveal .smalllink{
+  font-size: 1rem;
+}
