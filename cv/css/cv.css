@@ -317,3 +317,14 @@ footer address a img{
 	footer { font-size: 0.8888888em; }
 }
 
+
+/* Print styles */ 
+
+@media only print {
+	.companies, .worktypes {
+		display: none;
+	}
+	section {
+		padding: 1rem 0;
+	}
+}
