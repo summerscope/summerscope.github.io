@@ -54,7 +54,8 @@ ul li, ol li{
 
 address a img{ 
 	margin-top: 5px;
-	width: 48px; 
+	width: 32px;
+	height: 40px;
 	max-width: 15%; 
 	opacity: 0.5;
 }
