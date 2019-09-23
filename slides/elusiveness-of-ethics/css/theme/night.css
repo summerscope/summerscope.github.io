@@ -267,6 +267,10 @@ body {
   text-decoration: line-through;
 }
 
+.reveal code {
+  font-size: 60%;
+}
+
 /*********************************************
  * PRINT BACKGROUND
  *********************************************/

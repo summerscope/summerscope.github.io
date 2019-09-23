@@ -345,7 +345,7 @@
 								<tr>
 									<td><strong>Predicted Negative</strong></td>
 									<td>
-										<h5>False Negative (FP)</h5>
+										<h5>False Negative&nbsp;(FP)</h5>
 									</td>
 									<td>
 										<h5>True Negative (TP)</h5>
@@ -369,29 +369,27 @@
 									<td><strong>Predicted Positive</strong></td>
 									<td>
 										<h5>True Positive (TP)</h5>
-										<pre>
-											<code data-trim data-noescape>PPV = TP / (TP + FP)</code><br/>
-											<code data-trim data-noescape>TPR = TP / (TP + FN)</code>
-										</pre>
+										<code>PPV = TP / (TP + FP)</code><br/>
+										<code>TPR = TP / (TP + FN)</code>
 									</td>
 									<td>
 										<h5>False Positive (FP)</h5>
-										<code>PPV = TP / (TP + FP)</code><br/>
-										<code>TPR = TP / (TP + FN)</code>
+										<code>FDR = FP / (TP + FP)</code><br/>
+										<code>FPR = TP / (FP + TP)</code>
 									
 									</td>
 								</tr>
 								<tr>
 									<td><strong>Predicted Negative</strong></td>
 									<td>
-										<h5>False Negative (FP)</h5>
-										<code>PPV = TP / (TP + FP)</code><br/>
-										<code>TPR = TP / (TP + FN)</code>
+										<h5>False Negative&nbsp;(FP)</h5>
+										<code>FOR = FN / (TN + FN)</code><br/>
+										<code>FNR = TP / (TP + FN)</code>
 									</td>
 									<td>
 										<h5>True Negative (TP)</h5>
-										<code>PPV = TP / (TP + FP)</code><br/>
-										<code>TPR = TP / (TP + FN)</code>
+										<code>NPV = TN / (TN + FN)</code><br/>
+										<code>TNR = TN / (TN + FP)</code>
 									</td>
 								</tr>
 							</tbody>
