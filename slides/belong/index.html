@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>ML/AI Ethics & Fairness </title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Designing Fairness</h1>
+				</section>
+				<section data-background-image="img/Laura.jpeg">
+					<h2>Hi! I'm Laura</h2>
+					<aside class="notes">About me -  background, learning deep learning & ML, reading papers, Fair ML reading group</aside>
+				</section>
+				<section>
+					<h1>What I've learned</h1>
+				</section>
+				<section>
+					<h2>Ethics <em>is</em> engineering work</h2>
+					<p class="fragment">But we have yet to collectively agree on this</p>
+				</section>
+				<section>
+					<h2>Acknowledging failure</h2>
+					<p class="fragment">We don't promise 100% network uptime...</p>
+					<aside class="notes">Common behaviour is to think of ourselves as ethical and therefor reject the idea that our systems can have a harmful impact on the world</aside>
+				</section>
+				<section>
+					<blockquote class="strikethrough">"I am an ethical person therefore I build ethical tech"</blockquote>
+				</section>
+				<section>
+					If you write a bug, it doesn't make you a bad programmer 
+					<aside class="notes"></aside>
+				</section>
+				<section>
+					If you make an ethical mistake, it doesn't make you an unethical person
+					<aside class="notes"></aside>
+				</section>
+
+
+				<section>
+					<p><em>Machine Learning as a product</em></p>
+				</section>
+				<section>
+					<h2>Classification is never descriptive, always normative</h2>
+					<aside class="notes">Biometric mirror. Applying to school. The boy and the bundle of sticks? Everything we tell people is a story they learn about themselves. Even if they reject the story, it becomes ingraned in their identity.</aside>
+				</section>
+				<section>
+					<h2>There is no prediction; only intervention</h2>
+					<aside class="notes">Can anyone give an example of building a prective model which didn't have any intended agency or intervention in the world? We predict things in order to do something about them.</aside>
+				</section>
+
+				<section>
+					<h1>Four pillars</h1>
+					<p class="fragment">To support ethical Machine Learning</p>
+				</section>
+
+				<section>
+					<ol>
+						<li class="fragment">Design</li>
+						<li class="fragment">Culture</li>
+						<li class="fragment">Process</li>
+						<li class="fragment">Tooling / Code</li>
+					</ol>
+				</section>
+			
+				<section>
+					<h2>QA for good EQA</h2>
+					<aside class="notes">So when you're looking at a tool, framework, checklist, in future</aside>
+				</section>
+				<section>
+					<h2>Is it...</h2>
+					<ul>
+						<li class="fragment">Measureable?</li>
+						<li class="fragment">Enforceable?</li>
+						<li class="fragment">One-off or iterable?</li>
+						<li class="fragment">Showing change over time?</li>
+						<li class="fragment">Easy to integrate with existing process?</li>
+						<li class="fragment">Easy to integrate with existing codebase?</li>
+						<li class="fragment">Before, during, or after deployment?</li>
+						<li class="fragment">Aid or blocker?</li>
+					</ul>
+				</section>
+
+				<section data-background-image="img/oscar-grouch.gif">
+					<h2>Put it in the bin</h2>
+					<aside class="notes">When does the risk outweight the reward? i.e. robodebt, points systems for automated teacher firing, Compas for récidivism. Autonomous weapons. Not all frictions to decision or action should be removed. Friction can make us slow down, think, take stock. It limits the amount of decisions we can make. Not everything needs to be automated into oblivion. </aside>
+				</section>
+
+				<section>
+					<h1>Ethics ops</h1>
+					<p class="fragment">An emerging discipline</p>
+				</section>
+
+				<section>
+					<h1>Thank you! Questions?</h1>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				backgroundTransition: 'zoom', // none/fade/slide/convex/concave/zoom
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
