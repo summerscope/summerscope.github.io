@@ -271,6 +271,11 @@ body {
   font-size: 60%;
 }
 
+twitter-widget {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /*********************************************
  * PRINT BACKGROUND
  *********************************************/
