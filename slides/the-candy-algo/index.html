@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>The Candy Algo</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background-image="img/liliana-olivares-g56O5L0ZVmg-unsplash.jpg">
+					<h1>The Candy Algo</h1> 
+				</section>				
+				<section>
+					<h2>About me</h2>
+					<img class="plain" src="img/foundress.png" height="400px" />
+					<aside class="notes">About me -  background, learning deep learning & ML, reading papers, Fair ML reading group</aside>
+				</section>
+				<section>
+					<h2>Slides</h2>
+					<p><small><a href="http://summerscope.github.io/slides/the-candy-algo" target="_blank">summerscope.github.io/slides/the-candy-algo</a></small></p>
+					<aside class="notes">Links all live, don't stress about trying to write down URLs</aside>
+				</section>
+				<section>
+					<h2>About fairness tests</h2>
+				</section>
+				<section data-background-video="img/robot-bowling.mp4">
+					<h2>A blunt tool</h2>
+					<aside class="notes">Links all live, don't stress about trying to write down URLs</aside>
+				</section>
+	
+				<section data-background-image="img/joanna-kosinska-Uvl3W4XWd4U-unsplash.jpg">
+					<h1>Activity time</h1>
+				</section>
+				
+				<section data-background="#e65c69">
+					<section>
+						<h1>Activity 0</h1>
+					</section>
+					<section>
+						<p class="fragment">How would you define data bias?</p>
+						<p class="fragment">Can you identify any data bias in this group?</p>
+						<p class="fragment">Is this fair?</p>
+					</section>
+				</section>
+				<section data-background="#458bb7">
+					<section>
+						<h1>Activity 1</h1>
+					</section>
+					<section>
+						<p class="fragment">What mechanisms were at play?</p>
+						<p class="fragment">Was this distribution mechanism fair?</p>
+					</section>
+				</section>
+				<section data-background="#e39419">
+					<section>
+						<h1>Activity 2</h1>
+					</section>
+					<section>
+						<p class="fragment">Was this more or less fair than Activity 1?</p>
+						<p class="fragment">Can you reverse-engineer the computer logic: <br>how did the algo decide who received candy?</p>
+					</section>
+				</section>
+				<section data-background="#915eb4">
+					<section>
+						<h1>Activity 3</h1>
+					</section>
+					<section>
+						<p class="fragment">Hands up - who started with candy from Activity 2?</p>
+						<p class="fragment">Who has the most candy? Who has none?</p>
+						<p class="fragment">Was this more or less fair than Activity 1 and 2?</p>
+						
+					</section>
+				</section>
+				<section data-background="#38ab84">
+					<section>
+						<h1>Activity 4</h1>
+					</section>
+					<section>
+						<p>We're going to come up with a novel approach to distribute candy as fairly as possible</p>
+					</section>
+					<section>
+						<a href="https://hbr.org/2018/04/a-simple-tool-to-start-making-decisions-with-the-help-of-ai" target="_blank">
+							<img class="plain" src="img/W180106_AGRAWAL_THEAI_v2.png" height="600" />
+						</a>
+					</section>
+					<section>
+						<ol>
+							<li>Break up into groups of 4-5 people</li>
+							<li class="fragment"><strong>65</strong> candies for <strong>80</strong> people</li>
+							<li class="fragment">15-20 minutes to define a mechanism</li>
+							<li class="fragment">Worksheets to guide you</li>
+							<li class="fragment">Consider sharing at the end</li>
+						</ol>
+					</section>
+					<section>
+						<h1>Sharing solutions</h1>
+					</section>
+				</section>
+				<!-- <aside class="notes"></aside> -->
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				backgroundTransition: 'zoom', // none/fade/slide/convex/concave/zoom
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
