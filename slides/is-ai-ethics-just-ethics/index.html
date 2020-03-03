@@ -68,6 +68,7 @@
 					<h3>Same old challenges of software engineering...</h3>
 					<h3 class="fragment">...now with added consequences<sup>TM</sup></h3>
 				</section>
+				<!-- Scale -->
 				<section>
 					<h1>Problems of scale</h1>
 				</section>
@@ -83,16 +84,22 @@
 						<li class="fragment">If <strong>1%</strong> of those label decisions were flagged for human review and each review took <strong>3 minutes</strong>, it would require <strong>150,000</strong> people working full time (Google currently employs 103,459 people)</li>
 					</ul>
 				</section>
+				<!-- Abstraction layers -->
 				<section>
 					<h1>New abstraction layers</h1>
 				</section>
 				<section>
-					<img src="img/17Layers.gif" height="550" />
+					<img class="plain" src="img/17Layers.gif" height="550" />
 					<p><small><a href="http://geekswithblogs.net/TimothyK/archive/2019/07/30/the-17-layered-app.aspx" target="_blank">geekswithblogs.net/TimothyK/archive/2019/07/30/the-17-layered-app</a></small></p>
 				</section>
 				<section>
-					<img src="img/17Layers+extra.png" height="550" />
+					<img class="plain" src="img/17Layers+extra.png" height="550" />
 				</section>
+				<section>
+					<img class="plain" src="img/black-boxes.png" height="550" />
+					<aside class="notes">Who's heard of black boxes? Any questions about what that means in the context of ML?</aside>
+				</section>
+				<!-- Bias and inequality -->
 				<section>
 					<h1>Problems of bias and inequality</h1>
 				</section>
@@ -103,16 +110,7 @@
 				<section>
 					<img src="img/models.jpg" height="550" />
 				</section>
-				<section>
-					<h1>Harm mitigation is... complicated</h1>
-				</section>
-				<section>
-					<p>Interpretability</p>
-					<p class="fragment">-vs-</p>
-					<p class="fragment">Explainability</p>
-					<p class="fragment">-vs-</p>
-					<p class="fragment">Recourse</p>
-				</section>				
+				<!-- Responsibility -->
 				<section>
 					<h1>Problems of Responsibility</h1>
 				</section>
@@ -132,6 +130,44 @@
 				<section>
 					<img class="plain" src="img/spectrum.png" /> 
 				</section>
+				<!-- Harm mitigation -->
+				<section>
+					<h1>Harm mitigation is... complicated</h1>
+				</section>
+				<section>
+					<h3>Interpretability</h3>
+					<p class="fragment">-vs-</p>
+					<h3 class="fragment">Explanation</h3>
+					<p class="fragment">-vs-</p>
+					<h3 class="fragment">Recourse</h3>
+				</section>
+				<section>
+					<h3>Interpretability</h3>
+					<p><small>Also called Explainability</small></p>
+					<blockquote>Do we know how the algorithm arrived at a specific decision?</blockquote>
+				</section>
+				<section>
+					<p>LIME paper - husky vs wolf</p>
+					<img src="img/husky-vs-wolf.png" height="400" />
+					<p><small><a href="https://arxiv.org/pdf/1602.04938.pdf" target="_blank">arxiv.org/pdf/1602.04938.pdf</a></small></p>
+				</section>
+				<section>
+					<h3>Explanation</h3>
+					<blockquote>Can we meaningfully explain this decision process to the people using the system?</blockquote>
+					<aside class="notes">Who has written help copy or UX micro copy? error copy? Who's done usability testing? well...</aside>
+				</section>
+				<section>
+					<blockquote>
+						Much of this research is focused on explicitly explaining decisions or actions to a human observer... However, it is fair to say that most work in explainable artificial intelligence uses <strong>only the researchers’ intuition</strong> of what constitutes a ‘good’ explanation.
+					</blockquote>
+					<p><small>- Tim Miller <a href="https://arxiv.org/pdf/1706.07269.pdf" target="_blank">arxiv.org/pdf/1706.07269.pdf</a></small></p>
+				</section>
+				<section>
+					<h3>Recourse</h3>
+					<blockquote>Can we provide corrective steps that users can take to address an incorrect classification? </blockquote>
+				</section>
+
+				<!-- Ontology -->
 				<section>
 					<h1>Problems of ontology</h1>
 				</section>
@@ -167,9 +203,8 @@
 					<h3>"Maths gloss"</h3>
 					<aside class="notes">Anchoring phenomenon. Evidence showing that people accept a metric as more objective regardless of the </aside>
 				</section>
-				<section>
-					<h1>The state of principles documents</h1>
-				</section>
+
+				
 				<section>
 					<h1>In conclusion</h1>
 				</section>
