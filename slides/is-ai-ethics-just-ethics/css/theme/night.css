@@ -278,3 +278,20 @@ body {
 @media print {
   .backgrounds {
     background-color: #111; } }
+
+
+/*********************************************
+ * TWITTER WIDGET
+ *********************************************/
+.reveal .twitter {
+  position: absolute;
+  top: auto;
+  bottom: 34px;
+  left: 12px;
+  right: auto;
+  z-index: 1;
+  color: #e7ad52;
+  pointer-events: none;
+  font-size: 32px; 
+  font-family: 'Quicksand', sans-serif;
+}
