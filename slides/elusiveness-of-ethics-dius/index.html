@@ -1,0 +1,645 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>The elusiveness of ethics: encoding fairness in an unfair world</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background-image="img/Tactile_3.jpg">
+					<h1>The elusiveness of ethics</h1> 
+					<h3>Encoding fairness in an unfair world</h3>
+				</section>				
+				<section>
+					<h2>About me</h2>
+					<img class="plain" src="img/ethics-litmus-tests.png" alt="Ehics Litmus Tests" />
+					<p><a href="https://ethical-litmus.site" target="_blank">ethical-litmus.site</a></p>
+					<aside class="notes">About me -  Ethics Litmus Tests, background, learning deep learning & ML, reading papers, Fair ML reading group</aside>
+				</section>
+				<section>
+					<h2>Slides</h2>
+					<p><small><a href="http://summerscope.github.io/slides/elusiveness-of-ethics-dius" target="_blank">summerscope.github.io/slides/elusiveness-of-ethics-dius</a></small></p>
+					<aside class="notes">Links all live, don't stress about trying to write down URLs</aside>
+				</section>
+				<section>
+					<section>
+						<h1>Section 1</h1>
+						<h3 class="fragment">Setting the scene</h3>
+					</section>
+					<section>
+						<h2>Once upon a time, in a<br />
+							FinTech startup...</h2>
+						<aside class="notes">Time I worked at a robo investor. We had a risk appetite quiz - women locked out of top risk portfolio...</aside>
+					</section>
+					<section>
+						<h2>Descriptive <br> -vs- <br> Normative</h2>
+					</section>
+					<section data-background-image="img/mean-girls.jpg">
+						<h2>Girls wear pink</h2>
+						<h3 class="fragment">(Descriptive)</h3>
+					</section>
+					<section data-background-image="img/sabrina.gif">
+						<h2>Girls wear pink</h2>
+						<h3 class="fragment">(Normative)</h3>
+					</section>
+					<section>
+						<h2>The way the world is?</h2>
+						<h2 class="fragment">or</h2>
+						<h2 class="fragment">The way the world should&nbsp;be?</h2>
+					</section>
+					<section>
+						<h2>For example...</h2>
+					</section>
+					<section data-background-image="img/drone.jpg">
+						<aside class="notes">Drone assessing a bridge. It's observing the state of the world (damage to bridge) and the system makes a normative claim: we want to identify and repair damage to bridges! Cracks in bridges are observed in the world (due to various forces of attrition) but not accepted as the inevitable state.</aside>
+					</section>
+					<section>
+						<h2>We make normative assertions all the time</h2>
+						<aside class="notes">And it's normal, not interpreted as moralising or judgemental. But we can get squeamish about doing this when it comes to tech ethics. More on this soon.</aside>
+					</section>
+					<section>
+						<h2>Think of the drone...</h2>
+						<aside class="notes">If you ever get pushback on making a call like this, think of the drone. Someone designed a rule into the system which identified what was wrong that needed to be repaired. The judgement call is implied. It's the 'status quo' is not good rationale for non-intervention.</aside>
+					</section>
+					<section>
+						<h2>And now for something completely different...</h2>
+					</section>
+					<section>
+						<iframe width="420" height="345" src="https://youtu.be/uHGlCi9jOWY"></iframe>
+					</section>
+					<!-- <section>
+						<h2>Why should Machine Learning systems be more fair than the data from which they learn?</h2>
+						<aside class="notes">Taken from a chat I had with a friend over drinks one night. It's a good question and one I think we need to grapple with to do this work.</aside>
+					</section>
+					<section>
+						<h2>All data is bias</h2>
+					</section>
+					<section>
+						<h2>Some bias is harmful</h2>
+					</section>
+					<section>
+						<h2>Computers can't tell the difference</h2>
+					</section>
+					<section>
+						<h2>ML systems can harden and amplify harmful bias</h2>
+						<aside class="notes">Ask for examples of ML bias - give examples if audience doesn't know any.</aside>
+					</section>
+					<section>
+						<h2>Awful AI</h2>
+						<p><a href="https://github.com/daviddao/awful-ai" target="_blank">https://github.com/daviddao/awful-ai</a></p>
+					</section>					
+					<section>
+						<h2>Why should we use machines to solve a problem caused by machines?</h2>
+						<aside class="notes">Well.. Because the problem isn't caused by machines, it's an existing human problem amplified by machines</aside>
+					</section>
+					<section>
+						<h2>Issue of scale is also the <br>promise of scale</h2>
+						<aside class="notes">One of the shortest routes to the techno-utopian vision is to use the urgency of impact to force us to tackle the work of ethics for ourselves (as individuals) as well as for the machines.</aside>
+					</section>
+					<section data-background-image="img/janet2.gif">
+						<aside class="notes">Technology is fundamentally neutral. It's not moral, or immoral, it's a-moral. Technology is a blank canvas, we are the painters, and the art is all ours.</aside>
+					</section>
+					<section>
+						<h2>We need technical solutions to solve technical problems</h2>
+						<h1>at scale</h1>
+						<aside class="notes"></aside>
+					</section>
+					<section>
+						<h2>For example... </h2>
+						<img class="plain" src="img/google-photos.png" alt="Google Photos" />
+						<aside class="notes">Example of amount of human time needed to assess and make a judgement about ML classifications from a single model.</aside>
+					</section>
+					<section>
+						<ul>
+							<li><strong>1.2 billion</strong> photos per day uploaded to Google photos in 2017</li>
+							<li class="fragment">Manually labelling each one would take well over 1 million people working full time</li>
+							<li class="fragment">If <strong>1%</strong> of those label decisions were flagged for human review and each review took <strong>3 minutes</strong>, it would require <strong>150,000</strong> people working full time (Google currently employs 103,459 people)</li>
+						</ul>
+					</section>
+					<section>
+						<h2>We need to bake in tests and set up thresholds</h2>
+						<h2 class="fragment">Save human attention for the trickiest cases</h2>
+					</section>
+					<section>
+						<h2>"Machine-assisted fairness"</h2>
+						<aside class="notes">You heard it here first!</aside>
+					</section> -->
+				</section>
+				<section>
+					<section>
+						<h1>Section 2</h1>
+						<h3 class="fragment">Approaches</h3>
+						<aside class="notes">What are the ways people are tackling this problem? I divide it into (roughly) three big categories.</aside>
+					</section>
+					<section>
+						<h2>1. Tooling &amp; Tests</h2>
+						<aside class="notes">Dev tools, code tests. Looking to mathematical definitions of fairness to help us build dev tools.</aside>
+					</section>
+					<section>
+						<h2>Where might we try to address bias?</h2>
+						<ol>
+							<li>Capturing and labelling data</li>
+							<li>ML design (modeling decisions)</li>
+							<li>Retroactively after classification</li>								
+						</ol>
+					</section>
+					<!-- Proposed ideas like labels and certifications for training data. -->
+					<section>
+						<ul>
+							<li><a href="http://aix360.mybluemix.net" target="_blank">AI Explainability 360</a></li>
+							<li><a href="https://aif360.mybluemix.net" target="_blank">AI Fairness 360</a></li>
+							<li><a href="https://github.com/marcotcr/lime" target="_blank">Lime</a></li>
+							<li><a href="https://github.com/dssg/aequitas" target="_blank">Aequitas - Bias and Fairness Audit Toolkit</a></li>
+							<li><a href="https://www.scu.edu/media/ethics-center/technology-ethics/Ethics-Toolkit.pdf" target="_blank">Santa Clara University Ethics Toolkit</a></li>
+							<li>Fairness modeling - tradeoffs</li>
+							<li>Unit tests (?)</li>
+							<li>CI - "Continuous Inference" (?)</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+					<section>
+						<h2>Special mentions</h2>
+					</section>
+					<section>
+						<ul>
+							<li><a href="https://pair.withgoogle.com/" target="_blank">People + AI (Google)</a></li>
+							<li><a href="http://deon.drivendata.org/" target="_blank">DEON - ethics checklist in the command line</a></li>
+							<!-- <li><a href="" target="_blank"></a></li> -->
+						</ul>
+					</section>
+					<section>
+						<h2>2A. Academic &amp; Corporate research</h2>
+						<aside class="notes">Conferences, papers, ML research</aside>
+					</section>
+					<section>
+						<ul>
+							<li>FAT (fairness, transparency, accountability)</li>
+							<li><a href="https://fairxiv.org" target="_blank">fairxiv.org</a></li>
+							<li><a href="https://www.fatml.org/" target="_blank">FAT/ML</a></li>
+							<li><a href="https://fatconference.org" target="_blank">fatconference.org</a></li>
+							<li><a href="https://ainowinstitute.org/" target="_blank">AI Now</a></li>
+							<li><a href="https://www.oii.ox.ac.uk/research/digital-ethics-lab/" target="_blank">Oxford Digital Ethics Lab</a></li>
+							<li><a href="https://gradientinstitute.org/" target="_blank">Gradient Institute</a></li>
+							<li><a href="https://3ainstitute.cecs.anu.edu.au/" target="_blank">3AI</a></li>
+						</ul>
+						<aside class="notes">State of academia (as far as I can tell): 1 step forward, 2 steps backwards</aside>
+					</section>
+					<section>
+						<h1>For example</h1>
+						<p class="fragment">Trying to remove gender bias from NLP</p>
+						<aside class="notes"></aside>
+					</section>
+					<section>
+						"Man is to Computer Programmer as Woman is to Homemaker?
+						Debiasing Word Embeddings"
+						<p><a href="https://arxiv.org/pdf/1607.06520.pdf" target="_blank">https://arxiv.org/pdf/1607.06520.pdf</a></p>
+						<aside class="notes">Where they tried to flatten (remove) the gender dimension</aside>
+					</section>
+					<section>
+						<h2>Lipstick on a pig</h2>
+						<img class="plain" src="img/lipstick.png" height="400" />
+						<p><a href="https://arxiv.org/pdf/1903.03862.pdf" target="_blank">https://arxiv.org/pdf/1903.03862.pdf</a></p>
+						<aside class="notes"></aside>
+					</section>
+					<section>
+						<h2>2B. Self Regulation /<br> Soft Regulation</h2>
+						<aside class="notes">Everything that isn't dev tools, research or law</aside>
+					</section>
+					<section>
+						<ul>
+							<li>Standards</li>
+							<li>Checklists</li>
+							<li>Policies</li>
+							<li>Risk assessment frameworks</li>
+						</ul>
+						<aside class="notes">Hmmm guess what's in common? They're all after the fact</aside>
+					</section>
+					<section>
+						<h2>Special mentions</h2>
+					</section>
+					<section>
+						<p><a href="https://ai-hr.cyber.harvard.edu/primp-viz.html" target="_blank">Principled artificial intelligence visualisation</a></p>
+						<iframe name="PRIMP" src="https://ai-hr.cyber.harvard.edu/primp-viz.html" width="700" height="500" frameborder="0" scrolling="auto" class="frame-area"></iframe>	
+					</section>
+					<section>
+						<h3>A good starting paper</h3>
+						<p>The Ethics of AI Ethics - An Evaluation of Guidelines</p>
+						<p><a href="https://arxiv.org/abs/1903.03425" target="_blank">https://arxiv.org/abs/1903.03425</a></p>
+					</section>
+					<section>
+						<h2>The Montreal Declaration</h2>
+						<p><a href="https://www.montrealdeclaration-responsibleai.com/" target="_blank">montrealdeclaration-responsibleai.com</a></p>
+						<aside class="notes">Developed out of U of Montreal. Supported by MILA (Geoffrey Hinton)</aside>
+					</section>
+					<section>
+						<h2>3. Law / Hard Regulation</h2>
+						<ul>
+							<li>GDPR</li>
+							<li>🦗🦗🦗</li>
+						</ul>						
+						<aside class="notes">Law is probably the area I'm least interested in personally. Seems likely to take a long time. Use legal precedents for help with context, but not holding my breath on useful ways to curb AI harm.</aside>
+					</section>
+					<section>
+						<h2>More coming soon?</h2>
+						<ul>
+							<li><em>National policy? National agency?</em></li>
+							<li><em>Right to a (human parsable) explanation?</em></li>
+							<li><em>Dataset standardised labels?</em></li>
+							<li><em>FDA style drug-testing?</em> <a href="https://www.wired.com/story/ai-algorithms-need-drug-trials/" target="_blank">Wired</a></li>
+						</ul>
+					</section>
+					<!-- <section>
+						<ul>
+							<li><a href="" target="_blank"></a></li>
+							<li></li>
+							<li><a href="" target="_blank"></a></li>
+							<li></li>
+						</ul>
+						<aside class="notes"></aside>
+					</section> 
+					<section>
+						Slide 5
+						<aside class="notes"></aside>
+					</section>-->
+				</section>
+				<section>
+					<section>
+						<h1>Section 3</h1>
+						<h3 class="fragment">Fairness definitions</h3>
+					</section>
+					<section data-background-image="img/dog-or-fried-chicken.jpeg">
+						<aside class="notes">Classifier: Dog or Fried Chicken?</aside>
+					</section>
+					<section>
+						<table>
+							<thead>
+								<tr>
+									<td>&nbsp;</td>
+									<td><strong>Actual&nbsp;Positive</strong></td>
+									<td><strong>Actual&nbsp;Negative</strong></td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><strong>Predicted Positive</strong></td>
+									<td>
+										<h5>True Positive (TP)</h5>
+									</td>
+									<td>
+										<h5>False Positive (FP)</h5>									
+									</td>
+								</tr>
+								<tr>
+									<td><strong>Predicted Negative</strong></td>
+									<td>
+										<h5>False Negative&nbsp;(FP)</h5>
+									</td>
+									<td>
+										<h5>True Negative (TP)</h5>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<aside class="notes"></aside>
+					</section>
+					<section>
+						<table>
+							<thead>
+								<tr>
+									<td>&nbsp;</td>
+									<td><strong>Actual&nbsp;Positive</strong></td>
+									<td><strong>Actual&nbsp;Negative</strong></td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><strong>Predicted Positive</strong></td>
+									<td>
+										<h5>True Positive (TP)</h5>
+										<code>PPV = TP / (TP + FP)</code><br/>
+										<code>TPR = TP / (TP + FN)</code>
+									</td>
+									<td>
+										<h5>False Positive (FP)</h5>
+										<code>FDR = FP / (TP + FP)</code><br/>
+										<code>FPR = TP / (FP + TP)</code>
+									
+									</td>
+								</tr>
+								<tr>
+									<td><strong>Predicted Negative</strong></td>
+									<td>
+										<h5>False Negative&nbsp;(FP)</h5>
+										<code>FOR = FN / (TN + FN)</code><br/>
+										<code>FNR = TP / (TP + FN)</code>
+									</td>
+									<td>
+										<h5>True Negative (TP)</h5>
+										<code>NPV = TN / (TN + FN)</code><br/>
+										<code>TNR = TN / (TN + FP)</code>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<aside class="notes"></aside>
+					</section>
+					<section>
+						<h2>Definition based on predicted outcomes</h2>
+						<aside class="notes"></aside>
+					</section>
+					<section>
+						<h2>Group fairness</h2>
+						<blockquote>Individuals in protected and unprotected groups have equal probability of being predicted 'positive' by the classifier</blockquote>
+					</section>
+					<section>
+						<h2>Definition based on predicted &amp; actual outcomes</h2>
+						<aside class="notes"></aside>
+					</section>
+					<section>
+						<h2>Predictive parity</h2>
+						<blockquote>Individuals in protected and unprotected groups have equal PPV (probability of groups being actual positive <em>and</em> predicted positive)</blockquote>
+					</section>
+					<section>
+						<h2>Overall accuracy equality</h2>
+						<blockquote>Individuals in protected and unprotected groups have equal predictive accuracy (Probability of a subject from actual positive or negative to be predicted positive or negative)</blockquote>
+					</section>
+					<section>
+						<h2>Similarity-based measures</h2>
+						<aside class="notes"></aside>
+					</section>
+					<section>
+						<h2>Fairness through unawareness</h2>
+						<blockquote>No sensitive or protected attributes are used in the decision making process</blockquote>
+					</section>
+					<section>
+						<h2>Causal reasoning</h2>
+					</section>
+					<section>
+						<h2>Counterfactual fairness</h2>
+						<blockquote>If predicted outcome does not rely on protected attribute (G)</blockquote>
+					</section>
+					<section>
+						<h2>Plus many more...</h2>
+						<aside class="notes"></aside>
+					</section>
+					<section>
+						<h2>Further reading</h2>
+						<a href="http://www.ece.ubc.ca/~mjulia/publications/Fairness_Definitions_Explained_2018.pdf" target="_blank">Fairness Definitions Explained</a>
+					</section>
+					<section>
+						<small><a href="https://www.youtube.com/watch?v=eLBVqqKF9MQ" target="_blank">YOW! Data 2019 - Finn Lattimore - Engineering an Ethical AI System</a></small>
+						<img src="img/profit-fairness-tradeoffs.png" height="600" />
+						<aside class="notes">In this excellent talk Finn goes through an example of a system allocating loans. She maps different measures of fairness and we can see profit vs fairness.</aside>
+					</section>
+
+					<section>
+						<blockquote><strong>Unpopular opinion:</strong> the entangled nature of the different measures of fairness is important and useful</blockquote>
+					</section>
+					<section>
+						<h2>It tells us that...</h2>
+						<ul>
+							<li class="fragment">We <strong>cannot</strong> optimise for all measures of fairness <strong>simultaneously</strong></li>
+							<li class="fragment">We have to pick <strong>which ones</strong> matter most</li>
+							<li class="fragment"><strong>Context</strong> matters, as do contextual <strong>norms</strong></li>
+						</ul>
+					</section>
+					<section>
+						<h2>Medical diagnostics <br>-vs- <br>Recidivism and parole</h2>
+						<aside class="notes">ML test for radiology, I might prefer more false positives to put patiences through a second test or to watch for further symptoms. If I'm deciding whether to keep someone in jail, prefer false negatives. Aligns with law - Innocent until proven guilty. </aside>
+					</section>
+					<section>
+						<blockquote>We don't (yet) have a single fairness measure to rule them all.</blockquote>
+						<aside class="notes">No 'unified theory of fairness' - Math / principles based rule which works for all scenarios and ties in all our intiuitions about fairness. May not have this in our lifetime. </aside>
+					</section>
+					<section>
+						<h2>So what!?</h2>
+					</section>
+					<section>
+						<blockquote>No physics 'Theory of everything' (yet)</blockquote>
+						<aside class="notes">Haven't managed to reconcile quantum physics and relativity yet.</aside>
+					</section>
+					<section data-background-image="img/airplane.gif">
+						<h3>We still put planes in the air</h3>
+					</section>
+					<section>
+						<h3>We build saftey mechanisms despite the lack of theoretical coherence</h3>
+					</section>
+					<section data-background-image="img/Boeing-299-Flying-Fortress-NX13372-burning-after-crash-at-Wright-Field-30-Oct-1935.jpg">
+						<h3 style="margin-top: 50%;">We'd take ML safety more seriously if we could see the wreckage</h3>
+					</section>
+					<section>
+						<h2>Fairness definitions cheatsheet</h2>
+						<p><a href="https://tinyletter.com/summerscope" target="_blank">tinyletter.com/summerscope</a></p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Section 4</h1>
+						<h3 class="fragment">Ways forward</h3>
+					</section>
+					<section>
+						<em>Allow me one more hot take...</em>
+					</section>
+					<section>
+						<p><em>Building ML systems in a capitalist, corporate context:</em></p>
+					</section>
+					<section>
+						<h2>There is no prediction; only intervention</h2>
+						<aside class="notes">Can anyone give an example of building a prective model which didn't have any intended agency or intervention in the world? We predict things in order to do something about them.</aside>
+					</section>
+					<section>
+						<h2>Classification is never descriptive, always normative</h2>
+						<aside class="notes">The boy and the bundle of sticks? Everything we tell people is a story they learn about themselves. Even if they reject the story, it becomes ingraned in their identity.</aside>
+					</section>
+					<section>
+						<h2>Ways forward</h2>
+					</section>
+					<section>
+						<h2>New OS Licences?</h2>
+						<p><a href="https://firstdonoharm.dev" target="_blank">Hippocratic Licence</a></p>
+						<iframe name="HippocraticLicence" src="https://firstdonoharm.dev" width="700" height="500" frameborder="0" scrolling="auto" class="frame-area"></iframe>	
+						<aside class="notes"></aside>
+					</section>
+					<section>
+						<h2>Cost sensitive learning</h2>
+						<p>Co-opt these techniques to optimise for fairness?</p>
+						<aside class="notes">Thought starter. Not a fully fledged concept.</aside>
+					</section>
+					<section>
+						<h2>Continual learning</h2>
+						<p>All production data is validation data</p>
+						<aside class="notes">Algorithm is always learning. Never stops.</aside>
+					</section>
+					<section>
+						<h2>Measure and counteract the human impact of harmful bias?</h2>
+						<aside class="notes">Possible? Think about actuarial science. Insurance companies know A LOT about outcomes based on historical data. </aside>
+					</section>
+					<section>
+						<h2>Category theory for intersectional bias</h2>
+						<p><a href="https://www.ted.com/talks/eugenia_cheng_an_unexpected_tool_for_understanding_inequality_abstract_math?language=en" target="_blank">Eugenia Cheng TED talk</a></p>
+					</section>
+					<section>
+						<blockquote>
+							What if we combined a mathematical approach like this with data about outcomes - could we create a fair 'positive bias' model to negate systemic bias?
+						</blockquote>
+					</section>
+					<section>
+						<h2>Design for failure, <br />not success</h2>
+					</section>
+					<section>
+						<ul>
+							<li>End users are experts on <em>themselves</em></li>
+							<li class="fragment">Bake in feedback loops</li>
+							<li class="fragment">Plan to improve the algo over time</li>
+							<li class="fragment">Plan an 'emergency brake'</li>
+							<li class="fragment">Display system confidence</li>
+							<li class="fragment">Promise less, not more</li>
+							<li class="fragment"><em>(Hire some designers!!)</em></li>
+						</ul>
+					</section>
+					<section>
+						<blockquote>
+							"Complex systems are the best gift to finger pointing in the history of humanity"
+						</blockquote>
+						<p><small>SOURCE: <a href="https://podcasts.google.com/?feed=aHR0cDovL3dpd3d1eC5saWJzeW4uY29tL3Jzcw&episode=ODE1MzA5YjBlMDM2NGJhZmEwNThmNmY0MTI2MDA5YzQ&hl=en-AU&ep=6&at=1569214637127" target="_blank">What is wrong with UX podcast</a></small></p>
+						<aside class="notes">Complexity makes it feel too hard. Maths makes it feel objective. Perfect storm of doing nothing.</aside>
+					</section>
+					<section>
+						<h2>Bystander effect</h2>
+						<aside class="notes">The more people present, the less likely they are to help someone in distress. Causes: Diffusion of responsibility. Following other people's cues on how to behave appropriately.</aside>
+					</section>
+					<section>
+						<h2>No invisible work</h2>
+						<aside class="notes">Ethics work needs to be baked into the process. Work that isn't accounted for doesn't happen. </aside>
+					</section>
+					<section>
+						<blockquote>
+							Empathy is a useful tool but it's not a full coverage test
+							<aside class="notes">Personal anecdotes are good to make it human, make it real, avoid psychic numbing</aside>
+						</blockquote>
+					</section>
+					<section>
+						<h2>No 'special' work</h2>
+						<aside class="notes">Work which is outside the normal flow is easier to forget, miss, resent. Bake into existing processes. </aside>
+					</section>
+					<section>
+						<blockquote>When you other ethics, <br><strong>you other ethics</strong></blockquote>
+					</section>
+					<section>
+						<h2>Process conversation starters:</h2>
+						<ul>
+							<li class="fragment">Ethics review at kick-off meeting</li>
+							<li class="fragment">Lean ethics canvas</li>
+							<li class="fragment">Alternative feedback mechanisms, like an annonymous form</li>
+							<li class="fragment">Ethics debrief at retro</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Combine</h2>
+						<h2 class="fragment">tooling + process + culture</h2>
+						<aside class="notes">Want to avoid technological solutionism. Wholistic approach is most likely to yeild results.</aside>
+					</section>
+					<section>
+						<h2>QA for good QA</h2>
+						<aside class="notes">So when you're looking at a tool, framework, checklist, in future</aside>
+					</section>
+					<section>
+						<h2>Is it...</h2>
+						<ul>
+							<li class="fragment">Measureable?</li>
+							<li class="fragment">Enforceable?</li>
+							<li class="fragment">One-off or iterable?</li>
+							<li class="fragment">Showing change over time?</li>
+							<li class="fragment">Easy to integrate with existing process?</li>
+							<li class="fragment">Easy to integrate with existing codebase?</li>
+							<li class="fragment">Before, during, or after deployment?</li>
+							<li class="fragment">Aid or blocker?</li>
+						</ul>
+					</section>
+					<section data-background-image="img/oscar-grouch.gif">
+						<h2>Put it in the bin</h2>
+						<aside class="notes">When does the risk outweight the reward? i.e. robodebt, points systems for automated teacher firing, Compas for récidivism. Autonomous weapons. Not all frictions to decision or action should be removed. Friction can make us slow down, think, take stock. It limits the amount of decisions we can make. Not everything needs to be automated into oblivion. </aside>
+					</section>
+					<section>
+						<h2>Acknowledging failure</h2>
+						<h3>(is inevitable)</h3>
+						<aside class="notes">Common behaviour is to think of ourselves as ethical and therefor reject the idea that our systems can have a harmful impact on the world</aside>
+					</section>
+					<section>
+						<blockquote class="strikethrough">"I am an ethical person therefore I build ethical tech"</blockquote>
+					</section>
+					<section>
+						If you write a bug, it doesn't make you a bad programmer 
+						<aside class="notes"></aside>
+					</section>
+					<section>
+						If you make an ethical mistake, it doesn't make you an unethical person
+						<aside class="notes"></aside>
+					</section>
+					<section>
+						<h3>Let's draw a line in the sand</h3>
+						<aside class="notes">We can be flawed, squishy and still aspire to ethical tech just as we are emotional meat robots who still aspire to write great code.</aside>
+					</section>
+					<section data-background-image="img/line-in-sand.jpeg">
+						<h2 class="strikethrough">Claiming moral authority</h2>
+						<br>&nbsp;<br>&nbsp;<br>
+						<h2>Claiming moral imperative</h2>
+						<aside class="notes">Difference between saying we know, we are right, and saying we must try, we must do the work </aside>
+					</section>
+					<section data-background-image="img/Tactile_9.jpg">
+						<h2>Acknowledging complexity</h2>
+						<aside class="notes">I’m not going to pretend that this is easy or that the work is clear cut and unambiguous. It’s not. But all the same it’s real engineering work. It’s about identifying trade offs, working through use cases, and making difficult compromises. It’s about staring unflinchingly at complex systems and refusing to blink. </aside>
+					</section>
+				</section>
+				<section>
+					<section data-background-color="#ffffff" data-background-image="img/Tactile_7.jpg">
+						<h1>Thank you!</h1>
+						<p><small><a href="http://summerscope.github.io/slides/elusiveness-of-ethics-dius" target="_blank">summerscope.github.io/slides/elusiveness-of-ethics-dius</a></small></p>
+					</section>
+					<section>
+						<h1>Questions?</h1>
+						<p><strong><a href="https://www.sli.do/" target="blank">www.sli.do</a></strong></p>
+						<p>Enter code <strong>#63815</strong></p>
+					</section>
+				</section>			
+				<!-- <aside class="notes"></aside> -->
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				backgroundTransition: 'zoom', // none/fade/slide/convex/concave/zoom
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
