@@ -172,9 +172,82 @@
 				<section>
 					<section>
 						<h1>Section 2</h1>
-						<h3 class="fragment">Approaches</h3>
-						<aside class="notes">What are the ways people are tackling this problem? I divide it into (roughly) three big categories.</aside>
+						<h3 class="fragment">Taxonomies of Bias</h3>
+						<aside class="notes"></aside>
 					</section>
+					<section>
+						<img class="plain" src="img/types-of-harm.png" height="180" />
+						<h2>Two primary types of harm</h2>
+						<ol>
+							<li class="fragment">Allocative harms</li>
+							<li class="fragment">Representational harms</li>
+						</ol>
+					</section>
+					<section>
+						<h2>A map to plot bias</h2>
+					</section>
+					<section data-background-image="img/taxonomy.jpg" data-transition="none">
+						<aside class="notes">I've seeen a number of different taxonomies but they are often confusing and large - aiming for something easier to grok / keep in your head.</aside>			
+					</section>
+					<section data-background-image="img/taxonomy1.jpg">
+						<aside class="notes">So we'll think through the types of bias we might see at each stage, starting with the world we gather data from</aside>			
+					</section>
+					<section>
+						<img class="plain" src="img/taxonomy-data-source.png" height="200" />
+						<h3 class="fragment"> Is this good training data?</h3>
+						<p class="fragment">✅ Historical Bias</p>
+						<aside class="notes">Not all data represents good decision making! We want to look at the thing we're trying to teach the machine and ask if we want to learn from this or not</aside>
+					</section>
+					<section data-background-image="img/taxonomy2.jpg">
+						<aside class="notes"></aside>			
+					</section>
+					<section>
+						<img class="plain" src="img/taxonomy-data-capture.png" height="200" />
+						<h3 class="fragment">Can we capture this data well?</h3>
+						<p class="fragment">✅ Representation Bias</p>
+						<p class="fragment">✅ Measurement / Sampling Bias</p>
+						<aside class="notes">Does enough data exist in-theory across all the demographics? Data capture techniques? Data storage constraints?</aside>
+					</section>
+					<section data-background-image="img/taxonomy3.jpg">
+						<aside class="notes"></aside>							
+					</section>
+					<section>
+						<img class="plain" src="img/taxonomy-lab.png" height="200" />
+						<h3 class="fragment">Can we form inferences from our&nbsp;data?</h3>
+						<p class="fragment">✅ Aggregation Bias</p>
+						<p class="fragment">✅ Evaluation Bias</p>
+						<aside class="notes"></aside>
+					</section>
+					<section data-background-image="img/taxonomy4.jpg">
+						<aside class="notes"></aside>							
+					</section>
+					<section>
+						<img class="plain" src="img/taxonomy-factory.png" height="200" />
+						<h3 class="fragment">Can we deploy those inferences effectively?</h3>
+						<p class="fragment">✅ Deployment Bias</p>
+						<aside class="notes"></aside>
+					</section>					
+					<section>
+						<h2>Further reading</h2>
+						<p>A Framework for Understanding Unintended Consequences of Machine Learning</p>
+						<p><a href="https://arxiv.org/pdf/1901.10002.pdf" target="_blank">https://arxiv.org/pdf/1901.10002.pdf</a></p>
+					</section>
+
+					<section>
+						<h2>A map to plot harm mitigation</h2>
+					</section>
+					<section data-background-image="img/taxonomy.jpg" data-transition="none">
+						<aside class="notes">We can consider approaches to mitigate harm across the same map</aside>			
+					</section>
+					
+					
+					
+					
+
+
+
+
+
 					<section>
 						<h2>1. Tooling &amp; Tests</h2>
 						<aside class="notes">Dev tools, code tests. Looking to mathematical definitions of fairness to help us build dev tools.</aside>
@@ -643,7 +716,7 @@
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
-				backgroundTransition: 'zoom', // none/fade/slide/convex/concave/zoom
+				backgroundTransition: 'none', // none/fade/slide/convex/concave/zoom
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
