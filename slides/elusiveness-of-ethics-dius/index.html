@@ -108,6 +108,7 @@
 					</section>
 					<section>
 						<h2>So the moral is...</h2>
+						<p class="fragment">Predictive models are almost never <em>descriptive</em> when deployed within a capitalist framework</p>
 						<aside class="notes">Even when we think we're building a mouse trap, that our tech is neutral, we are almost certainly intervening in the world, exerting a normative force, or both.</aside>
 					</section>
 
@@ -239,27 +240,56 @@
 					<section data-background-image="img/taxonomy.jpg" data-transition="none">
 						<aside class="notes">We can consider approaches to mitigate harm across the same map</aside>			
 					</section>
-					
-					
-					
-					
+					<section data-background-image="img/taxonomy1.jpg" data-transition="none">
+						<aside class="notes">Political policy, deciding /not/ to do the model. Grappling with historical bias requires expertise outside of dev - sociology, poli sci, intersectional feminist theory</aside>
+					</section>
+					<section data-background-image="img/taxonomy2.jpg" data-transition="none">
+						<aside class="notes">Capturing and labelling data. Better sampling techniques / Synthetic Data to flesh out poorly represented demographics. Looking for better proxies for the quality you want to measure. Apple CC example if time allows </aside>
+					</section>
+					<section data-background-image="img/taxonomy3.jpg" data-transition="none">
+						<aside class="notes">ML design (modeling decisions). We might deploy an explainability model alongside our ML model to better understand the features that it learns from and identify bias. We can put our thumb on the scale - adjust classifications or scores to inject positive bias. </aside>
+					</section>
+					<section data-background-image="img/taxonomy4.jpg" data-transition="none">
+						<aside class="notes">Identify & adjust bias retroactively after classification. Externalising machine uncertainty. Adding design thinking into the deployment of ML - whether a full automation, has a hand-off, or a decision aid.</aside>
+					</section>					
+				</section>
+				<section>
+					<section>
+						<h1>Section 3</h1>
+						<h3 class="fragment">Tools to grapple with bias</h3>
+					</section>
+					<section>
+						<h2>Approaches</h2>
+						<ol>
+							<li class="fragment">Academic &amp; Corporate ML Research</li>
+							<li class="fragment">Self-Regulation</li>
+							<li class="fragment">External Regulation</li>
+						</ol>
+						<aside class="notes">These are big buckets. The research is pursuing mathematical definitions of fairness.</aside>
+					</section>
 
+					<section>
+						<h2>1. Academic &amp; Corporate ML Research</h2>
 
+					</section>
 
+					<section>
+						<h2>2. Self-Regulation</h2>
+						
+					</section>
 
+					<section>
+						<h2>3. External Regulation</h2>
+						
+					</section>
+
+					
 
 					<section>
 						<h2>1. Tooling &amp; Tests</h2>
 						<aside class="notes">Dev tools, code tests. Looking to mathematical definitions of fairness to help us build dev tools.</aside>
 					</section>
-					<section>
-						<h2>Where might we try to address bias?</h2>
-						<ol>
-							<li>Capturing and labelling data</li>
-							<li>ML design (modeling decisions)</li>
-							<li>Retroactively after classification</li>								
-						</ol>
-					</section>
+					
 					<!-- Proposed ideas like labels and certifications for training data. -->
 					<section>
 						<ul>
@@ -378,12 +408,11 @@
 						Slide 5
 						<aside class="notes"></aside>
 					</section>-->
-				</section>
-				<section>
-					<section>
-						<h1>Section 3</h1>
-						<h3 class="fragment">Fairness definitions</h3>
-					</section>
+
+
+
+
+
 					<section data-background-image="img/dog-or-fried-chicken.jpeg">
 						<aside class="notes">Classifier: Dog or Fried Chicken?</aside>
 					</section>
@@ -545,7 +574,7 @@
 						<h3 style="margin-top: 50%;">We'd take ML safety more seriously if we could see the wreckage</h3>
 					</section>
 					<section>
-						<h2>Fairness definitions cheatsheet</h2>
+						<h2>Fairness activities, definitions, worksheets</h2>
 						<p><a href="https://tinyletter.com/summerscope" target="_blank">tinyletter.com/summerscope</a></p>
 					</section>
 				</section>
@@ -600,7 +629,7 @@
 							<li class="fragment"><em>(Hire some designers!!)</em></li>
 						</ul>
 					</section>
-					<section>
+					<!-- <section>
 						<blockquote>
 							"Complex systems are the best gift to finger pointing in the history of humanity"
 						</blockquote>
@@ -636,15 +665,15 @@
 							<li class="fragment">Alternative feedback mechanisms, like an annonymous form</li>
 							<li class="fragment">Ethics debrief at retro</li>
 						</ul>
-					</section>
+					</section> 
 					<section>
 						<h2>Combine</h2>
 						<h2 class="fragment">tooling + process + culture</h2>
 						<aside class="notes">Want to avoid technological solutionism. Wholistic approach is most likely to yeild results.</aside>
 					</section>
 					<section>
-						<h2>QA for good QA</h2>
-						<aside class="notes">So when you're looking at a tool, framework, checklist, in future</aside>
+						<h2>QA for good QA process</h2>
+						<aside class="notes">Here's my personal shortlist for considering a tool to try with the team... framework, checklist, in future</aside>
 					</section>
 					<section>
 						<h2>Is it...</h2>
@@ -652,17 +681,26 @@
 							<li class="fragment">Measureable?</li>
 							<li class="fragment">Enforceable?</li>
 							<li class="fragment">One-off or iterable?</li>
-							<li class="fragment">Showing change over time?</li>
+							<li class="fragment">Shows change over time?</li>
 							<li class="fragment">Easy to integrate with existing process?</li>
 							<li class="fragment">Easy to integrate with existing codebase?</li>
 							<li class="fragment">Before, during, or after deployment?</li>
 							<li class="fragment">Aid or blocker?</li>
 						</ul>
+					</section>-->
+					<section>
+						<h2>Bias is not one thing</h2>
+						<ol>
+							<li class="fragment">First identify</li>
+							<li class="fragment">Then measure</li>
+							<li class="fragment">Finally mitigate</li>
+						</ol>
+						<aside class="notes">Remember the map.</aside>
 					</section>
-					<section data-background-image="img/oscar-grouch.gif">
+					<!-- <section data-background-image="img/oscar-grouch.gif">
 						<h2>Put it in the bin</h2>
 						<aside class="notes">When does the risk outweight the reward? i.e. robodebt, points systems for automated teacher firing, Compas for récidivism. Autonomous weapons. Not all frictions to decision or action should be removed. Friction can make us slow down, think, take stock. It limits the amount of decisions we can make. Not everything needs to be automated into oblivion. </aside>
-					</section>
+					</section> -->
 					<section>
 						<h2>Acknowledging failure</h2>
 						<h3>(is inevitable)</h3>
