@@ -1,0 +1,295 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>The elusiveness of ethics: encoding fairness in an unfair world</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background-image="img/Tactile_3.jpg">
+					<h1>The elusiveness of ethics</h1> 
+					<h3>Encoding fairness in an unfair world</h3>
+				</section>				
+				<section>
+					<h2>About me</h2>
+					<table>
+						<tr>
+							<td align="center">
+								<img class="plain" src="img/DEBIAS-AI.svg" alt="Debias AI" height="240px" />
+							</td>
+							<td>&nbsp;</td>
+							<td align="center">
+								<img class="plain" src="img/ethics-litmus-tests.png" height="280px" alt="Ehics Litmus Tests" />
+							</td>
+						</tr>
+						<tr>
+							<td align="center">
+								<small><a href="https://debias.ai" target="_blank">debias.ai</a></small>
+							</td>
+							<td>&nbsp;</td>
+							<td align="center">
+								<small><a href="https://ethical-litmus.site" target="_blank">ethical-litmus.site</a></small>
+							</td>
+						</tr>
+					</table>
+					<aside class="notes">About me -  Ethics Litmus Tests, background, learning deep learning & ML, reading papers, Fair ML reading group</aside>
+				</section>
+				<section>
+					<h2>Slides</h2>
+					<p><small><a href="http://summerscope.github.io/slides/elusiveness-of-ethics-rts" target="_blank">summerscope.github.io/slides/elusiveness-of-ethics-rts</a></small></p>
+					<aside class="notes">Links all live, don't stress about trying to write down URLs</aside>
+				</section>
+				<section>
+					<section>
+						<h1>Section 1</h1>
+						<h3 class="fragment">Setting the scene</h3>
+					</section>
+					<section>
+						<h2>Once upon a time, in a<br />
+							FinTech startup...</h2>
+						<aside class="notes">Time I worked at a robo investor. We had a risk appetite quiz - women locked out of top risk portfolio...</aside>
+					</section>
+					<section>
+						<h2>Descriptive <br> -vs- <br> Normative</h2>
+					</section>
+					<section data-background-image="img/mean-girls.jpg">
+						<h2>Girls wear pink</h2>
+						<h3 class="fragment">(Descriptive)</h3>
+					</section>
+					<section data-background-image="img/sabrina.gif">
+						<h2>Girls wear pink</h2>
+						<h3 class="fragment">(Normative)</h3>
+					</section>
+					<section>
+						<h2>The way the world is?</h2>
+						<h2 class="fragment">or</h2>
+						<h2 class="fragment">The way the world should&nbsp;be?</h2>
+					</section>
+					<section>
+						<h2>For example...</h2>
+					</section>
+					<section data-background-image="img/drone.jpg">
+						<aside class="notes">Drone assessing a bridge. It's observing the state of the world (damage to bridge) and the system makes a normative claim: we want to identify and repair damage to bridges! Cracks in bridges are observed in the world (due to various forces of attrition) but not accepted as the inevitable state.</aside>
+					</section>
+					<section>
+						<h2>We make normative assertions all the time</h2>
+						<aside class="notes">And it's normal, not interpreted as moralising or judgemental. But we can get squeamish about doing this when it comes to tech ethics. More on this soon.</aside>
+					</section>
+					<section>
+						<h2>Think of the drone...</h2>
+						<aside class="notes">If you ever get pushback on making a call like this, think of the drone. Someone designed a rule into the system which identified what was wrong that needed to be repaired. The judgement call is implied. It's the 'status quo' is not good rationale for non-intervention.</aside>
+					</section>
+					<section>
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/uHGlCi9jOWY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						<p><small><a href="https://www.youtube.com/watch?v=uHGlCi9jOWY" target="_blank">https://www.youtube.com/watch?v=uHGlCi9jOWY</a></small></p>
+					</section>
+					<section>
+						<h2>Profit vs. Knowledge</h2>
+						<p class="fragment">-or-</p>
+						<h2 class="fragment">Winning is not the same as&nbsp;understanding</h2>
+						<aside class="notes">The work to build and train an ML model to 'win' is not the same as the work to understand the relationship between the data/model structure to the outside world</aside>
+					</section>
+					<section>
+						<h2>Can a mousetrap be... unethical?</h2>
+						<aside class="notes">Should you care, as long as it catches more mice (than the others)? how do you know if your mouse trap catches more of a specific gender, age or species of mouse? Is it an unfair mousetrap? Does it matter?</aside>
+					</section>
+					<section>
+						<p><em>Building ML systems in a capitalist, corporate context:</em></p>
+						<aside class="notes">Here's my pitch - for our current use of models</aside>
+					</section>
+					<section>
+						<h2>There is no prediction; only intervention</h2>
+						<aside class="notes">Why build a model to predict if you're not going to do anything about it? All prediction has some intended intervention.</aside>
+					</section>
+					<section>
+						<h2>Classification is never descriptive, always normative</h2>
+						<aside class="notes">The boy and the bundle of sticks? Everything we tell people is a story they learn about themselves. Even if they reject the story, it becomes ingraned in their identity.</aside>
+					</section>
+					<section>
+						<h2>So the moral is...</h2>
+						<p class="fragment">Predictive models are almost never <em>descriptive</em> when deployed within a capitalist framework</p>
+						<aside class="notes">Even when we think we're building a mouse trap, that our tech is neutral, we are almost certainly intervening in the world, exerting a normative force, or both.</aside>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Section 2</h1>
+						<h3 class="fragment">Taxonomies of Bias</h3>
+						<aside class="notes"></aside>
+					</section>
+					<section>
+						<img class="plain" src="img/types-of-harm.png" height="180" />
+						<h2>Two primary types of harm</h2>
+						<ol>
+							<li class="fragment">Allocative harms</li>
+							<li class="fragment">Representational harms</li>
+						</ol>
+					</section>
+					<section>
+						<h2>A map to plot bias</h2>
+					</section>
+					<section data-background-image="img/taxonomy.jpg" data-transition="none">
+						<aside class="notes">I've seeen a number of different taxonomies but they are often confusing and large - aiming for something easier to grok / keep in your head.</aside>			
+					</section>
+					<section data-background-image="img/taxonomy1.jpg">
+						<aside class="notes">So we'll think through the types of bias we might see at each stage, starting with the world we gather data from</aside>			
+					</section>
+					<section>
+						<img class="plain" src="img/taxonomy-data-source.png" height="200" />
+						<h3 class="fragment"> Is this good training data?</h3>
+						<p class="fragment">✅ Historical Bias</p>
+						<aside class="notes">Not all data represents good decision making! We want to look at the thing we're trying to teach the machine and ask if we want to learn from this or not</aside>
+					</section>
+					<section data-background-image="img/taxonomy2.jpg">
+						<aside class="notes"></aside>			
+					</section>
+					<section>
+						<img class="plain" src="img/taxonomy-data-capture.png" height="200" />
+						<h3 class="fragment">Can we capture this data well?</h3>
+						<p class="fragment">✅ Representation Bias</p>
+						<p class="fragment">✅ Measurement / Sampling Bias</p>
+						<aside class="notes">Does enough data exist in-theory across all the demographics? Data capture techniques? Data storage constraints?</aside>
+					</section>
+					<section data-background-image="img/taxonomy3.jpg">
+						<aside class="notes"></aside>							
+					</section>
+					<section>
+						<img class="plain" src="img/taxonomy-lab.png" height="200" />
+						<h3 class="fragment">Can we form inferences from our&nbsp;data?</h3>
+						<p class="fragment">✅ Aggregation Bias</p>
+						<p class="fragment">✅ Evaluation Bias</p>
+						<aside class="notes"></aside>
+					</section>
+					<section data-background-image="img/taxonomy4.jpg">
+						<aside class="notes"></aside>							
+					</section>
+					<section>
+						<img class="plain" src="img/taxonomy-factory.png" height="200" />
+						<h3 class="fragment">Can we deploy those inferences effectively?</h3>
+						<p class="fragment">✅ Deployment Bias</p>
+						<aside class="notes"></aside>
+					</section>					
+					<section>
+						<h2>Further reading</h2>
+						<p>A Framework for Understanding Unintended Consequences of Machine Learning</p>
+						<p><a href="https://arxiv.org/pdf/1901.10002.pdf" target="_blank">https://arxiv.org/pdf/1901.10002.pdf</a></p>
+					</section>
+
+					<section>
+						<h2>A map to plot harm mitigation</h2>
+					</section>
+					<section data-background-image="img/taxonomy.jpg" data-transition="none">
+						<aside class="notes">We can consider approaches to mitigate harm across the same map</aside>			
+					</section>
+					<section data-background-image="img/taxonomy1.jpg" data-transition="none">
+						<aside class="notes">Political policy, deciding /not/ to do the model. Grappling with historical bias requires expertise outside of dev - sociology, poli sci, intersectional feminist theory</aside>
+					</section>
+					<section data-background-image="img/taxonomy2.jpg" data-transition="none">
+						<aside class="notes">Capturing and labelling data. Better sampling techniques / Synthetic Data to flesh out poorly represented demographics. Looking for better proxies for the quality you want to measure. Apple CC example if time allows </aside>
+					</section>
+					<section data-background-image="img/taxonomy3.jpg" data-transition="none">
+						<aside class="notes">ML design (modeling decisions). We might deploy an explainability model alongside our ML model to better understand the features that it learns from and identify bias. We can put our thumb on the scale - adjust classifications or scores to inject positive bias. </aside>
+					</section>
+					<section data-background-image="img/taxonomy4.jpg" data-transition="none">
+						<aside class="notes">Identify & adjust bias retroactively after classification. Externalising machine uncertainty. Adding design thinking into the deployment of ML - whether a full automation, has a hand-off, or a decision aid.</aside>
+					</section>					
+				</section>				
+				<section>
+					<section>
+						<h1>Section 4</h1>
+						<h3 class="fragment">Final observations</h3>
+					</section>
+					<section data-background-image="img/taxonomy.jpg">
+					</section>
+					<section>
+						<h2>Bias is not one thing</h2>
+						<ol>
+							<li class="fragment">First identify</li>
+							<li class="fragment">Then measure</li>
+							<li class="fragment">Finally mitigate</li>
+						</ol>
+						<aside class="notes">Remember the map.</aside>
+					</section>
+					<section>
+						<h2>Acknowledging failure</h2>
+						<h3>(is inevitable)</h3>
+						<aside class="notes">Common behaviour is to think of ourselves as ethical and therefor reject the idea that our systems can have a harmful impact on the world</aside>
+					</section>
+					<section>
+						<blockquote class="strikethrough">"I am an ethical person therefore I build ethical tech"</blockquote>
+					</section>
+					<section>
+						If you write a bug, it doesn't make you a bad programmer 
+						<aside class="notes"></aside>
+					</section>
+					<section>
+						If you make an ethical mistake, it doesn't make you an unethical person
+						<aside class="notes"></aside>
+					</section>
+					<section>
+						<h3>Let's draw a line in the sand</h3>
+						<aside class="notes">We can be flawed, squishy and still aspire to ethical tech just as we are emotional meat robots who still aspire to write great code.</aside>
+					</section>
+					<section data-background-image="img/line-in-sand.jpeg">
+						<h2 class="strikethrough">Claiming moral authority</h2>
+						<br>&nbsp;<br>&nbsp;<br>
+						<h2>Claiming moral imperative</h2>
+						<aside class="notes">Difference between saying we know, we are right, and saying we must try, we must do the work </aside>
+					</section>
+					<section data-background-image="img/Tactile_9.jpg">
+						<h2>Acknowledging complexity</h2>
+						<aside class="notes">I’m not going to pretend that this is easy or that the work is clear cut and unambiguous. It’s not. But all the same it’s real engineering work. It’s about identifying trade offs, working through use cases, and making difficult compromises. It’s about staring unflinchingly at complex systems and refusing to blink. </aside>
+					</section>
+					<section>
+						<h2>Fairness activities, definitions, worksheets</h2>
+						<p><a href="https://tinyletter.com/summerscope" target="_blank">tinyletter.com/summerscope</a></p>
+					</section>
+					<section data-background-color="#ffffff" data-background-image="img/Tactile_7.jpg">
+						<h1>Thank you!</h1>
+						<p><small><a href="http://summerscope.github.io/slides/elusiveness-of-ethics-rts" target="_blank">summerscope.github.io/slides/elusiveness-of-ethics-rts</a></small></p>
+					</section>
+					<section>
+						<h1>Questions?</h1>
+					</section>
+				</section>		
+				<!-- <aside class="notes"></aside> -->
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				backgroundTransition: 'none', // none/fade/slide/convex/concave/zoom
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
