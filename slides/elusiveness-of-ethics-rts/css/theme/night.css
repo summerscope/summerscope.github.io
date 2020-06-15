@@ -281,3 +281,12 @@ body {
 @media print {
   .backgrounds {
     background-color: #111; } }
+
+
+/*********************************************
+ * CUSTOM STYLES
+ *********************************************/
+
+.reveal .left {
+  text-align: left;
+}

@@ -135,6 +135,11 @@
 						<aside class="notes"></aside>
 					</section>
 					<section>
+						<h2>Drawn from this paper</h2>
+						<p>A Framework for Understanding Unintended Consequences of Machine Learning</p>
+						<p><a href="https://arxiv.org/pdf/1901.10002.pdf" target="_blank">https://arxiv.org/pdf/1901.10002.pdf</a></p>
+					</section>
+					<section>
 						<img class="plain" src="img/types-of-harm.png" height="180" />
 						<h2>Two primary types of harm</h2>
 						<ol>
@@ -146,16 +151,39 @@
 						<h2>A map to plot bias</h2>
 					</section>
 					<section data-background-image="img/taxonomy.jpg" data-transition="none">
-						<aside class="notes">I've seeen a number of different taxonomies but they are often confusing and large - aiming for something easier to grok / keep in your head.</aside>			
+						<aside class="notes">I've seeen a number of different maps but they are often confusing, too many steps to keep in your head, aiming for something easier to grok / keep in your head.</aside>			
 					</section>
 					<section data-background-image="img/taxonomy1.jpg">
-						<aside class="notes">So we'll think through the types of bias we might see at each stage, starting with the world we gather data from</aside>			
+						<aside class="notes">So we'll think through the types of bias we might see at each stage, and approaches to mitigation for each type. We'll start with the world we gather data from...</aside>			
 					</section>
 					<section>
 						<img class="plain" src="img/taxonomy-data-source.png" height="200" />
 						<h3 class="fragment"> Is this good training data?</h3>
 						<p class="fragment">✅ Historical Bias</p>
-						<aside class="notes">Not all data represents good decision making! We want to look at the thing we're trying to teach the machine and ask if we want to learn from this or not</aside>
+						<aside class="notes">Not all data represents good decision making, or patterns we want to repeat. We want to look at the thing we're trying to teach the machine and ask if we want to learn from this or not.</aside>
+					</section>
+					<section>
+						<p>✅ Historical Bias</p>
+						<blockquote class="fragment">Normative statement: a misalignment between the world as it is, and your values or objectives</blockquote>
+						<aside class="notes">Closely related to structural inequality & intersectional bias. Note that Historical Bias is an amplifier of almost all the other problems we'll discuss. </aside>
+					</section>
+					<section>
+						<p>✅ Historical Bias examples</p>
+						<ul>
+							<li class="fragment"><a href="https://www.reuters.com/article/us-amazon-com-jobs-automation-insight/amazon-scraps-secret-ai-recruiting-tool-that-showed-bias-against-women-idUSKCN1MK08G" target="_blank">Amazon recruitment algorithm</a></li>
+							<li class="fragment">Google image search: Professional hair / CEO</li>
+						</ul>
+						<aside class="notes">Closely related to structural inequality & intersectional bias. Note that Historical Bias is an amplifier of almost all the other problems we'll discuss. </aside>
+					</section>
+					<section>
+						<p>✅ Mitigating Historical Bias</p>
+						<ul>
+							<li class="fragment">Can't manage what we can't measure</li>
+							<li class="fragment">Test for model accuracy &amp; allocation across sub-demographics</li>
+							<li class="fragment">Encode 'positive bias' - think affirmative action, for models</li>
+							<li class="fragment"><a href="https://arxiv.org/abs/1703.06856v3" target="_blank">Counterfactual fairness</a></li>
+						</ul>
+						<aside class="notes"></aside>
 					</section>
 					<section data-background-image="img/taxonomy2.jpg">
 						<aside class="notes"></aside>			
@@ -166,6 +194,41 @@
 						<p class="fragment">✅ Representation Bias</p>
 						<p class="fragment">✅ Measurement / Sampling Bias</p>
 						<aside class="notes">Does enough data exist in-theory across all the demographics? Data capture techniques? Data storage constraints?</aside>
+					</section>
+					<section>
+						<p>✅ Representation Bias</p>
+						<blockquote class="fragment">One or more parts of the input space are underrepresented</blockquote>
+						<aside class="notes"></aside>
+					</section>
+					<section>
+						<p>✅ Representation Bias examples</p>
+						<ul>
+							<li class="fragment"></li>
+							<li class="fragment"></li>
+						</ul>
+						<aside class="notes">This is often related to differences in production and training data, not just in the method of collecting the training data.</aside>
+					</section>
+					<section>
+						<p>✅ Mitigating Representation Bias</p>
+						<ul>
+							<li class="fragment"></li>
+							<li class="fragment"></li>
+							<li class="fragment"></li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+					<section>
+						<p>✅ Measurement / Sampling Bias</p>
+						<blockquote class="fragment">Problems with choosing, collection, or computing features and labels to use in a prediction problem</blockquote>
+						<aside class="notes"> </aside>
+					</section>
+					<section>
+						<p>✅ Measurement Bias examples</p>
+						<ul>
+							<li class="fragment"><a href="https://www.theverge.com/2019/11/11/20958953/apple-credit-card-gender-discrimination-algorithms-black-box-investigation" target="_blank">Apple credit card scandal</a></li>
+							<li class="fragment"></li>
+						</ul>
+						<aside class="notes"></aside>
 					</section>
 					<section data-background-image="img/taxonomy3.jpg">
 						<aside class="notes"></aside>							
@@ -186,11 +249,7 @@
 						<p class="fragment">✅ Deployment Bias</p>
 						<aside class="notes"></aside>
 					</section>					
-					<section>
-						<h2>Further reading</h2>
-						<p>A Framework for Understanding Unintended Consequences of Machine Learning</p>
-						<p><a href="https://arxiv.org/pdf/1901.10002.pdf" target="_blank">https://arxiv.org/pdf/1901.10002.pdf</a></p>
-					</section>
+					
 
 					<section>
 						<h2>A map to plot harm mitigation</h2>
