@@ -201,7 +201,7 @@
 						<aside class="notes">Noisy proxies. Sampling methods.</aside>
 					</section>
 					<section>
-						<p>✅ Measurement / Sampling Bias</p>
+						<p>✅ Measurement Bias</p>
 						<ul>
 							<li class="fragment">Measurement process varies across groups</li>
 							<li class="fragment">Quality of data varies across groups</li>
@@ -226,13 +226,23 @@
 						</ul>
 						<aside class="notes">Capturing and labelling data. Better sampling techniques / Synthetic Data to flesh out poorly represented demographics. Looking for better proxies for the quality you want to measure. Apple CC example if time allows </aside>
 					</section>
+					<section data-background-image="img/taxonomy3.jpg">
+						<aside class="notes"></aside>							
+					</section>
 					<section>
-						<p>✅ Representation Bias</p>
+						<img class="plain" src="img/taxonomy-lab.png" height="200" />
+						<h3 class="fragment">Can we form useful inferences from our&nbsp;data?</h3>
+						<p class="fragment">✅ Aggregation Bias</p>
+						<p class="fragment">✅ Evaluation Bias</p>
+						<aside class="notes"></aside>
+					</section>
+					<section>
+						<p>✅ Aggregation Bias</p>
 						<blockquote class="fragment">One or more parts of the input space are underrepresented</blockquote>
 						<aside class="notes"></aside>
 					</section>
 					<section>
-						<p>✅ Representation Bias examples</p>
+						<p>✅ Aggregation Bias examples</p>
 						<ul>
 							<li class="fragment">Underrepresention due to polling methods</li>
 							<li class="fragment"><a href="https://www.theverge.com/2018/1/12/16882408/google-racist-gorillas-photo-recognition-algorithm-ai" target="_blank">Google classifying black teens as 'gorillas'</a></li>
@@ -241,7 +251,7 @@
 						<aside class="notes">This is often related to differences in production and training data, not just in the method of collecting the training data.</aside>
 					</section>
 					<section>
-						<p>✅ Mitigating Representation Bias</p>
+						<p>✅ Mitigating Aggregation Bias</p>
 						<ul>
 							<li class="fragment">Assess representation of demographics in world compared to your training data</li>
 							<li class="fragment">Test your algorithm with data sets populated with underrepresented minorities</li>
@@ -249,17 +259,27 @@
 						</ul>
 						<aside class="notes"></aside>
 					</section>
-					<section data-background-image="img/taxonomy3.jpg">
-						<aside class="notes"></aside>							
-					</section>
 					<section>
-						<img class="plain" src="img/taxonomy-lab.png" height="200" />
-						<h3 class="fragment">Can we form inferences from our&nbsp;data?</h3>
-						<p class="fragment">✅ Aggregation Bias</p>
-						<p class="fragment">✅ Evaluation Bias</p>
+						<p>✅ Evaluation Bias</p>
+						<blockquote class="fragment">One or more parts of the input space are underrepresented</blockquote>
 						<aside class="notes"></aside>
 					</section>
 					<section>
+						<p>✅ Evaluation Bias examples</p>
+						<ul>
+							<li class="fragment">Underrepresention due to polling methods</li>
+							<li class="fragment"><a href="https://www.theverge.com/2018/1/12/16882408/google-racist-gorillas-photo-recognition-algorithm-ai" target="_blank">Google classifying black teens as 'gorillas'</a></li>
+							<li class="fragment">ImageNet geographic representation (less than 3% from India & China) </li>
+						</ul>
+						<aside class="notes">This is often related to differences in production and training data, not just in the method of collecting the training data.</aside>
+					</section>
+					<section>
+						<p>✅ Mitigating Evaluation Bias</p>
+						<ul>
+							<li class="fragment">Assess representation of demographics in world compared to your training data</li>
+							<li class="fragment">Test your algorithm with data sets populated with underrepresented minorities</li>
+							<li class="fragment">Review your data collection methods for response levels across demographics</li>
+						</ul>
 						<aside class="notes">ML design (modeling decisions). We might deploy an explainability model alongside our ML model to better understand the features that it learns from and identify bias. We can put our thumb on the scale - adjust classifications or scores to inject positive bias. </aside>
 					</section>
 					<section data-background-image="img/taxonomy4.jpg">
@@ -270,7 +290,29 @@
 						<h3 class="fragment">Can we deploy those inferences effectively?</h3>
 						<p class="fragment">✅ Deployment Bias</p>
 						<aside class="notes">Identify & adjust bias retroactively after classification. Externalising machine uncertainty. Adding design thinking into the deployment of ML - whether a full automation, has a hand-off, or a decision aid.</aside>
-					</section>				
+					</section>	
+					<section>
+						<p>✅ Deployment Bias</p>
+						<blockquote class="fragment">A mismatch between the problem a model is intended to solve and the way in which it is actually used.</blockquote>
+						<aside class="notes"></aside>
+					</section>
+					<section>
+						<p>✅ Deployment Bias examples</p>
+						<ul>
+							<li class="fragment"><a href="https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing" target="_blank">Recidivism risk scores</a></li>
+							<li class="fragment"><a href="https://www.youtube.com/watch?v=WXuK6gekU1Y&feature=youtu.be&gclid=Cj0KCQjwuJz3BRDTARIsAMg-HxUTfaxmysOkbLZXDsRnKhVIlQS0Qm79VHrv-b2ETVTyDWF4eczm9WwaAliNEALw_wcB" target="_blank">AlphaGo - anthropomorphising the machine</a></li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>
+					<section>
+						<p>✅ Mitigating Deployment Bias</p>
+						<ul>
+							<li class="fragment">Involve designers, product managers, security people, and other product disciplines in application design</li>
+							<li class="fragment">Conduct UX research on the use of your tool in the real world</li>
+							<li class="fragment">Externalise model uncertainty</li>
+						</ul>
+						<aside class="notes"></aside>
+					</section>			
 				</section>				
 				<section>
 					<section>
