@@ -191,9 +191,40 @@
 					<section>
 						<img class="plain" src="img/taxonomy-data-capture.png" height="200" />
 						<h3 class="fragment">Can we capture this data well?</h3>
-						<p class="fragment">✅ Representation Bias</p>
 						<p class="fragment">✅ Measurement / Sampling Bias</p>
+						<p class="fragment">✅ Representation Bias</p>						
 						<aside class="notes">Does enough data exist in-theory across all the demographics? Data capture techniques? Data storage constraints?</aside>
+					</section>
+					<section>
+						<p>✅ Measurement / Sampling Bias</p>
+						<blockquote class="fragment">Problems with choosing, collection, or computing features and labels to use in a prediction problem</blockquote>
+						<aside class="notes">Noisy proxies. Sampling methods.</aside>
+					</section>
+					<section>
+						<p>✅ Measurement / Sampling Bias</p>
+						<ul>
+							<li class="fragment">Measurement process varies across groups</li>
+							<li class="fragment">Quality of data varies across groups</li>
+							<li class="fragment">Defined classification task is an oversimplification</li>
+						</ul>
+						<aside class="notes">Noisy proxies. Sampling methods.</aside>
+					</section>
+					<section>
+						<p>✅ Measurement Bias examples</p>
+						<ul>
+							<li class="fragment"><a href="https://www.theverge.com/2019/11/11/20958953/apple-credit-card-gender-discrimination-algorithms-black-box-investigation" target="_blank">Apple credit card scandal</a></li>
+							<li class="fragment"><a href="http://www.predpol.com/" target="_blank">PredPol - predictive policing</a></li>
+						</ul>
+						<aside class="notes">Over-measuring crime in poor/black neighborhoods ensures future over-policing (if more crimes by POC are measured and reported than caucasians)</aside>
+					</section>
+					<section>
+						<p>✅ Mitigating Measurement Bias</p>
+						<ul>
+							<li class="fragment">Review sampling methodologies</li>
+							<li class="fragment">Assess proxy quality</li>
+							<li class="fragment"></li>
+						</ul>
+						<aside class="notes"></aside>
 					</section>
 					<section>
 						<p>✅ Representation Bias</p>
@@ -203,30 +234,18 @@
 					<section>
 						<p>✅ Representation Bias examples</p>
 						<ul>
-							<li class="fragment"></li>
-							<li class="fragment"></li>
+							<li class="fragment">Underrepresention due to polling methods</li>
+							<li class="fragment"><a href="https://www.theverge.com/2018/1/12/16882408/google-racist-gorillas-photo-recognition-algorithm-ai" target="_blank">Google classifying black teens as 'gorillas'</a></li>
+							<li class="fragment">ImageNet geographic representation (less than 3% from India & China) </li>
 						</ul>
 						<aside class="notes">This is often related to differences in production and training data, not just in the method of collecting the training data.</aside>
 					</section>
 					<section>
 						<p>✅ Mitigating Representation Bias</p>
 						<ul>
-							<li class="fragment"></li>
-							<li class="fragment"></li>
-							<li class="fragment"></li>
-						</ul>
-						<aside class="notes"></aside>
-					</section>
-					<section>
-						<p>✅ Measurement / Sampling Bias</p>
-						<blockquote class="fragment">Problems with choosing, collection, or computing features and labels to use in a prediction problem</blockquote>
-						<aside class="notes"> </aside>
-					</section>
-					<section>
-						<p>✅ Measurement Bias examples</p>
-						<ul>
-							<li class="fragment"><a href="https://www.theverge.com/2019/11/11/20958953/apple-credit-card-gender-discrimination-algorithms-black-box-investigation" target="_blank">Apple credit card scandal</a></li>
-							<li class="fragment"></li>
+							<li class="fragment">Assess representation of demographics in world compared to your training data</li>
+							<li class="fragment">Test your algorithm with data sets populated with underrepresented minorities</li>
+							<li class="fragment">Review your data collection methods for response levels across demographics</li>
 						</ul>
 						<aside class="notes"></aside>
 					</section>
