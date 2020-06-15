@@ -196,7 +196,7 @@
 						<aside class="notes">Does enough data exist in-theory across all the demographics? Data capture techniques? Data storage constraints?</aside>
 					</section>
 					<section>
-						<p>✅ Measurement / Sampling Bias</p>
+						<p>✅ Measurement Bias</p>
 						<blockquote class="fragment">Problems with choosing, collection, or computing features and labels to use in a prediction problem</blockquote>
 						<aside class="notes">Noisy proxies. Sampling methods.</aside>
 					</section>
@@ -244,7 +244,7 @@
 					<section>
 						<p>✅ Aggregation Bias examples</p>
 						<ul>
-							<li class="fragment">Everything in <a href="https://www.booktopia.com.au/invisible-women-caroline-criado-perez/book/9781784742928.html" target="_blank">Invisible Women</a> by Caroline Criado Perez</li>
+							<li class="fragment">Everything in <a href="https://www.booktopia.com.au/invisible-women-caroline-criado-perez/book/9781784742928.html" target="_blank">Invisible Women</a> by Caroline&nbsp;Criado&nbsp;Perez</li>
 							<li class="fragment"><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2757062/" target="_blank">Skin cancer</a> <a href="https://www.cnet.com/health/how-to-use-your-smartphone-to-detect-skin-cancer/" target="_blank">scanning apps</a></li>
 						</ul>
 						<aside class="notes">Any time you fail to detect important variations in groups due to lumping them together</aside>
@@ -266,16 +266,16 @@
 					<section>
 						<p>✅ Evaluation Bias examples</p>
 						<ul>
-							<li class="fragment"></li>
-							<li class="fragment"></li>
+							<li class="fragment"><a href="http://proceedings.mlr.press/v81/buolamwini18a/buolamwini18a.pdf" target="_blank">Benchmark datasets</a> with insufficient representational data</li>
 						</ul>
-						<aside class="notes"></aside>
+						<aside class="notes">Facial recognition is having a moment - this is largely due to this work by Joy Buolamwini & Timnit Gebru </aside>
 					</section>
 					<section>
 						<p>✅ Mitigating Evaluation Bias</p>
 						<ul>
-							<li class="fragment"></li>
-							<li class="fragment"></li>
+							<li class="fragment">More representative benchmark datasets </li>
+							<li class="fragment">More granular benchmarks (sub-group evaluation)</li>
+							<li class="fragment">Multiple confidence levels</li>
 						</ul>
 						<aside class="notes">ML design (modeling decisions). We might deploy an explainability model alongside our ML model to better understand the features that it learns from and identify bias. We can put our thumb on the scale - adjust classifications or scores to inject positive bias. </aside>
 					</section>
@@ -310,7 +310,12 @@
 							<li class="fragment">Design failure &amp; recourse flows (first)</li>
 						</ul>
 						<aside class="notes"></aside>
-					</section>			
+					</section>		
+					<section>
+						<h2>Further reading</h2>
+						<p>A Survey on Bias and Fairness in Machine Learning</p>
+						<p><small><a href="https://arxiv.org/pdf/1908.09635.pdf" target="_blank">https://arxiv.org/pdf/1908.09635.pdf</a></small></p>
+					</section>	
 				</section>				
 				<section>
 					<section>
