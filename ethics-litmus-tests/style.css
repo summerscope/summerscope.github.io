@@ -20,6 +20,8 @@ html {
 }
 
 body {
+    background: url('vial.png') no-repeat 5% 95%;
+    background-size: 114px 300px;
     color: var(--colour-fg);
     font-family: 'Krub', sans-serif; 
     font-size: var(--base-font-size); 
@@ -35,7 +37,6 @@ h1, h2, h3 { color: var(--colour-purple);}
 h1 { font-size: 2rem; }
 
 #page { 
-    
     padding: 0; 
     margin: 0 auto; 
     min-height: 100vh; 
@@ -47,24 +48,17 @@ h1 { font-size: 2rem; }
 #content { padding: 1rem; }
 
 #card { 
-    background: white; 
-    /* border: 1px solid var(--colour-altbg);  */
+    -webkit-perspective: 1000;    
     margin: 3rem auto;    
-    padding: 0; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    max-width: 27em;
+    padding: 0;
+    width: 27rem;
     height: 10rem;
-    -webkit-box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.1);
-    -moz-box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.1);
-    box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.1);
 }
 
 #strategy { 
     font-size: 1.4rem; 
     text-align: center;
-    padding: 1rem 3rem; 
+    padding: 1rem 3rem;
     width: 100%;
 }
 
@@ -95,6 +89,55 @@ button:focus {
 
 a:hover { 
     background: var(--colour-activated); 
+}
+
+
+/* flip the pane when clicked */
+#card:active .flipper, 
+#card.active .flipper {
+    /* -webkit-transform: rotateY(180deg); */
+}
+
+.flip {
+    -webkit-transform: rotateY(180deg); 
+}
+
+#card, .front, .back {
+    width: 27rem;
+    height: 10rem;
+}
+
+/* flip speed goes here */
+.flipper {
+    -webkit-transition: 0.6s;
+    -webkit-transform-style: preserve-3d;
+    position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+    font-size: 1.4rem; 
+    text-align: center;
+    -webkit-backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: white;
+    border: 1px solid var(--colour-altbg);
+    -webkit-box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.1);
+}
+
+/* front pane, placed above back */
+.front {
+    z-index: 2;    
+}
+
+/* back, initially hidden pane */
+.back {
+    background: #f2f2f2;
+    -webkit-transform: rotateY(180deg);
 }
 
 @media (min-width: 768px) {

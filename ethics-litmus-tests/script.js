@@ -72,49 +72,41 @@ const cards = [...new Set([...litmuspapers])];
 const $button = document.getElementById('button');
 const $card = document.getElementById('card');
 const $strategy = document.getElementById('strategy');
+const $flipper = document.getElementById('flipper');
+const $front = document.getElementById('front');
+const $back = document.getElementById('back');
+
 const strategyCount = cards.length;
 
-function annotate(text) {
-    let $annotation = document.createElement('p');
-    $annotation.setAttribute('id', 'annotation');
-    $annotation.innerText = text;
-    $card.insertAdjacentElement('afterend', $annotation);      
+var flip = false;
+
+function flipCard() {
+    if (flip) {
+        $flipper.classList.remove('flip');
+        flip = false;
+        console.log('if flip  ' + flip);
+    } else {
+        $flipper.classList.add('flip');
+        flip = true;
+        console.log('else ' + flip);
+    }
 }
 
 function showCard(meta) {
     let strategy = cards[Math.floor(Math.random() * strategyCount)];
-    let annotation = document.getElementById('annotation');
-
-    if (meta) {
-    $strategy.classList.add('meta');
-    $strategy.innerText = 'These cards evolved from our separate observations on the principles underlying what we were doing. Sometimes they were recognized in retrospect (intellect catching up with intuition), sometimes they were identified as they were happening, sometimes they were formulated.\n They can be used as a pack (a set of possibilities being continuously reviewed in the mind) or by drawing a single card from the shuffled pack when a dilemma occurs in a working situation. In this case,the card is trusted even if its appropriateness is quite unclear. They are not final, as new ideas will present themselves, and others will become self-evident.'
+    if (flip) {
+        $front.innerText = strategy;
     } else {
-    $strategy.classList.remove('meta');
-    $strategy.innerText = strategy;
+        $back.innerText = strategy;
     }
-
-    if (annotation) {
-    annotation.remove();
-    }
-
-    switch (strategy) {
-    case "[blank white card]":
-        annotate('Each edition of Oblique Strategies included several blank white cards, to add new ideas over time.')
-    break;
-    default:
-    break;
-    }
-
 }
 
-document.getElementById('meta').addEventListener('click', function() {
-    showCard(true)
-});
-
 $button.addEventListener('click', function() {
-    showCard(false)
+    showCard(false);
+    flipCard();
 });
 
-window.addEventListener('load', function (){
-    showCard()
+window.addEventListener('load', function () {
+    showCard();
+    flipCard();
 });
