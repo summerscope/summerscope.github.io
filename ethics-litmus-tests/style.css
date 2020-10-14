@@ -4,7 +4,7 @@
     --colour-altbg: #eee;
     --colour-activated: #ccc;
     --colour-purple: #803acf;
-    --base-font-size: 1.2rem;
+    --base-font-size: 1.25rem;
 }
 
 @keyframes fadeIn { 0% { opacity:0; } 100% { opacity:1; }}
@@ -33,7 +33,7 @@ body {
 h1, h2, h3 { color: var(--colour-purple);}
 
 h1 { 
-    font-size: 2rem; 
+    font-size: 1.5rem;
     margin: 0;
 }
 
@@ -50,8 +50,6 @@ main {
     -webkit-perspective: 1000;    
     margin: 3rem auto;    
     padding: 0;
-    width: 27rem;
-    height: 10rem;
 }
 
 #strategy { 
@@ -100,8 +98,8 @@ a:hover {
 }
 
 #card, .front, .back {
-    width: 27rem;
-    height: 10rem;
+    width: 17.5rem;
+    height: 6.48rem;
 }
 
 /* flip speed goes here */
@@ -114,7 +112,7 @@ a:hover {
 
 /* hide back of pane during swap */
 .front, .back {
-    font-size: 1.4rem; 
+    font-size: 1rem;
     text-align: center;
     -webkit-backface-visibility: hidden;
     position: absolute;
@@ -148,7 +146,20 @@ a:hover {
 }
 
 @media (min-width: 768px) {
-    #card { width: 27rem; }
+    h1 { 
+        font-size: 2rem;
+    }
+    main {
+        padding: 1.25rem;
+    }
+    #card, .front, .back { 
+        width: 27rem;
+        height: 10rem;
+    }
+    .front, .back {
+        font-size: 1.4rem; 
+    }
 }
+
 @media (min-width: 1024px) {
 }
