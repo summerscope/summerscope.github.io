@@ -99,7 +99,7 @@ a:hover {
 }
 
 .flip {
-    -webkit-transform: rotateY(180deg); 
+    -webkit-transform: rotateY(180deg);
 }
 
 #card, .front, .back {
@@ -111,6 +111,7 @@ a:hover {
 .flipper {
     -webkit-transition: 0.6s;
     -webkit-transform-style: preserve-3d;
+    transition-timing-function: ease-in-out;
     position: relative;
 }
 
@@ -138,6 +139,15 @@ a:hover {
 .back {
     background: #f2f2f2;
     -webkit-transform: rotateY(180deg);
+}
+
+#front, #back {
+    width: calc(100% - 4rem);
+    height: 100%;
+    margin: 0 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media (min-width: 768px) {

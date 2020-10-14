@@ -64,7 +64,8 @@ const litmuspapers = [
     "Am I reinforcing or challenging the status quo?",
     "What do we owe to each other?",
     "Consider short-term vs. long-term consequences",
-    "Who has the most and least power in this scenario?"
+    "Who has the most and least power in this scenario?",
+    "Blank card"
 ]
 
 const cards = [...new Set([...litmuspapers])];
