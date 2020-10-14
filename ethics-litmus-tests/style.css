@@ -4,6 +4,7 @@
     --colour-altbg: #eee;
     --colour-activated: #ccc;
     --colour-purple: #803acf;
+    --colour-purple-active: #631cb4;
     --base-font-size: 1.25rem;
 }
 
@@ -59,11 +60,8 @@ main {
     width: 100%;
 }
 
-#strategy.meta { font-size: 0.9rem; padding: 1rem; line-height: 1.3; }
-
 a { 
     color: var(--colour-purple); 
-    outline: 0;
 }
 
 button { 
@@ -75,12 +73,12 @@ button {
     padding: 0.75rem 1.25rem;
     color: white;
     font-weight: 700;
+    transition: all 300ms ease; 
 }
 
-a:focus, 
-button:focus { 
-    outline: none; 
-    box-shadow: 0 0 0 0.1rem var(--colour-fg); 
+button:hover, 
+button:active {
+    background: var(--colour-purple-active);
 }
 
 a:hover { 
@@ -88,11 +86,6 @@ a:hover {
 }
 
 /* flip the pane when clicked */
-#card:active .flipper, 
-#card.active .flipper {
-    /* -webkit-transform: rotateY(180deg); */
-}
-
 .flip {
     -webkit-transform: rotateY(180deg);
 }
