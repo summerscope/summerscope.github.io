@@ -20,8 +20,6 @@ html {
 }
 
 body {
-    background: url('vial.png') no-repeat 5% 95%;
-    background-size: 114px 300px;
     color: var(--colour-fg);
     font-family: 'Krub', sans-serif; 
     font-size: var(--base-font-size); 
@@ -34,18 +32,19 @@ body {
 
 h1, h2, h3 { color: var(--colour-purple);}
 
-h1 { font-size: 2rem; }
-
-#page { 
-    padding: 0; 
-    margin: 0 auto; 
-    min-height: 100vh; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
+h1 { 
+    font-size: 2rem; 
+    margin: 0;
 }
 
-#content { padding: 1rem; }
+main {
+    min-height: calc(100vh - 110px - 2.5rem);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 #card { 
     -webkit-perspective: 1000;    
@@ -76,7 +75,6 @@ button {
     border: none;
     border-radius: 0.5rem;
     padding: 0.75rem 1.25rem;
-    margin-right: 1rem; 
     color: white;
     font-weight: 700;
 }
@@ -88,9 +86,8 @@ button:focus {
 }
 
 a:hover { 
-    background: var(--colour-activated); 
+    background: white; 
 }
-
 
 /* flip the pane when clicked */
 #card:active .flipper, 
@@ -151,7 +148,6 @@ a:hover {
 }
 
 @media (min-width: 768px) {
-    #page { max-width: 60rem; min-width: 30rem; }
     #card { width: 27rem; }
 }
 @media (min-width: 1024px) {
