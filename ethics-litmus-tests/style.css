@@ -137,9 +137,9 @@ a:hover {
 }
 
 #front, #back {
-    width: calc(100% - 4rem);
+    width: calc(100% - 6.25rem);
     height: 100%;
-    margin: 0 2rem;
+    margin: 0 3.125rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -157,7 +157,7 @@ a:hover {
         height: 10rem;
     }
     .front, .back {
-        font-size: 1.4rem; 
+        font-size: 1.25rem;
     }
 }
 
