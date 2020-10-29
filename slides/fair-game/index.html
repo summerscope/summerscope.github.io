@@ -1,0 +1,257 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="description" content="How do we connect high-level principles with day-to-day product decision making? How do we move past the AI Ethics hype and start trying, testing and implementing practical approaches? These questions are at the heart of Laura's work, and in this talk she shares stories, discoveries, and decisions from her time as an 'ethics ops' consultant embedded with a small team in a big telco. From improving the science bit of data science, to developing the collective sensitivity of the team, to designing recourse for false positives, tune in for pragmatic pointers and actionable take-aways that you can try with your team right away.">
+		<title>Fair game: the ethics of telco fraud</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Fair game</h1>
+					<h3>The ethics of telco fraud</h3>
+				</section>
+				<section>
+					<h1>intro</h1>
+					<aside class="notes">About me, ethics litmus tests, etc</aside>
+				</section>
+				<section>
+					<h1>ethics litmus tests</h1>
+					<h2 class="fragment">now online!</h2>
+					<aside class="notes">NB borrowed from Ben Buchanon (big stonking post) - V1 static, V2 is going to allow suggestions and a vote / poll mechanism to add new cards</aside>
+				</section>
+				<section>
+					<section>
+						<h1>section 1: <br>top down -vs- bottom up</h1>
+					</section>
+					<section>
+						<h1>responsible tech</h1>
+						<h2 class="fragment">no magic bullets</h2>
+						<aside class="notes">
+							if you're hoping to learn how to write an ethics strategy document, this is probably not the talk for you. I'm going to share anecdotes and experiences about my work with the messy intersection of people, data, and systems - but I'm won't offer any easy answers, or a prescription for success. 
+						</aside>
+					</section>
+					<section>
+						<h1>no magic bullets<sup>*</sup></h1>
+						<h2 class="fragment"><sup>*</sup>Anyone who tells you otherwise is selling something</h2>
+						<aside class="notes">There are no magic bullets. The desire for a magic bullet is part of the problem. We're in the Cambrian explosion phase not just of AI but of also of AI Ethics. It's on us to interrogate the power structures and agendas lurking behind the glossy marketing copy.</aside>
+					</section>
+					<section>
+						<!-- img placeholder harvard map of principles docs -->
+						<h1>On endless principles</h1>
+						<aside class="notes">
+							Let me be a bit more precise in my critique of strategy documents. I'm not particularly interested in writing ethics strategy or data governance strategy - whether industry, govt or company driven, unless it there is a clear line between the principle being defined and the granular decisions being made at a product or data level. The day-to-day decisions. The little course corrections.
+						</aside>
+					</section>
+					<section>
+						<blockquote>"As a result, developers are becoming frustrated by how little help is offered by highly abstract principles when it comes to the ‘day job’"*</blockquote>
+						<p><small>- From What to How: An Initial Review of Publicly Available AI Ethics Tools, Methods and Research to Translate Principles into Practices
+							https://arxiv.org/abs/1905.06876 </small></p>
+						<aside class="notes">
+							***Broad consensus on principles? So what? Just a dogs breakfast of ideas that are hard to argue with in-principle and hard to test for in practice.
+							"a lack of progress in the translation of available tools and methods from academic literature or early-stage development and research, to real-life use"*
+						</aside>
+					</section>
+					<section>
+						<blockquote>"Must be designed for human flourishing" [ref]</blockquote>
+						<aside class="notes">"Cool story, what does that even mean? What's the code test for that?"</aside>
+					</section>
+					<section>
+						<blockquote>"Cultivating diversity in our teams to ensure everyone has a seat on the table" [ref] </blockquote>
+						<aside class="notes">Nice but how much diversity is enough? How will you measure that? Will you report on it - internally, or externally?</aside>
+					</section>
+					<section>
+						<blockquote>"Avoid capturing personal data whenever possible" [ref]</blockquote>
+						<aside class="notes">"Right but what if you need to capture sensitive personal data to know if your system has become biased against that attribute?"</aside>
+					</section>
+					<section>
+						<blockquote>"A string of empty profunditites"</blockquote>
+						<p>- Andy Kitchen</p>
+						<aside class="notes">
+							The work is in the detail, the daily decisions. The desire to abstract, to generalise, can itself be a form of procrastination.  
+						</aside>
+					</section>
+					<section>
+						<!-- img placeholder - throwing a molotov cocktail -->
+						<aside class="notes">Don't point at a document, framework, or methodology and say "Go use it". Champion the approach from inside the team. Get your hands dirty. Show by doing.  </aside>
+					</section>
+					<section>
+						<h1>get your hands dirty</h1>
+						<aside class="notes">Advice to consultants - don't other yourself or other your work! Skill sharing, exploring platforms, tech approaches, etc - all better if you try to join the team rather than provide outside, othered advice. You'll better understand the texture of their problems. You'll also have a better sense of whether your proposed solution is viable. </aside>
+					</section>
+					<section>
+						<!-- img placeholder attention thief -->
+						<aside class="notes">
+							Without measurable outcomes, these principles are toothless. And worse, they're resource thiefs. They suck the oxygen from the room. They lull us into thinking we're already doing the work, without actually having started. I'd argue the real work starts at implementation. What's your plan to integrate these principles into your decision making at every level? How will this change your culture? How will you help people unlearn bad habits? Who will set the boundaries of acceptable time and discourse (e.g. how much money are you willing to spend)? Do you have internal champions who can 'show by doing'? Do you need to offer training or upskilling? 
+						</aside>
+					</section>
+					<section>
+						<h1>Commit to action</h1>
+						<ul>
+							<li class="fragment">set measurable targets</li>
+							<li class="fragment">provide examples</li>
+							<li class="fragment">allow for uncertainty</li>
+						</ul>
+						<aside class="notes">
+							If you must have a strategy document or page, make it a commitment to action. Without real commitment to the longevity of your principles, what often happens is the documents gather dust in the corner, and life very quickly returns to the status quo.
+						</aside>
+					</section>
+					<section>
+						img placeholder - driving fast on the audobon
+						<aside class="notes">
+							Or to frame it another way: rather than thinking we can reduce the risks of our technology with a strategy document, can we acknowledge the risks and ask everyone to take them seriously and *not* pretend to have solved them? A metaphor: driving fast on the autobahn - the German freeway that has no speed limit. It's scary, but also exhilarating, and you're alert to the danger. Sometimes we *want* to feel the wind rushing past. Perhaps insulating ourselves from that sensation is unhelpful. 
+						</aside>
+					</section>
+					<section>
+						<blockquote>“Never doubt that a small group of thoughtful, committed, citizens can change the world. Indeed, it is the only thing that ever has.”</blockquote>
+						<p>-Margaret Mead</p>
+						<aside class="notes">
+							Because to be clear, you don't really need principles, policy, or values to get started. You just need a few bright sparks and enough rope. So let's tangle with the grey. 
+						</aside>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Section 2: learning all the things</h1>
+					</section>
+					<section>
+						<h1>Joining a telco</h1>
+						<aside class="notes">
+							At the beginning of 2020 (which is either a year or a lifetime ago, who even knows) I joined a fraud detection team in a telco. I'd describe my role as an 'ethics ops' consultant, but I don't think that's the formal title - their recruiting systems didn't have a role that matched. The team - 'pod' in the internal parlance - was relatively new and had been spun up in response to some fairly serious fraud attacks that had taken a bite out of their revenue. The approach to fraud detection is pretty standard - a mix of monitoring, internal business rules, and using third party systems with proprietary fraud algorithms.
+						</aside>
+					</section>
+					<section>
+						<!-- img placeholder eye glasses with labels user harm,  implicit bias, explicit bias -->
+						<aside class="notes">
+							My job is to introduce a harm identification and mitigation lens to the work. Fraud is an interesting space within which to discuss ethics, because not only are you (the company) capable of inflicting harm on your customers, you are also under attack by a sub-set of customers who mean you harm.
+						</aside>
+					</section>
+					<section>
+						<h1>A balancing act</h1>
+						<aside class="notes">
+							You have to balance the real, often urgent concerns of identifying bad behaviour and halting costs while also acknowledging the possibility of false positives, and considering how you might identify and support any innocent parties who accidentally get caught in the cross-fire. Add to this the ever-changing space of fraud activity. Email spam is a similar field - just as the algorithms get smarter at detecting spam, the spammers get cleverer in their approaches to slipping the net. 
+						</aside>
+					</section>
+					<section>
+						<h1>Learning #1</h1>
+						<h3>Data (interpretation) pride comes before a fall</h3>
+						<aside class="notes">
+						</aside>
+					</section>
+					<section>
+						<h1>For example</h1>
+						<aside class="notes">
+							The textivist... The auto-call on smartwatch... 
+						</aside>
+					</section>
+					<section>
+						<aside class="notes">
+							LOOK at your raw data! Let lots of people look at it. Ask yourself questions. You'll be surprised at what SME and different stakeholders will be able to tell you. 
+						</aside>
+					</section>
+					<section>
+						<h1>Deconstructing your proxy</h1>
+						<ul>
+							<li class="fragment">Signal</li>
+							<li class="fragment"><em>infers</em> Behaviour</li>
+							<li class="fragment"><em>infers</em> Persona</li>
+						</ul>
+						<p class="fragment">Don't forget we also measure anti-signals</p>
+						<aside class="notes">
+							All data is a proxy. We have to be ultra explicit about the logic leaps we are making. Always asking the question how good a proxy is this data for the thing I REALLY want to know?
+						</aside>
+					</section>
+					<section>
+						<!-- placeholder - give an example of how this model works with a real data source -->
+					</section>
+					<section>
+						<h1>Learning 2: Develop a healthy cynicism about data sources</h1>
+						<aside class="notes">
+							This is really an extension of the first learning / point. 
+						</aside>
+					</section>
+					<section>
+						<h1>Anecdote</h1>
+						<!-- img placeholder radar system looking at a flock of birds -->
+						<aside class="notes">
+							Russian tech looking at radar, had a rule to launch missile but didnt.
+							This is usually held up as a story about humanity but I think it's also a story about the deep intuition of a technician. Someone who can put their hand on the bonnet and know how well the machine is running.
+						</aside>
+					</section>
+					<section>
+						Data misinterpretation is <u>easy</u>, and <u>likely</u> under pressure.					
+						<aside class="notes">One of the most interesting things about working with fraud is the pressure it puts on data interpretation in periods of attack. Like putting data science hygiene through the wringer -  in unexpected bursts. </aside>
+					</section>
+					<section>
+						<h1>For example...</h1>
+						<aside class="notes">
+							3 hour batch timeframe. Maintenance outages (planned) causing delays in data stream. 
+						</aside>
+					</section>
+					<section>
+						<h1>Design for cognitive load</h1>
+						<aside class="notes">
+							Wherever possible, add labels. Be explicit. Make it impossible to misinterpret.
+						</aside>
+					</section>
+					<section>
+						<h1>Simple doesn't imply you're stupid</h1>
+						<aside class="notes">
+							Just because your team is smart, technical, doesn't mean you want them to have to be brilliant detectives under time and cost pressure. 
+						</aside>
+					</section>
+					<section>
+						<h1>Litmus test</h1>
+						<h3>On a quick glance, is this easy to misunderstand?</h3>
+						<aside class="notes">
+							Even if you're not working in the space of fraud, we experience this same kind of pressure all the time. When a customer discovers a bug in production. When there's an outage with a third party, etc. 
+						</aside>
+					</section>
+					<section>
+						<h1>Pointers for interpretation</h1>
+						<ul>
+							<li class="fragment">Using DSL (domain specific language)?</li>
+							<li class="fragment">Absolute (total count) or relative (%)?</li>
+							<li class="fragment">Is the data recency clear?</li>
+						</ul>
+					</section>
+					<section>
+						<h1>Learning 3: Holding place for uncertainty</h1>
+						<h3>(Without being paralysed)</h3>
+					</section>
+					<section>
+						
+					</section>
+				</section>
+
+				<section>Slide 2</section>
+			</div>
+
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
