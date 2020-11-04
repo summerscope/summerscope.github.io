@@ -149,7 +149,7 @@
 						</aside>
 					</section>
 					<section>
-						<h1 class="learning">Learning #1</h1>
+						<h1 class="learning">Finding #1</h1>
 						<h2>Data (interpretation) pride comes before a fall</h2>
 						<aside class="notes">
 						</aside>
@@ -186,7 +186,7 @@
 						<!-- placeholder - give an example of how this model works with a real data source -->
 					</section>
 					<section>
-						<h1 class="learning">Learning #2</h1> 
+						<h1 class="learning">Finding #2</h1> 
 						<h2>Develop a healthy cynicism about data sources</h2>
 						<aside class="notes">
 							This is really an extension of the first learning / point. 
@@ -243,7 +243,7 @@
 						</ul>
 					</section>
 					<section>
-						<h1 class="learning">Learning #3</h1> 
+						<h1 class="learning">Finding #3</h1> 
 						<h2>Holding space for uncertainty <br>(Without being paralysed)</h2>
 						<aside class="notes">We want to acknowledge the uncertainty inherent in our decision making without allowing us to be paralysed</aside>
 					</section>
@@ -300,7 +300,7 @@
 					</section>
 					<section>
 						<!-- img placeholder pearl clutcher  -->
-						<h2>But what if it's a bad actor?!?</h2>
+						<h2>bUt wHAt iF iT's A BAd AcTor?</h2>
 						<h3 class="fragment">So what?</h3>
 						<aside class="notes">What is the harm in being overly respectful to someone who is trying to rip you off? Versus what's the harm in speaking harshly to a legit customer by accident? Have to think about reputational harms, and stay focused on the goal.</aside>
 					</section>
@@ -309,12 +309,13 @@
 						<aside class="notes">Being 'right' isn't helpful. You don't know that person, you don't know their story. </aside>
 					</section>
 					<section>
-						<h2>Tip: Describe <em>behaviours</em>, not <em>people</em></h2>
+						<h2>Tip</h2>
+						<h3>Describe <em>behaviours</em>, not <em>people</em></h3>
 						<aside class="notes">Describe behaviour (service misuse) not people (fraudster). There's literally no value in applying a moralising title to a person. THere's every possibility of harm, on both sides, if you get it wrong.</aside>
 					</section>
 					<section>
-						<h1 class="learning">Learning #4</h1>
-						<h2>Mapping internal knowledge states</h2>
+						<h1 class="learning">Finding #4</h1>
+						<h2>Mapping knowledge states</h2>
 						<aside class="notes">ok. so you probably knew this was coming. This is the section where i tell you that the best way to improve your data science practice as a whole is to do better, much better, at the boring science bits.</aside>
 					</section>
 					<section>
@@ -356,8 +357,8 @@
 						<aside class="notes">Looking at the history of what actions had been taken on a service number - can make longitudinal analysis very difficult if the reasons aren't well documented AND if there is no way to observe the occurance of false positives. If you don't know when you automation was wrong, hard to use that data with confidence. Also - maybe your logs aren't the source of truth, ok! as long as somewhere there is a source of truth. </aside>
 					</section>
 					<section>
-						<h1 class="learning">Learning #5</h1>
-						<h2>If you don't ask, customers won't tell</h2>
+						<h1 class="learning">Finding #5</h1>
+						<h2>If you don't ask,<br /> customers won't tell</h2>
 						<aside class="notes">Probably obvious! But important. Follows-on nicely from thinking about logs and improving our understanding of history. Most people won't bother to give you feedback.  If you want to know whether you've had false positives you need to allow for this possibility and design feedback loops in by default. </aside>
 					</section>
 					<section>
@@ -391,7 +392,7 @@
 						<aside class="notes">If you take action to block or disconnect a service based on fraud - can't call or text that customer now! (ouch). And if you send your comms from a donotreply email, you make email replies difficult and discouraging (double ouch). </aside>
 					</section>
 					<section>
-						<h1 class="learning">Learning #6</h1>
+						<h1 class="learning">Finding #6</h1>
 						<h2>Design for failure first</h2>
 						<aside class="notes">Thinking about asking customers if a classification, prediction or automated decision impacting them was wrong flows nicely into this idea of designing for failure first.</aside>
 					</section>
@@ -432,11 +433,58 @@
 						<h3>Could any customer go through my escape hatch, recover and remain a happy customer?</h3>
 						<aside class="notes">Sometimes you have to think creatively - pitch a friction as a value add. "We are working hard to protect your identity and your account's safety" is a good one, for instance. Test out your explanations and flows on random people NOT those who match the assumptions your system made as a way to assess the quality of the solution.</aside>
 					</section>
-
+					<section>
+						<h1 class="learning">Finding #7</h1>
+						<h2>Speed matters</h2>
+						<aside class="notes">Here's the classic problem in product - how fast should we build and deploy things</aside>
+					</section>
+					<section>
+						<h2>Finding the sweet spot</h2>
+						<!-- img placeholder spectrum between move fast and break things, and design by committeeeeeee -->
+						<aside class="notes">Too slow can be just as dangerous as too fast</aside>
+					</section>
+					<section>
+						<blockquote>Placeholder quote on speed of feedback loops</blockquote>
+						- Donna meadows paper - systems interventions 
+					</section>
 					
-
+					<section>
+						<h2>Dangers of too slow / too many decision makers </h2>
+						<ul>
+							<li class="fragment">Feedback takes too long</li>
+							<li class="fragment">You may not see the impact of a decision</li>
+							<li class="fragment">Doing things <em>feels hard</em></li>
+							<li class="fragment">Culture of resistance</li>
+							<li class="fragment">Diffusion of responsibility</li>
+							<li class="fragment">Get anchored to your first idea</li>
+							<li class="fragment">Sunk cost bias</li>
+						</ul>
+						<aside class="notes">Much more difficult to treat solutions / features / ideas lightly, as hypotheses to be validated or not. </aside>
+					</section>
+					<section>
+						<h2>Dangers of too fast / too few decision makers </h2>
+						<ul>
+							<li class="fragment">Ask forgiveness not permission</li>
+							<li class="fragment">Insufficient knowledge / expertise</li>
+							<li class="fragment">Overconfidence</li>
+							<li class="fragment">Failing to measure impact</li>
+							<li class="fragment">Reinventing the wheel</li>
+						</ul>
+						<aside class="notes">"The Facebook" (especially early years)</aside>
+					</section>
+					<section>
+						<h1 class="learning">Finding #8</h1>
+						<h2>Upstream prevention vs downstream mitigation</h2>
+						<aside class="notes">What can you do in the product? Vs what do you try to intervene on after it happens? </aside>
+					</section>
+					<section>
+						<blockquote>
+							These sorts of things will happen. I’m very intentional about not saying abuse "might" happen - if it can, it will.
+						</blockquote>
+						- Eva PenzeyMoog <a href="https://evapenzeymoog.substack.com/p/coming-soon" target="_blank">newsletter</a>
+						<aside class="notes">I see a reseblance between Fraud and Abuse (tech used in DV / DA). These are people with a different agenda to yours. They are looking for vulnerabilities they can exploit for their own ends.  </aside>
+					</section>
 				</section>
-
 				<section>Slide 2</section>
 			</div>
 
