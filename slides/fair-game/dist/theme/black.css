@@ -301,6 +301,10 @@ blockquote {
   font-style: italic;
   font-weight: 400; }
 
+.twitter-tweet {
+  margin-left: auto;
+  margin-right: auto; }
+
 .reveal h1.learning {
   font-size: 65%;
   text-transform: uppercase;
