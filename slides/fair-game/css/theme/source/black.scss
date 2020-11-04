@@ -22,12 +22,12 @@ $mainColor: #fff;
 $headingColor: #fff;
 
 $mainFontSize: 42px;
-$mainFont: 'Source Sans Pro', Helvetica, sans-serif;
-$headingFont: 'Source Sans Pro', Helvetica, sans-serif;
+$mainFont: 'Krub', Helvetica, sans-serif;
+$headingFont: 'Lato', Helvetica, sans-serif;
 $headingTextShadow: none;
 $headingLetterSpacing: normal;
-$headingTextTransform: uppercase;
-$headingFontWeight: 600;
+$headingTextTransform: none;
+$headingFontWeight: 400;
 $linkColor: #42affa;
 $linkColorHover: lighten( $linkColor, 15% );
 $selectionBackgroundColor: lighten( $linkColor, 25% );
@@ -44,3 +44,20 @@ $heading4Size: 1.0em;
 // Theme template ------------------------------
 @import "../template/theme";
 // ---------------------------------------------
+
+.reveal h1, .reveal h2 {
+    font-weight: 700;
+}
+
+blockquote {
+    font-family: 'Lato', Helvetica, sans-serif;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.reveal h1.learning {
+    font-size: 65%;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+}
