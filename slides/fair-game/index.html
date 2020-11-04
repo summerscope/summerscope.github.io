@@ -160,6 +160,11 @@
 					</section>
 					<section>
 						<h2>Deconstructing your proxy</h2>
+						<aside class="notes">All data is a proxy - it's an approximation of the thing we actually want to measure</aside>
+					</section>
+					<section>
+						<h2>A concept framework</h2>
+						<!-- img placeholder illustration of this flow  -->
 						<ul>
 							<li class="fragment">Signal</li>
 							<li class="fragment"><em>infers</em> Behaviour</li>
@@ -167,7 +172,7 @@
 						</ul>
 						<p class="fragment">Don't forget we also measure anti-signals</p>
 						<aside class="notes">
-							All data is a proxy. We have to be ultra explicit about the logic leaps we are making. Always asking the question how good a proxy is this data for the thing I REALLY want to know?
+							This is the framing I use, and I think it helps us be explicit about the logic leaps we are making. Always asking the question how good a proxy is this data for the thing I REALLY want to know?
 						</aside>
 					</section>
 					<section>
@@ -333,7 +338,92 @@
 						<h2>Personas</h2>
 						<!-- img placeholder - one of the personas  -->
 						<aside class="notes">Talk about writing personas documentation to have a shared model that stakeholders from support and ops through to data science can reference</aside>
-
+					</section>
+					<section>
+						<h2>Defining your baseline</h2>
+						<aside class="notes">If you don't have a shared understanding it's hard to move forwards. Needed for all experiments, hypotheses you want to try moving forwards. Also - perhaps minor discrepancies in what is the current state will reveal a question to investigate? </aside>
+					</section>
+					<section>
+						<h2>For example</h2>
+						<h3>Looking at the logs</h3>
+						<aside class="notes">Looking at the history of what actions had been taken on a service number - can make longitudinal analysis very difficult if the reasons aren't well documented AND if there is no way to observe the occurance of false positives. If you don't know when you automation was wrong, hard to use that data with confidence. Also - maybe your logs aren't the source of truth, ok! as long as somewhere there is a source of truth. </aside>
+					</section>
+					<section>
+						<h1>Learning 5</h1>
+						<h3>If you don't ask, customers won't tell</h3>
+						<aside class="notes">Probably obvious! But important. Follows-on nicely from thinking about logs and improving our understanding of history. Most people won't bother to give you feedback.  If you want to know whether you've had false positives you need to allow for this possibility and design feedback loops in by default. </aside>
+					</section>
+					<section>
+						<!-- img placeholder 'too hard basket' -->
+						<aside class="notes">I think of this as the rule of lurkers vs contributors. In the space of fraud, if you have taken an action on a service they're more likely to churn than to make an effort to reach out to you - and why would they bother based on a market where churn is the norm and it's easy to swap providers? If they are really angry you might get feedback - but through the form of a complaint to the TIO (the regulator) - also a bad outcome. </aside>
+					</section>
+					<section>
+						<h2>Customers <u>are</u> the experts...</h2>
+						<h3 class="fragment">...on themselves</h3>
+						<aside class="notes">If your system makes an incorrect assumption, are you in a position to find out?</aside>
+					</section>
+					<section>
+						<h2>Feedback loops must be </h2>
+						<ul>
+							<li>Intuitive</li>
+							<li>Contextual</li>
+							<li>Timely</li>
+						</ul>
+						<aside class="notes">I'm a fan of micro-feedback, small and contextual questions that are really lightweight and easy to answer.</aside>
+					</section>
+					<section>
+						<h2>Plan time for...</h2>
+						<ul>
+							<li>Customer support</li>
+							<li>Product/model improvements</li>
+							<li>Integrating your learnings</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Gotchas</h2>
+						<aside class="notes">If you take action to block or disconnect a service based on fraud - can't call or text that customer now! (ouch). And if you send your comms from a donotreply email, you make email replies difficult and discouraging (double ouch). </aside>
+					</section>
+					<section>
+						<h1>Learning 6</h1>
+						<h3>Design for failure first</h3>
+						<aside class="notes">Thinking about asking customers if a classification, prediction or automated decision impacting them was wrong flows nicely into this idea of designing for failure first.</aside>
+					</section>
+					<section>
+						<h2>Your system <u>will</u> get it wrong</h2>
+						<h3 class="fragment">So how will it handle failure?</h3>
+						<aside class="notes">Start from the assumption that your system is not perfect. We know this is the case with any machine learning or statistical models. The literal only assumption you can make is that it will be wrong for some percent of the time. And ever removing the issue of statistical models there are plenty of other aspects of your tech stack and human stack that point to the strong certainty of some amount of failure: complexity, culture, etc.</aside>
+					</section>
+					<section>
+						<h2>There are always consequences...</h2>
+						<!-- placeholder paper reference - glen - FB engineers & false positives  -->
+					</section>
+					<section>
+						<h2>Harm mapping</h2>
+						<h3 class="fragment">Recommended starting point</h3>
+						<p class="fragment"><a href="https://github.com/summerscope/mapping-fair-ml" target="_blank">github.com/summerscope/mapping-fair-ml</a></p>
+						<aside class="notes">This is a whole topic but just to point to it, this is the bit where we think about what we might get wrong, and what are the consequences. There are a whole bunch of tools and frameworks out there to try - ethics litmus tests among them.</aside>
+					</section>
+					<section>
+						<h2>Designing an escape hatch</h2>
+						<!-- placeholder image escape hatch  -->
+						<ul>
+							<li class="fragment">email / sms template copy</li>
+							<li class="fragment">support scripts for conversations</li>
+							<li class="fragment">data schema design - capturing your learnings</li>
+						</ul>
+						<aside class="notes">Think of this as designing your escape hatch. You don't want to have to use it much - but you sure want it well oiled if you do have to use it.</aside>
+					</section>
+					<section>
+						<h2>Prepare for pushback</h2>
+						<ul>
+							<li class="fragment">People don't like it when you make bad assumptions about them!</li>
+							<li class="fragment">Making the implicit explict is going to be uncomfortable</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Litmus test</h2>
+						<h3>Could any customer go through my escape hatch, recover and remain a happy customer?</h3>
+						<aside class="notes">Sometimes you have to think creatively - pitch a friction as a value add. "We are working hard to protect your identity and your account's safety" is a good one, for instance. Test out your explanations and flows on random people NOT those who match the assumptions your system made as a way to assess the quality of the solution.</aside>
 					</section>
 
 					
