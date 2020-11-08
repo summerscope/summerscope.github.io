@@ -148,7 +148,7 @@
 						</aside>
 					</section>
 					<section>
-						<!-- img placeholder eye glasses with labels user harm,  implicit bias, explicit bias -->
+						<img src="img/harm-lenses.png" width="700" alt="Three eye glasses with labels, User Harm, Historical Bias, Algorithmic Bias" />
 						<aside class="notes">
 							My job is to introduce a harm identification and mitigation lens to the work. Fraud is an interesting space within which to discuss ethics, because not only are you (the company) capable of inflicting harm on your customers, you are also under attack by a sub-set of customers who mean you harm.
 						</aside>
@@ -208,9 +208,8 @@
 								<h3>Persona</h3>
 							</div>
 						</div>
-						<!-- <p class="fragment">Don't forget we also measure anti-signals</p> -->
 						<aside class="notes">
-							This is the framing I use, and I think it helps us be explicit about the logic leaps we are making. Always asking the question how good a proxy is this data for the thing I REALLY want to know?
+							Don't forget we also measure anti-signals. This is the framing I use, and I think it helps us be explicit about the logic leaps we are making. Always asking the question how good a proxy is this data for the thing I REALLY want to know?
 						</aside>
 					</section>
 					<section>
@@ -221,12 +220,18 @@
 						</aside>
 					</section>
 					<section>
-						<h2>Anecdote</h2>
-						<!-- img placeholder early nuclear detection system or sunlight on clouds? -->
+						<h2>Stanislav Petrov</h2>
+						<img src="img/stanislav-petrov.jpg" width="600" />
+						<p>"The man who saved the world"</p>
 						<aside class="notes">
-							Russian tech looking at radar, had a rule to launch missile but didnt.
-							This is usually held up as a story about humanity but I think it's also a story about the deep intuition of a technician. Someone who can put their hand on the bonnet and know how well the machine is running.
+							On Sept. 26, 1983, Oko ( the Soviet Union’s early-warning satellite system for nuclear attack) detected that the United States had launched five ballistic missiles, all headed toward the USSR. They had a fixed rule (business logic) to report this which would have resulted in missile launch - but he didn't.
+							Stanislav was an engineer before he was an army man, and I think this is a story about the deep intuition of a technician. Someone who can put their hand on the bonnet and know how well the machine is running.
 						</aside>
+					</section>
+					<section>
+						<blockquote>"The false alarm had picked up the sun's reflection atop the clouds, mistaking it for a missile launch."</blockquote>
+						<br>
+						<p><small>— <a href="https://www.ajc.com/news/world/the-man-who-saved-the-world-died-and-the-world-didn-notice-who-was-stanislav-petrov/0EgMxqN7DNmCNiI89g4gSI/" target="_blank">'The man who saved the world' died and the world didn't notice — Who was Stanislav Petrov?</a></small></p>
 					</section>
 					<section>
 						<h2>Look at your raw data</h2>
@@ -250,7 +255,7 @@
 						</aside>
 					</section>
 					<section>
-						<h2>Simple doesn't imply you're stupid</h2>
+						<h2>Simple doesn't imply you're&nbsp;stupid</h2>
 						<aside class="notes">
 							Just because your team is smart, technical, doesn't mean you want them to have to be brilliant detectives under time and cost pressure. 
 						</aside>
@@ -276,16 +281,15 @@
 						<aside class="notes">We want to acknowledge the uncertainty inherent in our decision making without allowing us to be paralysed</aside>
 					</section>
 					<section>
-						<h2>Probability theory</h2>
+						<h2>Let's talk about probabilities</h2>
 						<aside class="notes">Talking about probabilities in a cross-functional team is... hard. Everyone will have a different level of stats and data literacy. Acknowledge this. Start with simple ways of observing and discussing confidence, don't jump into the deep end. </aside>
 					</section>
 					<section>
-						<h2>For example</h2>
-						<!-- img placeholder for a few simple ways of measuring confidence  -->
-						<aside class="notes"></aside>
+						<img src="img/confidence.png" width="600" alt="Different approaches to measuring confidence and probabilities" />  
+						<aside class="notes">Lots of different levels of fidelity. What's important is that we expose the uncertainty, and the scale of that uncertainy. Always circle back to absolutes to ground the relative scores. 90% accurate is great in a data set of 10 points. 99% accurate means 50,000 wrong answers in a data set of 5 million.</aside>
 					</section>
 					<section>
-						<h2>Changing our language changes our minds</h2>
+						<h2>Changing our language <br>changes our minds</h2>
 						<blockquote class="fragment">"We'll wait until we're 100% certain... no make that 99% certain"</blockquote>
 						<aside class="notes">Colleague who has started to change his language </aside>
 					</section>
@@ -295,27 +299,32 @@
 						<aside class="notes">A lot is made about the difference between deterministic programming (where the code is fixed) and stochastic. But in any complex system there will be noise, and unexpected effects. Any automation should expect to grapple with unintended outcomes, false positives. </aside>
 					</section>
 					<section>
-						<h2>Machine Learning <em>is</em> probibalistic</h2>
-						<aside class="notes">If you are bulding ML, the ONLY certainty is that some of the engine's outputs will be wrong. If you can't afford to design for decision review and decision recourse then you can't afford to design an ML model to use in prod.</aside>
+						<h2>Machine Learning is statistics</h2>
+						<aside class="notes">And Stats is based on the stochastic (noisy) universe. If you are bulding ML, the ONLY certainty is that some of the engine's outputs will be wrong. If you can't afford to design for decision review and decision recourse then you can't afford to design an ML model to use in prod.</aside>
 					</section>
 					<section>
-						<!-- placeholder book on Noise & Bias in ML - Judea Pearl  -->
+						<h2>Noise</h2>
+						<p>A new book coming soon by Daniel Kahneman</p>
+						<p><small><a href="https://www.bookdepository.com/Noise-Daniel-Kahneman/9780008308995" target="_blank">See on book depository</a></small></p>
+						<aside class="notes">Importance of distinguising noise from bias</aside>
 					</section>
 					<section>
 						<h2>Be explicit</h2>
-						<h3 class="fragment">If you can't think of the consequences you're not thinking hard enough</h3>
+						<h3 class="fragment">If you can't imagine consequences, you're not thinking hard enough</h3>
 						<aside class="notes">The best way to prepare yourself to design in this world is to be ultra explicit about the goals of your system, and the possible harms that might occur to your end users. </aside>
 					</section>
 					<section>
 						<h2>Shot</h2>
 						<blockquote>We believe this system has contributed to making Facebook the safest place on the Internet for people and their information.</blockquote>
-						<p><a href="https://research.fb.com/publications/facebook-immune-system/" target="_blank"><small>Facebook Immune System by Tao Stein, Roger Chen, Karan Mangla</small></a></p>
+						<br>
+						<p><small>— <a href="https://research.fb.com/publications/facebook-immune-system/" target="_blank">Facebook Immune System by Tao Stein, Roger Chen, Karan Mangla</a></small></p>
 						<aside class="notes">FB Research paper from 2011. :Screams_forever: </aside>
 					</section>
 					<section>
 						<h2>Chaser</h2>
 						<blockquote>"The goal is to protect the graph against all attacks rather than to maximize the accuracy of any one specific classifier. The opportunity cost of refining a model for one attack may be increasing the detection and response on other attacks."</blockquote>
-						<p><a href="https://research.fb.com/publications/facebook-immune-system/" target="_blank"><small>Facebook Immune System by Tao Stein, Roger Chen, Karan Mangla</small></a></p>
+						<br>
+						<p><small>— <a href="https://research.fb.com/publications/facebook-immune-system/" target="_blank">Facebook Immune System by Tao Stein, Roger Chen, Karan Mangla</a></small></p>
 						<aside class="notes">:Screams_forever: </aside>
 					</section>
 					<section>
@@ -440,8 +449,9 @@
 						<aside class="notes">Start from the assumption that your system is not perfect. We know this is the case with any machine learning or statistical models. The literal only assumption you can make is that it will be wrong for some percent of the time. And ever removing the issue of statistical models there are plenty of other aspects of your tech stack and human stack that point to the strong certainty of some amount of failure: complexity, culture, etc.</aside>
 					</section>
 					<section>
-						<h2>There are always consequences...</h2>
-						<!-- placeholder paper reference - glen - FB engineers & false positives  -->
+						<h2>When a system fails...</h2>
+						<h3 class="fragment">...There are always consequences</h2>
+						<aside class="notes">Remember the FB paper? Circle back here if you need convincing.</aside>
 					</section>
 					<section>
 						<h2>Harm mapping</h2>
@@ -475,20 +485,22 @@
 						<aside class="notes">Sometimes you have to think creatively - pitch a friction as a value add. "We are working hard to protect your identity and your account's safety" is a good one, for instance. Test out your explanations and flows on random people NOT those who match the assumptions your system made as a way to assess the quality of the solution.</aside>
 					</section>
 					<section>
+						<blockquote>"Delays in feedback loops are common causes of oscillations. If you're trying to adjust a system state to your goal, but you only receive delayed information about what the system state is, you will overshoot and undershoot."</blockquote>
+						<br>
+						<p><small>- <a href="http://donellameadows.org/wp-content/userfiles/Leverage_Points.pdf" target="_blank">Leverage Points: Places to Intervene in a System by Donella Meadows</a></small></p>
+						<aside class="notes">The escape hatch is also your feedback loop telling you about the state of your system.</aside>
+					</section>
+					<section>
 						<h1 class="learning">Finding #7</h1>
 						<h2>Speed matters</h2>
-						<aside class="notes">Here's the classic problem in product - how fast should we build and deploy things</aside>
+						<aside class="notes">Speed of feedback loops naturally flows into another classic product question - how fast should we build and deploy things</aside>
 					</section>
-					<section>
-						<h2>Finding the sweet spot</h2>
-						<!-- img placeholder spectrum between move fast and break things, and design by committeeeeeee -->
-						<aside class="notes">Too slow can be just as dangerous as too fast</aside>
+					<section>						
+						<img src="img/fast-slow.png" alt="Spectrum showing two extremes in product - too fast and too slow" />
+						<br><br>
+						<p class="fragment">The challenge is finding the sweet spot</p>
+						<aside class="notes">Too slow can be just as dangerous as too fast. Design by committee is a painful experience. </aside>
 					</section>
-					<section>
-						<blockquote>Placeholder quote on speed of feedback loops</blockquote>
-						- Donna meadows paper - systems interventions 
-					</section>
-					
 					<section>
 						<h2>Dangers of too slow</h2>
 						<ul>
