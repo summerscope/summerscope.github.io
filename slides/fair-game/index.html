@@ -38,6 +38,438 @@
 				<section>
 					<section>
 						<h1>Section 1</h1>
+						<h2>Friend or fraud?</h2>
+					</section>
+					<section>
+						<h2>Joining a telco</h2>
+						<aside class="notes">
+							At the beginning of 2020 (which is either a year or a lifetime ago, who even knows) I joined a fraud detection team in a telco. I'd describe my role as an 'ethics ops' consultant, but I don't think that's the formal title - their recruiting systems didn't have a role that matched. The team - 'pod' in the internal parlance - was relatively new and had been spun up in response to some fairly serious fraud attacks that had taken a bite out of their revenue. The approach to fraud detection is pretty standard - a mix of monitoring, internal business rules, and using third party systems with proprietary fraud algorithms.
+						</aside>
+					</section>
+					<section>
+						<img src="img/harm-lenses.png" width="700" alt="Three eye glasses with labels, User Harm, Historical Bias, Algorithmic Bias" />
+						<aside class="notes">
+							My job is to introduce a harm identification and mitigation lens to the work. Fraud is an interesting space within which to discuss ethics, because not only are you (the company) capable of inflicting harm on your customers, you are also under attack by a sub-set of customers who mean you harm.
+						</aside>
+					</section>
+					<section>
+						<h2>A balancing act</h2>
+						<aside class="notes">
+							You have to balance the real, often urgent concerns of identifying bad behaviour and halting costs while also acknowledging the possibility of false positives, and considering how you might identify and support any innocent parties who accidentally get caught in the cross-fire. Add to this the ever-changing space of fraud activity. Email spam is a similar field - just as the algorithms get smarter at detecting spam, the spammers get cleverer in their approaches to slipping the net. 
+						</aside>
+					</section>
+					<section>
+						<h1 class="learning">Finding #1</h1>
+						<h2>Developing a healthy cynicism about data sources</h2>
+						<aside class="notes">When we start to feel really comfortable is usually when we discover something can be totally different than our expected interpretation.</aside>
+					</section>
+					<section>
+						<h2>Data (interpretation) pride comes before a fall</h2>
+						<aside class="notes">
+							The textivist... The auto-call on smartwatch... 
+						</aside>
+					</section>
+					<section>
+						<h2>Deconstructing your proxy</h2>
+						<aside class="notes">All data is a proxy - it's an approximation of the thing we actually want to measure</aside>
+					</section>
+					<section>
+						<h2>A concept framework</h2>
+						<div class="columns">
+							<div class="fragment">
+								<img src="img/signal.png" width="100" alt="" />
+								<h3>Signal</h3>
+							</div>
+							<div class="fragment">
+								<img src="img/arrow.png" width="90" alt="arrow" />
+								<br>
+								<br>
+								infers
+							</div>
+							<div class="fragment">
+								<img src="img/activity.png"  width="100"  alt="" />
+								<h3>Activity</h3>
+							</div>
+							<div class="fragment">
+								<img src="img/arrow2.png" width="100"  alt="arrow" />
+								<br>
+								<br>
+								infers
+							</div>
+							<div class="fragment">
+								<img src="img/persona.png"  width="200"  alt="" />
+								<h3>Persona</h3>
+							</div>
+						</div>
+						<aside class="notes">
+							Don't forget we also measure anti-signals. This is the framing I use, and I think it helps us be explicit about the logic leaps we are making. Always asking the question how good a proxy is this data for the thing I REALLY want to know?
+						</aside>
+					</section>
+					<!-- <section>
+						<h1 class="learning">Finding #2</h1> 
+						<h2>Develop a healthy cynicism about data sources</h2>
+						<aside class="notes">
+							This is really an extension of the first learning / point. 
+						</aside>
+					</section> -->
+					<!-- <section>
+						<h2>Stanislav Petrov</h2>
+						<img src="img/stanislav-petrov.jpg" width="600" />
+						<p>"The man who saved the world"</p>
+						<aside class="notes">
+							On Sept. 26, 1983, Oko ( the Soviet Union’s early-warning satellite system for nuclear attack) detected that the United States had launched five ballistic missiles, all headed toward the USSR. They had a fixed rule (business logic) to report this which would have resulted in missile launch - but he didn't.
+							Stanislav was an engineer before he was an army man, and I think this is a story about the deep intuition of a technician. Someone who can put their hand on the bonnet and know how well the machine is running.
+						</aside>
+					</section>
+					<section>
+						<blockquote>"The false alarm had picked up the sun's reflection atop the clouds, mistaking it for a missile launch."</blockquote>
+						<br>
+						<p><small>— <a href="https://www.ajc.com/news/world/the-man-who-saved-the-world-died-and-the-world-didn-notice-who-was-stanislav-petrov/0EgMxqN7DNmCNiI89g4gSI/" target="_blank">'The man who saved the world' died and the world didn't notice — Who was Stanislav Petrov?</a></small></p>
+					</section> -->
+					<section>
+						<h2>Look at your raw data</h2>
+						<h3 class="fragment">Not just at dashboards</h3>
+						<aside class="notes">Hopefully not controversial point! We should want to get up close and personal with our incoming data. Ask ourselves what it tells us. Observe where it looks clean and where the types are inconsistent or muddy. Let dofferent stakeholders / SMEs take a look too. You'll be surprised how much you learn from just skimming a few hundred rows in a raw table. </aside>
+					</section>
+					<section>
+						<blockquote>Data misinterpretation is <u>easy</u>, and <u>likely</u> under pressure</blockquote>				
+						<aside class="notes">One of the most interesting things about working with fraud is the pressure it puts on data interpretation in periods of attack. Like putting data science hygiene through the wringer -  in unexpected bursts. </aside>
+					</section>
+					<section>
+						<h2>For example...</h2>
+						<aside class="notes">
+							3 hour batch timeframe. Maintenance outages (planned) causing delays in data stream. 
+						</aside>
+					</section>
+					<section>
+						<h2>Design for cognitive load</h2>
+						<aside class="notes">
+							Wherever possible, add labels. Be explicit. Make it impossible to misinterpret.
+						</aside>
+					</section>
+					<section>
+						<h2>Simple doesn't imply you're&nbsp;stupid</h2>
+						<aside class="notes">
+							Just because your team is smart, technical, doesn't mean you want them to have to be brilliant detectives under time and cost pressure. 
+						</aside>
+					</section>
+					<section>
+						<h2>Litmus test</h2>
+						<h3>On a quick glance, is this easy to misunderstand?</h3>
+						<aside class="notes">
+							Even if you're not working in the space of fraud, we experience this same kind of pressure all the time. When a customer discovers a bug in production. When there's an outage with a third party, etc. 
+						</aside>
+					</section>
+					<section>
+						<h2>Pointers for data interpretation</h2>
+						<ul>
+							<li class="fragment">Using DSL (domain specific language)?</li>
+							<li class="fragment">Absolute (total count) or relative (%)?</li>
+							<li class="fragment">Is the data recency clear?</li>
+						</ul>
+					</section>
+					<!-- <section>
+						<h1 class="learning">Finding #3</h1> 
+						<h2>Holding space for uncertainty <br>(Without being paralysed)</h2>
+						<aside class="notes">We want to acknowledge the uncertainty inherent in our decision making without allowing us to be paralysed</aside>
+					</section> -->
+					<!-- <section>
+						<h2>Let's talk about probabilities</h2>
+						<aside class="notes">Talking about probabilities in a cross-functional team is... hard. Everyone will have a different level of stats and data literacy. Acknowledge this. Start with simple ways of observing and discussing confidence, don't jump into the deep end. </aside>
+					</section>
+					<section>
+						<img src="img/confidence.png" width="600" alt="Different approaches to measuring confidence and probabilities" />  
+						<aside class="notes">Lots of different levels of fidelity. What's important is that we expose the uncertainty, and the scale of that uncertainy. Always circle back to absolutes to ground the relative scores. 90% accurate is great in a data set of 10 points. 99% accurate means 50,000 wrong answers in a data set of 5 million.</aside>
+					</section> -->
+					<!-- <section>
+						<h2>Deterministic vs Stochastic</h2>
+						<h3 class="fragment">There will be noise either way</h3>
+						<aside class="notes">A lot is made about the difference between deterministic programming (where the code is fixed) and stochastic. But in any complex system there will be noise, and unexpected effects. Any automation should expect to grapple with unintended outcomes, false positives. </aside>
+					</section>
+					<section>
+						<h2>Machine Learning is statistics</h2>
+						<aside class="notes">And Stats is based on the stochastic (noisy) universe. If you are bulding ML, the ONLY certainty is that some of the engine's outputs will be wrong. If you can't afford to design for decision review and decision recourse then you can't afford to design an ML model to use in prod.</aside>
+					</section>
+					<section>
+						<h2>Noise</h2>
+						<p>A new book coming soon by Daniel Kahneman</p>
+						<p><small><a href="https://www.bookdepository.com/Noise-Daniel-Kahneman/9780008308995" target="_blank">See on book depository</a></small></p>
+						<aside class="notes">Importance of distinguising noise from bias</aside>
+					</section> -->
+					<section>
+						<h1 class="learning">Finding #2</h1>
+						<h2>Mapping knowledge states</h2>
+						<aside class="notes">ok. so you probably knew this was coming. This is the section where i tell you that the best way to improve your data science practice as a whole is to do better, much better, at the boring science bits.</aside>
+					</section>
+					<section data-background-image="img/assumptions-swamp.jpg">
+						<h2>Beware the swamp of lazy assumptions</h2>
+						<aside class="notes">Anecdote: when joined telco there was a lot of confusion about what types of fraud were, and what they were called. Names were quite confusing, unintuitive, imprecise language, name overlaps! I wasn't the only one who was confused.</aside>
+					</section>
+					<section>
+						<h2>Implicit vs Explicit knowledge</h2>
+						<h3 class="fragment">Become a knowledge excavator</h3>
+						<aside class="notes">Just because a thing is knowable, doesn't mean it is known. Often the first step to establishign a shared understanding is to sniff out this existing implicit knowledge and formalise it.  </aside>
+					</section>
+					<section>
+						<h2>Naming matters</h2>
+						<ul>
+							<li class="fragment">Build a shared vocabulary</li>
+							<li class="fragment">Build shared mental models</li>
+							<li class="fragment">Avoid name-space clashing</li>
+						</ul>
+					</section>
+					<section>
+						<h2>For example</h2>
+						<blockquote>International revenue sharing fraud <br>-vs-<br> Toll fraud</blockquote>
+						<aside class="notes">these are confusingly different names for the same thing unrelated to Call Reselling (but these often get confused)</aside>
+						
+					</section>
+					<section>
+						<h2>Personas</h2>
+						<img src="img/mystery-marketer.png" width="600" alt="Person shouting through a bullhorn with lots of chat bubbles coming out" />
+						<aside class="notes">Talk about writing personas documentation to have a shared model that stakeholders from support and ops through to data science can reference</aside>
+					</section>
+					<section>
+						<h2>Defining your baseline</h2>
+						<aside class="notes">If you don't have a shared understanding it's hard to move forwards. Needed for all experiments, hypotheses you want to try moving forwards. Also - perhaps minor discrepancies in what is the current state will reveal a question to investigate? </aside>
+					</section>
+					<section>
+						<h2>For example</h2>
+						<h3>Looking at the logs</h3>
+						<aside class="notes">Looking at the history of what actions had been taken on a service number - can make longitudinal analysis very difficult if the reasons aren't well documented AND if there is no way to observe the occurance of false positives. If you don't know when you automation was wrong, hard to use that data with confidence. Also - maybe your logs aren't the source of truth, ok! as long as somewhere there is a source of truth. </aside>
+					</section>
+					<section>
+						<!-- placeholder img - spreadsheet with fields based on example i set up  -->
+						<h2>Design data schemas</h2>
+						<h3>For internal experiments</h3>
+						<aside class="notes">Take the job of data capture about your customers seriously. Take the time to think about what fields, what meta data will be useful for investigations. Future you will thank you.</aside>
+					</section>
+					<section>
+						<h2>Changing our language <br>changes our minds</h2>
+						<blockquote class="fragment">"We'll wait until we're 100% certain... no make that 99% certain"</blockquote>
+						<aside class="notes">Colleague who has started to change his language </aside>
+					</section>
+					<section>
+						<h2>Added uncertainty in the space of fraud</h2>
+						<h3 class="fragment">You <em>really</em> can't trust what people say</h3>
+						<aside class="notes">In UXR you develop a sniff test for honesty and vulnerability vs bulshit answers. But in the fraud space you had this added complexity of knowing that sometimes customers may be lying or trying to game the system to meet their own ends. Dealing with this day-in day-out can make these discussions feel instantly suspect, and you'll start to see fraud everywhere. </aside>
+					</section>
+					<section>
+						<h2>The antidote to suspicion</h2>
+						<h3 class="fragment">Setting the intention to be respectful</h3>
+						<aside class="notes">The best way to avoid falling into this trap is to be explicitly, deliberately kind and respectful in all our communications</aside>
+					</section>
+					<section>
+						<h2>bUt wHAt iF iT's A BAd AcTor?</h2>
+						<h3 class="fragment">So what?</h3>
+						<aside class="notes">What is the harm in being overly respectful to someone who is trying to rip you off? Versus what's the harm in speaking harshly to a legit customer by accident? Have to think about reputational harms, and stay focused on the goal.</aside>
+					</section>
+					<section>
+						<h2>Keep the moralising <u>out of it</u></h2>
+						<aside class="notes">Being 'right' isn't helpful. You don't know that person, you don't know their story. </aside>
+					</section>
+					<section>
+						<h2>Tip</h2>
+						<h3>Describe <em>behaviours</em>, not <em>people</em></h3>
+						<aside class="notes">Describe behaviour (service misuse) not people (fraudster). There's literally no value in applying a moralising title to a person. THere's every possibility of harm, on both sides, if you get it wrong.</aside>
+					</section>
+					<section>
+						<h1 class="learning">Finding #3</h1>
+						<h2>Design for failure first</h2>
+						<aside class="notes">Probably obvious! But important. Follows-on nicely from thinking about logs and improving our understanding of history. Most people won't bother to give you feedback.  If you want to know whether you've had false positives you need to allow for this possibility and design feedback loops in by default. </aside>
+					</section>
+					<section>
+						<h2>If you don't ask,<br /> customers won't tell</h2>
+						<img src="img/too-hard-basket.png" width="200" alt="Woven basket labeled Too Hard" />
+						<aside class="notes">I think of this as the rule of lurkers vs contributors. In the space of fraud, if you have taken an action on a service they're more likely to churn than to make an effort to reach out to you - and why would they bother based on a market where churn is the norm and it's easy to swap providers? If they are really angry you might get feedback - but through the form of a complaint to the TIO (the regulator) - also a bad outcome. </aside>
+					</section>
+					<section>
+						<h2>Customers <u>are</u> the experts...</h2>
+						<h3 class="fragment">...on themselves</h3>
+						<aside class="notes">If your system makes an incorrect assumption, are you in a position to find out?</aside>
+					</section>
+					<section>
+						<h2>Feedback loops must be </h2>
+						<ul>
+							<li class="fragment">Intuitive</li>
+							<li class="fragment">Contextual</li>
+							<li class="fragment">Timely</li>
+						</ul>
+						<aside class="notes">I'm a fan of micro-feedback, small and contextual questions that are really lightweight and easy to answer.</aside>
+					</section>
+					<section>
+						<h2>Plan time for...</h2>
+						<ul>
+							<li class="fragment">Customer support</li>
+							<li class="fragment">Product/model improvements</li>
+							<li class="fragment">Integrating your learnings</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Gotchas</h2>
+						<aside class="notes">If you take action to block or disconnect a service based on fraud - can't call or text that customer now! (ouch). And if you send your comms from a donotreply email, you make email replies difficult and discouraging (double ouch). </aside>
+					</section>
+					<!-- <section>
+						<h1 class="learning">Finding #6</h1>
+						
+						<aside class="notes">Thinking about asking customers if a classification, prediction or automated decision impacting them was wrong flows nicely into this idea of designing for failure first.</aside>
+					</section> -->
+					<section>
+						<h2>Be explicit</h2>
+						<h3 class="fragment">If you can't imagine consequences, you're not thinking hard enough</h3>
+						<aside class="notes">The best way to prepare yourself to design in this world is to be ultra explicit about the goals of your system, and the possible harms that might occur to your end users. </aside>
+					</section>
+					<section>
+						<h2>Shot</h2>
+						<blockquote>We believe this system has contributed to making Facebook the safest place on the Internet for people and their information.</blockquote>
+						<br>
+						<p><small>— <a href="https://research.fb.com/publications/facebook-immune-system/" target="_blank">Facebook Immune System by Tao Stein, Roger Chen, Karan Mangla</a></small></p>
+						<aside class="notes">FB Research paper from 2011. :Screams_forever: </aside>
+					</section>
+					<section>
+						<h2>Chaser</h2>
+						<blockquote>"The goal is to protect the graph against all attacks rather than to maximize the accuracy of any one specific classifier. The opportunity cost of refining a model for one attack may be increasing the detection and response on other attacks."</blockquote>
+						<br>
+						<p><small>— <a href="https://research.fb.com/publications/facebook-immune-system/" target="_blank">Facebook Immune System by Tao Stein, Roger Chen, Karan Mangla</a></small></p>
+						<aside class="notes">:Screams_forever: </aside>
+					</section>
+					<section>
+						<h2>For example</h2>
+						<aside class="notes">In the land of fraud the goal is to prevent the costs of service misuse and fraud. The harms are when we take action that can result in a user unexpectedly losing service. </aside>
+					</section>
+					<section>
+						<h2>Litmus test</h2>
+						<h3 class="fragment">What if this happened to my most vulnerable customer?</h3>
+						<aside class="notes">I find this question useful for thinking about service level actions. It helps frame the cost of false positives and makes us more focused on the minimum viable intervention needed to achieve our goals of capping these costs.</aside>
+					</section>
+					<section>
+						<h2>Your system <u>will</u> get it wrong</h2>
+						<h3 class="fragment">So how will it handle failure?</h3>
+						<aside class="notes">Start from the assumption that your system is not perfect. We know this is the case with any machine learning or statistical models. The literal only assumption you can make is that it will be wrong for some percent of the time. And ever removing the issue of statistical models there are plenty of other aspects of your tech stack and human stack that point to the strong certainty of some amount of failure: complexity, culture, etc.</aside>
+					</section>
+					<section>
+						<h2>When a system fails...</h2>
+						<h3 class="fragment">...There are always consequences</h2>
+						<aside class="notes">Remember the FB paper? Circle back here if you need convincing.</aside>
+					</section>
+					<section>
+						<h2>Harm mapping</h2>
+						<h3 class="fragment">Recommended starting point</h3>
+						<p class="fragment"><a href="https://github.com/summerscope/mapping-fair-ml" target="_blank">github.com/summerscope/mapping-fair-ml</a></p>
+						<aside class="notes">This is a whole topic but just to point to it, this is the bit where we think about what we might get wrong, and what are the consequences. There are a whole bunch of tools and frameworks out there to try - ethics litmus tests among them.</aside>
+					</section>
+					<section>
+						<img src="img/escape-hatch.png" width="300" alt="Escape hatch" />
+						<h2 class="fragment">Designing an escape hatch</h2>
+					</section>
+					<section>
+						<h2>Starting points</h2>
+						<ul>
+							<li class="fragment">Email / SMS templates</li>
+							<li class="fragment">Support scripts for conversations</li>
+							<li class="fragment">Data schema design <br>(capturing your learnings)</li>
+						</ul>
+						<aside class="notes">Think of this as designing your escape hatch. You don't want to have to use it much - but you sure want it well oiled if you do have to use it.</aside>
+					</section>
+					<section>
+						<h2>Prepare for pushback</h2>
+						<ul>
+							<li class="fragment">People don't like it when you make bad assumptions about them!</li>
+							<li class="fragment">Making the implicit explict is going to be uncomfortable</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Litmus test</h2>
+						<h3>Could any customer go through my escape hatch, recover and remain a happy customer?</h3>
+						<aside class="notes">Sometimes you have to think creatively - pitch a friction as a value add. "We are working hard to protect your identity and your account's safety" is a good one, for instance. Test out your explanations and flows on random people NOT those who match the assumptions your system made as a way to assess the quality of the solution.</aside>
+					</section>
+					<section>
+						<blockquote>"Delays in feedback loops are common causes of oscillations. If you're trying to adjust a system state to your goal, but you only receive delayed information about what the system state is, you will overshoot and undershoot."</blockquote>
+						<br>
+						<p><small>- <a href="http://donellameadows.org/wp-content/userfiles/Leverage_Points.pdf" target="_blank">Leverage Points: Places to Intervene in a System by Donella Meadows</a></small></p>
+						<aside class="notes">The escape hatch is also your feedback loop telling you about the state of your system.</aside>
+					</section>
+					<!-- <section>
+						<h1 class="learning">Finding #7</h1>
+						<h2>Speed matters</h2>
+						<aside class="notes">Speed of feedback loops naturally flows into another classic product question - how fast should we build and deploy things</aside>
+					</section>
+					<section>						
+						<img src="img/fast-slow.png" alt="Spectrum showing two extremes in product - too fast and too slow" />
+						<br><br>
+						<p class="fragment">The challenge is finding the sweet spot</p>
+						<aside class="notes">Too slow can be just as dangerous as too fast. Design by committee is a painful experience. </aside>
+					</section>
+					<section>
+						<h2>Dangers of too slow</h2>
+						<ul>
+							<li class="fragment">Feedback takes too long</li>
+							<li class="fragment">You may not see the impact of a decision</li>
+							<li class="fragment">Doing things <em>feels hard</em></li>
+							<li class="fragment">Culture of resistance</li>
+							<li class="fragment">Diffusion of responsibility</li>
+							<li class="fragment">Get anchored to your first idea</li>
+							<li class="fragment">Sunk cost bias</li>
+						</ul>
+						<aside class="notes">Much more difficult to treat solutions / features / ideas lightly, as hypotheses to be validated or not. </aside>
+					</section>
+					<section>
+						<h2>Dangers of too fast</h2>
+						<ul>
+							<li class="fragment">Ask forgiveness not permission</li>
+							<li class="fragment">Insufficient knowledge / expertise</li>
+							<li class="fragment">Overconfidence</li>
+							<li class="fragment">Failing to measure impact</li>
+							<li class="fragment">Reinventing the wheel</li>
+						</ul>
+						<aside class="notes">"The Facebook" (especially early years)</aside>
+					</section> -->
+					<section>
+						<h1 class="learning">Finding #4</h1>
+						<h2>Upstream prevention vs downstream mitigation</h2>
+						<aside class="notes">What can you do in the product? Vs what do you try to intervene on after it happens? </aside>
+					</section>
+					<section>
+						<blockquote>
+							These sorts of things will happen. I’m very intentional about not saying abuse "might" happen - if it can, it will.
+						</blockquote>
+						- Eva PenzeyMoog <a href="https://evapenzeymoog.substack.com/p/coming-soon" target="_blank">newsletter</a>
+						<aside class="notes">I see a reseblance between Fraud and Abuse (tech used in DV / DA). These are people with a different agenda to yours. They are looking for vulnerabilities they can exploit for their own ends.  </aside>
+					</section>
+					<section>
+						<h2>Product use cascade</h2>
+						<ol>
+							<li class="fragment">What you <u>can do</u> in the product</li>
+							<li class="fragment">Intentions, framing, design </li>
+							<li class="fragment">Culture of your community</li>
+							<li class="fragment">...</li>
+							<li class="fragment">Terms of use</li>
+						</ol>
+					</section>
+					<section>
+						<h2>Possible = permissible</h2>
+						<aside class="notes">I can't say it more strongly. If you don't care to make it impossible to do something in your product, that's tacit permission for the behaviour to occur. Even if it's not intended, designed for, etc. It sucks, but it's the nature of the beast.</aside>
+					</section>
+					<section>
+						<h2>Setting boundaries <u>is design</u></h2>
+						<aside class="notes">I we often miss out on opportunities to do this well. Marketing, on-boarding, engagement comms - these are all opportunities to show how people can and should be successful using your product, and to offer little nudges away from the kinds of behaviour you don't want to see.</aside>
+					</section>
+					<section>
+						<blockquote class="twitter-tweet"><p lang="en" dir="ltr">The rise and rise of terms of service is a genuinely astonishing cultural dysfunction. Think of what a bizarre pretense we all engage in, that anyone, ever, has read these sprawling garbage novellas of impenetrable legalese.<br><br>1/ <a href="https://t.co/4woefKaXDF">pic.twitter.com/4woefKaXDF</a></p>&mdash; Cory Doctorow #BLM (@doctorow) <a href="https://twitter.com/doctorow/status/1320399417979985920?ref_src=twsrc%5Etfw">October 25, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+						<aside class="notes">Think of TOC - necessary evil but not the intuitive place to enact change if it's possibel to go up the cascade</aside>
+					</section>
+					<section>
+						<h2>Human-centred T&amp;Cs</h2>
+						<aside class="notes">This space is growing and I'm excited to see developments in this space. Just don't expect this to replace the work of establishing guardarails/norms in your product design.</aside>
+					</section>
+					<section>
+						<h2>Downstream is usually more costly than upstream</h2>
+						<aside class="notes">In retail - think promotions abuse, etc. Can you add guardrails in at the planning stage? Finding and dealing with behaviour sucks. Anyone who's worked on an abuse team will testify to this. It's not always possible, but if you can resolve something with a product change rather than monitoriing for it and remediation after the fact - usually preferable.</aside>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Section 2</h1>
 						<h2>Top-down vs. bottom-up</h2>
 					</section>
 					<section>
@@ -88,10 +520,23 @@
 						<aside class="notes">"Right but what if you need to capture sensitive personal data to know if your system has become biased against that attribute?"</aside>
 					</section>
 					<section>
+						<img src="img/bike-shed.png" width="400" alt="Bike leaning on the side of a shed" />
+						<aside class="notes">
+							So yeah, I worry that this is ethics bike shedding. Without measurable outcomes, these principles are toothless. And worse, they're resource thiefs. They suck the oxygen from the room. They lull us into thinking we're already doing the work, without actually having started. I'd argue the real work starts at implementation. What's your plan to integrate these principles into your decision making at every level? How will this change your culture? How will you help people unlearn bad habits? Who will set the boundaries of acceptable time and discourse (e.g. how much money are you willing to spend)? Do you have internal champions who can 'show by doing'? Do you need to offer training or upskilling? 
+						</aside>
+					</section>
+					<section>
 						<blockquote>"A string of empty profunditites"</blockquote>
 						<p>- Andy Kitchen</p>
 						<aside class="notes">
 							The work is in the detail, the daily decisions. The desire to abstract, to generalise, can itself be a form of procrastination.  
+						</aside>
+					</section>
+					<section data-background-image="img/hair.gif">
+						<br><br><br><br><br><br><br><br><br><br><br>
+						<p><small>— Gif by <a href="https://giphy.com/Barbara_Pozzi" target="_blank">Barbara Pozzi</a></small></p>
+						<aside class="notes">
+							Or to frame it another way: rather than thinking we can reduce the risks of our technology with a strategy document, can we acknowledge the risks and ask everyone to take them seriously and *not* hope to have solved them? A metaphor: driving fast on the autobahn - the German freeway that has no speed limit. It's scary, but also exhilarating, and you're alert to the danger. Sometimes we *want* to feel the wind rushing past. I think insulating ourselves from that sensation is unhelpful. 
 						</aside>
 					</section>
 					<section data-background-image="img/brick-wall.png">
@@ -105,12 +550,7 @@
 						<h3 class="fragment">Tangle in the grey</h3>
 						<aside class="notes">Advice to consultants - don't other yourself or other your work! Skill sharing, exploring platforms, tech approaches, etc - all better if you try to join the team rather than provide outside, othered advice. You'll better understand the texture of their problems. You'll also have a better sense of whether your proposed solution is viable. </aside>
 					</section>
-					<section>
-						<img src="img/bike-shed.png" width="400" alt="Bike leaning on the side of a shed" />
-						<aside class="notes">
-							Without measurable outcomes, these principles are toothless. And worse, they're resource thiefs. They suck the oxygen from the room. They lull us into thinking we're already doing the work, without actually having started. I'd argue the real work starts at implementation. What's your plan to integrate these principles into your decision making at every level? How will this change your culture? How will you help people unlearn bad habits? Who will set the boundaries of acceptable time and discourse (e.g. how much money are you willing to spend)? Do you have internal champions who can 'show by doing'? Do you need to offer training or upskilling? 
-						</aside>
-					</section>
+					
 					<section>
 						<h2>Commit to action</h2>
 						<ul>
@@ -122,451 +562,19 @@
 							If you must have a strategy document or page, make it a commitment to action. Without real commitment to the longevity of your principles, what often happens is the documents gather dust in the corner, and life very quickly returns to the status quo.
 						</aside>
 					</section>
-					<section data-background-image="img/hair.gif">
-						<br><br><br><br><br><br><br><br><br><br><br>
-						<p><small>— Gif by <a href="https://giphy.com/Barbara_Pozzi" target="_blank">Barbara Pozzi</a></small></p>
-						<aside class="notes">
-							Or to frame it another way: rather than thinking we can reduce the risks of our technology with a strategy document, can we acknowledge the risks and ask everyone to take them seriously and *not* hope to have solved them? A metaphor: driving fast on the autobahn - the German freeway that has no speed limit. It's scary, but also exhilarating, and you're alert to the danger. Sometimes we *want* to feel the wind rushing past. I think insulating ourselves from that sensation is unhelpful. 
-						</aside>
-					</section>
-					<section>
-						<blockquote>“Never doubt that a small group of thoughtful, committed, citizens can change the world. Indeed, it is the only thing that ever has.”</blockquote>
-						<p>-Margaret Mead</p>
-						<aside class="notes">
-							Because to be clear, you don't really need principles, policy, or values to get started. You just need a few bright sparks and enough rope. So let's tangle with the grey. 
-						</aside>
-					</section>
-				</section>
-				<section>
-					<section>
-						<h1>Section 2</h1>
-						<h2>Friend or fraud?</h2>
-					</section>
-					<section>
-						<h2>Joining a telco</h2>
-						<aside class="notes">
-							At the beginning of 2020 (which is either a year or a lifetime ago, who even knows) I joined a fraud detection team in a telco. I'd describe my role as an 'ethics ops' consultant, but I don't think that's the formal title - their recruiting systems didn't have a role that matched. The team - 'pod' in the internal parlance - was relatively new and had been spun up in response to some fairly serious fraud attacks that had taken a bite out of their revenue. The approach to fraud detection is pretty standard - a mix of monitoring, internal business rules, and using third party systems with proprietary fraud algorithms.
-						</aside>
-					</section>
-					<section>
-						<img src="img/harm-lenses.png" width="700" alt="Three eye glasses with labels, User Harm, Historical Bias, Algorithmic Bias" />
-						<aside class="notes">
-							My job is to introduce a harm identification and mitigation lens to the work. Fraud is an interesting space within which to discuss ethics, because not only are you (the company) capable of inflicting harm on your customers, you are also under attack by a sub-set of customers who mean you harm.
-						</aside>
-					</section>
-					<section>
-						<h2>A balancing act</h2>
-						<aside class="notes">
-							You have to balance the real, often urgent concerns of identifying bad behaviour and halting costs while also acknowledging the possibility of false positives, and considering how you might identify and support any innocent parties who accidentally get caught in the cross-fire. Add to this the ever-changing space of fraud activity. Email spam is a similar field - just as the algorithms get smarter at detecting spam, the spammers get cleverer in their approaches to slipping the net. 
-						</aside>
-					</section>
-					<section>
-						<h1 class="learning">Finding #1</h1>
-						<h2>Data (interpretation) pride comes before a fall</h2>
-						<aside class="notes">When we start to feel really comfortable is usually when we discover something can be totally different than our expected interpretation.</aside>
-					</section>
-					<section>
-						<h2>For example</h2>
-						<aside class="notes">
-							The textivist... The auto-call on smartwatch... 
-						</aside>
-					</section>
-					<section>
-						<h2>Deconstructing your proxy</h2>
-						<aside class="notes">All data is a proxy - it's an approximation of the thing we actually want to measure</aside>
-					</section>
-					<section>
-						<h2>A concept framework</h2>
-						<div class="columns">
-							<div class="fragment">
-								<img src="img/signal.png" width="100" alt="" />
-								<h3>Signal</h3>
-							</div>
-							<div class="fragment">
-								<img src="img/arrow.png" width="90" alt="arrow" />
-								<br>
-								<br>
-								infers
-							</div>
-							<div class="fragment">
-								<img src="img/activity.png"  width="100"  alt="" />
-								<h3>Activity</h3>
-							</div>
-							<div class="fragment">
-								<img src="img/arrow2.png" width="100"  alt="arrow" />
-								<br>
-								<br>
-								infers
-							</div>
-							<div class="fragment">
-								<img src="img/persona.png"  width="200"  alt="" />
-								<h3>Persona</h3>
-							</div>
-						</div>
-						<aside class="notes">
-							Don't forget we also measure anti-signals. This is the framing I use, and I think it helps us be explicit about the logic leaps we are making. Always asking the question how good a proxy is this data for the thing I REALLY want to know?
-						</aside>
-					</section>
-					<section>
-						<h1 class="learning">Finding #2</h1> 
-						<h2>Develop a healthy cynicism about data sources</h2>
-						<aside class="notes">
-							This is really an extension of the first learning / point. 
-						</aside>
-					</section>
-					<section>
-						<h2>Stanislav Petrov</h2>
-						<img src="img/stanislav-petrov.jpg" width="600" />
-						<p>"The man who saved the world"</p>
-						<aside class="notes">
-							On Sept. 26, 1983, Oko ( the Soviet Union’s early-warning satellite system for nuclear attack) detected that the United States had launched five ballistic missiles, all headed toward the USSR. They had a fixed rule (business logic) to report this which would have resulted in missile launch - but he didn't.
-							Stanislav was an engineer before he was an army man, and I think this is a story about the deep intuition of a technician. Someone who can put their hand on the bonnet and know how well the machine is running.
-						</aside>
-					</section>
-					<section>
-						<blockquote>"The false alarm had picked up the sun's reflection atop the clouds, mistaking it for a missile launch."</blockquote>
-						<br>
-						<p><small>— <a href="https://www.ajc.com/news/world/the-man-who-saved-the-world-died-and-the-world-didn-notice-who-was-stanislav-petrov/0EgMxqN7DNmCNiI89g4gSI/" target="_blank">'The man who saved the world' died and the world didn't notice — Who was Stanislav Petrov?</a></small></p>
-					</section>
-					<section>
-						<h2>Look at your raw data</h2>
-						<h3 class="fragment">Not just at dashboards</h3>
-						<aside class="notes">Hopefully not controversial point! We should want to get up close and personal with our incoming data. Ask ourselves what it tells us. Observe where it looks clean and where the types are inconsistent or muddy. Let dofferent stakeholders / SMEs take a look too. You'll be surprised how much you learn from just skimming a few hundred rows in a raw table. </aside>
-					</section>
-					<section>
-						<blockquote>Data misinterpretation is <u>easy</u>, and <u>likely</u> under pressure</blockquote>				
-						<aside class="notes">One of the most interesting things about working with fraud is the pressure it puts on data interpretation in periods of attack. Like putting data science hygiene through the wringer -  in unexpected bursts. </aside>
-					</section>
-					<section>
-						<h2>For example...</h2>
-						<aside class="notes">
-							3 hour batch timeframe. Maintenance outages (planned) causing delays in data stream. 
-						</aside>
-					</section>
-					<section>
-						<h2>Design for cognitive load</h2>
-						<aside class="notes">
-							Wherever possible, add labels. Be explicit. Make it impossible to misinterpret.
-						</aside>
-					</section>
-					<section>
-						<h2>Simple doesn't imply you're&nbsp;stupid</h2>
-						<aside class="notes">
-							Just because your team is smart, technical, doesn't mean you want them to have to be brilliant detectives under time and cost pressure. 
-						</aside>
-					</section>
-					<section>
-						<h2>Litmus test</h2>
-						<h3>On a quick glance, is this easy to misunderstand?</h3>
-						<aside class="notes">
-							Even if you're not working in the space of fraud, we experience this same kind of pressure all the time. When a customer discovers a bug in production. When there's an outage with a third party, etc. 
-						</aside>
-					</section>
-					<section>
-						<h2>Pointers for data interpretation</h2>
-						<ul>
-							<li class="fragment">Using DSL (domain specific language)?</li>
-							<li class="fragment">Absolute (total count) or relative (%)?</li>
-							<li class="fragment">Is the data recency clear?</li>
-						</ul>
-					</section>
-					<section>
-						<h1 class="learning">Finding #3</h1> 
-						<h2>Holding space for uncertainty <br>(Without being paralysed)</h2>
-						<aside class="notes">We want to acknowledge the uncertainty inherent in our decision making without allowing us to be paralysed</aside>
-					</section>
-					<section>
-						<h2>Let's talk about probabilities</h2>
-						<aside class="notes">Talking about probabilities in a cross-functional team is... hard. Everyone will have a different level of stats and data literacy. Acknowledge this. Start with simple ways of observing and discussing confidence, don't jump into the deep end. </aside>
-					</section>
-					<section>
-						<img src="img/confidence.png" width="600" alt="Different approaches to measuring confidence and probabilities" />  
-						<aside class="notes">Lots of different levels of fidelity. What's important is that we expose the uncertainty, and the scale of that uncertainy. Always circle back to absolutes to ground the relative scores. 90% accurate is great in a data set of 10 points. 99% accurate means 50,000 wrong answers in a data set of 5 million.</aside>
-					</section>
-					<section>
-						<h2>Changing our language <br>changes our minds</h2>
-						<blockquote class="fragment">"We'll wait until we're 100% certain... no make that 99% certain"</blockquote>
-						<aside class="notes">Colleague who has started to change his language </aside>
-					</section>
-					<section>
-						<h2>Deterministic vs Stochastic</h2>
-						<h3 class="fragment">There will be noise either way</h3>
-						<aside class="notes">A lot is made about the difference between deterministic programming (where the code is fixed) and stochastic. But in any complex system there will be noise, and unexpected effects. Any automation should expect to grapple with unintended outcomes, false positives. </aside>
-					</section>
-					<section>
-						<h2>Machine Learning is statistics</h2>
-						<aside class="notes">And Stats is based on the stochastic (noisy) universe. If you are bulding ML, the ONLY certainty is that some of the engine's outputs will be wrong. If you can't afford to design for decision review and decision recourse then you can't afford to design an ML model to use in prod.</aside>
-					</section>
-					<section>
-						<h2>Noise</h2>
-						<p>A new book coming soon by Daniel Kahneman</p>
-						<p><small><a href="https://www.bookdepository.com/Noise-Daniel-Kahneman/9780008308995" target="_blank">See on book depository</a></small></p>
-						<aside class="notes">Importance of distinguising noise from bias</aside>
-					</section>
-					<section>
-						<h2>Be explicit</h2>
-						<h3 class="fragment">If you can't imagine consequences, you're not thinking hard enough</h3>
-						<aside class="notes">The best way to prepare yourself to design in this world is to be ultra explicit about the goals of your system, and the possible harms that might occur to your end users. </aside>
-					</section>
-					<section>
-						<h2>Shot</h2>
-						<blockquote>We believe this system has contributed to making Facebook the safest place on the Internet for people and their information.</blockquote>
-						<br>
-						<p><small>— <a href="https://research.fb.com/publications/facebook-immune-system/" target="_blank">Facebook Immune System by Tao Stein, Roger Chen, Karan Mangla</a></small></p>
-						<aside class="notes">FB Research paper from 2011. :Screams_forever: </aside>
-					</section>
-					<section>
-						<h2>Chaser</h2>
-						<blockquote>"The goal is to protect the graph against all attacks rather than to maximize the accuracy of any one specific classifier. The opportunity cost of refining a model for one attack may be increasing the detection and response on other attacks."</blockquote>
-						<br>
-						<p><small>— <a href="https://research.fb.com/publications/facebook-immune-system/" target="_blank">Facebook Immune System by Tao Stein, Roger Chen, Karan Mangla</a></small></p>
-						<aside class="notes">:Screams_forever: </aside>
-					</section>
-					<section>
-						<h2>For example</h2>
-						<aside class="notes">In the land of fraud the goal is to prevent the costs of service misuse and fraud. The harms are when we take action that can result in a user unexpectedly losing service. </aside>
-					</section>
-					<section>
-						<h2>Litmus test</h2>
-						<h3 class="fragment">What if this happened to my most vulnerable customer?</h3>
-						<aside class="notes">I find this question useful for thinking about service level actions. It helps frame the cost of false positives and makes us more focused on the minimum viable intervention needed to achieve our goals of capping these costs.</aside>
-					</section>
-					<section>
-						<h2>Added uncertainty in the space of fraud</h2>
-						<h3 class="fragment">You <em>really</em> can't trust what people say</h3>
-						<aside class="notes">In UXR you develop a sniff test for honesty and vulnerability vs bulshit answers. But in the fraud space you had this added complexity of knowing that sometimes customers may be lying or trying to game the system to meet their own ends. Dealing with this day-in day-out can make these discussions feel instantly suspect, and you'll start to see fraud everywhere. </aside>
-					</section>
-					<section>
-						<h2>The antidote to suspicion</h2>
-						<h3 class="fragment">Setting the intention to be respectful</h3>
-						<aside class="notes">The best way to avoid falling into this trap is to be explicitly, deliberately kind and respectful in all our communications</aside>
-					</section>
-					<section>
-						<h2>bUt wHAt iF iT's A BAd AcTor?</h2>
-						<h3 class="fragment">So what?</h3>
-						<aside class="notes">What is the harm in being overly respectful to someone who is trying to rip you off? Versus what's the harm in speaking harshly to a legit customer by accident? Have to think about reputational harms, and stay focused on the goal.</aside>
-					</section>
-					<section>
-						<h2>Keep the moralising <u>out of it</u></h2>
-						<aside class="notes">Being 'right' isn't helpful. You don't know that person, you don't know their story. </aside>
-					</section>
-					<section>
-						<h2>Tip</h2>
-						<h3>Describe <em>behaviours</em>, not <em>people</em></h3>
-						<aside class="notes">Describe behaviour (service misuse) not people (fraudster). There's literally no value in applying a moralising title to a person. THere's every possibility of harm, on both sides, if you get it wrong.</aside>
-					</section>
-					<section>
-						<h1 class="learning">Finding #4</h1>
-						<h2>Mapping knowledge states</h2>
-						<aside class="notes">ok. so you probably knew this was coming. This is the section where i tell you that the best way to improve your data science practice as a whole is to do better, much better, at the boring science bits.</aside>
-					</section>
-					<section data-background-image="img/assumptions-swamp.jpg">
-						<h2>Beware the swamp of lazy assumptions</h2>
-						<aside class="notes">Anecdote: when joined telco there was a lot of confusion about what types of fraud were, and what they were called. Names were quite confusing, unintuitive, imprecise language, name overlaps! I wasn't the only one who was confused.</aside>
-					</section>
-					<section>
-						<h2>Implicit vs Explicit knowledge</h2>
-						<h3 class="fragment">Become a knowledge excavator</h3>
-						<aside class="notes">Just because a thing is knowable, doesn't mean it is known. Often the first step to establishign a shared understanding is to sniff out this existing implicit knowledge and formalise it.  </aside>
-					</section>
-					<section>
-						<h2>Naming matters</h2>
-						<ul>
-							<li class="fragment">Build a shared vocabulary</li>
-							<li class="fragment">Build shared mental models</li>
-							<li class="fragment">Avoid name-space clashing</li>
-						</ul>
-					</section>
-					<section>
-						<h2>For example</h2>
-						<blockquote>International revenue sharing fraud <br>-vs-<br> Toll fraud</blockquote>
-						<aside class="notes">these are confusingly different names for the same thing unrelated to Call Reselling (but these often get confused)</aside>
-						
-					</section>
-					<section>
-						<h2>Personas</h2>
-						<img src="img/mystery-marketer.png" width="600" alt="Person shouting through a bullhorn with lots of chat bubbles coming out" />
-						<aside class="notes">Talk about writing personas documentation to have a shared model that stakeholders from support and ops through to data science can reference</aside>
-					</section>
-					<section>
-						<h2>Defining your baseline</h2>
-						<aside class="notes">If you don't have a shared understanding it's hard to move forwards. Needed for all experiments, hypotheses you want to try moving forwards. Also - perhaps minor discrepancies in what is the current state will reveal a question to investigate? </aside>
-					</section>
-					<section>
-						<h2>For example</h2>
-						<h3>Looking at the logs</h3>
-						<aside class="notes">Looking at the history of what actions had been taken on a service number - can make longitudinal analysis very difficult if the reasons aren't well documented AND if there is no way to observe the occurance of false positives. If you don't know when you automation was wrong, hard to use that data with confidence. Also - maybe your logs aren't the source of truth, ok! as long as somewhere there is a source of truth. </aside>
-					</section>
-					<section>
-						<h1 class="learning">Finding #5</h1>
-						<h2>If you don't ask,<br /> customers won't tell</h2>
-						<aside class="notes">Probably obvious! But important. Follows-on nicely from thinking about logs and improving our understanding of history. Most people won't bother to give you feedback.  If you want to know whether you've had false positives you need to allow for this possibility and design feedback loops in by default. </aside>
-					</section>
-					<section>
-						<img src="img/too-hard-basket.png" width="200" alt="Woven basket labeled Too Hard" />
-						<aside class="notes">I think of this as the rule of lurkers vs contributors. In the space of fraud, if you have taken an action on a service they're more likely to churn than to make an effort to reach out to you - and why would they bother based on a market where churn is the norm and it's easy to swap providers? If they are really angry you might get feedback - but through the form of a complaint to the TIO (the regulator) - also a bad outcome. </aside>
-					</section>
-					<section>
-						<h2>Customers <u>are</u> the experts...</h2>
-						<h3 class="fragment">...on themselves</h3>
-						<aside class="notes">If your system makes an incorrect assumption, are you in a position to find out?</aside>
-					</section>
-					<section>
-						<h2>Feedback loops must be </h2>
-						<ul>
-							<li class="fragment">Intuitive</li>
-							<li class="fragment">Contextual</li>
-							<li class="fragment">Timely</li>
-						</ul>
-						<aside class="notes">I'm a fan of micro-feedback, small and contextual questions that are really lightweight and easy to answer.</aside>
-					</section>
-					<section>
-						<h2>Plan time for...</h2>
-						<ul>
-							<li class="fragment">Customer support</li>
-							<li class="fragment">Product/model improvements</li>
-							<li class="fragment">Integrating your learnings</li>
-						</ul>
-					</section>
-					<section>
-						<h2>Gotchas</h2>
-						<aside class="notes">If you take action to block or disconnect a service based on fraud - can't call or text that customer now! (ouch). And if you send your comms from a donotreply email, you make email replies difficult and discouraging (double ouch). </aside>
-					</section>
-					<section>
-						<h1 class="learning">Finding #6</h1>
-						<h2>Design for failure first</h2>
-						<aside class="notes">Thinking about asking customers if a classification, prediction or automated decision impacting them was wrong flows nicely into this idea of designing for failure first.</aside>
-					</section>
-					<section>
-						<h2>Your system <u>will</u> get it wrong</h2>
-						<h3 class="fragment">So how will it handle failure?</h3>
-						<aside class="notes">Start from the assumption that your system is not perfect. We know this is the case with any machine learning or statistical models. The literal only assumption you can make is that it will be wrong for some percent of the time. And ever removing the issue of statistical models there are plenty of other aspects of your tech stack and human stack that point to the strong certainty of some amount of failure: complexity, culture, etc.</aside>
-					</section>
-					<section>
-						<h2>When a system fails...</h2>
-						<h3 class="fragment">...There are always consequences</h2>
-						<aside class="notes">Remember the FB paper? Circle back here if you need convincing.</aside>
-					</section>
-					<section>
-						<h2>Harm mapping</h2>
-						<h3 class="fragment">Recommended starting point</h3>
-						<p class="fragment"><a href="https://github.com/summerscope/mapping-fair-ml" target="_blank">github.com/summerscope/mapping-fair-ml</a></p>
-						<aside class="notes">This is a whole topic but just to point to it, this is the bit where we think about what we might get wrong, and what are the consequences. There are a whole bunch of tools and frameworks out there to try - ethics litmus tests among them.</aside>
-					</section>
-					<section>
-						<img src="img/escape-hatch.png" width="300" alt="Escape hatch" />
-						<h2 class="fragment">Designing an escape hatch</h2>
-					</section>
-					<section>
-						<h2>Starting points</h2>
-						<ul>
-							<li class="fragment">Email / SMS templates</li>
-							<li class="fragment">Support scripts for conversations</li>
-							<li class="fragment">Data schema design <br>(capturing your learnings)</li>
-						</ul>
-						<aside class="notes">Think of this as designing your escape hatch. You don't want to have to use it much - but you sure want it well oiled if you do have to use it.</aside>
-					</section>
-					<section>
-						<h2>Prepare for pushback</h2>
-						<ul>
-							<li class="fragment">People don't like it when you make bad assumptions about them!</li>
-							<li class="fragment">Making the implicit explict is going to be uncomfortable</li>
-						</ul>
-					</section>
-					<section>
-						<h2>Litmus test</h2>
-						<h3>Could any customer go through my escape hatch, recover and remain a happy customer?</h3>
-						<aside class="notes">Sometimes you have to think creatively - pitch a friction as a value add. "We are working hard to protect your identity and your account's safety" is a good one, for instance. Test out your explanations and flows on random people NOT those who match the assumptions your system made as a way to assess the quality of the solution.</aside>
-					</section>
-					<section>
-						<blockquote>"Delays in feedback loops are common causes of oscillations. If you're trying to adjust a system state to your goal, but you only receive delayed information about what the system state is, you will overshoot and undershoot."</blockquote>
-						<br>
-						<p><small>- <a href="http://donellameadows.org/wp-content/userfiles/Leverage_Points.pdf" target="_blank">Leverage Points: Places to Intervene in a System by Donella Meadows</a></small></p>
-						<aside class="notes">The escape hatch is also your feedback loop telling you about the state of your system.</aside>
-					</section>
-					<section>
-						<h1 class="learning">Finding #7</h1>
-						<h2>Speed matters</h2>
-						<aside class="notes">Speed of feedback loops naturally flows into another classic product question - how fast should we build and deploy things</aside>
-					</section>
-					<section>						
-						<img src="img/fast-slow.png" alt="Spectrum showing two extremes in product - too fast and too slow" />
-						<br><br>
-						<p class="fragment">The challenge is finding the sweet spot</p>
-						<aside class="notes">Too slow can be just as dangerous as too fast. Design by committee is a painful experience. </aside>
-					</section>
-					<section>
-						<h2>Dangers of too slow</h2>
-						<ul>
-							<li class="fragment">Feedback takes too long</li>
-							<li class="fragment">You may not see the impact of a decision</li>
-							<li class="fragment">Doing things <em>feels hard</em></li>
-							<li class="fragment">Culture of resistance</li>
-							<li class="fragment">Diffusion of responsibility</li>
-							<li class="fragment">Get anchored to your first idea</li>
-							<li class="fragment">Sunk cost bias</li>
-						</ul>
-						<aside class="notes">Much more difficult to treat solutions / features / ideas lightly, as hypotheses to be validated or not. </aside>
-					</section>
-					<section>
-						<h2>Dangers of too fast</h2>
-						<ul>
-							<li class="fragment">Ask forgiveness not permission</li>
-							<li class="fragment">Insufficient knowledge / expertise</li>
-							<li class="fragment">Overconfidence</li>
-							<li class="fragment">Failing to measure impact</li>
-							<li class="fragment">Reinventing the wheel</li>
-						</ul>
-						<aside class="notes">"The Facebook" (especially early years)</aside>
-					</section>
-					<section>
-						<h1 class="learning">Finding #8</h1>
-						<h2>Upstream prevention vs downstream mitigation</h2>
-						<aside class="notes">What can you do in the product? Vs what do you try to intervene on after it happens? </aside>
-					</section>
-					<section>
-						<blockquote>
-							These sorts of things will happen. I’m very intentional about not saying abuse "might" happen - if it can, it will.
-						</blockquote>
-						- Eva PenzeyMoog <a href="https://evapenzeymoog.substack.com/p/coming-soon" target="_blank">newsletter</a>
-						<aside class="notes">I see a reseblance between Fraud and Abuse (tech used in DV / DA). These are people with a different agenda to yours. They are looking for vulnerabilities they can exploit for their own ends.  </aside>
-					</section>
-					<section>
-						<h2>Product use cascade</h2>
-						<ol>
-							<li class="fragment">What you <u>can do</u> in the product</li>
-							<li class="fragment">Intentions, framing, design </li>
-							<li class="fragment">Culture of your community</li>
-							<li class="fragment">...</li>
-							<li class="fragment">Terms of use</li>
-						</ol>
-					</section>
-					<section>
-						<h2>Possible = permissible</h2>
-						<aside class="notes">I can't say it more strongly. If you don't care to make it impossible to do something in your product, that's tacit permission for the behaviour to occur. Even if it's not intended, designed for, etc. It sucks, but it's the nature of the beast.</aside>
-					</section>
-					<section>
-						<h2>Setting boundaries <u>is design</u></h2>
-						<aside class="notes">I we often miss out on opportunities to do this well. Marketing, on-boarding, engagement comms - these are all opportunities to show how people can and should be successful using your product, and to offer little nudges away from the kinds of behaviour you don't want to see.</aside>
-					</section>
-					<section>
-						<blockquote class="twitter-tweet"><p lang="en" dir="ltr">The rise and rise of terms of service is a genuinely astonishing cultural dysfunction. Think of what a bizarre pretense we all engage in, that anyone, ever, has read these sprawling garbage novellas of impenetrable legalese.<br><br>1/ <a href="https://t.co/4woefKaXDF">pic.twitter.com/4woefKaXDF</a></p>&mdash; Cory Doctorow #BLM (@doctorow) <a href="https://twitter.com/doctorow/status/1320399417979985920?ref_src=twsrc%5Etfw">October 25, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-						<aside class="notes">Think of TOC - necessary evil but not the intuitive place to enact change if it's possibel to go up the cascade</aside>
-					</section>
-					<section>
-						<h2>Human-centred T&amp;Cs</h2>
-						<aside class="notes">This space is growing and I'm excited to see developments in this space. Just don't expect this to replace the work of establishing guardarails/norms in your product design.</aside>
-					</section>
-					<section>
-						<h2>Downstream is usually more costly than upstream</h2>
-						<aside class="notes">In retail - think promotions abuse, etc. Can you add guardrails in at the planning stage? Finding and dealing with behaviour sucks. Anyone who's worked on an abuse team will testify to this. It's not always possible, but if you can resolve something with a product change rather than monitoriing for it and remediation after the fact - usually preferable.</aside>
-					</section>
 				</section>
 				<section>
 					<section>
 						<h1>Section 3</h1>
 						<h2>Final thoughts</h2>
 					</section>
+					<!-- <section>
+						<blockquote>“Never doubt that a small group of thoughtful, committed, citizens can change the world. Indeed, it is the only thing that ever has.”</blockquote>
+						<p>-Margaret Mead</p>
+						<aside class="notes">
+							Because to be clear, you don't really need principles, policy, or values to get started. You just need a few bright sparks and enough rope. So let's tangle with the grey. 
+						</aside>
+					</section> -->
 					<section>
 						<h2>Rethinking automation design</h2>
 						<aside class="notes">So many options we don't need to think about automations as all or nothing</aside>
