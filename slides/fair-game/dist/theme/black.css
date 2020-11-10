@@ -347,3 +347,19 @@ blockquote {
   100% {
     -webkit-transform: translate(100px, 200px);
     transform: translate(100px, 200px); } }
+
+/*********************************************
+ * Twitter BAR
+ *********************************************/
+.reveal .twitter {
+  position: absolute;
+  top: auto;
+  bottom: 32px;
+  left: 20px;
+  right: auto;
+  z-index: 1;
+  pointer-events: none;
+  font-size: 28px;
+  font-family: sans-serif;
+  text-transform: lowercase;
+  font-weight: 200; }
