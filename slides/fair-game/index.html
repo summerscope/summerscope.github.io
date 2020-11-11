@@ -41,9 +41,10 @@
 						<h2>Friend or fraud?</h2>
 					</section>
 					<section>
-						<h2>Joining a telco</h2>
+						<h2>Ethics ops consulting</h2>
+						<p><a href="https://debias.ai" target="blank">debias.ai</a></p>
 						<aside class="notes">
-							At the beginning of 2020 (which is either a year or a lifetime ago, who even knows) I joined a fraud detection team in a telco. Their approach to fraud detection is pretty standard - a mix of monitoring, internal business rules, and third party systems with proprietary fraud ML algorithms.
+							At the beginning of 2020 (which is either a year or a lifetime ago, who even knows) I embedded in a fraud detection team in a telco. Their approach to fraud detection is pretty standard - a mix of monitoring, internal business rules, and third party systems with proprietary fraud ML algorithms.
 						</aside>
 					</section>
 					<section>
@@ -55,7 +56,7 @@
 					<section>
 						<h2>A balancing act</h2>
 						<aside class="notes">
-							You have to balance the real, often urgent concerns of identifying bad behaviour and halting costs while also acknowledging the possibility of false positives, and considering how you might identify and support any innocent parties who accidentally get caught in the cross-fire. Add to this the ever-changing space of fraud activity. Email spam is a similar field - just as the algorithms get smarter at detecting spam, the spammers get cleverer in their approaches to slipping the net. 
+							You have to balance the real, often urgent concerns of identifying bad behaviour and halting costs while also acknowledging the possibility of false positives, and considering how you might identify and support any innocent parties who accidentally get caught in the cross-fire. Add to this the ever-changing space of fraud activity. It's a war of attrition - like email spam. 
 						</aside>
 					</section>
 					<section>
@@ -71,7 +72,7 @@
 					</section>
 					<section>
 						<h2>Deconstructing your proxy</h2>
-						<aside class="notes">All data is a proxy - it's an approximation of the thing we actually want to measure</aside>
+						<aside class="notes">All data is a proxy - it's an approximation of the thing we actually want to measure. Apple CC example. </aside>
 					</section>
 					<section>
 						<h2>A concept framework</h2>
@@ -102,7 +103,7 @@
 							</div>
 						</div>
 						<aside class="notes">
-							Don't forget we also measure anti-signals. This is the framing I use, and I think it helps us be explicit about the logic leaps we are making. Always asking the question how good a proxy is this data for the thing I REALLY want to know?
+							This is the framing I use, and I think it helps us be explicit about the logic leaps we are making. Always asking the question how good a proxy is this data for the thing I REALLY want to know? Don't forget we also measure anti-signals.
 						</aside>
 					</section>
 					<!-- <section>
@@ -247,9 +248,9 @@
 					</section>
 					<section>
 						<!-- placeholder img - spreadsheet with fields based on example i set up  -->
-						<h2>Design data schemas</h2>
-						<h3>For internal experiments</h3>
-						<aside class="notes">Take the job of data capture about your customers seriously. Take the time to think about what fields, what meta data will be useful for investigations. Future you will thank you.</aside>
+						<h2>Data schemas</h2>
+						<img src="img/data-schema.png" width="700" alt="Grid with three columns, What did I think, New info, What changed" />
+						<aside class="notes">For internal experiments. Take the job of data capture about your customers seriously. Take the time to think about what fields, what meta data will be useful for investigations. Future you will thank you.</aside>
 					</section>
 					<section>
 						<h2>Changing our language <br>changes our minds</h2>
@@ -341,23 +342,23 @@
 						<aside class="notes">:Screams_forever: </aside>
 					</section>
 					<section>
-						<h2>For example</h2>
-						<aside class="notes">In the land of fraud the goal is to prevent the costs of service misuse and fraud. The harms are when we take action that can result in a user unexpectedly losing service. </aside>
-					</section>
-					<section>
-						<h2>Litmus test</h2>
-						<h3 class="fragment">What if this happened to my most vulnerable customer?</h3>
-						<aside class="notes">I find this question useful for thinking about service level actions. It helps frame the cost of false positives and makes us more focused on the minimum viable intervention needed to achieve our goals of capping these costs.</aside>
-					</section>
-					<section>
 						<h2>Your system <u>will</u> get it wrong</h2>
 						<h3 class="fragment">So how will it handle failure?</h3>
 						<aside class="notes">Start from the assumption that your system is not perfect. We know this is the case with any machine learning or statistical models. The literal only assumption you can make is that it will be wrong for some percent of the time. And ever removing the issue of statistical models there are plenty of other aspects of your tech stack and human stack that point to the strong certainty of some amount of failure: complexity, culture, etc.</aside>
 					</section>
+					<!-- <section>
+						<h2>For example</h2>
+						<aside class="notes">In the land of fraud the goal is to prevent the costs of service misuse and fraud. The harms are when we take action that can result in a user unexpectedly losing service. </aside>
+					</section> 
 					<section>
 						<h2>When a system fails...</h2>
 						<h3 class="fragment">...There are always consequences</h2>
 						<aside class="notes">Remember the FB paper? Circle back here if you need convincing.</aside>
+					</section>-->
+					<section>
+						<h2>Litmus test</h2>
+						<h3>What if this happened to my most vulnerable customer?</h3>
+						<aside class="notes">In the space of a telco, we're asking what could go wrong with a mobile service level action. I find this question useful for thinking about service level actions. It helps frame the cost of false positives and makes us more focused on the minimum viable intervention needed to achieve our goals of capping these costs.</aside>
 					</section>
 					<section>
 						<h2>Harm mapping</h2>
@@ -366,17 +367,14 @@
 						<aside class="notes">This is a whole topic but just to point to it, this is the bit where we think about what we might get wrong, and what are the consequences. There are a whole bunch of tools and frameworks out there to try - ethics litmus tests among them.</aside>
 					</section>
 					<section>
-						<img src="img/escape-hatch.png" width="300" alt="Escape hatch" />
-						<h2 class="fragment">Designing an escape hatch</h2>
-					</section>
-					<section>
 						<h2>Starting points</h2>
 						<ul>
+							<li class="fragment">UI interactions (Get help / This isn't right)</li>
 							<li class="fragment">Email / SMS templates</li>
 							<li class="fragment">Support scripts for conversations</li>
 							<li class="fragment">Data schema design <br>(capturing your learnings)</li>
 						</ul>
-						<aside class="notes">Think of this as designing your escape hatch. You don't want to have to use it much - but you sure want it well oiled if you do have to use it.</aside>
+						<aside class="notes">Places you could think about starting for a feature design / product flow. </aside>
 					</section>
 					<section>
 						<h2>Prepare for pushback</h2>
@@ -384,6 +382,11 @@
 							<li class="fragment">People don't like it when you make bad assumptions about them!</li>
 							<li class="fragment">Making the implicit explict is going to be uncomfortable</li>
 						</ul>
+					</section>
+					<section>
+						<img src="img/escape-hatch.png" width="300" alt="Escape hatch" />
+						<h2>Designing an escape hatch</h2>
+						<aside class="notes">I think of this work as designing the escape hatch. You don't want to have to use it, but if you need it you sure hope it's there. </aside>
 					</section>
 					<section>
 						<h2>Litmus test</h2>
@@ -483,7 +486,7 @@
 						<h2>Responsible tech</h2>
 						<h3 class="fragment">No magic bullets</h3>
 						<aside class="notes">
-							if you're hoping to learn how to write an ethics strategy document, this is probably not the talk for you. I'm going to share anecdotes and experiences about my work with the messy intersection of people, data, and systems - but I'm won't offer any easy answers, or a prescription for success. 
+							So if you were hoping I'd be giving you pointers on writing a values startegy or principles document, I'm sorry to disappoint.   
 						</aside>
 					</section>
 					<section>
