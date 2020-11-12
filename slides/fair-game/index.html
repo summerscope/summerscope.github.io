@@ -247,13 +247,12 @@
 					<h2>Defining your baseline</h2>
 					<aside class="notes">If you don't have a shared understanding it's hard to move forwards. Needed for all experiments, hypotheses you want to try moving forwards. Also - perhaps minor discrepancies in what is the current state will reveal a question to investigate? </aside>
 				</section>
-				<section>
+				<!-- <section>
 					<h2>For example</h2>
 					<h3>Looking at the logs</h3>
 					<aside class="notes">Looking at the history of what actions had been taken on a service number - can make longitudinal analysis very difficult if the reasons aren't well documented AND if there is no way to observe the occurance of false positives. If you don't know when you automation was wrong, hard to use that data with confidence. Also - maybe your logs aren't the source of truth, ok! as long as somewhere there is a source of truth. </aside>
-				</section>
+				</section> -->
 				<section>
-					<!-- placeholder img - spreadsheet with fields based on example i set up  -->
 					<h2>Data schemas</h2>
 					<img src="img/data-schema.png" width="700" alt="Grid with three columns, What did I think, New info, What changed" />
 					<aside class="notes">For internal experiments. Take the job of data capture about your customers seriously. Take the time to think about what fields, what meta data will be useful for investigations. Future you will thank you.</aside>
@@ -347,11 +346,11 @@
 					<p><small>— <a href="https://research.fb.com/publications/facebook-immune-system/" target="_blank">Facebook Immune System by Tao Stein, Roger Chen, Karan Mangla</a></small></p>
 					<aside class="notes">:Screams_forever: </aside>
 				</section>
-				<section>
+				<!-- <section>
 					<h2>Your system <u>will</u> get it wrong</h2>
 					<h3 class="fragment">So how will it handle failure?</h3>
 					<aside class="notes">Start from the assumption that your system is not perfect. We know this is the case with any machine learning or statistical models. The literal only assumption you can make is that it will be wrong for some percent of the time. And ever removing the issue of statistical models there are plenty of other aspects of your tech stack and human stack that point to the strong certainty of some amount of failure: complexity, culture, etc.</aside>
-				</section>
+				</section> -->
 				<!-- <section>
 					<h2>For example</h2>
 					<aside class="notes">In the land of fraud the goal is to prevent the costs of service misuse and fraud. The harms are when we take action that can result in a user unexpectedly losing service. </aside>
@@ -362,18 +361,13 @@
 					<aside class="notes">Remember the FB paper? Circle back here if you need convincing.</aside>
 				</section>-->
 				<section>
-					<h2>Litmus test</h2>
-					<h3>What if this happened to my most vulnerable customer?</h3>
-					<aside class="notes">In the space of a telco, we're asking what could go wrong with a mobile service level action. I find this question useful for thinking about service level actions. It helps frame the cost of false positives and makes us more focused on the minimum viable intervention needed to achieve our goals of capping these costs.</aside>
-				</section>
-				<section>
 					<h2>Harm mapping</h2>
 					<h3 class="fragment">Recommended starting point</h3>
 					<p class="fragment"><a href="https://github.com/summerscope/mapping-fair-ml" target="_blank">github.com/summerscope/mapping-fair-ml</a></p>
 					<aside class="notes">This is a whole topic but just to point to it, this is the bit where we think about what we might get wrong, and what are the consequences. There are a whole bunch of tools and frameworks out there to try - ethics litmus tests among them.</aside>
 				</section>
 				<section>
-					<h2>Starting points</h2>
+					<h2>Failure-first design</h2>
 					<ul>
 						<li class="fragment">UI interactions (Get help / This isn't right)</li>
 						<li class="fragment">Email / SMS templates</li>
@@ -381,6 +375,11 @@
 						<li class="fragment">Data schema design <br>(capturing your learnings)</li>
 					</ul>
 					<aside class="notes">Places you could think about starting for a feature design / product flow. </aside>
+				</section>
+				<section>
+					<h2>Litmus test</h2>
+					<h3>What if this happened to my most vulnerable customer?</h3>
+					<aside class="notes">In the space of a telco, we're asking what could go wrong with a mobile service level action. I find this question useful for thinking about service level actions. It helps frame the cost of false positives and makes us more focused on the minimum viable intervention needed to achieve our goals of capping these costs.</aside>
 				</section>
 				<section>
 					<h2>Prepare for pushback</h2>
