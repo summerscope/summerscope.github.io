@@ -60,7 +60,7 @@ blockquote {
     margin-right: auto;
 }
 
-.reveal h1.learning {
+.reveal .learning {
     font-size: 65%;
     text-transform: uppercase;
     font-weight: 400;
@@ -72,6 +72,10 @@ blockquote {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
+}
+
+.smallText {
+    font-size: 85%;
 }
 
 .fragment.visible.slide-bottom {

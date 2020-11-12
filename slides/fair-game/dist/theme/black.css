@@ -305,7 +305,7 @@ blockquote {
   margin-left: auto;
   margin-right: auto; }
 
-.reveal h1.learning {
+.reveal .learning {
   font-size: 65%;
   text-transform: uppercase;
   font-weight: 400;
@@ -316,6 +316,9 @@ blockquote {
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end; }
+
+.smallText {
+  font-size: 85%; }
 
 .fragment.visible.slide-bottom {
   -webkit-animation: slide-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
