@@ -22,16 +22,12 @@
 					<h2>The ethics of telco fraud</h2>
 				</section>
 				<section>
-					<h2>Intro</h2>
-					<aside class="notes">About me, ethics litmus tests, etc</aside>
-				</section>
-				<section>
 					<h2>Ethics Litmus Tests</h2>
 					<span class="fragment">
 						<h3>now online!</h3>
 						<p><a href="https://www.ethical-litmus.site/" target="_blank">www.ethical-litmus.site</a></p>
 					</span>
-					<aside class="notes">NB borrowed from Ben Buchanon (big stonking post) - V1 static, V2 is going to allow suggestions and a vote / poll mechanism to add new cards</aside>
+					<aside class="notes">NB borrowed code from Ben Buchanon's version, for Oblique Strategies. You'll know him from the big stonking post - WD conf blogpost. V1 static, V2 is going to allow suggestions and a vote / poll mechanism to add new cards</aside>
 				</section>
 				<section>
 					<h2>Slides</h2>
@@ -41,33 +37,35 @@
 					<section>
 						<h1>Section 1</h1>
 						<h2>Friend or fraud?</h2>
+						<aside class="notes">So, let's get stuck into it!</aside>
 					</section>
 					<section>
 						<h2>Lineup</h2>
 						<ol class="smallText">
 							<li>Developing a healthy cynicism about data sources</li>
 							<li>Mapping knowledge states</li>
-							<li>Design for failure first</li>
+							<li>Designing for failure first</li>
 							<li>Upstream prevention vs downstream mitigation</li>
 						</ol>
+						<aside class="notes">Four primary findings I'll walk you through. These findings and techniques I offer apply to any kind of automation or decision system. Not telco or fraud-specific, they apply to you!</aside>
 					</section>
 					<section>
 						<h2>Ethics ops consulting</h2>
 						<p><a href="https://debias.ai" target="blank">debias.ai</a></p>
 						<aside class="notes">
-							At the beginning of 2020 (which is either a year or a lifetime ago, who even knows) I embedded in a fraud detection team in a telco. Their approach to fraud detection is pretty standard - a mix of monitoring, internal business rules, and third party systems with proprietary fraud ML algorithms.
+							At the beginning of 2020 (which is either a year or a lifetime ago, who even knows) I began consulting with a telco for Debias AI. I am primarily embedded in their fraud detection team. Their approach to fraud detection is pretty standard - a mix of monitoring, internal business rules, and third party systems with proprietary fraud ML algorithms.
 						</aside>
 					</section>
 					<section>
 						<img src="img/harm-lenses.png" width="700" alt="Three eye glasses with labels, User Harm, Historical Bias, Algorithmic Bias" />
 						<aside class="notes">
-							My job is to introduce a harm identification and mitigation lens to the work. Fraud is an interesting space within which to discuss ethics, because not only are you (the company) capable of inflicting harm on your customers, you are also under attack by a sub-set of customers who mean you harm.
+							Ethics ops is like devops for ethics -  I introduce a harm identification and mitigation lens, and work on monitoring / notifications / alerts as well as product flows and feedback loops.
 						</aside>
 					</section>
 					<section>
 						<h2>A balancing act</h2>
 						<aside class="notes">
-							You have to balance the real, often urgent concerns of identifying bad behaviour and halting costs while also acknowledging the possibility of false positives, and considering how you might identify and support any innocent parties who accidentally get caught in the cross-fire. Add to this the ever-changing space of fraud activity. It's a war of attrition - like email spam. 
+							Fraud is an interesting space within which to discuss ethics, because not only are you (the company) capable of inflicting harm on your customers, you are also under attack by a sub-set of customers who mean you harm. You have to balance the real, often urgent concerns of identifying bad behaviour and halting costs while also acknowledging the possibility of false positives, and considering how you might identify and support any innocent parties who accidentally get caught in the cross-fire. Add to this the ever-changing space of fraud activity. It's a war of attrition - like email spam. 
 						</aside>
 					</section>
 					<section>
@@ -87,29 +85,31 @@
 					</section>
 					<section>
 						<h2>A concept framework</h2>
+					</section>
+					<section>
 						<div class="columns">
 							<div class="fragment">
-								<img src="img/signal.png" width="100" alt="" />
+								<img class="clean" src="img/signal.png" height="400" alt="" />
 								<h3>Signal</h3>
 							</div>
 							<div class="fragment">
-								<img src="img/arrow.png" width="90" alt="arrow" />
+								<img class="clean" src="img/arrow.png" height="400" alt="arrow" />
 								<br>
 								<br>
 								infers
 							</div>
 							<div class="fragment">
-								<img src="img/activity.png"  width="100"  alt="" />
+								<img class="clean" src="img/activity.png" height="400" alt="" />
 								<h3>Activity</h3>
 							</div>
 							<div class="fragment">
-								<img src="img/arrow2.png" width="100"  alt="arrow" />
+								<img class="clean" src="img/arrow2.png" height="400" alt="arrows" />
 								<br>
 								<br>
 								infers
 							</div>
 							<div class="fragment">
-								<img src="img/persona.png"  width="200"  alt="" />
+								<img class="clean" src="img/persona.png"  height="400"  alt="" />
 								<h3>Persona</h3>
 							</div>
 						</div>
@@ -295,7 +295,7 @@
 					</section>
 					<section>
 						<h1 class="learning">Finding #3</h1>
-						<h2>Design for failure first</h2>
+						<h2>Designing for failure first</h2>
 						<aside class="notes">Probably obvious! But important. Follows-on nicely from thinking about logs and improving our understanding of history. Most people won't bother to give you feedback.  If you want to know whether you've had false positives you need to allow for this possibility and design feedback loops in by default. </aside>
 					</section>
 					<section>
@@ -595,7 +595,7 @@
 						<ol class="smallText">
 							<li>Developing a healthy cynicism about data sources</li>
 							<li>Mapping knowledge states</li>
-							<li>Design for failure first</li>
+							<li>Designing for failure first</li>
 							<li>Upstream prevention vs downstream mitigation</li>
 						</ol>
 					</section>
