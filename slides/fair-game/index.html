@@ -65,7 +65,7 @@
 					<section>
 						<h2>A balancing act</h2>
 						<aside class="notes">
-							Fraud is an interesting space within which to discuss ethics, because not only are you (the company) capable of inflicting harm on your customers, you are also under attack by a sub-set of customers who mean you harm. You have to balance the real, often urgent concerns of identifying bad behaviour and halting costs while also acknowledging the possibility of false positives, and considering how you might identify and support any innocent parties who accidentally get caught in the cross-fire. Add to this the ever-changing space of fraud activity. It's a war of attrition - like email spam. 
+							Fraud is an interesting space in which to discuss ethics. Not only are you (the company) capable of inflicting harm on your customers, you are also under attack by a sub-set of customers who mean you harm. You have to balance the real, often urgent concerns of identifying bad behaviour & halting costs while also acknowledging the possibility of false positives, and considering how you might identify and support any innocent parties who accidentally get caught in the cross-fire. It's a war of attrition - like email spam. 
 						</aside>
 					</section>
 					<section>
@@ -76,12 +76,12 @@
 					<section>
 						<h2>Data (interpretation) pride comes before a fall</h2>
 						<aside class="notes">
-							The textivist... Self-automation... The auto-call on smartwatch... 
+							The textivist... (NB Marketing use - overseas texting is EXPENSIVE and outside of most terms of use for personal plans). Self-automation... The auto-call on smartwatch... 
 						</aside>
 					</section>
 					<section>
 						<h2>Deconstructing your proxy</h2>
-						<aside class="notes">All data is a proxy - it's an approximation of the thing we actually want to measure. Apple CC example. </aside>
+						<aside class="notes">All data is a proxy - it's an approximation of the thing we actually want to measure. (time allowing - Apple CC example). </aside>
 					</section>
 					<section>
 						<h2>A concept framework</h2>
@@ -148,7 +148,7 @@
 					<section>
 						<h2>Look at your raw data</h2>
 						<h3 class="fragment">Not just at dashboards</h3>
-						<aside class="notes">Hopefully not controversial point! We should want to get up close and personal with our incoming data. Ask ourselves what it tells us. Observe where it looks clean and where the types are inconsistent or muddy. Let dofferent stakeholders / SMEs take a look too. You'll be surprised how much you learn from just skimming a few hundred rows in a raw table. </aside>
+						<aside class="notes">Data scientists please use your tools to interrogate raw data validity: does it actually meet our expectations? Types, formatting, data quality? Don't just examine 1st 10 results in a data table. SMEs & everyone else - get up close and personal with incoming data too, look for the human stories behind the data. You'll be surprised what you learn! </aside>
 					</section>
 					<section>
 						<blockquote>Data misinterpretation is <u>easy</u>, and <u>likely</u> under pressure</blockquote>				
@@ -157,19 +157,14 @@
 					<section>
 						<h2>For example...</h2>
 						<aside class="notes">
-							3 hour batch timeframe. Maintenance outages (planned) causing delays in data stream. 
+							Maintenance outages (planned) causing delays in data stream. Fixed delay in timeframe from data ingest > running feature > alert in slack - got us every time! 
 						</aside>
 					</section>
 					<section>
 						<h2>Design for cognitive load</h2>
+						<h3 class="fragment">Simple doesn't imply you're&nbsp;stupid</h3>
 						<aside class="notes">
-							Wherever possible, add labels. Be explicit. Make it impossible to misinterpret.
-						</aside>
-					</section>
-					<section>
-						<h2>Simple doesn't imply you're&nbsp;stupid</h2>
-						<aside class="notes">
-							Just because your team is smart, technical, doesn't mean you want them to have to be brilliant detectives under time and cost pressure. 
+							Wherever possible, add labels. Be explicit. Make it impossible to misinterpret. Just because your team is smart, technical, doesn't mean you want them to have to be brilliant detectives under time and cost pressure.
 						</aside>
 					</section>
 					<section>
@@ -282,7 +277,7 @@
 					<section>
 						<h2>bUt wHAt iF iT's A BAd AcTor?</h2>
 						<h3 class="fragment">So what?</h3>
-						<aside class="notes">What is the harm in being overly respectful to someone who is trying to rip you off? Versus what's the harm in speaking harshly to a legit customer by accident? Have to think about reputational harms, and stay focused on the goal.</aside>
+						<aside class="notes">What is the cost of all outcomes? Being respectful to someone who is trying to rip you off vs speaking harshly to a legit customer by accident? Or disconnecting a bad actor (save $) vs a legit or differently abled customer (lose $). Also consider also reputational harms. Focus on your automation goal.</aside>
 					</section>
 					<section>
 						<h2>Keep the moralising <u>out of it</u></h2>
@@ -325,10 +320,10 @@
 							<li class="fragment">Integrating your learnings</li>
 						</ul>
 					</section>
-					<section>
+					<!-- <section>
 						<h2>Gotchas</h2>
 						<aside class="notes">If you take action to block or disconnect a service based on fraud - can't call or text that customer now! (ouch). And if you send your comms from a donotreply email, you make email replies difficult and discouraging (double ouch). </aside>
-					</section>
+					</section> -->
 					<!-- <section>
 						<h1 class="learning">Finding #6</h1>
 						
@@ -480,10 +475,10 @@
 						<blockquote class="twitter-tweet"><p lang="en" dir="ltr">The rise and rise of terms of service is a genuinely astonishing cultural dysfunction. Think of what a bizarre pretense we all engage in, that anyone, ever, has read these sprawling garbage novellas of impenetrable legalese.<br><br>1/ <a href="https://t.co/4woefKaXDF">pic.twitter.com/4woefKaXDF</a></p>&mdash; Cory Doctorow #BLM (@doctorow) <a href="https://twitter.com/doctorow/status/1320399417979985920?ref_src=twsrc%5Etfw">October 25, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 						<aside class="notes">Think of TOC - necessary evil but not the intuitive place to enact change if it's possibel to go up the cascade</aside>
 					</section>
-					<section>
+					<!-- <section>
 						<h2>Human-centred T&amp;Cs</h2>
 						<aside class="notes">This space is growing and I'm excited to see developments in this space. Just don't expect this to replace the work of establishing guardarails/norms in your product design.</aside>
-					</section>
+					</section> -->
 					<section>
 						<h2>Downstream is usually more costly than upstream</h2>
 						<aside class="notes">In retail - think promotions abuse, etc. Can you add guardrails in at the planning stage? Finding and dealing with behaviour sucks. Anyone who's worked on an abuse team will testify to this. It's not always possible, but if you can resolve something with a product change rather than monitoriing for it and remediation after the fact - usually preferable.</aside>
@@ -567,15 +562,15 @@
 						<h3>How not to do principles</h3>
 						<aside class="notes">Don't point at a document, framework, or methodology and say "Go use it". Champion the approach from inside the team. Get your hands dirty. Show by doing.  </aside>
 					</section>
-					<section>
+					<!-- <section>
 						<h2>Get your hands dirty</h2>
 						<h3 class="fragment">Tangle in the grey</h3>
 						<aside class="notes">Advice to consultants - don't other yourself or other your work! Skill sharing, exploring platforms, tech approaches, etc - all better if you try to join the team rather than provide outside, othered advice. You'll better understand the texture of their problems. You'll also have a better sense of whether your proposed solution is viable. </aside>
-					</section>
-					
+					</section> -->
 					<section>
 						<h2>Commit to action</h2>
 						<ul>
+							<li class="fragment">Assign strategy champion(s)</li>
 							<li class="fragment">Set measurable targets</li>
 							<li class="fragment">Provide examples</li>
 							<li class="fragment">Allow for uncertainty</li>
@@ -598,6 +593,7 @@
 							<li>Designing for failure first</li>
 							<li>Upstream prevention vs downstream mitigation</li>
 						</ol>
+						<aside class="notes">Let's take a moment to remember these findings we talked through. ... They lead nicely into the final topic I want to touch on, automation design. </aside>
 					</section>
 					<!-- <section>
 						<blockquote>“Never doubt that a small group of thoughtful, committed, citizens can change the world. Indeed, it is the only thing that ever has.”</blockquote>
