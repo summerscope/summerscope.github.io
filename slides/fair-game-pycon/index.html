@@ -22,27 +22,30 @@
 					<h2>The ethics of telco fraud</h2>
 				</section>
 				<section>
-					<p>Links &raquo; <a href="http://summerscope.github.io/slides/fair-game-python/" target="_blank">short link</a>
+					<p>Slides &raquo; <br/><small><a href="http://summerscope.github.io/slides/fair-game-python/" target="_blank">summerscope.github.io/slides/fair-game-python</a></small>
 					<aside class="notes">Find link to my slides and all the links / references I'm mentioning in google doc. Also drop your questions in here! </aside>
 				</section>
 				<section>
 					<h2>Lineup</h2>
 					<pre>TODO: update</pre>
 					<ol class="smallText">
-						<li>Developing a healthy cynicism about data sources</li>
-						<li>Mapping knowledge states</li>
-						<li>Designing for failure first</li>
+						<li>Deconstruct your proxy</li>
+						<li>Explicit data design</li>
+						<li>Failure-first design</li>
 						<li>Upstream prevention vs downstream mitigation</li>
 					</ol>
 					<aside class="notes">Four primary findings I'll walk you through. These findings and techniques I offer apply to any kind of automation or decision system. Not telco or fraud-specific, they apply to you!</aside>
 				</section>
 				<section>
+					<h2>Setting the scene</h2>
+				</section>
+				<!--<section>
 					<h1>Section 1</h1>
 					<h2>Friend or fraud?</h2>
 					<aside class="notes">So, let's get stuck into it!</aside>
 				</section>
 				
-				<!--<section>
+				<section>
 					<h2>Ethics ops consulting</h2>
 					<p><a href="https://debias.ai" target="blank">debias.ai</a></p>
 					<aside class="notes">
@@ -62,7 +65,6 @@
 					</aside>
 				</section>
 				<section>
-					<h1 class="learning">Finding #1</h1>
 					<h2>Developing a healthy cynicism about data sources</h2>
 					<aside class="notes">When we start to feel really comfortable is usually when we discover something can be totally different than our expected interpretation.</aside>
 				</section>
@@ -73,7 +75,8 @@
 					</aside>
 				</section>
 				<section>
-					<h2>Deconstructing your proxy</h2>
+					<h1 class="learning">Finding #1</h1>
+					<h2>Deconstruct your proxy</h2>
 					<aside class="notes">All data is a proxy - it's an approximation of the thing we actually want to measure. (time allowing - Apple CC example). </aside>
 				</section>
 				<section>
@@ -144,8 +147,13 @@
 					<aside class="notes">Data scientists please use your tools to interrogate raw data validity: does it actually meet our expectations? Types, formatting, data quality? Don't just examine 1st 10 results in a data table. SMEs & everyone else - get up close and personal with incoming data too, look for the human stories behind the data. You'll be surprised what you learn! </aside>
 				</section>-->
 				<section>
+					<h1 class="learning">Finding #2</h1>
+					<h2>Explicit data design</h2>
+					<aside class="notes">Distinction between exploratory data science, and load bearing outputs.</aside>
+				</section>
+				<section>
 					<blockquote>Data misinterpretation is <u>easy</u>, and <u>likely</u> under pressure</blockquote>				
-					<aside class="notes">Distinction between exploratory data science, and load bearing outputs. One of the most interesting things about working with fraud is the pressure it puts on data interpretation in periods of attack. Like putting data science hygiene through the wringer -  in unexpected bursts. </aside>
+					<aside class="notes">One of the most interesting things about working with fraud is the pressure it puts on data interpretation in periods of attack. Like putting data science hygiene through the wringer -  in unexpected bursts. </aside>
 				</section>
 				<!--<section>
 					<h2>For example...</h2>
@@ -214,7 +222,7 @@
 					<p><small><a href="https://www.bookdepository.com/Noise-Daniel-Kahneman/9780008308995" target="_blank">See on book depository</a></small></p>
 					<aside class="notes">Importance of distinguising noise from bias</aside>
 				</section> -->
-				<section>
+				<!--<section>
 					<h1 class="learning">Finding #2</h1>
 					<h2>Mapping knowledge states</h2>
 					<aside class="notes">ok. so you probably knew this was coming. This is the section where i tell you that the best way to improve your data science practice as a whole is to do better, much better, at the boring science bits.</aside>
@@ -240,7 +248,6 @@
 					<h2>For example</h2>
 					<blockquote>International revenue sharing fraud <br>-vs-<br> Toll fraud</blockquote>
 					<aside class="notes">these are confusingly different names for the same thing unrelated to Call Reselling (but these often get confused)</aside>
-					
 				</section>
 				<section>
 					<h2>Personas</h2>
@@ -251,21 +258,26 @@
 					<h2>Defining your baseline</h2>
 					<aside class="notes">If you don't have a shared understanding it's hard to move forwards. Needed for all experiments, hypotheses you want to try moving forwards. Also - perhaps minor discrepancies in what is the current state will reveal a question to investigate? </aside>
 				</section>
-				<!-- <section>
+				<section>
 					<h2>For example</h2>
 					<h3>Looking at the logs</h3>
 					<aside class="notes">Looking at the history of what actions had been taken on a service number - can make longitudinal analysis very difficult if the reasons aren't well documented AND if there is no way to observe the occurance of false positives. If you don't know when you automation was wrong, hard to use that data with confidence. Also - maybe your logs aren't the source of truth, ok! as long as somewhere there is a source of truth. </aside>
-				</section> -->
+				</section> 
 				<section>
 					<h2>Data schemas</h2>
 					<img src="img/data-schema.png" width="700" alt="Grid with three columns, What did I think, New info, What changed" />
 					<aside class="notes">For internal experiments. Take the job of data capture about your customers seriously. Take the time to think about what fields, what meta data will be useful for investigations. Future you will thank you.</aside>
 				</section>
-				<!--<section>
+				<section>
 					<h2>Changing our language <br>changes our minds</h2>
 					<blockquote class="fragment">"We'll wait until we're 100% certain... no make that 99% certain"</blockquote>
 					<aside class="notes">Colleague who has started to change his language </aside>
 				</section>-->
+				<section>
+					<h1 class="learning">Finding #3</h1>
+					<h2>Gaming our way through</h2>
+					<aside class="notes"></aside>
+				</section>
 				<section>
 					<h2>Added uncertainty in the space of fraud</h2>
 					<h3 class="fragment">You <em>really</em> can't trust what people say</h3>
@@ -291,11 +303,11 @@
 					<aside class="notes">Describe behaviour (service misuse) not people (fraudster). There's literally no value in applying a moralising title to a person. THere's every possibility of harm, on both sides, if you get it wrong.</aside>
 				</section>
 				<section>
-					<h1 class="learning">Finding #3</h1>
-					<h2>Designing for failure first</h2>
+					<h1 class="learning">Finding #4</h1>
+					<h2>Failure-first design</h2>
 					<aside class="notes">In my experience, we have been experimenting with designing comms flows to provide clearer feedback to people whose service came under suspicion, and allow for them to request support if they think there has been a mistake. In some cases, there was a warning, others was after-the-fact. This was... challenging... unexpected work.</aside>
 				</section>
-				<section>
+				<!--<section>
 					<h2>If you don't ask,<br /> customers won't tell</h2>
 					<img src="img/too-hard-basket.png" width="200" alt="Woven basket labeled Too Hard" />
 					<aside class="notes">If your system makes an incorrect assumption, are you in a position to find out? I think of this as the rule of lurkers vs contributors. Most people won't bother to give you feedback.  In the space of fraud, if you have taken an action on a service they're more likely to churn than to make an effort to reach out to you - and why would they bother based on a market where churn is the norm and it's easy to swap providers? If they are really angry you might get feedback - but through the form of a complaint to the TIO (the regulator) - also a bad outcome. </aside>
@@ -327,7 +339,7 @@
 					<h3 class="fragment">If you can't imagine consequences, you're not thinking hard enough</h3>
 					<aside class="notes">The best way to prepare yourself to design in this world is to be ultra explicit about the goals of your system, and the possible harms that might occur to your end users. </aside>
 				</section>
-				<!--<section>
+				<section>
 					<h2>Shot</h2>
 					<blockquote>We believe this system has contributed to making Facebook the safest place on the Internet for people and their information.</blockquote>
 					<br>
@@ -354,28 +366,56 @@
 					<h2>When a system fails...</h2>
 					<h3 class="fragment">...There are always consequences</h2>
 					<aside class="notes">Remember the FB paper? Circle back here if you need convincing.</aside>
-				</section>-->
+				</section>-->	
 				<section>
-					<h2>Harm mapping</h2>
-					<h3 class="fragment">Recommended starting point</h3>
-					<p class="fragment"><a href="https://github.com/summerscope/mapping-fair-ml" target="_blank">github.com/summerscope/mapping-fair-ml</a></p>
-					<aside class="notes">This is a whole topic but just to point to it, this is the bit where we think about what we might get wrong, and what are the consequences. There are a whole bunch of tools and frameworks out there to try - ethics litmus tests among them.</aside>
+					<img src="img/escape-hatch.png" width="300" alt="Escape hatch" />
+					<h2>Designing an escape hatch</h2>
+					<aside class="notes">I think of this work as designing the escape hatch. You don't want to have to use it, but if you need it you sure hope it's there. </aside>
 				</section>
 				<section>
-					<h2>Failure-first design</h2>
+					<h2>Feedback loops must be </h2>
 					<ul>
-						<li class="fragment">UI interactions (Get help / This isn't right)</li>
-						<li class="fragment">Email / SMS templates</li>
-						<li class="fragment">Support scripts for conversations</li>
-						<li class="fragment">Data schema design <br>(capturing your learnings)</li>
+						<li class="fragment">Intuitive</li>
+						<li class="fragment">Contextual</li>
+						<li class="fragment">Timely</li>
 					</ul>
-					<aside class="notes">Places you could think about starting for a feature design / product flow. </aside>
+					<aside class="notes">I'm a fan of micro-feedback, small and contextual questions that are really lightweight and easy to answer.</aside>
 				</section>
 				<section>
+					<h2>UI interactions</h2>
+					<img src="img/design-help.png" width="700" alt="" />
+				</section>
+				<section>
+					<h2>Confirm classifications</h2>
+					<img src="img/design-photos.png" width="400" alt="" />
+				</section>
+				<section>
+					<h2>Bake in feedback loops</h2>
+					<img src="img/design-email.png" width="400" alt="" />
+				</section>
+				<section>
+					<h2>Just ask</h2>
+					<img src="img/design-ask.png" width="400" alt="" />
+				</section>
+				<section>
+					<h2>Think the interaction through</h2>
+					<ul>
+						<li class="fragment">Plan for customer support</li>
+						<li class="fragment">Data schema design <br>(capture your learnings)</li>
+						<li class="fragment">Product/model improvements</li>
+					</ul>
+				</section>				
+				<!--<section>
 					<h2>Litmus test</h2>
 					<h3>What if this happened to my most vulnerable customer?</h3>
 					<aside class="notes">In the space of a telco, we're asking what could go wrong with a mobile service level action. I find this question useful for thinking about service level actions. It helps frame the cost of false positives and makes us more focused on the minimum viable intervention needed to achieve our goals of capping these costs.</aside>
 				</section>
+				<section>
+					<h2>Litmus test</h2>
+					<h3>Could any customer go through my escape hatch, recover and remain a happy customer?</h3>
+					<aside class="notes">Sometimes you have to think creatively - pitch a friction as a value add. "We are working hard to protect your identity and your account's safety" is a good one, for instance. Test out your explanations and flows on random people NOT those who match the assumptions your system made as a way to assess the quality of the solution.</aside>
+				</section>
+				<section>-->
 				<section>
 					<h2>Prepare for pushback</h2>
 					<ul>
@@ -384,21 +424,17 @@
 					</ul>
 				</section>
 				<section>
-					<img src="img/escape-hatch.png" width="300" alt="Escape hatch" />
-					<h2>Designing an escape hatch</h2>
-					<aside class="notes">I think of this work as designing the escape hatch. You don't want to have to use it, but if you need it you sure hope it's there. </aside>
-				</section>
-				<section>
-					<h2>Litmus test</h2>
-					<h3>Could any customer go through my escape hatch, recover and remain a happy customer?</h3>
-					<aside class="notes">Sometimes you have to think creatively - pitch a friction as a value add. "We are working hard to protect your identity and your account's safety" is a good one, for instance. Test out your explanations and flows on random people NOT those who match the assumptions your system made as a way to assess the quality of the solution.</aside>
-				</section>
-				<section>
+					<h2>Harm mapping</h2>
+					<h3 class="fragment">Recommended starting point</h3>
+					<p class="fragment"><a href="https://github.com/summerscope/mapping-fair-ml" target="_blank">github.com/summerscope/mapping-fair-ml</a></p>
+					<aside class="notes">This is a whole topic but just to point to it, this is the bit where we think about what we might get wrong, and what are the consequences. There are a whole bunch of tools and frameworks out there to try - ethics litmus tests among them.</aside>
+				</section>		
+				<!--<section>	
 					<blockquote>"Delays in feedback loops are common causes of oscillations. If you're trying to adjust a system state to your goal, but you only receive delayed information about what the system state is, you will overshoot and undershoot."</blockquote>
 					<br>
 					<p><small>- <a href="http://donellameadows.org/wp-content/userfiles/Leverage_Points.pdf" target="_blank">Leverage Points: Places to Intervene in a System by Donella Meadows</a></small></p>
 					<aside class="notes">The escape hatch is also your feedback loop telling you about the state of your system.</aside>
-				</section>
+				</section>-->
 				<section>
 					<h2>Rethinking automation design</h2>
 					<aside class="notes">So many options we don't need to think about automations as all or nothing</aside>
