@@ -38,14 +38,8 @@
 				<section>
 					<h2>Setting the scene</h2>
 					<aside class="notes">Starting early 2020, I embedded as an EthicsOps consultant in a small fraud detection team in a telco. ~1yr. 1 DS, 1 Ops, 1 PM, 1 Data Engineer, plus. Using a combo of internal tools and 3rd party payment gateway (ML) for fraud detection. Can't share specifics on features or thresholds. Looking primarily for international revenue sharing but also to a lesser extent service overuse and promotions abuse. </aside>
-				</section>
+				</section>				
 				<!--<section>
-					<h1>Section 1</h1>
-					<h2>Friend or fraud?</h2>
-					<aside class="notes">So, let's get stuck into it!</aside>
-				</section>
-				
-				<section>
 					<h2>Ethics ops consulting</h2>
 					<p><a href="https://debias.ai" target="blank">debias.ai</a></p>
 					<aside class="notes">
@@ -55,7 +49,7 @@
 				<section>
 					<img src="img/harm-lenses.png" width="700" alt="Three eye glasses with labels, User Harm, Historical Bias, Algorithmic Bias" />
 					<aside class="notes">
-						Ethics ops is like devops for ethics, improving but never 100% perfect. I introduce a harm identification and mitigation lens, and work on monitoring / notifications / alerts as well as product flows and feedback loops.
+						EthicsOps - think like DevOps or SecOps - tooling and process to support ethics. Or like SREs - building for resiliancy but with an awareness never 100% up time - it's never 'done' or 100% perfect.
 					</aside>
 				</section>
 				<section>
@@ -110,7 +104,7 @@
 						</div>
 					</div>
 					<aside class="notes">
-						This is the framing I use, and I think it helps us be explicit about the logic leaps we are making. Always asking the question how good a proxy is this data for the thing I REALLY want to know? Don't forget we also measure anti-signals.
+						Like a reverse persona. Working backwards from the data. It helps us be explicit about the logic leaps we are making. Always asking the question how good a proxy is this data for the thing I REALLY want to know? Don't forget we also measure anti-signals.
 					</aside>
 				</section>
 				<!-- <section>
@@ -149,7 +143,7 @@
 				<section>
 					<h1 class="learning">Finding #2</h1>
 					<h2>Explicit data design</h2>
-					<aside class="notes">Distinction between exploratory data science, and load bearing outputs.</aside>
+					<aside class="notes">Let's make a distinction between exploratory data science, and load bearing outputs.</aside>
 				</section>
 				<section>
 					<blockquote>Data misinterpretation is <u>easy</u>, and <u>likely</u> under pressure</blockquote>				
@@ -165,7 +159,7 @@
 					<h2>Design for cognitive load</h2>
 					<h3 class="fragment">Simple doesn't imply you're&nbsp;stupid</h3>
 					<aside class="notes">
-						Anecdote #2 - the batch delay. Wherever possible, add labels. Be explicit. Make it impossible to misinterpret. Just because your team is smart, technical, doesn't mean you want them to have to be brilliant detectives under time and cost pressure.
+						Anecdote #2 - the batch delay. Fixed delay in timeframe from data ingest > running feature > alert in slack - got us every time! | Wherever possible, add labels. Be explicit. Make it impossible to misinterpret. Just because your team is smart, technical, doesn't mean you want them to have to be brilliant detectives under time and cost pressure.
 					</aside>
 				</section>
 				<!--<section>
@@ -305,12 +299,12 @@
 				</section>
 				<section>
 					<h2>👉 You can still set boundaries</h2>
-					<aside class="notes">Being kind and calm does not mean letting people get away with bad behaviour or failing to set boundaries in your design. </aside>
+					<aside class="notes">Don't mistake my meaning for 'you should let people do whatever they want'. Being kind and calm does not imply letting people get away with bad behaviour or failing to set boundaries in your design. </aside>
 				</section>
 				<section>
 					<h1 class="learning">Finding #4</h1>
 					<h2>Failure-first design</h2>
-					<aside class="notes">We did some experiments sending comms to provide clearer feedback to people whose service came under suspicion, and allow for them to request support if they think there has been a mistake. In some cases, there was a warning before we intervened in some way, others was after-the-fact. This was... challenging... unexpected work.</aside>
+					<aside class="notes"></aside>
 				</section>
 				<!--<section>
 					<h2>If you don't ask,<br /> customers won't tell</h2>
@@ -373,12 +367,17 @@
 					<aside class="notes">Remember the FB paper? Circle back here if you need convincing.</aside>
 				</section>-->	
 				<section>
-					<img src="img/escape-hatch.png" width="300" alt="Escape hatch" />
-					<h2>Designing an escape hatch</h2>
-					<aside class="notes">Anecdote #3 - finding out about a service mistaken disconnected... from the ombudsman. Like designing an escape hatch, or life boats. You don't want to have to use it, but if you need it you sure hope it's there. </aside>
+					<blockquote>"Assuming perfect knowledge of the objective decouples the machine from the human: what the human does no longer matters, because the machine knows the goal and pursues it."</blockquote>
+					<p><small>-Stuart Russell, Human Compatible</small></p>
+					<aside class="notes">No perfect, bug-free software. Add in data, stochastic universe - more uncertainty. Designing objectives or incentives for ML systems - further complexity. So let's start from the pragmatic view: that our system will fail, and we need to find out when they do.</aside>
 				</section>
 				<section>
-					<h2>Feedback loops must be </h2>
+					<img src="img/escape-hatch.png" width="300" alt="Escape hatch" />
+					<h2>Designing an escape hatch</h2>
+					<aside class="notes">Like designing an escape hatch, or adding life boats. You don't want to have to use it, but if you need it you sure hope it's there. Anecdote #3 - finding out about a service mistaken disconnected... from the ombudsman.</aside>
+				</section>
+				<section>
+					<h2>Feedback loops must be</h2>
 					<ul>
 						<li class="fragment">Intuitive</li>
 						<li class="fragment">Contextual</li>
@@ -395,8 +394,9 @@
 					<img src="img/design-photos.png" width="400" alt="" />
 				</section>
 				<section>
-					<h2>Bake in feedback loops</h2>
+					<h2>Collaborative security</h2>
 					<img src="img/design-email.png" width="400" alt="" />
+					<aside class="notes">Calling back to previous section - don't assume fraud if phishing will do</aside>
 				</section>
 				<section>
 					<h2>Just ask</h2>
@@ -427,6 +427,7 @@
 						<li class="fragment">People don't like it when you make bad assumptions about them!</li>
 						<li class="fragment">Making the implicit explict is going to be uncomfortable</li>
 					</ul>
+					<aside class="notes">This kind of work can throw up lots of challenges - differences in mental models between what people think they're buying and what you think you're selling. We did some experiments sending comms to provide clearer feedback to people whose service came under suspicion, and allow for them to request support if they think there has been a mistake. We got a LOT of pushback. Some very angry customers.</aside>
 				</section>
 				<section>
 					<h2>Harm mapping</h2>
@@ -516,15 +517,14 @@
 						A metaphor: sailing in a big cruise liner. When you're on the passenger deck it's quiet, safe, boring even. No sense of motion. When you go out on deck you see the speed, the mass of water displaced, etc... Sometimes we *want* to feel the wind rushing past. I think insulating ourselves from that sensation is unhelpful. 
 					</aside>
 				</section>	
-				<section>
+				<!--<section>
 					<blockquote>"The first principle is that you must not fool yourself – and you are the easiest person to fool."</blockquote>
 					<p>— Richard Feynman</p>
-				</section>
+				</section>-->
 				<section>
 					<h1>The real game</h1>
 					<h3 class="fragment">Trying to catch fraud, <br> yet not defraud ourselves </h3>					
-					<!-- Heist films: ocean's 11, italian job, etc  -->
-					<aside class="notes">We too, are fair game. We have more in common with the fraudsters than we might think.
+					<aside class="notes">Our minds, our assumptions too, are fair game. We have more in common with the fraudsters than we might think.
 						We are driven by the same incentives as the fraudsters - capitalism played out in light and dark markets. </aside>
 				</section>
 				<section>
