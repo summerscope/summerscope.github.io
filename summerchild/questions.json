@@ -1,5 +1,11 @@
 [
   {
+    "text": "Section #0 - Multiplier. \n To continue, type 'Ok'",
+    "answers": {
+      "Ok": "Ok"
+    }
+  },
+  {
     "text": "How large is the target cohort for your decision system? \nThese are the people your system makes decisions, predictions or classifications about.",
     "answers": {
       "A": "1-100",
@@ -13,10 +19,202 @@
     "score": {
       "A": 1,
       "B": 2,
-      "C": 3
+      "C": 3,
+      "D": 4,
+      "E": 5,
+      "F": 6,
+      "G": 7
     }
   },
   {
-
+    "text": "How is your target cohort distributed geographically?",
+    "answers": {
+      "A": "Rural/Remote",
+      "B": "Small-Medium Town",
+      "C": "Large Town - City",
+      "D": "State",
+      "E": "National",
+      "F": "2-3 Countries",
+      "G": "Global"
+    },
+    "score": {
+      "A": 1,
+      "B": 2,
+      "C": 3,
+      "D": 4,
+      "E": 5,
+      "F": 6,
+      "G": 7
+    }
+  },
+  {
+    "text": "Section #1 - Cohort scan. \n To continue, type 'Ok'",
+    "answers": {
+      "Ok": "Ok"
+    }
+  },
+  {
+    "text": "Is your target cohort economically vulnerable? \n Look at average earning rates of your country if you aren't sure where your demographic sits overall.",
+    "answers": {
+      "A": "Top 10% of earners",
+      "B": "Less vulnerable than average ",
+      "C": "Average",
+      "D": "More vulnerable than average ",
+      "E": "Bottom 10% of earners"
+    },
+    "score": {
+      "A": 0,
+      "B": 1,
+      "C": 3,
+      "D": 6,
+      "E": 8
+    }
+  },
+  {
+    "text": "Is your target cohort psychologically vulnerable? \n Are they likely to suffer from mental health issues, self-harm, or to have their capacity to work, study, or pursue their goals impacted by debilitating mental illness?",
+    "answers": {
+      "A": "Very robust",
+      "B": "Less vulnerable than average",
+      "C": "Average",
+      "D": "More vulnerable than average",
+      "E": "Highly vulnerable"
+    },
+    "score": {
+      "A": 0,
+      "B": 1,
+      "C": 2,
+      "D": 3,
+      "E": 5
+    }
+  },
+  {
+    "text": "Is your target cohort vulnerable to coercive control? \n Consider parents controlling LGBTQI children. Jaime Spears. Elder abuse. Intimate partner abuse. Technological coercion or control.",
+    "answers": {
+      "A": "Not vulnerable",
+      "B": "Less vulnerable than average ",
+      "C": "Average",
+      "D": "More vulnerable than average ",
+      "E": "Extremely vulnerable"
+    },
+    "score": {
+      "A": 0,
+      "B": 1,
+      "C": 2,
+      "D": 3,
+      "E": 5
+    }
+  },
+  {
+    "text": "Is your target cohort over-policed or over-surveilled? \n Are they more likely than the average population in any aspect of their lives to be targeted by police, social services or surveillance systems?",
+    "answers": {
+      "A": "Very unlikely",
+      "B": "Less likely than average ",
+      "C": "Average",
+      "D": "More likely than average ",
+      "E": "Very likely"
+    },
+    "score": {
+      "A": 0,
+      "B": 1,
+      "C": 2,
+      "D": 3,
+      "E": 5
+    }
+  },
+  {
+    "text": "Is your target cohort technologically vulnerable? \n Will they have more difficulty navigating technological systems than average? Poor digital literacy? Do they have a higher rate of visual impairments or other disabilities which would compound this?",
+    "answers": {
+      "A": "Top 10% of computer users",
+      "B": "Less vulnerable than average ",
+      "C": "Average",
+      "D": "More vulnerable than average ",
+      "E": "Bottom 10% of computer users"
+    },
+    "score": {
+      "A": 0,
+      "B": 1,
+      "C": 2,
+      "D": 3,
+      "E": 5
+    }
+  },
+  {
+    "text": "Does your target cohort have robust internet access? \n Is your target cohort in a remote area with poor infrastructure? Exposed to download or over-limit fees? Access on 1 or more devices? Internet sharing or have own service? Physically at-risk if they try to access public internet? Are they accessing the internet from cellular networks, NBN, ADSL, Broadband, other?",
+    "answers": {
+      "A": "Top 10%",
+      "B": "Better access than average",
+      "C": "Average access",
+      "D": "Worse access than average",
+      "E": "Bottom 10%"
+    },
+    "score": {
+      "A": 0,
+      "B": 1,
+      "C": 2,
+      "D": 3,
+      "E": 5
+    }
+  },
+  {
+    "text": "Section #2 - System scan. \n To continue, type 'Ok'",
+    "answers": {
+      "Ok": "Ok"
+    }
+  },
+  {
+    "text": "Does your decision system operate as part of a competitive marketplace, or are you the only provider of the specific service, platform, resource or goods? Looking for viable alternatives. Competitors need to be known to your target cohort. Consider network effects, brand visibility, feature parity, etc. If competitors exist but consumers can't find them, or if the cost of adoption is very high, select 'effective monopoly'.",
+    "answers": {
+      "A": "Effective monopoly or government service",
+      "B": "1 competitor",
+      "C": "2 competitors",
+      "D": "3-4 competitors",
+      "E": "5+ competitors"
+    },
+    "score": {
+      "A": 0,
+      "B": 1,
+      "C": 2,
+      "D": 3,
+      "E": 5
+    }
+  },
+  {
+    "text": "Is your decision system mandatory or optional? \n Mandatory systems will be mostly government applications; paying taxes, rent, complying with judicial hearings or prison sentences, etc.",
+    "answers": {
+      "A": "Mandatory",
+      "B": "Optional"
+    },
+    "score": {
+      "A": 0,
+      "B": 0
+    }
+  },
+  {
+    "text": "Is your decision system opt-in or opt-out? \n Does the target cohort actively choose to participate or add themselves? Or are they included by default and have to actively remove themselves?",
+    "answers": {
+      "A": "Opt-in",
+      "B": "Opt-out"
+    },
+    "score": {
+      "A": 0,
+      "B": 0
+    }
+  },
+  {
+    "text": "How visible or discoverable is it that the target cohort has been opted-into the system? \n Do you notify them, is the operation of your system visible, or do they have to find it in a setting or lodge their own query?",
+    "answers": {
+      "A": "Very hard to find",
+      "B": "Somewhat hard to find ",
+      "C": "Average",
+      "D": "Discoverable",
+      "E": "Very discoverable"
+    },
+    "score": {
+      "A": 0,
+      "B": 1,
+      "C": 2,
+      "D": 3,
+      "E": 5
+    }
   }
 ]
