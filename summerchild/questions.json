@@ -16,37 +16,37 @@
     "answers": {
       "A": {
         "text": "1-100",
-        "score": 0.52,
+        "multiplier": 0.52,
         "nextq": "Q3"
       },
       "B": {
         "text": "101-1,000",
-        "score": 0.75,
+        "multiplier": 0.75,
         "nextq": "Q3"
       },
       "C": {
         "text": "1,001-10,000",
-        "score": 0.85,
+        "multiplier": 0.85,
         "nextq": "Q3"
       },
       "D": {
         "text": "10,001-100,000",
-        "score": 0.95,
+        "multiplier": 0.95,
         "nextq": "Q3"
       },
       "E": {
         "text": "100,001-1,000,000",
-        "score": 0.96,
+        "multiplier": 0.96,
         "nextq": "Q3"
       },
       "F": {
         "text": "1,000,001-10,000,000",
-        "score": 0.98,
+        "multiplier": 0.98,
         "nextq": "Q3"
       },
       "G": {
         "text": "10 million +",
-        "score": 1.0,
+        "multiplier": 1.0,
         "nextq": "Q3"
       }
     }
@@ -57,37 +57,37 @@
     "answers": {
       "A": {
         "text": "Rural/Remote",
-        "score": "",
+        "multiplier": "",
         "nextq": "Q4"
       },
       "B": {
         "text": "Small-Medium Town",
-        "score": "",
+        "multiplier": "",
         "nextq": "Q4"
       },
       "C": {
         "text": "Large Town - City",
-        "score": "",
+        "multiplier": "",
         "nextq": "Q4"
       },
       "D": {
         "text": "State",
-        "score": "",
+        "multiplier": "",
         "nextq": "Q4"
       },
       "E": {
         "text": "National",
-        "score": "",
+        "multiplier": "",
         "nextq": "Q4"
       },
       "F": {
         "text": "2-3 Countries",
-        "score": "",
+        "multiplier": "",
         "nextq": "Q4"
       },
       "G": {
         "text": "Global",
-        "score": "",
+        "multiplier": "",
         "nextq": "Q4"
       }
     }    
