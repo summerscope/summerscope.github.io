@@ -1,3 +1,5 @@
+# Bash quiz of Sweet Summer Child Score 
+
 import json
 from wsgiref import validate
 io = open("questions.json", "r")
