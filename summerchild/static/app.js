@@ -6,16 +6,23 @@ const debug = (window.location.hash == '#debug');
 // Initialize htm with Preact
 const html = htm.bind(h);
 
+const QUESTION_DATA_URL = 'questions.json'
+const INITIAL_QUESTION_ID = 'Q1';
+
+const SESSION_STORE_KEY = 'quizState';
+
+// return first line and rest of a multiline string
 function splitFirstLine(text) {
     const i = text.indexOf('\n');
 
     if (i < 0) {
         return [text, ''];
     } else {
-        return [text.slice(0, i), text.slice(i)];
+        return [text.slice(0, i), text.slice(i+1)];
     }
 }
 
+// parse range of format "00-99"
 function parseRange(text) {
     const [a, b] = text.split('-');
     return [parseInt(a), parseInt(b)];
@@ -52,7 +59,7 @@ class App extends Component {
             isLoading: true,
             questions: [],
             results: null,
-            currentQuestion: 'Q1',
+            currentQuestion: INITIAL_QUESTION_ID,
             quizFinished: false,
             multiplier: 1.0,
             score: 0.0,
@@ -65,7 +72,7 @@ class App extends Component {
 
     async componentDidMount() {
         // TODO: handle fetch errors
-        const response = await fetch('questions.json');
+        const response = await fetch(QUESTION_DATA_URL);
         const json = await response.json();
         const questions = new Map(json.map(q => [q.id, q]));
         const results = questions.get('Results').results;
@@ -77,12 +84,7 @@ class App extends Component {
         })
 
         this.maxQuestions = maxQuestionsRemaining(50, this.questionsRemaining, questions, this.state.currentQuestion);
-
-        const stateString = window.sessionStorage.getItem('quizState');
-        const state = JSON.parse(stateString);
-
-        this.loadSavedState(state);
-
+        this.loadSessionState();
         window.addEventListener('popstate', this.onPopState);
     }
 
@@ -90,13 +92,28 @@ class App extends Component {
         window.removeEventListener(this.onPopState);
     }
 
-    onPopState = (event) => {
-        this.loadSavedState(event.state);
+    saveState(state) {
+        this.setState(state);
+        this.saveSessionState(state);
+        window.history.pushState(state, '');
     }
 
-    saveState(state) {
-        window.history.pushState(state, '');
-        window.sessionStorage.setItem('quizState', JSON.stringify(state));
+    onPopState = (event) => {
+        this.loadSavedState(event.state);
+        this.saveSessionState(event.state);
+    }
+
+    saveSessionState(state) {
+        window.sessionStorage.setItem(SESSION_STORE_KEY, JSON.stringify(state));
+    }
+
+    loadSessionState() {
+        const value = window.sessionStorage.getItem(SESSION_STORE_KEY);
+        const json = JSON.parse(value);
+
+        if (json) {
+            this.loadSavedState(json);
+        }
     }
 
     loadSavedState(state) {
@@ -111,8 +128,8 @@ class App extends Component {
 
     onStartOver = (e) => {
         e.preventDefault();
-        this.setState({
-            currentQuestion: 'Q1',
+        this.saveState({
+            currentQuestion: INITIAL_QUESTION_ID,
             quizFinished: false,
             multiplier: 1.0,
             score: 0.0,
@@ -122,7 +139,7 @@ class App extends Component {
 
     onJumpToEnd = (e) => {
         e.preventDefault();
-        const state = {
+        this.saveState({
             currentQuestion: undefined,
             quizFinished: true,
             multiplier: 0.5,
@@ -131,10 +148,7 @@ class App extends Component {
                 "Graceful degredation.\nAdd a feature flag or other automation process that allows you to turn it off in production, if issues arise. Consider, for example, building a simple business logic version as a fall-back, to keep the system running.",
                 "System auditability.\nFor system decisions or classifications, especially high stakes ones, provide a record of the system decison (email, PDF, text message, etc), including a unique ID that can be traced in your system log.",
             ]
-        }
-
-        this.setState(state);
-        this.saveState(state);
+        });
     }
 
     render(props, state) {
@@ -205,18 +219,14 @@ class App extends Component {
     renderCurrentQuestion(state) {
         const onAnswer = (e, answer) => {
             e.preventDefault();
-
-            const nextState = {
+            this.saveState({
                 currentQuestion: answer.nextq,
                 quizFinished: !answer.nextq,
                 multiplier: answer.multiplier || state.multiplier,
                 score: state.score + (answer.score || 0),
                 recommendations: answer.recommendation ?
                     [...state.recommendations, answer.recommendation] : state.recommendations
-            }
-
-            this.setState(nextState);
-            this.saveState(nextState);
+            });
         }
 
         const question = state.questions.get(state.currentQuestion);
