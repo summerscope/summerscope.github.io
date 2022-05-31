@@ -80,3 +80,13 @@ blockquote {
   padding: 10px 1em;
   font-size: 1.125em;
 }
+
+.debug {
+  border: 1px solid #eee;
+  background: #f2f2f2;
+  padding: 20px;
+  font-size: 80%;
+  color: #333;
+  font-family: 'Courier New', Courier, monospace;
+  /* display: none; */
+}

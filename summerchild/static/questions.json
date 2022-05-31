@@ -533,7 +533,7 @@
       "Yes": {
         "text": "Yes",
         "score": 3,
-        "recommendation": "Phone a (human friend).\nConsider looping in a person where the machine confidence is low, or when production data changes significantly.",
+        "recommendation": "Phone a (human) friend.\nConsider looping in a person where the machine confidence is low, or when production data changes significantly.",
         "nextq": "Q20"
       },
       "No": {

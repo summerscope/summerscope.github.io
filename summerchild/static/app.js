@@ -237,7 +237,7 @@ class App extends Component {
 
         return html`
         <${Question} question=${question} onAnswer=${onAnswer} />
-        <p>
+        <div class="debug">
             multiplier: ${state.multiplier}
             <br/>
             accumulated points: ${state.score}
@@ -245,7 +245,7 @@ class App extends Component {
             questions left: ${remaining}
             <br/>
             percentage complete: ${percentage}%
-        </p>
+        </div>
         `;
     }
 }
