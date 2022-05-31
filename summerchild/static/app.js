@@ -160,8 +160,8 @@ class App extends Component {
         }
 
         return html`
-        <Fragment key="body">${body}</Fragment>
-        <Fragment key="footer">${footer}</Fragment>
+        <main key="body">${body}</main>
+        <footer key="footer">${footer}</footer>
         `
     }
 
