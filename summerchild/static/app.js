@@ -150,7 +150,7 @@ class App extends Component {
             body = this.renderCurrentQuestion(state);
         }
 
-        let footer = html`<a href="#" onClick=${this.onStartOver}>Start Over</a>`;
+        let footer = html`<a href="#" class="restart" onClick=${this.onStartOver}>☜ Start Over</a>`;
 
         if (debug) {
             footer = html`
@@ -160,8 +160,8 @@ class App extends Component {
         }
 
         return html`
-        <Fragment key="body">${body}</Fragment>
-        <Fragment key="footer">${footer}</Fragment>
+        <main key="body">${body}</main>
+        <footer key="footer">${footer}</footer>
         `
     }
 
