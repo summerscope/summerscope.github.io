@@ -73,3 +73,10 @@ a.restart {
   background: slategray;
   margin: 0;
 }
+
+blockquote {
+  border-left: 2px solid goldenrod;
+  background: lightgoldenrodyellow;
+  padding: 10px 1em;
+  font-size: 1.125em;
+}

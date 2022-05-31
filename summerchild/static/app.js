@@ -186,9 +186,10 @@ class App extends Component {
     renderRecommendation(text) {
         const [titleText, bodyText] = splitFirstLine(text);
 
-        return html`
+        return html`        
         <h4>${titleText}</h4>
         <p>${bodyText}</p>
+        <br />
         `
     }
 
@@ -204,9 +205,10 @@ class App extends Component {
         const [key, result] = this.getResultForScore(state, finalScore);
 
         return html`
-        <h1>${key}: ${result.title}</h1>
-        <h4>Final Score: ${Math.round(finalScore)}</h4>
-        <p>${result.text}</p>
+        <h1>${result.title} [${result.range}]</h1>
+        <h2>Final Score: ${Math.round(finalScore)}</h2>
+        <blockquote>${result.text}</blockquote>
+        <br /><br />
         <h2>Recommendations:</h2>
         <ul>
             ${state.recommendations.map(text => html`
@@ -236,13 +238,13 @@ class App extends Component {
         return html`
         <${Question} question=${question} onAnswer=${onAnswer} />
         <p>
-            current score: ${state.score}
+            multiplier: ${state.multiplier}
             <br/>
-            current multiplier: ${state.multiplier}
+            accumulated points: ${state.score}
             <br/>
-            max remaining: ${remaining}
+            questions left: ${remaining}
             <br/>
-            complete percentage: ${percentage}%
+            percentage complete: ${percentage}%
         </p>
         `;
     }
