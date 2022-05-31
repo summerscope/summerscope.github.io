@@ -1,7 +1,14 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
 body {
   font-family: 'Zen Kaku Gothic Antique', sans-serif;
   font-weight: 400;
+  font-size: 16px;
 }
+
 h1, h2, h3, h4, h5, h6 {
   text-align: center;
   font-weight: 700;
@@ -9,14 +16,30 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 10px;
 }
 
+h1 {
+  font-weight: 900;
+}
+
 h4 {
   font-size: 1em;
   margin-bottom: 0;
 }
 
+main {
+  min-height: calc(100% - 80px);
+  padding: 40px 0;
+  /* Equal to height of footer */
+  /* But also accounting for potential margin-bottom of last child */
+  margin-bottom: -80px;
+}
+
 main, footer {
   max-width: 24em;
-  margin: 2em auto;
+  margin: 0 auto;
+}
+
+footer, .push {
+  height: 80px;
 }
 
 main ul {
@@ -30,6 +53,7 @@ a {
   border-radius: 6px;
   display: block;
   margin: 10px 0;
+  font-weight: 500;
   transition: all 200ms ease;
 }
 
@@ -47,4 +71,5 @@ a:focus-visible {
 
 a.restart {
   background: slategray;
+  margin: 0;
 }

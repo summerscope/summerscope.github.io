@@ -174,7 +174,7 @@ class App extends Component {
         }
 
         return html`
-        <main key="body">${body}</main>
+        <main key="body">${body}<div class="push"></div></main>
         <footer key="footer">${footer}</footer>
         `
     }
