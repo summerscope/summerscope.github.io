@@ -204,10 +204,10 @@ class App extends Component {
         const [key, result] = this.getResultForScore(state, finalScore);
 
         return html`
-        <h2>${key}: ${result.title}</h2>
-        <p>Final Score: ${Math.round(finalScore)}</p>
+        <h1>${key}: ${result.title}</h1>
+        <h4>Final Score: ${Math.round(finalScore)}</h4>
         <p>${result.text}</p>
-        <h3>Recommendations:</h3>
+        <h2>Recommendations:</h2>
         <ul>
             ${state.recommendations.map(text => html`
                 <li>${this.renderRecommendation(text)}</li>
@@ -253,11 +253,11 @@ function Question(props) {
     const [titleText, bodyText] = splitFirstLine(question.text);
 
     return html`
-    <h4>${titleText}</h4>
+    <h1>${titleText}</h1>
     <p>${bodyText}</p>
     <ul>
         ${Object.entries(question.answers).map(([key, answer]) => html`
-            <li><a href="#" onClick=${e => props.onAnswer(e, answer)}>${key}: ${answer.text}</a></li>
+            <li><a href="#" onClick=${e => props.onAnswer(e, answer)}>${answer.text}</a></li>
         `)}
     </ul>
     `
