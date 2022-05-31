@@ -1,0 +1,19 @@
+body {
+  font-family: 'Zen Kaku Gothic Antique', sans-serif;
+  font-weight: 400;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  font-size: 1.5em;
+}
+
+main {
+  max-width: 20em;
+  margin: 2em auto;
+  text-align: center;
+}
+
+main ul {
+  text-align: left;
+  margin: 2em 0;
+}
