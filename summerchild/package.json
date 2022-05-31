@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "name": "summerchild-js",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "serve": "sirv static --dev --port 8080"
+  },
+  "devDependencies": {
+    "sirv-cli": "1.0.3"
+  }
+}
