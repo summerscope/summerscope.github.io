@@ -88,7 +88,7 @@ blockquote {
   font-size: 80%;
   color: #333;
   font-family: 'Courier New', Courier, monospace;
-  /* display: none; */
+  display: none;
 }
 
 .large {
