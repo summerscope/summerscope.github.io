@@ -204,9 +204,9 @@ class App extends Component {
         const finalScore = 99 - (state.multiplier * state.score);
         const [key, result] = this.getResultForScore(state, finalScore);
 
-        return html`
-        <h1>${result.title} [${result.range}]</h1>
-        <h2>Final Score: ${Math.round(finalScore)}</h2>
+        return html`        
+        <h1><span class="large">${Math.round(finalScore)}</span><br /> Your Final Score</h1>
+        <h4>${result.title} [${result.range}]</h4><br />
         <blockquote>${result.text}</blockquote>
         <br /><br />
         <h2>Recommendations:</h2>

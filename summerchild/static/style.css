@@ -90,3 +90,13 @@ blockquote {
   font-family: 'Courier New', Courier, monospace;
   /* display: none; */
 }
+
+.large {
+  font-size: 200%;
+  display: inline-block;
+  background: lightgoldenrodyellow;
+  border: 1px solid goldenrod;
+  padding: 10px 1em;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
