@@ -7,6 +7,6 @@
     "serve": "sirv static --dev --port 8080"
   },
   "devDependencies": {
-    "sirv-cli": "1.0.3"
+    "sirv-cli": ">=1.0"
   }
 }
