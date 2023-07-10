@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>ok, doomer</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/black.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Koulen&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section
+          data-background-image="img/inferno.png"
+          data-background-size="100vh"
+          data-background-repeat="repeat"
+        >
+          <h1 class="r-fit-text">ok, doomer</h1>
+        </section>
+        <section
+          data-background-image="img/lithograph.jpg"
+          data-background-size="50vh"
+          data-background-repeat="repeat"
+        >
+          <h2>Agenda</h2>
+          <ol>
+            <li>Quick response to AI Doomerism</li>
+            <li>Risk reduction by design</li>
+          </ol>
+        </section>
+
+        <section>
+          <section
+            data-background-image="img/divine-comedy.jpg"
+            data-background-size="100vh"
+            data-background-repeat="repeat"
+          >
+            <h1 class="r-fit-text">the nerd rapture</h1>
+          </section>
+        </section>
+
+        <section>
+          <section
+            data-background-image="img/lithograph.jpg"
+            data-background-size="50vh"
+            data-background-repeat="repeat"
+          >
+            <h1 class="r-fit-text">Start with a baseline</h1>
+            <aside class="notes">Notes</aside>
+          </section>
+          <section
+            data-background-image="img/lithograph.jpg"
+            data-background-size="50vh"
+            data-background-repeat="repeat"
+          >
+            <h2>The weather prediction algorithm</h2>
+            <p class="fragment">
+              \[\begin{aligned} t = \frac {y + ly}{2} \end{aligned} \]
+            </p>
+            <aside class="notes">
+              For examples... Story from a data science hackathon. Trying to
+              predict The winner on all metrics was a simple calculation - an
+              average of the temperature on this day 1 year ago, and the
+              temporature yesterday.
+            </aside>
+          </section>
+          <section
+            data-background-image="img/lithograph.jpg"
+            data-background-size="50vh"
+            data-background-repeat="repeat"
+          >
+            <h2>Broad-sense baseline</h2>
+            <ul>
+              <li class="fragment">A calculation</li>
+              <li class="fragment">Computer logic</li>
+              <li class="fragment">Encoded business rules</li>
+              <li class="fragment">Linear regressions</li>
+            </ul>
+            <aside class="notes">
+              What do I mean by baseline? The simplest way you can imagine to
+              solve the problem
+            </aside>
+          </section>
+        </section>
+        <section>
+          <section
+            data-background-image="img/lithograph.jpg"
+            data-background-size="50vh"
+            data-background-repeat="repeat"
+          >
+            <h1 class="r-fit-text">Plan for take-down</h1>
+            <aside class="notes">
+              What do you do with catastrophic failure cases? How can you turn
+              the model off, once it's in production? See: andon cord in toyota
+              manufacturing
+            </aside>
+          </section>
+          <section
+            data-background-image="img/lithograph.jpg"
+            data-background-size="50vh"
+            data-background-repeat="repeat"
+          >
+            <h2>Maintenance mode</h2>
+            <aside class="notes">
+              Have a page ready to show users if you have to take your system
+              out of production, deploy breaking changes, etc
+            </aside>
+          </section>
+          <section
+            data-background-image="img/lithograph.jpg"
+            data-background-size="50vh"
+            data-background-repeat="repeat"
+          >
+            <h2>Graceful degradation</h2>
+            <p class="fragment">Revert to your baseline</p>
+            <aside class="notes">
+              Your baseline is like your back-up power generator. It's not as
+              nice as the normal power source, but better than going into full
+              black-out mode.
+            </aside>
+          </section>
+          <section
+            data-background-image="img/lithograph.jpg"
+            data-background-size="50vh"
+            data-background-repeat="repeat"
+          >
+            <h2>System roll-back</h2>
+            <ol>
+              <li class="fragment">
+                Version control on your model <em>and</em> training data?
+              </li>
+              <li class="fragment">Doing careful release management?</li>
+              <li class="fragment">
+                If yes to #1 and preferably #2, you could revert to a previous
+                working state, rather than taking it down
+              </li>
+            </ol>
+            <aside class="notes">
+              Don't try this if you're still getting the basics in place. In
+              case of a catastrophic failure no one will be doing their best
+              thinking, so a simpler take-down would be better.
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section
+            data-background-image="img/lithograph.jpg"
+            data-background-size="50vh"
+            data-background-repeat="repeat"
+          >
+            <h1 class="r-fit-text">ML-specific design</h1>
+            <aside class="notes">
+              This is a quick overview of design patterns I see emerging and/or
+              needed, which are specific to tech systems being powered by a
+              machine learning model
+            </aside>
+          </section>
+          <section
+            data-background-image="img/lithograph.jpg"
+            data-background-size="50vh"
+            data-background-repeat="repeat"
+          >
+            <h2>Label the machine</h2>
+            <aside class="notes">
+              Let people know if they're talking to a person or a bot. Make it
+              clear what's under the hood.
+            </aside>
+          </section>
+          <section
+            data-background-image="img/lithograph.jpg"
+            data-background-size="50vh"
+            data-background-repeat="repeat"
+          >
+            <h2>Expose machine confidence</h2>
+            <aside class="notes">
+              All predictions are not created equal. Some are right on a
+              classification boundary. This is important user-facing
+              information.
+            </aside>
+          </section>
+          <section
+            data-background-image="img/lithograph.jpg"
+            data-background-size="50vh"
+            data-background-repeat="repeat"
+          >
+            <h2>Phone a (human) friend</h2>
+            <aside class="notes">
+              Consider if it makes sense in application for every single
+              use-case to output a decision, classification, or prediction.
+              Identify uncertainty levels where automation is unacceptable, and
+              kick it over to a human reviewer.
+            </aside>
+          </section>
+          <section
+            data-background-image="img/lithograph.jpg"
+            data-background-size="50vh"
+            data-background-repeat="repeat"
+          >
+            <h2>Explain the machine's decisions</h2>
+            <aside class="notes">
+              Consider if it makes sense in application for every single
+              use-case to output a decision, classification, or prediction.
+              Identify uncertainty levels where automation is unacceptable, and
+              kick it over to a human reviewer.
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section
+            data-background-image="img/lithograph.jpg"
+            data-background-size="50vh"
+            data-background-repeat="repeat"
+          >
+            <h1 class="r-fit-text">Bring receipts</h1>
+            <aside class="notes">
+              Another simple concept which often goes missing in the wash - how
+              can you trace back precisely that interaction, that data point,
+              that user, and that (state of the) model?
+            </aside>
+          </section>
+          <section
+            data-background-image="img/lithograph.jpg"
+            data-background-size="50vh"
+            data-background-repeat="repeat"
+          >
+            <h2>Provide a decision record</h2>
+            <ul>
+              <li class="fragment">Unique ID</li>
+              <li class="fragment">Logs</li>
+              <li class="fragment">Version info</li>
+            </ul>
+            <aside class="notes">Notes</aside>
+          </section>
+          <section
+            data-background-image="img/lithograph.jpg"
+            data-background-size="50vh"
+            data-background-repeat="repeat"
+          >
+            <h2>Provide (human) decision review</h2>
+            <p class="fragment">
+              What do system operators need to make a grounded assessment of the
+              decision?
+            </p>
+            <aside class="notes">
+              Think of an admin view, or admin dashboard. What can you expose to
+              them to help them assess the correctness of the decision?
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section
+            data-background-image="img/lithograph.jpg"
+            data-background-size="50vh"
+            data-background-repeat="repeat"
+          >
+            <h1 class="r-fit-text">Start with fewer people</h1>
+            <aside class="notes">
+              A huge way to reduce risk is to reduce the number of potential
+              failure cases and other issues with a careful roll-out
+            </aside>
+          </section>
+          <section
+            data-background-image="img/lithograph.jpg"
+            data-background-size="50vh"
+            data-background-repeat="repeat"
+          >
+            <h2>Trial run(s)</h2>
+            <ul>
+              <li class="fragment">Select the group carefully</li>
+              <li class="fragment">Communicate with them intensively</li>
+              <li class="fragment">Assume your system will fail</li>
+            </ul>
+            <aside class="notes">
+              This could be called a beta, or whatever you like. Try your system
+              with a very limited and carefully selected group. Start with the
+              assumption that it won't work perfectly for everyone, and improve
+              iteratively.
+            </aside>
+          </section>
+          <section
+            data-background-image="img/lithograph.jpg"
+            data-background-size="50vh"
+            data-background-repeat="repeat"
+          >
+            <h2>Phased roll-out</h2>
+            <ul>
+              <li class="fragment">Break your audience up into chunks</li>
+              <li class="fragment">Communicate with them intensively</li>
+              <li class="fragment">Assume your system will fail</li>
+            </ul>
+            <aside class="notes">
+              When you're ready to go into production, no need to flip the
+              switch for all users right away. Roll out in smaller groups, on a
+              pre-planned schedule. Try to allow time to recover from unexpected
+              bugs and failure modes.
+            </aside>
+          </section>
+
+          <section
+            data-background-image="img/lithograph.jpg"
+            data-background-size="50vh"
+            data-background-repeat="repeat"
+          >
+            <h2>Feature flags</h2>
+            <p class="fragment">
+              Hide experimental features in prod <br />(until they're ready to
+              go-live)
+            </p>
+            <aside class="notes">
+              Once you're in prod again you don't have to think of feature
+              deployment and roll-out as all or nothing. You can hide features
+              behind feature-flags while you test with select users, and you
+              could turn-off the feature flag in a staged way rather than for
+              all users.
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section
+            data-background-image="img/lithograph.jpg"
+            data-background-size="50vh"
+            data-background-repeat="repeat"
+          >
+            <h1 class="r-fit-text">Feedback loops</h1>
+            <aside class="notes">
+              Timely, contextual feedback loops. This is a fancy way to say -
+              please, please, talk to your users! Before you deploy, during beta
+              testing, in prod.
+            </aside>
+          </section>
+          <section
+            data-background-image="img/lithograph.jpg"
+            data-background-size="50vh"
+            data-background-repeat="repeat"
+          >
+            <h2>Consider all users of your system</h2>
+            <ul>
+              <li class="fragment">Customer users (pay for the system)</li>
+              <li class="fragment">Operator users (admins)</li>
+              <li class="fragment">Training users (data labelling)</li>
+              <li class="fragment">
+                Classified users (system classifies or predicts)
+              </li>
+              <li class="fragment">End users (native or web apps)</li>
+            </ul>
+            <aside class="notes">
+              Unfortunately one of the realities of machine learning is the cast
+              of characters is much bigger than a standard software system. If
+              you involve a human in the building, deployment, or use of your
+              system -- the onus is on you to consider their needs and design
+              accordingly.
+            </aside>
+          </section>
+          <section
+            data-background-image="img/lithograph.jpg"
+            data-background-size="50vh"
+            data-background-repeat="repeat"
+          >
+            <h2>Front-load your feedback efforts</h2>
+            <pre>Placeholder for diagram</pre>
+            <aside class="notes">
+              You should anticipate feedback at all stages of the software
+              lifecycle, but it's sensible to put significant effort earlier in
+              the lead-up to deployment.
+            </aside>
+          </section>
+          <section
+            data-background-image="img/lithograph.jpg"
+            data-background-size="50vh"
+            data-background-repeat="repeat"
+          >
+            <h2>Talk to users directly</h2>
+            <ul>
+              <li class="fragment">
+                Create a shared slack, discord, group chat
+              </li>
+              <li class="fragment">Embed users in your team, or vice-versa</li>
+              <li class="fragment">Stay curious</li>
+              <li class="fragment">
+                Listen to all signals - verbal and non-verbal
+              </li>
+              <li class="fragment">Ask about pain points and successes</li>
+              <li class="fragment">Don't ask for design or solutions</li>
+            </ul>
+            <aside class="notes">
+              ML engineers and data scientists SHOULD NOT be sheltered from user
+              feedback. You don't want to forget that there are real folks on
+              the other side of your algo, and the more real they are to you,
+              the better you can design for them.
+            </aside>
+          </section>
+          <section
+            data-background-image="img/lithograph.jpg"
+            data-background-size="50vh"
+            data-background-repeat="repeat"
+          >
+            <h2>Operationalising feedback</h2>
+            <ul>
+              <li class="fragment">Model re-training</li>
+              <li class="fragment">Set thresholds for user feedback</li>
+            </ul>
+            <aside class="notes">
+              User feedback can turn into labeled data for re-training. Let
+              folks change their mind, and preferences. If you're not doing
+              continuous learning, plan for frequent re-training. Establish a
+              baseline of feedback - perhaps sentiment analysis to identify
+              positive or negative, if not other metric. Set thresholds of
+              quality - if breaching these, set up alerts in slack, pager duty
+              etc - let your engineers know that something has gone wrong.
+            </aside>
+          </section>
+        </section>
+
+        <section
+          data-background-image="img/ancient-of-days.jpg"
+          data-background-size="75vh"
+          data-background-repeat="repeat"
+        >
+          <h1 class="r-fit-text">Thank you</h1>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>Laura Summers</p>
+          <p>
+            <small
+              ><a
+                href="https://www.linkedin.com/in/summerscope/"
+                target="_blank"
+                >linkedin.com/in/summerscope</a
+              ><br />
+              Slides at
+              <a
+                href="https://summerscope.github.io/slides/ok-doomer"
+                target="_blank"
+                >summerscope.github.io/slides/ok-doomer</a
+              ></small
+            >
+          </p>
+        </section>
+        <section
+          data-background-image="img/lithograph.jpg"
+          data-background-size="50vh"
+          data-background-repeat="repeat"
+        >
+          <h2>Artwork featured in slides</h2>
+          <ul style="text-align: left; font-size: 80%">
+            <li>
+              Slide 1 - The Temptation of Saint Anthony the Great; Black and
+              White Illustration from William Hone's Everyday Book
+            </li>
+            <li>
+              Slide 1 - The Temptation of Saint Anthony the Great; Black and
+              White Illustration from William Hone's Everyday Book
+            </li>
+            <li>
+              Slide 1 - The Temptation of Saint Anthony the Great; Black and
+              White Illustration from William Hone's Everyday Book
+            </li>
+            <li>
+              Slide 1 - The Temptation of Saint Anthony the Great; Black and
+              White Illustration from William Hone's Everyday Book
+            </li>
+            <li>
+              Slide 1 - The Temptation of Saint Anthony the Great; Black and
+              White Illustration from William Hone's Everyday Book
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/math/math.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        slideNumber: true,
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealMath.KaTeX,
+        ],
+      });
+    </script>
+  </body>
+</html>
