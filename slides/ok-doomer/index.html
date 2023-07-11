@@ -314,7 +314,12 @@
             data-background-repeat="repeat"
           >
             <h2>Expose machine confidence</h2>
-            <img class="fragment" src="img/design-photos.png" height="300px" width="auto" />
+            <img
+              class="fragment"
+              src="img/design-photos.png"
+              height="300px"
+              width="auto"
+            />
             <aside class="notes">
               All predictions are not created equal. Some are right on a
               classification boundary. This is important user-facing
@@ -340,16 +345,22 @@
             data-background-repeat="repeat"
           >
             <h2>Explain machine decisions</h2>
-            <img class="fragment" src="img/design-help.png" height="300px" width="auto" />
+            <img
+              class="fragment"
+              src="img/design-help.png"
+              height="300px"
+              width="auto"
+            />
             <aside class="notes">
-              understand how and why the system made the decision about us that it did. In order to feel truly fair, we need Decision recourse - to know what we could do differently to change the outcome. If the answer is "be born a different gender", or "have a wealthy family" - these aren't helpful.
+              understand how and why the system made the decision about us that
+              it did.
             </aside>
           </section>
         </section>
 
         <section>
           <section data-background-image="img/receipts.png">
-            <h1 class="r-fit-text">Bring receipts</h1>
+            <h1 class="r-fit-text">Supply receipts</h1>
             <aside class="notes">
               Another simple concept which often goes missing in the wash - how
               can you trace back precisely that interaction, that data point,
@@ -374,14 +385,18 @@
             data-background-size="50vh"
             data-background-repeat="repeat"
           >
-            <h2>Provide (human) decision review</h2>
+            <h2>Decision recourse</h2>
             <p class="fragment">
               What do system operators need to make a grounded assessment of the
               decision?
             </p>
             <aside class="notes">
-              Think of an admin view, or admin dashboard. What can you expose to
-              them to help them assess the correctness of the decision?
+              In order to feel truly fair, we need Decision recourse - to know
+              what we could do differently to change the outcome. If the answer
+              is "be born a different gender", or "have a wealthy family" -
+              these aren't helpful. Think of an admin view, or admin dashboard.
+              What can you expose to them to help them assess the correctness of
+              the decision?
             </aside>
           </section>
         </section>
@@ -489,7 +504,11 @@
             data-background-repeat="repeat"
           >
             <h2>Front-load your feedback efforts</h2>
-            <pre>Placeholder for diagram</pre>
+            <div class="r-stack">
+            <img class="fragment" src="img/ux-feedback.png" width="auto" height="300px" />
+            <img class="fragment" src="img/ux-people.png" width="auto" height="300px" />
+            </div>
+
             <aside class="notes">
               You should anticipate feedback at all stages of the software
               lifecycle, but it's sensible to put significant effort earlier in
@@ -541,6 +560,22 @@
               etc - let your engineers know that something has gone wrong.
             </aside>
           </section>
+        </section>
+
+        <section
+          data-background-image="img/lithograph.jpg"
+          data-background-size="50vh"
+          data-background-repeat="repeat"
+        >
+          <h1 class="r-fit-text">A quick recap</h1>
+          <ul>
+            <li class="fragment">Start with a baseline</li>
+            <li class="fragment">Plan for take-down</li>
+            <li class="fragment">ML-specific design</li>
+            <li class="fragment">Supply receipts</li>
+            <li class="fragment">Start with fewer people</li>
+            <li class="fragment">Feedback loops</li>
+          </ul>
         </section>
 
         <section
