@@ -8,6 +8,15 @@ section.has-light-background, section.has-light-background h1, section.has-light
   color: #222;
 }
 
+.figure p {
+  font-size: 60%;
+  color: black;
+  background: white;
+  padding: 2px 10px;
+  margin: 0 10px 0 0;
+  text-align: left;
+}
+
 /*********************************************
  * GLOBAL STYLES
  *********************************************/

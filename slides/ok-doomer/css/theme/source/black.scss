@@ -40,6 +40,14 @@ $heading4Size: 1.0em;
 // Change text colors against light slide backgrounds
 @include light-bg-text-color(#222);
 
+.figure p {
+  font-size: 60%;
+  color: black;
+  background: white;
+  padding: 2px 10px;
+  margin: 0 10px 0 0;
+  text-align: left;
+}
 
 // Theme template ------------------------------
 @import "../template/theme";
