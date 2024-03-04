@@ -358,3 +358,10 @@ section.has-light-background, section.has-light-background h1, section.has-light
     background-color: var(--r-background-color);
   }
 }
+.small {
+  font-size: 65%;
+}
+
+td.right {
+  text-align: right !important;
+}

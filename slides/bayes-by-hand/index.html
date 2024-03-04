@@ -74,61 +74,98 @@
               <td>0</td>
               <td>1:1</td>
               <td>50%</td>
-              <td>Same as chance</td>
+              <td class="small">Same as chance</td>
             </tr>
             <tr class="fragment">
               <td>1</td>
               <td>~5:4</td>
               <td>56%</td>
-              <td>Weakly likely</td>
+              <td class="small">Weakly likely</td>
             </tr>
             <tr class="fragment">
               <td>3</td>
               <td>~2:1</td>
               <td>67%</td>
-              <td>Slightly likely</td>
+              <td class="small">Slightly likely</td>
             </tr>
             <tr class="fragment">
               <td>5</td>
               <td>~3:1</td>
               <td>75%</td>
-              <td>Moderately likely</td>
+              <td class="small">Moderately likely</td>
             </tr>
             <tr class="fragment">
               <td>6</td>
               <td>~4:1</td>
               <td>80%</td>
-              <td>Some what likely</td>
+              <td class="small">Some what likely</td>
             </tr>
             <tr class="fragment">
               <td>10</td>
               <td>~10:1</td>
               <td>91%</td>
-              <td>Fairly likely</td>
+              <td class="small">Fairly likely</td>
             </tr>
             <tr class="fragment">
               <td>20</td>
               <td>~100:1</td>
               <td>99%</td>
-              <td>Very likely</td>
+              <td class="small">Very likely</td>
             </tr>
           </table>
         </section>
         <section>
           <h2>Let's try an example</h2>
         </section>
+				<section>
+					<h2>First call with the client</h2>
+				</section>
         <section>
           <table>
             <tr>
-              <th>Decibels</th>
-              <th>Odds</th>
-              <th>Probability</th>
-              <th>Description</th>
+              <th>Axis</th>
+              <th>Score</th>
+              <th>Notes</th>
+            </tr>
+            <tr class="fragment">
+              <td>Prior</td>
+              <td class="right">-10</td>
+              <td class="small">Without other data, we estimate that 1 in 10 leads will convert to sales.</td>
+            </tr>
+						<tr class="fragment">
+              <td>Vibes</td>
+              <td class="right">5</td>
+              <td class="small">Good vibes on the call, positive</td>
+            </tr>
+						<tr class="fragment">
+              <td>Procurement requirements</td>
+              <td class="right">-10</td>
+              <td class="small">They require an ISO certification we don't have yet. Unclear if this is needed for POC as well as prod app.</td>
+            </tr>
+						<tr class="fragment">
+              <td>Skills match</td>
+              <td class="right">6</td>
+              <td class="small">Mostly a good fit for the capabilities required to deliver this app. Might need external consultant.</td>
+            </tr>
+						<tr class="fragment">
+              <td>Price</td>
+              <td class="right">0</td>
+              <td class="small">Decision maker not on call.</td>
+            </tr>
+						<tr class="fragment">
+              <td>Total</td>
+              <td class="right">-9</td>
+              <td class="small"></td>
             </tr>
           </table>
         </section>
 				<section>
 					<h2>Confounding variables?</h2>
+					<ul>
+            <li class="fragment">Have a crack</li>
+            <li class="fragment">Do criteria track together?</li>
+            <li class="fragment">Update the model</li>
+          </ul>
 				</section>
 				<section>
 					<h2>Some extensions</h2>
