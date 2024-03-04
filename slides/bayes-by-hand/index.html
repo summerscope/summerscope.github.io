@@ -1,120 +1,162 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-		<title>Bayes by Hand</title>
+    <title>Bayes by Hand</title>
 
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Rock+3D&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rock+3D&display=swap"
+      rel="stylesheet"
+    />
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/black.css" />
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section><h1>Bayes <br/> by <br /> hand</h1></section>
-				<section><h2 class="r-fit-text">Bayes' theorem</h2>
-				<code class="fragment">Posterior = Likelihood × Prior ÷ Evidence</code>
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>
+            Bayes <br />
+            by <br />
+            hand
+          </h1>
+        </section>
+        <section>
+          <h2 class="r-fit-text">Bayes' theorem</h2>
+          <code class="fragment"
+            >Posterior = Likelihood × Prior ÷ Evidence</code
+          >
+        </section>
+        <section>
+          <h2>Problems <br />to solve</h2>
+          <ul>
+            <li class="fragment">Build a baseline</li>
+            <li class="fragment">Formalise your priors</li>
+            <li class="fragment">Start with ideas before jumping into code</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Capturing evidence</h2>
+          Using decibel points to score
+        </section>
+        <section>
+          <h2>Why decibels?</h2>
+          <blockquote>
+            E.T. Jaynes, in Probability Theory: The Logic of Science (section
+            4.2), reports that using decibels of evidence makes them easier to
+            grasp and use by humans.
+          </blockquote>
+          <a href="https://arbital.com/p/bayes_log_odds/" target="_blank"
+            >- arbital.com/p/bayes_log_odds</a
+          >
+        </section>
+        <section>
+          <table>
+            <tr>
+              <th>Decibels</th>
+              <th>Odds</th>
+              <th>Probability</th>
+              <th>Description</th>
+            </tr>
+            <tr class="fragment">
+              <td>0</td>
+              <td>1:1</td>
+              <td>50%</td>
+              <td>Same as chance</td>
+            </tr>
+            <tr class="fragment">
+              <td>1</td>
+              <td>~5:4</td>
+              <td>56%</td>
+              <td>Weakly likely</td>
+            </tr>
+            <tr class="fragment">
+              <td>3</td>
+              <td>~2:1</td>
+              <td>67%</td>
+              <td>Slightly likely</td>
+            </tr>
+            <tr class="fragment">
+              <td>5</td>
+              <td>~3:1</td>
+              <td>75%</td>
+              <td>Moderately likely</td>
+            </tr>
+            <tr class="fragment">
+              <td>6</td>
+              <td>~4:1</td>
+              <td>80%</td>
+              <td>Some what likely</td>
+            </tr>
+            <tr class="fragment">
+              <td>10</td>
+              <td>~10:1</td>
+              <td>91%</td>
+              <td>Fairly likely</td>
+            </tr>
+            <tr class="fragment">
+              <td>20</td>
+              <td>~100:1</td>
+              <td>99%</td>
+              <td>Very likely</td>
+            </tr>
+          </table>
+        </section>
+        <section>
+          <h2>Let's try an example</h2>
+        </section>
+        <section>
+          <table>
+            <tr>
+              <th>Decibels</th>
+              <th>Odds</th>
+              <th>Probability</th>
+              <th>Description</th>
+            </tr>
+          </table>
+        </section>
+				<section>
+					<h2>Confounding variables?</h2>
 				</section>
 				<section>
-					<h2>Problems <br />to solve</h2>
+					<h2>Some extensions</h2>
 					<ul>
-						<li class="fragment">Build a baseline</li>
-						<li class="fragment">Formalise your priors</li>
-						<li class="fragment">Start with ideas before jumping into code</li>
-					</ul>
+            <li class="fragment">Compare with colleagues</li>
+            <li class="fragment">Constrain points allocation</li>
+            <li class="fragment">No change vs. No data</li>
+          </ul>
 				</section>
-				<section>
-					<h2>Capturing evidence</h2>
-					Using decibel points to score
-				</section>
-				<section>
-					<h2>Why decibels?</h2>
-					<blockquote>E.T. Jaynes, in Probability Theory: The Logic of Science (section 4.2), reports that using decibels of evidence makes them easier to grasp and use by humans.</blockquote>
-					<a href="https://arbital.com/p/bayes_log_odds/" target="_blank">- arbital.com/p/bayes_log_odds</a>
-				</section>
-				<section>
-					<table>
-						<tr>
-							<th>Score</th>
-							<th>Odds</th>
-							<th>Probability</th>
-							<th>Description</th>
-						</tr>
-						<tr class="fragment">
-							<td>0</td>
-							<td>1:1</td>
-							<td>50%</td>
-							<td>Same as chance</td>
-						</tr>
-						<tr class="fragment">
-							<td>1</td>
-							<td>~5:4</td>
-							<td>56%</td>
-							<td>Weakly likely</td>
-						</tr>
-						<tr class="fragment">
-							<td>3</td>
-							<td>~2:1</td>
-							<td>67%</td>
-							<td>Slightly likely</td>
-						</tr>
-						<tr class="fragment">
-							<td>5</td>
-							<td>~3:1</td>
-							<td>75%</td>
-							<td>Moderately likely</td>
-						</tr>
-						<tr class="fragment">
-							<td>6</td>
-							<td>~4:1</td>
-							<td>80%</td>
-							<td>Some what likely</td>
-						</tr>
-						<tr class="fragment">
-							<td>10</td>
-							<td>~10:1</td>
-							<td>91%</td>
-							<td>Fairly likely</td>
-						</tr>
-						<tr class="fragment">
-							<td>20</td>
-							<td>~100:1</td>
-							<td>99%</td>
-							<td>Very likely</td>
-						</tr>
+        <section><h2>Questions? Reactions?</h2></section>
+				<section><h2>Thank you</h2></section>
+      </div>
+    </div>
 
-					</table>
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
 
-				</section>
-				<section>Slide 2</section>
-				<section>Slide 2</section>
-
-			</div>
-		</div>
-
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
-
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
 </html>
