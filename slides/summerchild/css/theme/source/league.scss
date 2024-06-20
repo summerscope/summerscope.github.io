@@ -1,0 +1,59 @@
+/**
+ * League theme for reveal.js.
+ *
+ * This was the default theme pre-3.0.0.
+ *
+ * Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+ */
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+$mainFont: "Zen Kaku Gothic Antique", sans-serif;
+$headingFont: "Gloria Hallelujah", cursive;
+$headingTextTransform: none;
+
+// Include theme-specific fonts
+@import url(./fonts/league-gothic/league-gothic.css);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+
+// Override theme settings (see ../template/settings.scss)
+// $headingTextShadow: 0px 0px 6px rgba(0,0,0,0.2);
+// $heading1TextShadow: 2px 3px 0px rgba(50,50,50,0.5);
+// $headingColor: text-gradient(red, blue);
+// $heading1TextShadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 20px 20px rgba(0,0,0,.15);
+
+h1 {
+  background: #c398f0
+    linear-gradient(
+      to right,
+      #c398f0,
+      #469efa,
+      #00bbfc,
+      #00d8e8,
+      #29e4d9
+    );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+// Background generator
+@mixin bodyBackground() {
+	@include vertical-gradient( #002327, #002739);
+}
+
+// background-image: linear-gradient(to right top, #3c182d, #391a33, #341c39, #2e1f3e, #252243, #1a2443, #0d2642, #002740, #002739, #002530, #002327, #04211f);
+
+// Change text colors against light slide backgrounds
+@include light-bg-text-color(#222);
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+em {
+	border-bottom: 4px solid  rgba(255,0,255,0.5);
+}
