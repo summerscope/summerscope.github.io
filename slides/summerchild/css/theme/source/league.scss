@@ -55,5 +55,9 @@ h1 {
 // ---------------------------------------------
 
 em {
-	border-bottom: 4px solid  rgba(255,0,255,0.5);
+	// border-bottom: 4px solid  rgba(255,0,255,0.5);
+	border-bottom: 10px solid;
+  border-image-slice: 1;
+  border-width: 5px;
+	border-image-source: linear-gradient(to left, #00fceb, #f77ced);
 }
