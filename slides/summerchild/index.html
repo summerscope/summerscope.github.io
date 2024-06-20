@@ -85,8 +85,7 @@
                 Why were their early arguments not successful?
               </li>
               <li class="fragment fade-left">
-                Can we make more clear, rigorous and compelling
-                arguments?
+                Can we make more clear, rigorous and compelling arguments?
               </li>
               <li class="fragment fade-left">
                 Could we help future projects avoid obvious pitfalls?
@@ -108,72 +107,229 @@
               >
             </div>
           </section>
-					<section>
-						<p>Before we convince others...
-						<p class="fragment fade-left">we must first convince ourselves</p>
-						</p>
-					</section>
-					<section>
-						As technologists, we must get better at forming our own opinions on the <em>kinds of risk</em> and <em>degree of risk</em> in the systems we build
-					</section>
-					<section>
-						<ul>
-							<li class="fragment fade-left"><a href="https://fairlearn.org/" target="_blank">FairLearn</a></li>
-							<li class="fragment fade-left"><a href="http://www.datasciencepublicpolicy.org/our-work/tools-guides/aequitas/" target="_blank">Aequitas</a></li>
-							<li class="fragment fade-left"><a href="https://deon.drivendata.org/" target="_blank">Deon</a></li>
-						</ul>
-						<aside class="notes">There are a bunch of tools out there for helping you measure unfairness against protected classes in a rigorous statistical way. Do data auditing. Or provide a data ethics checklist. But all these tools are deep in the weeds on the ML implementation or statistical methodology and don't really help you form an intuition how your system's failure modes will translate in the real world. </aside>
-					</section>
-					<section><h2 style="font-size: 1em">A tooling gap</h2>
-					</section>
-					<section>
-						<h1 style="font-size: 1em; display: inline-block">
-							Sweet Summer Child Score
-						</h1>
-					</section>
+          <section>
+            <p>Before we convince others...</p>
+            <p class="fragment fade-left">we must first convince ourselves</p>
+          </section>
+          <section>
+            As technologists, we must get better at forming our own opinions on
+            the <em>kinds of risk</em> and <em>degree of risk</em> in the
+            systems we build
+          </section>
+          <section>
+            <ul>
+              <li class="fragment fade-left">
+                <a href="https://fairlearn.org/" target="_blank">FairLearn</a>
+              </li>
+              <li class="fragment fade-left">
+                <a
+                  href="http://www.datasciencepublicpolicy.org/our-work/tools-guides/aequitas/"
+                  target="_blank"
+                  >Aequitas</a
+                >
+              </li>
+              <li class="fragment fade-left">
+                <a href="https://deon.drivendata.org/" target="_blank">Deon</a>
+              </li>
+            </ul>
+            <aside class="notes">
+              There are a bunch of tools out there for helping you measure
+              unfairness against protected classes in a rigorous statistical
+              way. Do data auditing. Or provide a data ethics checklist. But all
+              these tools are deep in the weeds on the ML implementation or
+              statistical methodology and don't really help you form an
+              intuition how your system's failure modes will translate in the
+              real world.
+            </aside>
+          </section>
+          <section><h2 style="font-size: 1em">A tooling gap</h2></section>
+          <section>
+            <h1 style="font-size: 1em; display: inline-block">
+              Sweet Summer Child Score
+            </h1>
+          </section>
         </section>
         <section>
           <section data-background-image="img/bg03-tilt_shift.jpg">
             <h2 style="font-size: 1em">Algorithm design</h2>
           </section>
-					<section>Or as I like to think of it...
-						<p class="fragment fade-left">formalizing opinions in code</p>
-					</section>
           <section>
-						Early on, I captured lots of questions, thought bubbles and half baked ideas...
-					</section>
-					<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-						<div class="r-hstack justify-center">
-							<div data-id="box1" class="fragment boxDefault boxDark">How many people impacted by the system?</div>
-							<div data-id="box2" class="fragment boxDefault boxDark">How to do relative risk ranking?</div>
-							<div data-id="box3" class="fragment boxDefault boxDark">What about imperfect information?</div>
-						</div>
-					</section>
-					<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-						<div class="r-hstack justify-center">
-							<div data-id="box1" data-auto-animate-delay="0" class=" boxDefault boxMedium " style="background:  #4a1233;">What if it happened to my mum?</div>
-							<div data-id="box2" data-auto-animate-delay="0.1" class=" boxDefault boxMedium" style="background: #291055;">Is this a black mirror episode?</div>
-							<div data-id="box3" data-auto-animate-delay="0.2" class=" boxDefault boxMedium"  style="background: #093931;">Would I want to&nbsp;be known for&nbsp;this?</div>
-						</div>
-					</section>
+            Or as I like to think of it...
+            <p class="fragment fade-left">formalizing opinions in code</p>
+          </section>
+          <section>
+            Early on, I captured lots of questions, thought bubbles and half
+            baked ideas...
+          </section>
+          <section
+            data-auto-animate
+            data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)"
+          >
+            <div class="r-hstack justify-center">
+              <div data-id="box1" class="fragment boxDefault boxDark">
+                How many people impacted by the system?
+              </div>
+              <div data-id="box2" class="fragment boxDefault boxDark">
+                How to do relative risk ranking?
+              </div>
+              <div data-id="box3" class="fragment boxDefault boxDark">
+                What about imperfect information?
+              </div>
+            </div>
+          </section>
+          <section
+            data-auto-animate
+            data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)"
+          >
+            <div class="r-hstack justify-center">
+              <div
+                data-id="box1"
+                data-auto-animate-delay="0"
+                class="boxDefault boxMedium"
+                style="background: #4a1233"
+              >
+                What if it happened to my mum?
+              </div>
+              <div
+                data-id="box2"
+                data-auto-animate-delay="0.1"
+                class="boxDefault boxMedium"
+                style="background: #291055"
+              >
+                Is this a black mirror episode?
+              </div>
+              <div
+                data-id="box3"
+                data-auto-animate-delay="0.2"
+                class="boxDefault boxMedium"
+                style="background: #093931"
+              >
+                Would I want to&nbsp;be known for&nbsp;this?
+              </div>
+            </div>
+          </section>
 
-					<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-						<div class="r-vstack justify-center">
-							<div data-id="box1" data-auto-animate-delay="0" class="boxDefault boxLight" style="background:  #c398f0;">What are our moral obligations?</div>
-							<div data-id="box2" data-auto-animate-delay="0.1" class="boxDefault boxLight" style="background: #469efa;">Reduce risk by design?</div>
-							<div data-id="box3" data-auto-animate-delay="0.2" class="boxDefault boxLight"  style="background: #00bbfc;">Which choices do we have control over?</div>
-						</div>
-					</section>
-					<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-						<div class="r-stack">
-							<div data-id="box1" style="background: #469efa; width: 300px; height: 300px; border-radius: 200px;"></div>
-							<div data-id="box2" style="background: #00bbfc; width: 200px; height: 200px; border-radius: 200px;"></div>
-							<div data-id="box3" style="background: #c398f0; width: 100px; height: 100px; border-radius: 200px;"></div>
-						</div>
-						<h2 style="margin-top: 20px; font-size: 1em">Three main sections</h2>
-					</section>
+          <section
+            data-auto-animate
+            data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)"
+          >
+            <div class="r-vstack justify-center">
+              <div
+                data-id="box1"
+                data-auto-animate-delay="0"
+                class="boxDefault boxLight"
+                style="background: #c398f0"
+              >
+                What are our moral obligations?
+              </div>
+              <div
+                data-id="box2"
+                data-auto-animate-delay="0.1"
+                class="boxDefault boxLight"
+                style="background: #469efa"
+              >
+                Reduce risk by design?
+              </div>
+              <div
+                data-id="box3"
+                data-auto-animate-delay="0.2"
+                class="boxDefault boxLight"
+                style="background: #00bbfc"
+              >
+                Which choices do we have control over?
+              </div>
+            </div>
+          </section>
+          <section
+            data-auto-animate
+            data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)"
+          >
+            <div class="r-stack">
+              <div
+                data-id="box1"
+                style="
+                  background: #469efa;
+                  width: 300px;
+                  height: 300px;
+                  border-radius: 200px;
+                "
+              ></div>
+              <div
+                data-id="box2"
+                style="
+                  background: #00bbfc;
+                  width: 200px;
+                  height: 200px;
+                  border-radius: 200px;
+                "
+              ></div>
+              <div
+                data-id="box3"
+                style="
+                  background: #c398f0;
+                  width: 100px;
+                  height: 100px;
+                  border-radius: 200px;
+                "
+              ></div>
+            </div>
+            <h2 style="margin-top: 20px; font-size: 1em">
+              Three main sections
+            </h2>
+          </section>
+          <section>
+            <ol>
+              <li class="fragment fade-left">Cohort scan</li>
+              <li class="fragment fade-left">System scan</li>
+              <li class="fragment fade-left">Maslov's hierarchy of needs</li>
+            </ol>
+          </section>
+          <section>
+            <p>
+              The three sections are each worth roughly 1/3 of the overall score
+            </p>
+          </section>
+          <section>
+            <h2 style="margin-top: 20px; font-size: 1em">Multiplier</h2>
+            <p class="fragment fade-left">
+              Adjusts the score to reflect the number of people who could be
+              impacted
+            </p>
+          </section>
+          <section>
+            Basically it draws on the intuition that a system that could harm
+            <em>10</em> people should be ranked as less risky than a system that
+            could harm <em>1,000</em> or <em>100,000</em>.
+          </section>
+          <section>
+            <h2 style="font-size: 1em">How does the score work?</h2>
+            <ul>
+              <li class="fragment fade-left">
+                Start with 99 points (highest possible score)
+              </li>
+              <li class="fragment fade-left">Add points from each section</li>
+              <li class="fragment fade-left">(SumPoints) x multiplier</li>
+              <li class="fragment fade-left">99 - (AdjustedSum)</li>
+              <li class="fragment fade-left">
+                The lower your final score, the higher the risk assessment
+              </li>
+            </ul>
+          </section>
 
-          <section>Slide 2</section>
+          <section data-background-image="img/bg04-tilt_shift.jpg">
+            <h2 style="font-size: 1em">Cohort scan</h2>
+          </section>
+          <section>
+            <blockquote></blockquote>
+          </section>
+
+          <section>Why a quiz? Why a score?</section>
+          <section>
+            Great question!
+            <p class="fragment fade-left">
+              It's more a <em>MacGuffin</em>, less a <em>serious device</em>.
+            </p>
+          </section>
         </section>
         <section>
           <section data-background-image="img/bg01-tilt_shift.jpg">
