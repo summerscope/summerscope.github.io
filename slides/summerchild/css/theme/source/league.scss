@@ -95,3 +95,24 @@ em {
 	color: #002327;
 	border-radius: 10px;
 }
+
+.rotate5 {
+	transform: rotate(5deg);
+}
+.rotate3 {
+	transform: rotate(3deg);
+}
+
+.rotateNeg3 {
+	transform: rotate(-3deg);
+}
+
+.rotateNeg5 {
+	transform: rotate(-5deg);
+}
+
+.shadow {
+	-webkit-box-shadow: 0px 2px 15px 0px rgba(0,0,0,0.95);
+	-moz-box-shadow: 0px 2px 15px 0px rgba(0,0,0,0.95);
+	box-shadow: 0px 2px 15px 0px rgba(0,0,0,0.95);
+}
