@@ -7,7 +7,7 @@
  */
 @import url(./fonts/league-gothic/league-gothic.css);
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
-h1 {
+.gradient {
   background: #c398f0 linear-gradient(to right, #c398f0, #469efa, #00bbfc, #00d8e8, #29e4d9);
   -webkit-background-clip: text;
   background-clip: text;

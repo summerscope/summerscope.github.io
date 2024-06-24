@@ -25,29 +25,22 @@ $headingTextTransform: none;
 // $headingColor: text-gradient(red, blue);
 // $heading1TextShadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 20px 20px rgba(0,0,0,.15);
 
-h1 {
+.gradient {
   background: #c398f0
-    linear-gradient(
-      to right,
-      #c398f0,
-      #469efa,
-      #00bbfc,
-      #00d8e8,
-      #29e4d9
-    );
+    linear-gradient(to right, #c398f0, #469efa, #00bbfc, #00d8e8, #29e4d9);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-$heading1Size: 1.0em;
+$heading1Size: 1em;
 $heading2Size: 1.25em;
-$heading3Size: 1.0em;
-$heading4Size: 1.0em;
+$heading3Size: 1em;
+$heading4Size: 1em;
 
 // Background generator
 @mixin bodyBackground() {
-	@include vertical-gradient( #002327, #002739);
+  @include vertical-gradient(#002327, #002739);
 }
 
 // background-image: linear-gradient(to right top, #3c182d, #391a33, #341c39, #2e1f3e, #252243, #1a2443, #0d2642, #002740, #002739, #002530, #002327, #04211f);
@@ -60,64 +53,63 @@ $heading4Size: 1.0em;
 // ---------------------------------------------
 
 em {
-	// border-bottom: 4px solid  rgba(255,0,255,0.5);
-	border-bottom: 10px solid;
+  // border-bottom: 4px solid  rgba(255,0,255,0.5);
+  border-bottom: 10px solid;
   border-image-slice: 1;
   border-width: 5px;
-	border-image-source: linear-gradient(to left, #00fceb, #f77ced);
+  border-image-source: linear-gradient(to left, #00fceb, #f77ced);
 }
 
 .small {
-	font-size: 0.8em;
+  font-size: 0.8em;
 }
 
 .boxDefault {
-	display: flex;
-	align-items: center;
-	padding: 0 20px;
-	margin: 10px;
-	font-size: 0.8em;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  margin: 10px;
+  font-size: 0.8em;
 }
 
 .boxDark {
-	background: rgba(0,0,0,0.25);
-	width: 250px;
-	height: 200px;
-	border-radius: 5px;
+  background: rgba(0, 0, 0, 0.25);
+  width: 250px;
+  height: 200px;
+  border-radius: 5px;
 }
 
 .boxMedium {
-	background: rgba(100,100,100,0.25);
-	width: 250px;
-	height: 200px;
-	border-radius: 1000px;
+  background: rgba(100, 100, 100, 0.25);
+  width: 250px;
+  height: 200px;
+  border-radius: 1000px;
 }
 
-
 .boxLight {
-	width: 350px;
-	height: 150px;
-	color: #002327;
-	border-radius: 10px;
+  width: 350px;
+  height: 150px;
+  color: #002327;
+  border-radius: 10px;
 }
 
 .rotate5 {
-	transform: rotate(5deg);
+  transform: rotate(5deg);
 }
 .rotate3 {
-	transform: rotate(3deg);
+  transform: rotate(3deg);
 }
 
 .rotateNeg3 {
-	transform: rotate(-3deg);
+  transform: rotate(-3deg);
 }
 
 .rotateNeg5 {
-	transform: rotate(-5deg);
+  transform: rotate(-5deg);
 }
 
 .shadow {
-	-webkit-box-shadow: 0px 2px 15px 0px rgba(0,0,0,0.65);
-	-moz-box-shadow: 0px 2px 15px 0px rgba(0,0,0,0.65);
-	box-shadow: 0px 2px 15px 0px rgba(0,0,0,0.65);
+  -webkit-box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.65);
+  -moz-box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.65);
+  box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.65);
 }
