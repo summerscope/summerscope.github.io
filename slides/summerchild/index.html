@@ -36,7 +36,11 @@
           </h1>
         </section>
         <section>
-          <a href="https://summerscope.github.io/slides/summerchild/" target="_blank">summerscope.github.io/slides/summerchild</a>
+          <a
+            href="https://summerscope.github.io/slides/summerchild/"
+            target="_blank"
+            >summerscope.github.io/slides/summerchild</a
+          >
         </section>
         <section>
           <img
@@ -49,14 +53,32 @@
         <section>
           <p>Fair ML Reading group</p>
           <div class="r-stack">
-            <img class="fragment fade-top shadow rotate5" src="img/paper1.png" height="500px"  />
-            <img class="fragment fade-top shadow rotateNeg5" src="img/paper2.png" height="500px"  />
-            <img class="fragment fade-top shadow rotate3" src="img/paper3.png" height="500px"  />
+            <img
+              class="fragment fade-top shadow rotate5"
+              src="img/paper1.png"
+              height="500px"
+            />
+            <img
+              class="fragment fade-top shadow rotateNeg5"
+              src="img/paper2.png"
+              height="500px"
+            />
+            <img
+              class="fragment fade-top shadow rotate3"
+              src="img/paper3.png"
+              height="500px"
+            />
           </div>
         </section>
         <section>
-          <p><a href="https://ethics.fast.ai/" target="_blank">ethics.fast.ai</a></p>
-          <img class="shadow" src="img/practical-data-ethics.png" height="500px" />
+          <p>
+            <a href="https://ethics.fast.ai/" target="_blank">ethics.fast.ai</a>
+          </p>
+          <img
+            class="shadow"
+            src="img/practical-data-ethics.png"
+            height="500px"
+          />
         </section>
         <section>
           Pop culture check
@@ -149,10 +171,9 @@
               </li>
             </ul>
             <aside class="notes">
-              There are a bunch of tools out there for helping you measure
-              unfairness against protected classes in a rigorous statistical
-              way. Do data auditing. Or provide a data ethics checklist. But all
-              these tools are deep in the weeds on the ML implementation or
+              Lots of tools to measure class imbalance. Statistical bias. Do
+              data auditing. Or provide a data ethics checklist. But all these
+              tools are deep in the weeds on the ML implementation or
               statistical methodology and don't really help you form an
               intuition how your system's failure modes will translate in the
               real world.
@@ -165,24 +186,56 @@
             </h1>
           </section>
           <section>
-            <h2 style="font-size: 1em;">What is it?</h2>
+            <h2 style="font-size: 1em">What is it?</h2>
             <ul>
-            <li class="fragment fade-left">A self-assessment quiz which gives you a risk score</li>
-            <li class="fragment fade-left">Scans for harms to people and communities by a socio-technical system</li>
-            <li class="fragment fade-left">Risk reduction suggestions alongside the score</li>
-          </ul>
+              <li class="fragment fade-left">
+                A self-assessment quiz which gives you a risk score
+              </li>
+              <li class="fragment fade-left">
+                Scans for harms to people and communities by a socio-technical
+                system
+              </li>
+              <li class="fragment fade-left">
+                Risk reduction suggestions alongside the score
+              </li>
+            </ul>
           </section>
           <section>
-            <h2 style="font-size: 1em;">How can I take the quiz?</h2>
+            <h2 style="font-size: 1em">How can I take the quiz?</h2>
             <ol>
-              <li class="fragment fade-left"><a href="https://quiz.summerchild.dev/" target="_blank">Online in the web app</a></li>
-              <li class="fragment fade-left"><a href="https://github.com/summerscope/summerchildpy" target="_blank">Locally in CLI (python)</a></li>
-              <li class="fragment fade-left"><a href="https://github.com/summerscope/summerchildr" target="_blank">Locally in CLI or RStudio (r)</a></li>
-              <li class="fragment fade-left"><a href="https://github.com/summerscope/summerchild-rs" target="_blank">Locally in CLI (rust)</a></li>
+              <li class="fragment fade-left">
+                <a href="https://quiz.summerchild.dev/" target="_blank"
+                  >Online in the web app</a
+                >
+              </li>
+              <li class="fragment fade-left">
+                <a
+                  href="https://github.com/summerscope/summerchildpy"
+                  target="_blank"
+                  >Locally in CLI (python)</a
+                >
+              </li>
+              <li class="fragment fade-left">
+                <a
+                  href="https://github.com/summerscope/summerchildr"
+                  target="_blank"
+                  >Locally in CLI or RStudio (r)</a
+                >
+              </li>
+              <li class="fragment fade-left">
+                <a
+                  href="https://github.com/summerscope/summerchild-rs"
+                  target="_blank"
+                  >Locally in CLI (rust)</a
+                >
+              </li>
             </ol>
           </section>
           <section>
-            <img src="https://user-images.githubusercontent.com/6570564/157806846-0b8ffe60-a812-4b06-92d2-048cc45773a1.gif" width="400px" />
+            <img
+              src="https://user-images.githubusercontent.com/6570564/157806846-0b8ffe60-a812-4b06-92d2-048cc45773a1.gif"
+              width="400px"
+            />
           </section>
         </section>
         <section>
@@ -425,8 +478,22 @@
           </section>
           <section data-background-image="img/bg04-tilt_shift.jpg">
             <h2>Case study</h2>
+            <p>Insurance app - Fraud detection</p>
+            <aside class="notes">
+              Fraud detection algorithms can be fitted on features that
+              correspond with high technology confidence (VPN use) or low
+              technology confidence (2FA). Doing a cohort scan flags their
+              existence. Technologists need to work out how to pragmatically
+              assess the signals available to them, but also to make it easy for
+              misclassified customers to right themselves easily and bake in
+              "false positive pathway" as a key part of the user journey.
+            </aside>
           </section>
-          <section>Some questions from this section</section>
+          <section data-background-image="img/bg04-examples.jpg">
+            <p class="r-fit-text"></p>
+            <h2>Cohort Scan</h2>
+            <p>Example questions</p>
+          </section>
           <section>
             <ul>
               <li class="fragment fade-left">
@@ -462,6 +529,19 @@
           </section>
           <section>
             These are all the levers we have to observe and mitigate risk
+          </section>
+          <section data-background-image="img/bg05-tilt_shift.jpg">
+            <h2>Case study</h2>
+            <p>Film recommender - Outbreak/Contagion/Pandemic</p>
+            <aside class="notes">
+              Say you're working on a Netflix-like movie recommendation system
+              and it uses a news scanning model to identify current news topics.
+              Then the world gets hit with another COVID like event, and
+              suddenly all it recommends is virus movies and your user base is
+              not super happy about it. Our system scan asks us questions like
+              "can you take it down from production easily" and that gives us a
+              clue into the reputational costs at stake.
+            </aside>
           </section>
           <section>Some questions from this section</section>
           <section>
@@ -582,13 +662,18 @@
             </ul>
           </section>
         </section>
-				<section data-background-image="img/bg01-tilt_shift.jpg">
+        <section data-background-image="img/bg01-tilt_shift.jpg">
           <p>Thank you!</p>
-					<a href="https://summerchild.dev/" target="_blank"></a>
-          <h1 style="font-size: 1em; display: inline-block">
-            summerchild.dev
-          </h1></a>
-					<p class="small"><a href="https://www.linkedin.com/in/summerscope/" target="_blank">linkedin.com/in/summerscope</a></p>
+          <a href="https://summerchild.dev/" target="_blank">
+            <h1 style="font-size: 1em; display: inline-block">
+              summerchild.dev
+            </h1></a
+          >
+          <p class="small">
+            <a href="https://www.linkedin.com/in/summerscope/" target="_blank"
+              >linkedin.com/in/summerscope</a
+            >
+          </p>
         </section>
       </div>
     </div>
@@ -603,6 +688,7 @@
       // - https://revealjs.com/config/
       Reveal.initialize({
         transition: "none",
+        slideNumber: true,
         hash: true,
 
         // Learn about plugins: https://revealjs.com/plugins/
