@@ -42,9 +42,9 @@ section.has-light-background h6 {
   --r-heading-text-shadow: none;
   --r-heading-font-weight: normal;
   --r-heading1-text-shadow: none;
-  --r-heading1-size: 3.77em;
-  --r-heading2-size: 2.11em;
-  --r-heading3-size: 1.55em;
+  --r-heading1-size: 1em;
+  --r-heading2-size: 1em;
+  --r-heading3-size: 1em;
   --r-heading4-size: 1em;
   --r-code-font: monospace;
   --r-link-color: #13DAEC;

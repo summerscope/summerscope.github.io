@@ -40,6 +40,11 @@ h1 {
   -webkit-text-fill-color: transparent;
 }
 
+$heading1Size: 1.0em;
+$heading2Size: 1.0em;
+$heading3Size: 1.0em;
+$heading4Size: 1.0em;
+
 // Background generator
 @mixin bodyBackground() {
 	@include vertical-gradient( #002327, #002739);
