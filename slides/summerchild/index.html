@@ -480,9 +480,15 @@
             <h2>Case study</h2>
             <p>Insurance app - Fraud detection</p>
             <ul>
-              <li class="fragment fade-left">Features overlap 'good' and 'bad' actors</li>
-              <li class="fragment fade-left">🕵️ VPN use 👉 high tech confidence</li>
-              <li class="fragment fade-left">❌ No 2FA 👉 low tech confidence</li>
+              <li class="fragment fade-left">
+                Features overlap 'good' and 'bad' actors
+              </li>
+              <li class="fragment fade-left">
+                🕵️ VPN use 👉 high tech confidence
+              </li>
+              <li class="fragment fade-left">
+                ❌ No 2FA 👉 low tech confidence
+              </li>
             </ul>
             <aside class="notes">
               Fraud detection algorithms can be fitted on features that
@@ -504,7 +510,8 @@
               <li class="fragment fade-left">
                 <strong>Is your target cohort economically vulnerable?</strong
                 ><br /><span class="fragment fade-left small"
-                  >Compare to a baseline of average earning rates for region</span
+                  >Compare to a baseline of average earning rates for
+                  region</span
                 >
               </li>
               <br />
@@ -513,8 +520,8 @@
                   >Is your target cohort over-policed or
                   over-surveilled?</strong
                 ><br /><span class="fragment fade-left small"
-                  >Consider if they are more likely to be targeted by police, social
-                  services or surveillance systems</span
+                  >Consider if they are more likely to be targeted by police,
+                  social services or surveillance systems</span
                 >
               </li>
             </ul>
@@ -533,15 +540,15 @@
             <p class="fragment fade-left">Why?</p>
           </section>
           <section>
-            These are all the levers we have to observe and mitigate risk
+            Options we have to <em>observe</em> and <em>mitigate</em> risk
           </section>
           <section>
             <h2>Case study</h2>
             <p>Film recommender <br />Outbreak/Contagion/Pandemic</p>
             <ul>
-              <li class="fragment fade-left">Features correspond to </li>
-              <li class="fragment fade-left"></li>
-              <li class="fragment fade-left"></li>
+              <li class="fragment fade-left">Data drift in production</li>
+              <li class="fragment fade-left">Black swan events</li>
+              <li class="fragment fade-left">Can you take it down?</li>
             </ul>
             <aside class="notes">
               Say you're working on a Netflix-like movie recommendation system
@@ -564,9 +571,8 @@
                 <strong
                   >Can you turn your decision system off instantly if something
                   goes wrong?</strong
-                ><br /><span class="small"
-                  >Can you do this with one click, or do you have to deploy code
-                  to take it down?</span
+                ><br /><span class="fragment fade-left small"
+                  >One click take down? Write and deploy code?</span
                 >
               </li>
               <br />
@@ -608,23 +614,25 @@
             <h2>Case study</h2>
             <p>Time series <br />Hospital Staffing</p>
             <ul>
-              <li class="fragment fade-left"></li>
-              <li class="fragment fade-left"></li>
-              <li class="fragment fade-left"></li>
+              <li class="fragment fade-left">
+                Hospital cost savings vs.
+              </li>
+              <li class="fragment fade-left">Patient's right to care</li>
             </ul>
             <aside class="notes">
-              Say you're doing time series modelling to predict the variable
-              staffing needs of a hospital, and this is directly hooked into the
-              procurement arm. In a severe failure mode where you're wildly
-              understaffed and there's no mechanism to observe and course
-              correct, you directly negatively impacting the experience or life
-              expectancy of patients in the hospital.
+              Time series modelling to predict the variable staffing needs of a
+              hospital, and this is directly hooked into the procurement arm. In
+              a severe failure mode where you're wildly understaffed and there's
+              no mechanism to observe and course correct, you directly
+              negatively impacting the experience or life expectancy of patients
+              in the hospital.
             </aside>
           </section>
           <section data-background-image="img/bg06-examples.jpg">
             <p class="r-fit-text"></p>
             <h2>
-              #3 Maslov's<br /> Hierarchy<br />
+              #3 Maslov's<br />
+              Hierarchy<br />
               of Needs
             </h2>
             <p>Example questions</p>
@@ -632,20 +640,21 @@
           <section>
             <ul>
               <li class="fragment fade-left">
-                <strong>Physiological needs </strong><br /><span class="small"
+                <strong>Physiological needs </strong><br /><span
+                  class="fragment fade-left small"
                   >Probability that your automated decision system will
                   <em>directly</em>, <em>negatively</em> impact your target
-                  cohort's Physiological needs? (Air, water, food, shelter,
-                  sleep, reproduction)</span
+                  cohort's Physiological needs <br />(Air, water, food,
+                  shelter, sleep, reproduction)</span
                 >
               </li>
               <br />
               <li class="fragment fade-left">
                 <strong>Esteem needs</strong>
-                <br /><span class="small"
+                <br /><span class="fragment fade-left small"
                   >Probability that your automated decision system will
                   <em>directly</em>, <em>negatively</em> impact your target
-                  cohort's Esteem needs? (Respect, self-esteem, status,
+                  cohort's Esteem needs <br />(Respect, self-esteem, status,
                   recognition, strength, freedom)</span
                 >
               </li>
@@ -705,9 +714,7 @@
               </li>
             </ul>
           </section>
-          <section>
-            Let's take a quick look at github
-          </section>
+          <section>Let's take a quick look at github</section>
         </section>
         <section data-background-image="img/bg01-tilt_shift.jpg">
           <p>Thank you!</p>
