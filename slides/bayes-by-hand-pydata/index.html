@@ -55,13 +55,30 @@
         <section>
           <h2>Why decibels?</h2>
           <blockquote>
-            E.T. Jaynes, in Probability Theory: The Logic of Science (section
-            4.2), reports that using decibels of evidence makes them easier to
-            grasp and use by humans.
+            Our minds are thoroughly conditioned to the base 10 number
+            system, and base 10 logarithms have an immediate, clear
+            intuitive meaning to all of us.
+            - E.T. Jaynes, Probability Theory: The Logic of Science
           </blockquote>
-          <a href="https://arbital.com/p/bayes_log_odds/" target="_blank"
-            >- arbital.com/p/bayes_log_odds</a
-          >
+        </section>
+        <section>
+          <section>
+          $$ P(H|D) = \frac{P(D|H) P(H)}{P(D)} $$
+          </section>
+          <section>
+          \[
+          \begin{align*}
+            O(H|D) &= \frac{P(H|D)}{P(\neg H|D)} \\
+                   &= O(H) \frac{P(D|H)}{P(D|\neg H)}
+          \end{align*}
+          \]
+          </section>
+          <section>
+          $$ e(H|D) = 10 \log_{10}O(H|D) $$
+          </section>
+          <section>
+            $$ e(H|D) = \underbrace{\vphantom{\sum_i \left[\frac{P}{P}\right]} e(H)}_{\text{Prior}} + \underbrace{\sum_i 10\,\log_{10} \left[\frac{P(D_i|H)}{P(D_i|\neg H)}\right]}_{\text{Data Likelihood Ratios}} $$
+          </section>
         </section>
         <section>
           <table>
