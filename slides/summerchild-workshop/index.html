@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Sweet Summer Child Score - Workshop</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/league.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Zen+Kaku+Gothic+Antique&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-background-image="img/bg01-tilt_shift.jpg">
+          <img
+            src="img/babooshcat.svg"
+            width="150px"
+            style="margin: 0 auto; padding: 0; display: block"
+          />
+          <h1 class="gradient" style="font-size: 1em; display: inline-block">
+            Sweet Summer Child Score
+          </h1>
+          <h2 style="font-size: 0.75em">Workshop edition</h2>
+        </section>
+        <section>
+          <h2>Agenda</h2>
+          <ol>
+            <li>15:30-15:40 - Intro (10m)</li>
+            <li>15:40-16:20 - Take the quiz (40m)</li>
+            <li>16:20-16:30 - Score reverse engineering (10m)</li>
+            <li>16:30-16:50 - Risk ranking &amp; prioritisation (20m)</li>
+            <li>16:50-17:00 - Bonus content / discussion (10m)</li>
+          </ol>
+        </section>
+        <!-- 1. Intro  -->
+        <section>
+          <section>
+            <h1 class="gradient" style="font-size: 1em; display: inline-block">
+              1. Intro
+            </h1>
+          </section>
+          <section>
+            <a
+              href="https://summerscope.github.io/slides/summerchild-workshop/"
+              target="_blank"
+              >summerscope.github.io/slides/summerchild-workshop</a
+            >
+          </section>
+          <section>
+            <img
+              src="img/laura.png"
+              width="200px"
+              style="margin: 0 auto; padding: 0; display: block"
+            />
+            A little about me
+          </section>
+          <section>
+            <p>Fair ML Reading group</p>
+            <div class="r-stack">
+              <img
+                class="fragment fade-top shadow rotate5"
+                src="img/paper1.png"
+                height="500px"
+              />
+              <img
+                class="fragment fade-top shadow rotateNeg5"
+                src="img/paper2.png"
+                height="500px"
+              />
+              <img
+                class="fragment fade-top shadow rotate3"
+                src="img/paper3.png"
+                height="500px"
+              />
+            </div>
+          </section>
+          <section>
+            <p>
+              <a href="https://ethics.fast.ai/" target="_blank"
+                >ethics.fast.ai</a
+              >
+            </p>
+            <img
+              class="shadow"
+              src="img/practical-data-ethics.png"
+              height="500px"
+            />
+          </section>
+          <section>
+            🩺 Pop culture check-up
+            <aside class="notes">
+              Just checking who has heard of Game of Thrones? Watched it? Who
+              knows what a summer child is?
+            </aside>
+          </section>
+          <section data-background-image="img/ssc.gif">&nbsp;</section>
+          <section data-background-image="img/bg02-tilt_shift.jpg">
+            <h2>The origin story</h2>
+          </section>
+          <section>
+            <h2>2017-2018</h2>
+            <p>Melbourne, Australia</p>
+          </section>
+          <section><h2>Robodebt</h2></section>
+          <section>
+            <a href="https://notmydebt.com.au/the-issue" target="_blank"
+              ><img src="img/laptop.png"
+            /></a>
+          </section>
+          <section>
+            <blockquote>
+              "The scheme has been the subject of considerable controversy,
+              having been criticised by media, academics, advocacy groups, and
+              politicians due to allegations of false or incorrectly calculated
+              debt notices..."
+            </blockquote>
+            <a
+              href="https://en.wikipedia.org/wiki/Robodebt_scheme"
+              target="_blank"
+              style="font-size: 0.8em"
+              >-Read more on Wikipedia</a
+            >
+          </section>
+          <section>
+            <ul>
+              <li class="fragment fade-left">
+                Why were their early arguments not successful?
+              </li>
+              <li class="fragment fade-left">
+                Can we make more clear, rigorous and compelling arguments?
+              </li>
+              <li class="fragment fade-left">
+                Could we help future projects avoid obvious pitfalls?
+              </li>
+            </ul>
+          </section>
+          <section>
+            <p>Important aside</p>
+            <div class="fragment fade-left">
+              <blockquote>
+                "In November 2022 it was disclosed that legal advice before the
+                scheme started was that it did not comply with legislation."
+              </blockquote>
+              <a
+                href="https://en.wikipedia.org/wiki/Robodebt_scheme"
+                target="_blank"
+                style="font-size: 0.8em"
+                >-Wikipedia</a
+              >
+            </div>
+          </section>
+          <section>
+            <p>Before we convince others...</p>
+            <p class="fragment fade-left">we must first convince ourselves</p>
+          </section>
+          <section>
+            As technologists, we must get better at forming our own opinions on
+            the <em>kinds of risk</em> and <em>degree of risk</em> in&nbsp;the
+            systems we build
+          </section>
+          <section>
+            <ul>
+              <li class="fragment fade-left">
+                <a href="https://fairlearn.org/" target="_blank">FairLearn</a>
+              </li>
+              <li class="fragment fade-left">
+                <a
+                  href="http://www.datasciencepublicpolicy.org/our-work/tools-guides/aequitas/"
+                  target="_blank"
+                  >Aequitas</a
+                >
+              </li>
+              <li class="fragment fade-left">
+                <a href="https://deon.drivendata.org/" target="_blank">Deon</a>
+              </li>
+            </ul>
+            <aside class="notes">
+              Lots of tools to measure class imbalance. Statistical bias. Do
+              data auditing. Or provide a data ethics checklist. But all these
+              tools are deep in the weeds on the ML implementation or
+              statistical methodology and don't really help you form an
+              intuition how your system's failure modes will translate in the
+              real world.
+            </aside>
+          </section>
+          <section><h2>A tooling gap</h2></section>
+          <section>
+            <h1 style="font-size: 1em; display: inline-block">
+              Sweet Summer Child Score
+            </h1>
+          </section>
+          <section>
+            <h2 style="font-size: 1em">What is it?</h2>
+            <ul>
+              <li class="fragment fade-left">
+                A self-assessment quiz which gives you a risk score
+              </li>
+              <li class="fragment fade-left">
+                Scans for harms to people and communities by a socio-technical
+                system
+              </li>
+              <li class="fragment fade-left">
+                Risk reduction suggestions alongside the score
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h2 style="font-size: 1em">How can I take the quiz?</h2>
+            <ol>
+              <li class="fragment fade-left">
+                <a href="https://quiz.summerchild.dev/" target="_blank"
+                  >Online in the web app</a
+                >
+              </li>
+              <li class="fragment fade-left">
+                <a
+                  href="https://github.com/summerscope/summerchildpy"
+                  target="_blank"
+                  >Locally in CLI (python)</a
+                >
+              </li>
+              <li class="fragment fade-left">
+                <a
+                  href="https://github.com/summerscope/summerchildr"
+                  target="_blank"
+                  >Locally in CLI or RStudio (r)</a
+                >
+              </li>
+              <li class="fragment fade-left">
+                <a
+                  href="https://github.com/summerscope/summerchild-rs"
+                  target="_blank"
+                  >Locally in CLI (rust)</a
+                >
+              </li>
+            </ol>
+          </section>
+          <section>
+            <img
+              src="https://user-images.githubusercontent.com/6570564/157806846-0b8ffe60-a812-4b06-92d2-048cc45773a1.gif"
+              width="400px"
+            />
+          </section>
+        </section>
+
+        <!-- 2. Take quiz  -->
+         <section>
+          <h1 class="gradient" style="font-size: 1em; display: inline-block">
+            2. Take the quiz
+          </h1>
+         </section>
+
+
+        <section>
+          <section data-background-image="img/bg03-tilt_shift.jpg">
+            <h2>Algorithm design</h2>
+          </section>
+          <section>
+            Or as I like to think of it...
+            <p class="fragment fade-left">formalizing opinions in code</p>
+          </section>
+          <section>
+            Early on, I captured lots of questions, thought bubbles and half
+            baked ideas...
+          </section>
+          <section
+            data-auto-animate
+            data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)"
+          >
+            <div class="r-hstack justify-center">
+              <div data-id="box1" class="fragment boxDefault boxDark">
+                How many people impacted by the system?
+              </div>
+              <div data-id="box2" class="fragment boxDefault boxDark">
+                How to do relative risk ranking?
+              </div>
+              <div data-id="box3" class="fragment boxDefault boxDark">
+                What about imperfect information?
+              </div>
+            </div>
+          </section>
+          <section
+            data-auto-animate
+            data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)"
+          >
+            <div class="r-hstack justify-center">
+              <div
+                data-id="box1"
+                data-auto-animate-delay="0"
+                class="boxDefault boxMedium"
+                style="background: #4a1233"
+              >
+                What if it happened to my mum?
+              </div>
+              <div
+                data-id="box2"
+                data-auto-animate-delay="0.1"
+                class="boxDefault boxMedium"
+                style="background: #291055"
+              >
+                Is this a black mirror episode?
+              </div>
+              <div
+                data-id="box3"
+                data-auto-animate-delay="0.2"
+                class="boxDefault boxMedium"
+                style="background: #093931"
+              >
+                Would I want to&nbsp;be known for&nbsp;this?
+              </div>
+            </div>
+          </section>
+
+          <section
+            data-auto-animate
+            data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)"
+          >
+            <div class="r-vstack justify-center">
+              <div
+                data-id="box1"
+                data-auto-animate-delay="0"
+                class="boxDefault boxLight"
+                style="background: #c398f0"
+              >
+                What are our moral obligations?
+              </div>
+              <div
+                data-id="box2"
+                data-auto-animate-delay="0.1"
+                class="boxDefault boxLight"
+                style="background: #469efa"
+              >
+                Reduce risk by design?
+              </div>
+              <div
+                data-id="box3"
+                data-auto-animate-delay="0.2"
+                class="boxDefault boxLight"
+                style="background: #00bbfc"
+              >
+                Which choices do we have control over?
+              </div>
+            </div>
+          </section>
+          <section
+            data-auto-animate
+            data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)"
+          >
+            <div class="r-stack">
+              <div
+                data-id="box1"
+                style="
+                  background: #469efa;
+                  width: 300px;
+                  height: 300px;
+                  border-radius: 200px;
+                "
+              ></div>
+              <div
+                data-id="box2"
+                style="
+                  background: #00bbfc;
+                  width: 200px;
+                  height: 200px;
+                  border-radius: 200px;
+                "
+              ></div>
+              <div
+                data-id="box3"
+                style="
+                  background: #c398f0;
+                  width: 100px;
+                  height: 100px;
+                  border-radius: 200px;
+                "
+              ></div>
+            </div>
+            <h2 style="margin-top: 20px; font-size: 1em">
+              Three main sections
+            </h2>
+          </section>
+          <section>
+            <ol>
+              <li class="fragment fade-left">Cohort scan</li>
+              <li class="fragment fade-left">System scan</li>
+              <li class="fragment fade-left">Maslov's hierarchy of needs</li>
+            </ol>
+          </section>
+          <section>
+            <p>
+              The three sections are each worth roughly 1/3 of the overall score
+            </p>
+          </section>
+          <section>
+            <h2 style="margin-top: 20px; font-size: 1em">Multiplier</h2>
+            <p class="fragment fade-left">
+              Adjusts the score to reflect the number of people who could be
+              impacted
+            </p>
+          </section>
+          <section>
+            Basically it draws on the intuition that a system that could harm
+            <em>10</em> people should be ranked as less risky than a system that
+            could harm <em>1,000</em> or <em>100,000</em>.
+          </section>
+          <section>
+            <table>
+              <tr>
+                <td>Cohort size</td>
+                <td>Multiplier</td>
+              </tr>
+              <tr>
+                <td>1-100</td>
+                <td>0.52</td>
+              </tr>
+              <tr>
+                <td>101-1,000</td>
+                <td>0.75</td>
+              </tr>
+              <tr>
+                <td>1,000-10,000</td>
+                <td>0.85</td>
+              </tr>
+              <tr>
+                <td>10,000-100,000</td>
+                <td>0.95</td>
+              </tr>
+              <tr>
+                <td>100,000-1,000,000</td>
+                <td>0.96</td>
+              </tr>
+              <tr>
+                <td>1,000,000-10,000,000</td>
+                <td>0.98</td>
+              </tr>
+              <tr>
+                <td>10 million +</td>
+                <td>1.0</td>
+              </tr>
+            </table>
+          </section>
+          <section>
+            <h2>How is the score calculated?</h2>
+            <ul>
+              <li class="fragment fade-left">
+                Start with 99 points (highest possible score)
+              </li>
+              <li class="fragment fade-left">Add points from each section</li>
+              <li class="fragment fade-left">(SumPoints) x multiplier</li>
+              <li class="fragment fade-left">99 - (AdjustedSum)</li>
+              <li class="fragment fade-left">
+                The lower your final score, the higher the risk assessment
+              </li>
+            </ul>
+          </section>
+          <section>Why a quiz? Why a score?</section>
+          <section>
+            Great question!
+            <p class="fragment fade-left">
+              It's more a <em>MacGuffin</em>, less a <em>serious device</em>.
+            </p>
+          </section>
+        </section>
+        <section>
+          <section data-background-image="img/bg04-tilt_shift.jpg">
+            <h2>#1 Cohort scan</h2>
+          </section>
+          <section>
+            Thinking about the folks who could be negatively impacted by the
+            system
+          </section>
+          <section>Not limited to end users</section>
+          <section>
+            <h2>A socio-technical system</h2>
+            <ul>
+              <li class="fragment fade-left">
+                Folks the system makes classifications or predictions about
+              </li>
+              <li class="fragment fade-left">Folks who train the system</li>
+              <li class="fragment fade-left">Folks who operate the system</li>
+              <li class="fragment fade-left">Folks who pay for the system</li>
+              <li class="fragment fade-left">End users of the system</li>
+            </ul>
+          </section>
+          <section>Why not scan for minority idendities?</section>
+          <section>
+            We focus on the disadvantages usually experienced by these
+            populations rather than the demographics of disadvantage. We don't
+            want to contribute to the conflation of
+            <em>minority identities</em> and <em>harmful impacts</em>.
+          </section>
+          <section>
+            <h2>Case study</h2>
+            <p>Insurance app - Fraud detection</p>
+            <ul>
+              <li class="fragment fade-left">
+                Features overlap 'good' and 'bad' actors
+              </li>
+              <li class="fragment fade-left">
+                🕵️ VPN use 👉 high tech confidence
+              </li>
+              <li class="fragment fade-left">
+                ❌ No 2FA 👉 low tech confidence
+              </li>
+            </ul>
+            <aside class="notes">
+              Fraud detection algorithms can be fitted on features that
+              correspond with high technology confidence (VPN use) or low
+              technology confidence (2FA). Doing a cohort scan flags their
+              existence. Technologists need to work out how to pragmatically
+              assess the signals available to them, but also to make it easy for
+              misclassified customers to right themselves easily and bake in
+              "false positive pathway" as a key part of the user journey.
+            </aside>
+          </section>
+          <section data-background-image="img/bg04-examples.jpg">
+            <p class="r-fit-text"></p>
+            <h2>#1 Cohort Scan</h2>
+            <p>Example questions</p>
+          </section>
+          <section>
+            <ul>
+              <li class="fragment fade-left">
+                <strong>Is your target cohort economically vulnerable?</strong
+                ><br /><span class="fragment fade-left small"
+                  >Compare to a baseline of average earning rates for
+                  region</span
+                >
+              </li>
+              <br />
+              <li class="fragment fade-left">
+                <strong
+                  >Is your target cohort over-policed or
+                  over-surveilled?</strong
+                ><br /><span class="fragment fade-left small"
+                  >Consider if they are more likely to be targeted by police,
+                  social services or surveillance systems</span
+                >
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section data-background-image="img/bg05-tilt_shift.jpg">
+            <h2>#2 System scan</h2>
+          </section>
+          <section>
+            Implementation of the system in it's context.<br />
+            Your system as it interacts with the world.
+          </section>
+          <section>
+            <em>This is the most powerful section!</em>
+            <p class="fragment fade-left">Why?</p>
+          </section>
+          <section>
+            Options we have to <em>observe</em> and <em>mitigate</em> risk
+          </section>
+          <section>
+            <h2>Case study</h2>
+            <p>Film recommender <br />Outbreak/Contagion/Pandemic</p>
+            <ul>
+              <li class="fragment fade-left">Data drift in production</li>
+              <li class="fragment fade-left">Black swan events</li>
+              <li class="fragment fade-left">Can you take it down?</li>
+            </ul>
+            <aside class="notes">
+              Say you're working on a Netflix-like movie recommendation system
+              and it uses a news scanning model to identify current news topics.
+              Then the world gets hit with another COVID like event, and
+              suddenly all it recommends is virus movies and your user base is
+              not super happy about it. Our system scan asks us questions like
+              "can you take it down from production easily" and that gives us a
+              clue into the reputational costs at stake.
+            </aside>
+          </section>
+          <section data-background-image="img/bg05-examples.jpg">
+            <p class="r-fit-text"></p>
+            <h2>#2 System Scan</h2>
+            <p>Example questions</p>
+          </section>
+          <section>
+            <ul>
+              <li class="fragment fade-left">
+                <strong
+                  >Can you turn your decision system off instantly if something
+                  goes wrong?</strong
+                ><br /><span class="fragment fade-left small"
+                  >One click take down? Write and deploy code?</span
+                >
+              </li>
+              <br />
+              <li class="fragment fade-left">
+                <strong
+                  >Does your system always output a classification, prediction,
+                  or decision?</strong
+                >
+              </li>
+              <br />
+              <li class="fragment fade-left">
+                <strong
+                  >Can your target cohort request a decision review?</strong
+                >
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section data-background-image="img/bg06-tilt_shift.jpg">
+            <h2>#3 Maslov's hierarchy of needs</h2>
+          </section>
+          <section>Slightly updated for the modern era</section>
+          <section>
+            <blockquote>
+              Compares the likelihood of harm with no intervention (if your
+              system didn't exist) to the likelihood of this harm occurring as a
+              result of your intervention.
+            </blockquote>
+          </section>
+          <section>
+            This section is tricky because we don't have perfect visibility of
+            all our system's impacts & flow-on effects.
+          </section>
+          <section>
+            <p class="small">(Trust your gut)</p>
+          </section>
+          <section>
+            <h2>Case study</h2>
+            <p>Time series <br />Hospital Staffing</p>
+            <ul>
+              <li class="fragment fade-left">Hospital cost savings vs.</li>
+              <li class="fragment fade-left">Patient's right to care</li>
+            </ul>
+            <aside class="notes">
+              Time series modelling to predict the variable staffing needs of a
+              hospital, and this is directly hooked into the procurement arm. In
+              a severe failure mode where you're wildly understaffed and there's
+              no mechanism to observe and course correct, you directly
+              negatively impacting the experience or life expectancy of patients
+              in the hospital.
+            </aside>
+          </section>
+          <section data-background-image="img/bg06-examples.jpg">
+            <p class="r-fit-text"></p>
+            <h2>
+              #3 Maslov's<br />
+              Hierarchy<br />
+              of Needs
+            </h2>
+            <p>Example questions</p>
+          </section>
+          <section>
+            <ul>
+              <li class="fragment fade-left">
+                <strong>Physiological needs </strong><br /><span
+                  class="fragment fade-left small"
+                  >Probability that your automated decision system will
+                  <em>directly</em>, <em>negatively</em> impact your target
+                  cohort's Physiological needs <br />(Air, water, food, shelter,
+                  sleep, reproduction)</span
+                >
+              </li>
+              <br />
+              <li class="fragment fade-left">
+                <strong>Esteem needs</strong>
+                <br /><span class="fragment fade-left small"
+                  >Probability that your automated decision system will
+                  <em>directly</em>, <em>negatively</em> impact your target
+                  cohort's Esteem needs <br />(Respect, self-esteem, status,
+                  recognition, strength, freedom)</span
+                >
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>To summarize...</section>
+          <section>
+            Is the algorithm design perfect?
+            <p class="fragment fade-left"><em>Definitely not</em></p>
+          </section>
+          <section>
+            Is there room for improvement?
+            <p class="fragment fade-left"><em>Definitely yes 😉</em></p>
+          </section>
+          <section>But at least it's a starting point...</section>
+        </section>
+
+        <section>
+          <section data-background-image="img/bg07-tilt_shift.jpg">
+            <h2>Fork and extend</h2>
+          </section>
+          <section></section>
+          <section>
+            <ul>
+              <li class="fragment fade-left">
+                Switch focus to animals or ecosystems
+              </li>
+              <li class="fragment fade-left">
+                Vertical like health, social media, finance
+              </li>
+              <li class="fragment fade-left">
+                Vulnerabilities not covered here
+              </li>
+              <li class="fragment fade-left">
+                Adjust weights to reflect your priorities
+              </li>
+            </ul>
+          </section>
+          <section>
+            <em>Please fork the project and use the format!</em>
+          </section>
+          <section>
+            <h2>How can you use it?</h2>
+            <ul>
+              <li class="fragment fade-left">
+                Assess a new feature or product idea
+              </li>
+              <li class="fragment fade-left">Review competing features</li>
+              <li class="fragment fade-left">
+                Critique existing solutions <br />
+                (find a competative point of difference!)
+              </li>
+              <li class="fragment fade-left">
+                Propose harm mitigation techniques
+              </li>
+            </ul>
+          </section>
+          <section>Let's take a quick look at github</section>
+        </section>
+        <section data-background-image="img/bg01-tilt_shift.jpg">
+          <p>Thank you!</p>
+          <a href="https://summerchild.dev/" target="_blank">
+            <h1 style="font-size: 1em; display: inline-block">
+              summerchild.dev
+            </h1></a
+          >
+          <p class="small">
+            <a
+              href="https://summerscope.github.io/slides/summerchild-workshop/"
+              target="_blank"
+              >summerscope.github.io/slides/summerchild-workshop</a
+            >
+            <br />
+            <a href="https://www.linkedin.com/in/summerscope/" target="_blank"
+              >linkedin.com/in/summerscope</a
+            >
+          </p>
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        transition: "none",
+        slideNumber: true,
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
