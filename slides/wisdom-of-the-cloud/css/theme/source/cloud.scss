@@ -37,3 +37,14 @@ $selectionBackgroundColor: #e7ad52;
 @import "../template/theme";
 // ---------------------------------------------
 
+.bg-light {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.bg-navy {
+    background: rgba(7, 0, 44, 0.25);
+}
+
+.small {
+    font-size: 0.75em;
+}

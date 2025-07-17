@@ -358,3 +358,14 @@ section.has-light-background, section.has-light-background h1, section.has-light
     background-color: var(--r-background-color);
   }
 }
+.bg-light {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.bg-navy {
+  background: rgba(7, 0, 44, 0.25);
+}
+
+.small {
+  font-size: 0.75em;
+}

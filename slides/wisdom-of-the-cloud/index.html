@@ -50,7 +50,41 @@
             <h1>Section 1</h1>
             <h2>Algorithm design</h2>
           </section>
+          <section data-background="img/background-img3.jpg">
+            <h2>The formula</h2>
+            <img src="img/formula.png" width="700px" />
+            <p>
+              <a
+                class="small"
+                href="https://vitalik.eth.limo/general/2023/08/16/communitynotes.html"
+                target="_blank"
+                >—Vitalik Buterin<br />
+                "What do I think about Community Notes?"
+              </a>
+            </p>
+          </section>
           <section data-background="img/cloud2.png">
+            <h3>Rating the raters</h3>
+            <table class="bg-navy">
+              <thead>
+                <tr>
+                  <th colspan="3">Was this note helpful?</th>
+                </tr>
+              </thead>
+              <tr>
+                <td>Yes</td>
+                <td>Maybe</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>0.5</td>
+                <td>0</td>
+              </tr>
+            </table>
+          </section>
+          <section data-background="img/cloud2.png">
+            <h3>How ratings work</h3>
             <div class="r-stack">
               <img class="fragment" src="img/grid0.png" />
               <img class="fragment" src="img/grid1.png" />
@@ -58,7 +92,7 @@
               <img class="fragment" src="img/grid3.png" />
             </div>
           </section>
-          <section>
+          <section data-background="img/background-img3.jpg">
             <h1 class="r-fit-text">Reproducing the algorithm locally</h1>
             <div class="r-stack">
               <img src="img/scatterplot-1.svg" />
@@ -66,35 +100,87 @@
               <img class="fragment" src="img/scatterplot-yfade.svg" />
             </div>
           </section>
-          <section>
-            <blockquote class="twitter-tweet" data-theme="dark">
-              <p lang="en" dir="ltr">
-                OKAAYYY
-                <a href="https://t.co/MliHsksX7L">pic.twitter.com/MliHsksX7L</a>
-              </p>
-              &mdash; leon (@skyferrori)
-              <a
-                href="https://twitter.com/skyferrori/status/1639647708154675200?ref_src=twsrc%5Etfw"
-                >March 25, 2023</a
-              >
-            </blockquote>
-            <script
-              async
-              src="https://platform.twitter.com/widgets.js"
-              charset="utf-8"
-            ></script>
+          <section data-background="img/background-img3.jpg">
+            <h3>Example #1</h3>
+            <div class="r-stack">
+              <div class="fragment">
+                <img
+                  src="img/tweet-1639647708154675200.png"
+                  width="400"
+                  style="margin-right: 200px"
+                />
+                <a
+                  class="small"
+                  href="https://x.com/skyferrori/status/1639647708154675200"
+                  target="_blank"
+                  >x.com/skyferrori/status/1639647708154675200</a
+                >
+              </div>
+              <div class="fragment">
+                <img
+                  src="img/notes-1639647708154675200.png"
+                  width="560px"
+                  style="margin-left: 200px; margin-top: 220px"
+                />
+              </div>
+            </div>
+          </section>
+          <section data-background="img/background-img3.jpg">
+            <h3>Example #1</h3>
+            ANDY TODO - show the results in algo
+          </section>
+          <section data-background="img/background-img3.jpg">
+            <h3>Example #2</h3>
+            <div class="r-stack">
+              <div class="fragment">
+                <img
+                  src="img/tweet-1918344238468649055.png"
+                  width="400"
+                  style="margin-right: 200px"
+                />
+                <a
+                  class="small"
+                  href="https://x.com/GermanyDiplo/status/1918397874687361199"
+                  target="_blank"
+                  >x.com/GermanyDiplo/status/1918397874687361199</a
+                >
+              </div>
+              <img
+                src="img/tweet-1918397874687361199.png"
+                width="400"
+                class="fragment"
+                style="margin-right: 400px"
+              />
+              <div class="fragment">
+                <img
+                  src="img/notes-1918397874687361199.gif"
+                  width="560px"
+                  style="margin-left: 220px; margin-top: 100px"
+                />
+              </div>
+            </div>
+          </section>
+          <section data-background="img/background-img3.jpg">
+            <h3>Example #2</h3>
+            ANDY TODO - show the results in algo
           </section>
         </section>
-        <section>
+        <section data-background="img/background-img3.jpg">
           <section>
             <h1>Section 2</h1>
             <h2>UX Design</h2>
           </section>
-          <section>Slide</section>
-          <section>Slide</section>
+          <section data-background="img/background-img3.jpg">Slide</section>
+          <section data-background="img/background-img3.jpg">Slide</section>
+          <section data-background="img/background-img3.jpg">Slide</section>
+          <section data-background="img/background-img3.jpg">Slide</section>
         </section>
         <section>
-          <h1>Final thoughts</h1>
+          <section>
+            <h1>Final thoughts</h1>
+          </section>
+          <section data-background="img/background-img3.jpg">Slide</section>
+          <section data-background="img/background-img3.jpg">Slide</section>
         </section>
         <section data-background="img/cloud1.png">
           <h2>Thank you</h2>
@@ -122,7 +208,7 @@
       // - https://revealjs.com/config/
       Reveal.initialize({
         hash: true,
-
+        dependencies: [{ src: "plugin/embed-tweet/embed-tweet.js" }],
         // Learn about plugins: https://revealjs.com/plugins/
         plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
       });
