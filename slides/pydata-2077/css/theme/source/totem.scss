@@ -1,0 +1,531 @@
+/**
+ * TechnoTotem theme for reveal.js
+ * Ancient totems meet cyberpunk aesthetics
+ * 
+ * Author: PyData 2077 Team
+ */
+
+// Default mixins and settings -----------------
+@use "sass:color";
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+// Include theme-specific fonts
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&display=swap');
+
+// Theme colors - cyberpunk totem palette
+$cyber-cyan: #00ffcc;
+$neon-pink: #ff6b9d;
+$electric-purple: #8b5cf6;
+$warning-orange: #ff8c42;
+$matrix-green: #39ff14;
+$void-black: #0a0a0f;
+$ghost-white: #e0e0e8;
+
+// Override theme settings
+$backgroundColor: $void-black;
+$mainColor: $ghost-white;
+$headingColor: $cyber-cyan;
+$headingTextShadow: 0 0 10px rgba(0, 255, 204, 0.5);
+$mainFont: 'Orbitron', monospace;
+$headingFont: 'Orbitron', monospace;
+$headingFontWeight: 700;
+$headingTextTransform: uppercase;
+$headingLetterSpacing: 0.05em;
+$linkColor: $neon-pink;
+$linkColorHover: color.scale($neon-pink, $lightness: 20%);
+$selectionBackgroundColor: $cyber-cyan;
+$selectionColor: $void-black;
+
+// Heading sizes
+$heading1Size: 2.6em;
+$heading2Size: 2.1em;
+$heading3Size: 1.7em;
+$heading4Size: 1.3em;
+
+$mainFontSize: 26px;
+$blockMargin: 20px;
+
+// Code styling
+$codeBackground: rgba(10, 10, 15, 0.95);
+
+// Background generator with totem-like elements
+@mixin bodyBackground() {
+  background: $backgroundColor;
+  
+  // Animated totem-like background elements
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background: 
+      radial-gradient(circle at 5% 20%, rgba(0, 255, 204, 0.1) 0%, transparent 30%),
+      radial-gradient(circle at 95% 80%, rgba(255, 107, 157, 0.08) 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.05) 0%, transparent 60%);
+    animation: totemAura 25s ease-in-out infinite;
+  }
+  
+  // Floating totem runes
+  &::after {
+    content: '◆ ◇ ▲ ▼ ● ◐ ◑ ◒ ◓';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    color: rgba(0, 255, 204, 0.1);
+    font-size: 24px;
+    font-family: $mainFont;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    animation: floatingRunes 40s linear infinite;
+    pointer-events: none;
+  }
+}
+
+// Digital glitch lines
+.reveal .slides::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: 
+    linear-gradient(90deg, transparent 98%, rgba(0, 255, 204, 0.1) 99%, transparent 100%),
+    linear-gradient(0deg, transparent 98%, rgba(255, 107, 157, 0.08) 99%, transparent 100%);
+  background-size: 50px 50px, 80px 80px;
+  animation: digitalGrid 20s linear infinite;
+  opacity: 0.3;
+}
+
+@keyframes totemAura {
+  0%, 100% { 
+    filter: hue-rotate(0deg) brightness(0.8);
+  }
+  33% { 
+    filter: hue-rotate(120deg) brightness(1.2);
+  }
+  66% { 
+    filter: hue-rotate(240deg) brightness(0.9);
+  }
+}
+
+@keyframes floatingRunes {
+  0% { 
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.1;
+  }
+  25% { 
+    transform: translateY(-20px) rotate(90deg);
+    opacity: 0.2;
+  }
+  50% { 
+    transform: translateY(-10px) rotate(180deg);
+    opacity: 0.15;
+  }
+  75% { 
+    transform: translateY(-30px) rotate(270deg);
+    opacity: 0.25;
+  }
+  100% { 
+    transform: translateY(0px) rotate(360deg);
+    opacity: 0.1;
+  }
+}
+
+@keyframes digitalGrid {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(25px, 40px); }
+}
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+// Custom overrides after theme template import
+
+// Title slide styling
+.reveal .slides section.title-slide {
+  text-align: center !important;
+  padding: 60px 40px;
+  background: linear-gradient(135deg, 
+    rgba(10, 10, 15, 0.95) 0%, 
+    rgba(0, 255, 204, 0.05) 50%, 
+    rgba(10, 10, 15, 0.95) 100%) !important;
+  border: 2px solid $cyber-cyan;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(0, 255, 204, 0.3);
+  
+  &::before {
+    content: '▲';
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3em;
+    color: $cyber-cyan;
+    animation: totemPulse 3s ease-in-out infinite;
+    text-shadow: 0 0 20px rgba(0, 255, 204, 0.8);
+  }
+  
+  &::after {
+    content: '◆ ◇ ◆';
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5em;
+    color: $neon-pink;
+    letter-spacing: 20px;
+    animation: totemBase 4s ease-in-out infinite;
+  }
+  
+  h1 {
+    font-size: 3.0em !important;
+    color: $cyber-cyan !important;
+    margin: 0.8em 0 0.5em 0;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    position: relative;
+    animation: titleGlow 6s ease-in-out infinite;
+  }
+  
+  .subtitle {
+    font-size: 1.2em;
+    color: $neon-pink;
+    font-weight: 400;
+    margin-top: 1em;
+    text-transform: lowercase;
+    letter-spacing: 0.05em;
+  }
+}
+
+// Section heading slides
+.reveal .slides section.section-slide {
+  background: rgba(10, 10, 15, 0.9) !important;
+  border: 1px solid $electric-purple;
+  border-radius: 10px;
+  position: relative;
+  padding: 60px 40px;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+  
+  &::before {
+    content: '●◐◑◒◓○';
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2em;
+    color: $electric-purple;
+    letter-spacing: 10px;
+    animation: sectionTotems 8s linear infinite;
+  }
+  
+  h2 {
+    font-size: 2.4em !important;
+    color: $cyber-cyan !important;
+    text-align: center;
+    font-weight: 700;
+    margin-top: 1em;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 150px;
+      height: 2px;
+      background: linear-gradient(90deg, 
+        transparent 0%,
+        $cyber-cyan 25%,
+        $neon-pink 50%,
+        $electric-purple 75%,
+        transparent 100%);
+      animation: sectionUnderline 3s ease-in-out infinite;
+    }
+  }
+}
+
+@keyframes totemPulse {
+  0%, 100% { 
+    transform: translateX(-50%) scale(1);
+    opacity: 0.8;
+  }
+  50% { 
+    transform: translateX(-50%) scale(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes totemBase {
+  0%, 100% { 
+    opacity: 0.6;
+    letter-spacing: 20px;
+  }
+  50% { 
+    opacity: 1;
+    letter-spacing: 25px;
+  }
+}
+
+@keyframes titleGlow {
+  0%, 100% { 
+    text-shadow: 0 0 15px rgba(0, 255, 204, 0.8);
+  }
+  50% { 
+    text-shadow: 
+      0 0 25px rgba(0, 255, 204, 1),
+      0 0 35px rgba(255, 107, 157, 0.5);
+  }
+}
+
+@keyframes sectionTotems {
+  0% { 
+    content: '●◐◑◒◓○';
+    color: $electric-purple;
+  }
+  25% { 
+    content: '○●◐◑◒◓';
+    color: $cyber-cyan;
+  }
+  50% { 
+    content: '◓○●◐◑◒';
+    color: $neon-pink;
+  }
+  75% { 
+    content: '◒◓○●◐◑';
+    color: $matrix-green;
+  }
+  100% { 
+    content: '◑◒◓○●◐';
+    color: $electric-purple;
+  }
+}
+
+@keyframes sectionUnderline {
+  0%, 100% { width: 150px; }
+  50% { width: 250px; }
+}
+
+// Enhanced text styling
+.reveal {
+  font-family: $mainFont;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 2px rgba(224, 224, 232, 0.1);
+  
+  // Mathematical equations
+  .math {
+    font-family: 'Fira Code', monospace;
+    background: rgba(0, 255, 204, 0.08);
+    padding: 20px;
+    border: 1px solid $cyber-cyan;
+    border-left: 4px solid $cyber-cyan;
+    border-radius: 5px;
+    margin: 20px 0;
+    font-size: 1.1em;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
+    
+    &::before {
+      content: '◆';
+      position: absolute;
+      top: -8px;
+      right: 15px;
+      background: $backgroundColor;
+      color: $cyber-cyan;
+      font-size: 1.2em;
+      padding: 0 5px;
+      animation: mathRune 5s ease-in-out infinite;
+    }
+  }
+  
+  // Code blocks
+  pre {
+    background: $codeBackground;
+    border: 1px solid $matrix-green;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(57, 255, 20, 0.2);
+    position: relative;
+    
+    &::before {
+      content: '◐ ◑ ◒';
+      position: absolute;
+      top: 8px;
+      right: 15px;
+      color: $matrix-green;
+      font-size: 0.8em;
+      animation: codeSpinner 2s linear infinite;
+    }
+  }
+  
+  code {
+    font-family: 'Fira Code', monospace;
+    color: $matrix-green;
+    text-shadow: 0 0 5px rgba(57, 255, 20, 0.3);
+  }
+  
+  // Enhanced lists with totem markers
+  ul, ol {
+    margin-left: 40px;
+    
+    li {
+      margin: 10px 0;
+      position: relative;
+      
+      &::before {
+        content: '▶';
+        color: $cyber-cyan;
+        position: absolute;
+        left: -25px;
+        animation: listTotems 8s ease-in-out infinite;
+      }
+      
+      &:nth-child(2n)::before {
+        animation-delay: 2s;
+      }
+      
+      &:nth-child(3n)::before {
+        animation-delay: 4s;
+      }
+    }
+  }
+  
+  // Emphasis styling
+  em {
+    color: $neon-pink;
+    font-style: italic;
+    text-shadow: 0 0 5px rgba(255, 107, 157, 0.3);
+  }
+  
+  strong {
+    color: $cyber-cyan;
+    font-weight: 700;
+    text-shadow: 0 0 5px rgba(0, 255, 204, 0.3);
+  }
+  
+  // Enhanced links
+  a {
+    color: $linkColor;
+    text-decoration: none;
+    border-bottom: 1px solid $neon-pink;
+    padding-bottom: 2px;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      color: $linkColorHover;
+      border-bottom-color: $cyber-cyan;
+      text-shadow: 0 0 10px rgba(255, 107, 157, 0.5);
+      box-shadow: 0 2px 8px rgba(255, 107, 157, 0.2);
+    }
+  }
+  
+  // Tables
+  table {
+    border: 2px solid $cyber-cyan;
+    border-collapse: collapse;
+    background: rgba(10, 10, 15, 0.8);
+  }
+  
+  th {
+    background: linear-gradient(135deg, $cyber-cyan, $electric-purple);
+    color: $backgroundColor;
+    padding: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  td {
+    border: 1px solid rgba(0, 255, 204, 0.3);
+    padding: 10px;
+  }
+  
+  tr:nth-child(even) {
+    background: rgba(0, 255, 204, 0.05);
+  }
+}
+
+@keyframes mathRune {
+  0%, 100% { 
+    content: '◆';
+    color: $cyber-cyan;
+    transform: rotate(0deg);
+  }
+  25% { 
+    content: '▲';
+    color: $neon-pink;
+    transform: rotate(90deg);
+  }
+  50% { 
+    content: '●';
+    color: $electric-purple;
+    transform: rotate(180deg);
+  }
+  75% { 
+    content: '▼';
+    color: $matrix-green;
+    transform: rotate(270deg);
+  }
+}
+
+@keyframes codeSpinner {
+  0% { content: '◐ ◑ ◒'; }
+  25% { content: '◑ ◒ ◓'; }
+  50% { content: '◒ ◓ ◐'; }
+  75% { content: '◓ ◐ ◑'; }
+}
+
+@keyframes listTotems {
+  0%, 100% { 
+    content: '▶';
+    color: $cyber-cyan;
+  }
+  25% { 
+    content: '◆';
+    color: $neon-pink;
+  }
+  50% { 
+    content: '●';
+    color: $electric-purple;
+  }
+  75% { 
+    content: '▲';
+    color: $matrix-green;
+  }
+}
+
+// Progress bar customization
+.reveal .progress {
+  height: 4px;
+  background: rgba(0, 255, 204, 0.2);
+  
+  span {
+    background: linear-gradient(90deg, 
+      $cyber-cyan 0%,
+      $neon-pink 50%,
+      $electric-purple 100%);
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+  }
+}
+
+// Cursor interaction effects
+.reveal:hover::after {
+  animation-duration: 20s;
+}

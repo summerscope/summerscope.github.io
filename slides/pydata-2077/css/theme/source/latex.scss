@@ -1,0 +1,308 @@
+/**
+ * LaTeX Fetish theme for reveal.js
+ * Academic precision meets cyberpunk rebellion
+ * 
+ * Author: PyData 2077 Team
+ */
+
+// Default mixins and settings -----------------
+@use "sass:color";
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+// Include theme-specific fonts
+@import url('https://fonts.googleapis.com/css2?family=Computer+Modern+Serif:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap');
+
+// Theme colors
+$electric-blue: #0066ff;
+$acid-green: #00ff88;
+$silver: #e8e8e8;
+$chestnut: #8b4513;
+$paper-white: #fefefe;
+$ink-black: #1a1a1a;
+
+// Override theme settings
+$backgroundColor: $paper-white;
+$mainColor: $ink-black;
+$headingColor: $electric-blue;
+$headingTextShadow: 2px 2px 0px rgba(0, 255, 136, 0.3);
+$mainFont: 'Computer Modern Serif', 'Times New Roman', serif;
+$headingFont: 'Computer Modern Serif', 'Times New Roman', serif;
+$headingFontWeight: 700;
+$headingTextTransform: none;
+$headingLetterSpacing: -0.02em;
+$linkColor: $acid-green;
+$linkColorHover: color.scale($acid-green, $lightness: -20%);
+$selectionBackgroundColor: $electric-blue;
+$selectionColor: #fff;
+
+// Heading sizes
+$heading1Size: 2.8em;
+$heading2Size: 2.2em;
+$heading3Size: 1.8em;
+$heading4Size: 1.4em;
+
+$mainFontSize: 28px;
+$blockMargin: 20px;
+
+// Code styling
+$codeBackground: #1a1a1a;
+
+// Background generator with proper layout
+@mixin bodyBackground() {
+  // Clean white/cream content area
+  background: #fefefe;
+  min-height: 100vh;
+  position: relative;
+}
+
+@keyframes geometricFloat {
+  0%, 100% { 
+    background: 
+      radial-gradient(circle at 20% 80%, rgba(0, 102, 255, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(0, 255, 136, 0.03) 0%, transparent 50%);
+  }
+  50% { 
+    background: 
+      radial-gradient(circle at 80% 20%, rgba(0, 102, 255, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 20% 80%, rgba(0, 255, 136, 0.05) 0%, transparent 50%);
+  }
+}
+
+@keyframes geometricShift {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(50px, 50px) rotate(360deg); }
+}
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+// Custom overrides after theme template import
+
+// Title slide styling
+.reveal .slides section .title-slide {
+  text-align: left !important;
+  padding: 40px 60px;
+  background: $silver;
+  background-size: cover;
+  border-top: 8px solid $electric-blue;
+  border-radius: 0 0 100px 100px;
+  position: relative;
+  box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: $acid-green;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  h1 {
+    font-size: 3.2em !important;
+    color: $electric-blue !important;
+    margin-bottom: 0.5em;
+    text-shadow: 2px 2px 0px rgba(64, 255, 0, 0.75) !important;
+  }
+  
+  .subtitle {
+    font-size: 1.4em;
+    color: $ink-black;
+    font-style: italic;
+    margin-top: 1em;
+    border-left: 3px solid $acid-green;
+    padding-left: 20px;
+  }
+}
+
+.reveal .slides section .title-subhead{
+    margin: 10% 0;
+}
+
+// Section heading slides
+.reveal .slides section.section-slide {
+  background: radial-gradient(ellipse at center, 
+    rgba(0, 102, 255, 0.1) 0%, 
+    rgba(255, 255, 255, 0.95) 70%) !important;
+  border: 2px solid $electric-blue;
+  border-radius: 8px;
+  
+  h2 {
+    font-size: 2.8em !important;
+    color: $electric-blue !important;
+    text-align: center;
+    padding: 40px;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(90deg, $electric-blue, $acid-green);
+      animation: expandContract 2s ease-in-out infinite;
+    }
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+@keyframes expandContract {
+  0%, 100% { width: 100px; }
+  50% { width: 200px; }
+}
+
+// Enhanced text styling
+.reveal {
+  font-family: $mainFont;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  
+  p {
+    line-height: 1.7;
+  }
+  
+  // Mathematical equations
+  .math {
+    font-family: 'JetBrains Mono', monospace;
+    background: rgba(232, 232, 232, 0.3);
+    padding: 20px;
+    border-radius: 4px;
+    border-left: 4px solid $electric-blue;
+    margin: 20px 0;
+    font-size: 1.2em;
+    position: relative;
+    
+    &::before {
+      content: '∇';
+      position: absolute;
+      top: -10px;
+      right: 10px;
+      color: $acid-green;
+      font-size: 1.5em;
+      animation: mathFloat 4s ease-in-out infinite;
+    }
+  }
+  
+  // Code blocks
+  pre {
+    background: $codeBackground;
+    border: 1px solid $electric-blue;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    color: $acid-green;
+  }
+  
+  // Enhanced lists
+  ul, ol {
+    margin-left: 40px;
+    
+    li {
+      margin: 10px 0;
+      position: relative;
+      
+      &::marker {
+        content: '▶';
+        color: $electric-blue;
+      }
+    }
+  }
+  
+  // Emphasis styling
+  em {
+    color: $electric-blue;
+    font-style: italic;
+  }
+  
+  strong {
+    color: $acid-green;
+    font-weight: 700;
+  }
+  
+  // Enhanced links
+  a {
+    color: $linkColor;
+    text-decoration: underline;
+    text-decoration-color: $electric-blue;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+    
+    &:hover {
+      color: $linkColorHover;
+      text-shadow: 0 0 8px rgba(0, 255, 136, 0.5);
+    }
+  }
+}
+
+@keyframes mathFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+// Progress bar customization
+.reveal .progress {
+  height: 4px;
+  background: $electric-blue;
+  
+  span {
+    background: $acid-green;
+  }
+}
+
+
+@keyframes float {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg) scale(1);
+    }
+    33% { 
+        transform: translateY(-20px) rotate(5deg) scale(1.05);
+    }
+    66% { 
+        transform: translateY(-10px) rotate(-3deg) scale(0.95);
+    }
+}
+
+.totem-creature {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    outline: 1px solid pink;
+}
+
+.totem-creature {
+    &::after {
+      content: '';
+      position: absolute;
+      animation: float 6s ease-in-out infinite;
+      z-index: 1;
+    }    
+}
+
+.totem-creature.totem-1 {
+    &::after {
+        width: 260px;
+        height: 348px;
+        left: 0px;
+        bottom: 0px;
+        background-image: url(../../../img/ComfyUI_00340_top.png);
+        background-size: cover;
+    }
+}
+

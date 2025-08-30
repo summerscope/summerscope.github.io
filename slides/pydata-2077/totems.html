@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>TechnoTotem Demo</title>
+    <style>
+        body {
+            background: #0a0a0f;
+            color: #e0e0e8;
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            position: relative;
+            height: 100vh;
+        }
+
+        .slide {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            z-index: 10;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #00ffcc;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-shadow: 0 0 20px rgba(0, 255, 204, 0.8);
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: #ff6b9d;
+            margin-bottom: 40px;
+        }
+
+        /* Floating totem creatures */
+        .totem-creature {
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.7;
+            z-index: 1;
+        }
+
+        .totem-1 {
+            top: 15%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .totem-2 {
+            top: 20%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .totem-3 {
+            bottom: 25%;
+            left: 8%;
+            animation-delay: 4s;
+        }
+
+        .totem-4 {
+            bottom: 30%;
+            right: 12%;
+            animation-delay: 1s;
+        }
+
+        .totem-5 {
+            top: 50%;
+            left: 5%;
+            animation-delay: 3s;
+        }
+
+        .totem-6 {
+            top: 60%;
+            right: 8%;
+            animation-delay: 5s;
+        }
+
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg) scale(1);
+                opacity: 0.6;
+            }
+            33% { 
+                transform: translateY(-20px) rotate(5deg) scale(1.05);
+                opacity: 0.8;
+            }
+            66% { 
+                transform: translateY(-10px) rotate(-3deg) scale(0.95);
+                opacity: 0.7;
+            }
+        }
+
+        /* Background grid */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(90deg, transparent 98%, rgba(0, 255, 204, 0.1) 99%, transparent 100%),
+                linear-gradient(0deg, transparent 98%, rgba(255, 107, 157, 0.08) 99%, transparent 100%);
+            background-size: 50px 50px, 80px 80px;
+            animation: digitalGrid 20s linear infinite;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        @keyframes digitalGrid {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(25px, 40px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <h1>PyData 2077</h1>
+        <div class="subtitle">A Future Data Science Retrospective</div>
+        <p>Laura Summers & Andy Kitchen</p>
+    </div>
+
+    <!-- Cyber Guardian Totem -->
+    <div class="totem-creature totem-1">
+        <svg width="80" height="120" viewBox="0 0 80 120">
+            <!-- Base column -->
+            <rect x="30" y="70" width="20" height="50" fill="#8b5cf6" stroke="#00ffcc" stroke-width="1"/>
+            
+            <!-- Head/Face -->
+            <circle cx="40" cy="30" r="25" fill="#1a1a2e" stroke="#00ffcc" stroke-width="2"/>
+            
+            <!-- Cyber eyes -->
+            <circle cx="32" cy="25" r="4" fill="#00ffcc">
+                <animate attributeName="fill" values="#00ffcc;#ff6b9d;#00ffcc" dur="3s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="48" cy="25" r="4" fill="#00ffcc">
+                <animate attributeName="fill" values="#00ffcc;#ff6b9d;#00ffcc" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+            </circle>
+            
+            <!-- Digital mouth -->
+            <rect x="35" y="35" width="10" height="2" fill="#ff6b9d">
+                <animate attributeName="width" values="10;15;10" dur="4s" repeatCount="indefinite"/>
+            </rect>
+            
+            <!-- Circuit patterns -->
+            <path d="M25 45 L35 55 L45 55 L55 45" stroke="#39ff14" stroke-width="1" fill="none"/>
+            <path d="M20 50 L30 60 L50 60 L60 50" stroke="#39ff14" stroke-width="1" fill="none"/>
+            
+            <!-- Antenna/crown -->
+            <line x1="40" y1="5" x2="40" y2="15" stroke="#00ffcc" stroke-width="2"/>
+            <circle cx="40" cy="5" r="3" fill="#ff6b9d">
+                <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite"/>
+            </circle>
+        </svg>
+    </div>
+
+    <!-- Data Sprite Totem -->
+    <div class="totem-creature totem-2">
+        <svg width="60" height="100" viewBox="0 0 60 100">
+            <!-- Body -->
+            <ellipse cx="30" cy="60" rx="15" ry="25" fill="#2a2a4a" stroke="#ff6b9d" stroke-width="1"/>
+            
+            <!-- Head -->
+            <polygon points="30,15 45,35 15,35" fill="#1a1a2e" stroke="#ff6b9d" stroke-width="2"/>
+            
+            <!-- Glowing core -->
+            <circle cx="30" cy="25" r="5" fill="#00ffcc">
+                <animate attributeName="fill" values="#00ffcc;#8b5cf6;#00ffcc" dur="2.5s" repeatCount="indefinite"/>
+            </circle>
+            
+            <!-- Data streams -->
+            <g stroke="#39ff14" stroke-width="1" fill="none">
+                <path d="M20 50 Q25 45 35 50">
+                    <animate attributeName="d" values="M20 50 Q25 45 35 50;M20 50 Q35 45 40 50;M20 50 Q25 45 35 50" dur="3s" repeatCount="indefinite"/>
+                </path>
+                <path d="M15 65 Q30 60 40 65">
+                    <animate attributeName="d" values="M15 65 Q30 60 40 65;M15 65 Q25 55 45 65;M15 65 Q30 60 40 65" dur="4s" repeatCount="indefinite"/>
+                </path>
+            </g>
+            
+            <!-- Floating symbols -->
+            <text x="10" y="40" font-family="monospace" font-size="8" fill="#ff6b9d">01</text>
+            <text x="45" y="70" font-family="monospace" font-size="8" fill="#00ffcc">11</text>
+        </svg>
+    </div>
+
+    <!-- Code Demon Totem -->
+    <div class="totem-creature totem-3">
+        <svg width="90" height="110" viewBox="0 0 90 110">
+            <!-- Base -->
+            <rect x="35" y="80" width="20" height="30" fill="#4a1a4a" stroke="#8b5cf6" stroke-width="1"/>
+            
+            <!-- Body -->
+            <rect x="25" y="40" width="40" height="40" fill="#2a0a2a" stroke="#ff6b9d" stroke-width="2" rx="5"/>
+            
+            <!-- Horned head -->
+            <ellipse cx="45" cy="25" rx="20" ry="15" fill="#1a0a1a" stroke="#00ffcc" stroke-width="2"/>
+            
+            <!-- Horns -->
+            <polygon points="35,15 30,5 40,10" fill="#ff6b9d"/>
+            <polygon points="55,15 60,5 50,10" fill="#ff6b9d"/>
+            
+            <!-- Evil grin -->
+            <path d="M35 25 Q45 30 55 25" stroke="#00ffcc" stroke-width="2" fill="none"/>
+            
+            <!-- Glowing eyes -->
+            <circle cx="38" cy="20" r="3" fill="#39ff14">
+                <animate attributeName="fill" values="#39ff14;#ff6b9d;#39ff14" dur="1.5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="52" cy="20" r="3" fill="#39ff14">
+                <animate attributeName="fill" values="#39ff14;#ff6b9d;#39ff14" dur="1.5s" repeatCount="indefinite" begin="0.7s"/>
+            </circle>
+            
+            <!-- Code fragments floating around -->
+            <text x="5" y="50" font-family="monospace" font-size="6" fill="#8b5cf6" opacity="0.8">def</text>
+            <text x="75" y="35" font-family="monospace" font-size="6" fill="#00ffcc" opacity="0.8">}</text>
+            <text x="10" y="80" font-family="monospace" font-size="6" fill="#ff6b9d" opacity="0.8">for</text>
+            
+            <!-- Arms with claws -->
+            <line x1="25" y1="50" x2="15" y2="45" stroke="#ff6b9d" stroke-width="2"/>
+            <line x1="65" y1="50" x2="75" y2="45" stroke="#ff6b9d" stroke-width="2"/>
+            <circle cx="15" cy="45" r="2" fill="#00ffcc"/>
+            <circle cx="75" cy="45" r="2" fill="#00ffcc"/>
+        </svg>
+    </div>
+
+    <!-- Binary Owl Totem -->
+    <div class="totem-creature totem-4">
+        <svg width="70" height="90" viewBox="0 0 70 90">
+            <!-- Body -->
+            <ellipse cx="35" cy="50" rx="18" ry="25" fill="#2a2a3a" stroke="#8b5cf6" stroke-width="1"/>
+            
+            <!-- Head -->
+            <circle cx="35" cy="25" r="18" fill="#1a1a2a" stroke="#00ffcc" stroke-width="2"/>
+            
+            <!-- Large cyber eyes -->
+            <circle cx="28" cy="22" r="6" fill="#00ffcc" opacity="0.8">
+                <animate attributeName="r" values="6;8;6" dur="4s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="42" cy="22" r="6" fill="#00ffcc" opacity="0.8">
+                <animate attributeName="r" values="6;8;6" dur="4s" repeatCount="indefinite" begin="2s"/>
+            </circle>
+            
+            <!-- Inner eye details -->
+            <circle cx="28" cy="22" r="3" fill="#1a1a2a"/>
+            <circle cx="42" cy="22" r="3" fill="#1a1a2a"/>
+            <circle cx="28" cy="22" r="1" fill="#00ffcc"/>
+            <circle cx="42" cy="22" r="1" fill="#00ffcc"/>
+            
+            <!-- Beak -->
+            <polygon points="35,28 32,35 38,35" fill="#ff6b9d"/>
+            
+            <!-- Wings with circuit patterns -->
+            <path d="M18 45 Q10 40 15 55 Q20 50 18 45" fill="#3a3a4a" stroke="#39ff14"/>
+            <path d="M52 45 Q60 40 55 55 Q50 50 52 45" fill="#3a3a4a" stroke="#39ff14"/>
+            
+            <!-- Binary digits floating -->
+            <text x="5" y="30" font-family="monospace" font-size="8" fill="#39ff14" opacity="0.7">1010</text>
+            <text x="55" y="60" font-family="monospace" font-size="8" fill="#ff6b9d" opacity="0.7">0110</text>
+        </svg>
+    </div>
+
+    <!-- Quantum Cat Totem -->
+    <div class="totem-creature totem-5">
+        <svg width="75" height="85" viewBox="0 0 75 85">
+            <!-- Body -->
+            <ellipse cx="37" cy="50" rx="20" ry="15" fill="#2a1a3a" stroke="#8b5cf6" stroke-width="1"/>
+            
+            <!-- Head -->
+            <circle cx="37" cy="25" r="15" fill="#1a0a2a" stroke="#ff6b9d" stroke-width="2"/>
+            
+            <!-- Ears -->
+            <polygon points="27,15 23,5 32,12" fill="#ff6b9d"/>
+            <polygon points="47,15 52,5 43,12" fill="#ff6b9d"/>
+            
+            <!-- Quantum superposition eyes (both open and closed) -->
+            <g opacity="0.6">
+                <circle cx="31" cy="22" r="3" fill="#00ffcc">
+                    <animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/>
+                </circle>
+                <line x1="28" y1="22" x2="34" y2="22" stroke="#00ffcc" stroke-width="1">
+                    <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/>
+                </line>
+            </g>
+            
+            <g opacity="0.6">
+                <circle cx="43" cy="22" r="3" fill="#00ffcc">
+                    <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/>
+                </circle>
+                <line x1="40" y1="22" x2="46" y2="22" stroke="#00ffcc" stroke-width="1">
+                    <animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/>
+                </line>
+            </g>
+            
+            <!-- Whiskers -->
+            <line x1="20" y1="25" x2="10" y2="23" stroke="#39ff14" stroke-width="1"/>
+            <line x1="54" y1="25" x2="64" y2="23" stroke="#39ff14" stroke-width="1"/>
+            
+            <!-- Tail with data packets -->
+            <path d="M57 55 Q65 50 60 65 Q68 60 62 75" stroke="#8b5cf6" stroke-width="2" fill="none"/>
+            
+            <!-- Small data packets -->
+            <rect x="62" y="62" width="3" height="3" fill="#00ffcc" opacity="0.8">
+                <animate attributeName="y" values="62;58;62" dur="3s" repeatCount="indefinite"/>
+            </rect>
+        </svg>
+    </div>
+
+    <!-- Neural Network Spider -->
+    <div class="totem-creature totem-6">
+        <svg width="85" height="95" viewBox="0 0 85 95">
+            <!-- Central body -->
+            <circle cx="42" cy="45" r="12" fill="#2a1a3a" stroke="#00ffcc" stroke-width="2"/>
+            
+            <!-- Neural network pattern in body -->
+            <circle cx="38" cy="40" r="2" fill="#ff6b9d"/>
+            <circle cx="46" cy="40" r="2" fill="#ff6b9d"/>
+            <circle cx="42" cy="50" r="2" fill="#ff6b9d"/>
+            <line x1="38" y1="40" x2="42" y2="50" stroke="#39ff14" stroke-width="1"/>
+            <line x1="46" y1="40" x2="42" y2="50" stroke="#39ff14" stroke-width="1"/>
+            
+            <!-- Eight legs (neural pathways) -->
+            <g stroke="#8b5cf6" stroke-width="2" fill="none">
+                <path d="M30 35 Q20 25 15 30">
+                    <animate attributeName="d" values="M30 35 Q20 25 15 30;M30 35 Q18 23 12 28;M30 35 Q20 25 15 30" dur="4s" repeatCount="indefinite"/>
+                </path>
+                <path d="M54 35 Q64 25 69 30">
+                    <animate attributeName="d" values="M54 35 Q64 25 69 30;M54 35 Q66 23 72 28;M54 35 Q64 25 69 30" dur="4s" repeatCount="indefinite" begin="0.5s"/>
+                </path>
+                <path d="M30 55 Q20 65 15 60">
+                    <animate attributeName="d" values="M30 55 Q20 65 15 60;M30 55 Q18 67 12 62;M30 55 Q20 65 15 60" dur="4s" repeatCount="indefinite" begin="1s"/>
+                </path>
+                <path d="M54 55 Q64 65 69 60">
+                    <animate attributeName="d" values="M54 55 Q64 65 69 60;M54 55 Q66 67 72 62;M54 55 Q64 65 69 60" dur="4s" repeatCount="indefinite" begin="1.5s"/>
+                </path>
+                <line x1="30" y1="45" x2="10" y2="45">
+                    <animate attributeName="x2" values="10;5;10" dur="3s" repeatCount="indefinite"/>
+                </line>
+                <line x1="54" y1="45" x2="74" y2="45">
+                    <animate attributeName="x2" values="74;79;74" dur="3s" repeatCount="indefinite"/>
+                </line>
+                <line x1="42" y1="33" x2="42" y2="15">
+                    <animate attributeName="y2" values="15;10;15" dur="3s" repeatCount="indefinite"/>
+                </line>
+                <line x1="42" y1="57" x2="42" y2="75">
+                    <animate attributeName="y2" values="75;80;75" dur="3s" repeatCount="indefinite"/>
+                </line>
+            </g>
+            
+            <!-- Web nodes at leg ends -->
+            <circle cx="15" cy="30" r="1.5" fill="#00ffcc"/>
+            <circle cx="69" cy="30" r="1.5" fill="#00ffcc"/>
+            <circle cx="15" cy="60" r="1.5" fill="#00ffcc"/>
+            <circle cx="69" cy="60" r="1.5" fill="#00ffcc"/>
+            <circle cx="10" cy="45" r="1.5" fill="#00ffcc"/>
+            <circle cx="74" cy="45" r="1.5" fill="#00ffcc"/>
+            <circle cx="42" cy="15" r="1.5" fill="#00ffcc"/>
+            <circle cx="42" cy="75" r="1.5" fill="#00ffcc"/>
+        </svg>
+    </div>
+</body>
+</html>

@@ -1,0 +1,462 @@
+/**
+ * Modern Dreamtime theme for reveal.js
+ * Digital dreaming meets ancient storytelling
+ * 
+ * Author: PyData 2077 Team
+ */
+
+// Default mixins and settings -----------------
+@use "sass:color";
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+// Include theme-specific fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+// Theme colors inspired by Aboriginal earth pigments
+$ochre: #cc6600;
+$clay-red: #8b3a3a;
+$earth-yellow: #d4a574;
+$sky-blue: #4a90a4;
+$bone-white: #f4f1e8;
+$charcoal: #1a1612;
+
+// Override theme settings
+$backgroundColor: $charcoal;
+$mainColor: $bone-white;
+$headingColor: $ochre;
+$headingTextShadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+$mainFont: 'Inter', sans-serif;
+$headingFont: 'Inter', sans-serif;
+$headingFontWeight: 600;
+$headingTextTransform: none;
+$headingLetterSpacing: -0.02em;
+$linkColor: $sky-blue;
+$linkColorHover: color.scale($sky-blue, $lightness: 20%);
+$selectionBackgroundColor: $ochre;
+$selectionColor: $charcoal;
+
+// Heading sizes
+$heading1Size: 2.8em;
+$heading2Size: 2.2em;
+$heading3Size: 1.8em;
+$heading4Size: 1.4em;
+
+$mainFontSize: 28px;
+$blockMargin: 20px;
+
+// Code styling
+$codeBackground: rgba(26, 22, 18, 0.9);
+
+// Background generator with dot painting patterns
+@mixin bodyBackground() {
+  background: $backgroundColor;
+  
+  // Animated dot painting background
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background: $backgroundColor;
+  }
+  
+  &::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: 
+      radial-gradient(circle at 10% 20%, rgba(204, 102, 0, 0.1) 2px, transparent 2px),
+      radial-gradient(circle at 30% 40%, rgba(139, 58, 58, 0.1) 3px, transparent 3px),
+      radial-gradient(circle at 60% 10%, rgba(212, 165, 116, 0.1) 2px, transparent 2px),
+      radial-gradient(circle at 80% 30%, rgba(74, 144, 164, 0.1) 2px, transparent 2px),
+      radial-gradient(circle at 20% 70%, rgba(204, 102, 0, 0.08) 4px, transparent 4px),
+      radial-gradient(circle at 70% 80%, rgba(139, 58, 58, 0.08) 3px, transparent 3px),
+      radial-gradient(circle at 90% 60%, rgba(212, 165, 116, 0.08) 2px, transparent 2px),
+      radial-gradient(circle at 40% 90%, rgba(74, 144, 164, 0.08) 3px, transparent 3px);
+    background-size: 
+      150px 150px, 180px 180px, 120px 120px, 200px 200px,
+      250px 250px, 220px 220px, 160px 160px, 190px 190px;
+    animation: dreamingDots 60s linear infinite;
+  }
+}
+
+// Songline patterns overlay
+.reveal .slides::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: 
+    linear-gradient(135deg, transparent 30%, rgba(204, 102, 0, 0.1) 31%, rgba(204, 102, 0, 0.1) 33%, transparent 34%),
+    linear-gradient(-45deg, transparent 60%, rgba(74, 144, 164, 0.1) 61%, rgba(74, 144, 164, 0.1) 63%, transparent 64%);
+  background-size: 300px 300px, 400px 400px;
+  animation: songlines 45s ease-in-out infinite;
+  opacity: 0.4;
+}
+
+@keyframes dreamingDots {
+  0% { 
+    transform: translate(0, 0); 
+    opacity: 0.3;
+  }
+  25% { 
+    transform: translate(-20px, -15px); 
+    opacity: 0.5;
+  }
+  50% { 
+    transform: translate(-40px, -30px); 
+    opacity: 0.4;
+  }
+  75% { 
+    transform: translate(-20px, -45px); 
+    opacity: 0.6;
+  }
+  100% { 
+    transform: translate(0, -60px); 
+    opacity: 0.3;
+  }
+}
+
+@keyframes songlines {
+  0%, 100% { 
+    transform: translateY(0) rotate(0deg);
+    background-size: 300px 300px, 400px 400px;
+  }
+  50% { 
+    transform: translateY(-50px) rotate(2deg);
+    background-size: 350px 350px, 450px 450px;
+  }
+}
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+// Custom overrides after theme template import
+
+// Title slide styling
+.reveal .slides section.title-slide {
+  text-align: center !important;
+  padding: 60px 40px;
+  background: radial-gradient(ellipse at center, 
+    rgba(204, 102, 0, 0.15) 0%, 
+    rgba(26, 22, 18, 0.95) 70%) !important;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 20% 20%, $ochre 4px, transparent 4px),
+      radial-gradient(circle at 80% 20%, $clay-red 3px, transparent 3px),
+      radial-gradient(circle at 20% 80%, $earth-yellow 5px, transparent 5px),
+      radial-gradient(circle at 80% 80%, $sky-blue 4px, transparent 4px);
+    background-size: 80px 80px;
+    animation: titleDots 20s ease-in-out infinite;
+    opacity: 0.3;
+    z-index: -1;
+  }
+  
+  h1 {
+    font-size: 3.4em !important;
+    color: $bone-white !important;
+    margin-bottom: 0.3em;
+    font-weight: 700;
+    text-shadow: 2px 2px 8px rgba(204, 102, 0, 0.5) !important;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 3px;
+      background: linear-gradient(90deg, 
+        $ochre 0%, 
+        $earth-yellow 25%, 
+        $sky-blue 50%, 
+        $clay-red 75%, 
+        $ochre 100%);
+      animation: colorFlow 8s ease-in-out infinite;
+    }
+  }
+  
+  .subtitle {
+    font-size: 1.3em;
+    color: $earth-yellow;
+    font-weight: 300;
+    font-style: italic;
+    margin-top: 1.5em;
+  }
+}
+
+// Section heading slides
+.reveal .slides section.section-slide {
+  background: rgba(26, 22, 18, 0.9) !important;
+  position: relative;
+  padding: 80px 60px;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 15% 15%, rgba(204, 102, 0, 0.2) 6px, transparent 6px),
+      radial-gradient(circle at 85% 15%, rgba(74, 144, 164, 0.2) 4px, transparent 4px),
+      radial-gradient(circle at 50% 85%, rgba(212, 165, 116, 0.2) 8px, transparent 8px);
+    background-size: 120px 120px;
+    animation: sectionDots 15s ease-in-out infinite;
+    z-index: -1;
+  }
+  
+  h2 {
+    font-size: 2.6em !important;
+    color: $ochre !important;
+    text-align: center;
+    font-weight: 600;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5) !important;
+    position: relative;
+    
+    &::before {
+      content: '●';
+      position: absolute;
+      left: -60px;
+      color: $sky-blue;
+      animation: pulseLeft 3s ease-in-out infinite;
+    }
+    
+    &::after {
+      content: '●';
+      position: absolute;
+      right: -60px;
+      color: $clay-red;
+      animation: pulseRight 3s ease-in-out infinite 1.5s;
+    }
+  }
+}
+
+@keyframes titleDots {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.1) rotate(180deg); }
+}
+
+@keyframes colorFlow {
+  0%, 100% { 
+    background: linear-gradient(90deg, 
+      $ochre 0%, 
+      $earth-yellow 25%, 
+      $sky-blue 50%, 
+      $clay-red 75%, 
+      $ochre 100%);
+  }
+  50% { 
+    background: linear-gradient(90deg, 
+      $clay-red 0%, 
+      $ochre 25%, 
+      $earth-yellow 50%, 
+      $sky-blue 75%, 
+      $clay-red 100%);
+  }
+}
+
+@keyframes sectionDots {
+  0%, 100% { 
+    background-size: 120px 120px;
+    opacity: 0.4;
+  }
+  50% { 
+    background-size: 140px 140px;
+    opacity: 0.6;
+  }
+}
+
+@keyframes pulseLeft {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.5); opacity: 1; }
+}
+
+@keyframes pulseRight {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.5); opacity: 1; }
+}
+
+// Enhanced text styling
+.reveal {
+  font-family: $mainFont;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  
+  // Mathematical equations
+  .math {
+    font-family: 'IBM Plex Mono', monospace;
+    background: rgba(204, 102, 0, 0.1);
+    padding: 25px;
+    border-radius: 8px;
+    border: 2px solid rgba(204, 102, 0, 0.3);
+    margin: 25px 0;
+    font-size: 1.2em;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    
+    &::before {
+      content: '●●●';
+      position: absolute;
+      top: -15px;
+      left: 20px;
+      background: $backgroundColor;
+      color: $ochre;
+      font-size: 0.8em;
+      padding: 0 8px;
+      letter-spacing: 2px;
+      animation: mathDots 4s ease-in-out infinite;
+    }
+  }
+  
+  // Code blocks
+  pre {
+    background: $codeBackground;
+    border: 1px solid $ochre;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      width: 8px;
+      height: 8px;
+      background: $sky-blue;
+      border-radius: 50%;
+      animation: codeIndicator 2s ease-in-out infinite;
+    }
+  }
+  
+  code {
+    font-family: 'IBM Plex Mono', monospace;
+    color: $earth-yellow;
+  }
+  
+  // Enhanced lists with dot styling
+  ul, ol {
+    margin-left: 40px;
+    
+    li {
+      margin: 12px 0;
+      position: relative;
+      
+      &::before {
+        content: '●';
+        color: $ochre;
+        position: absolute;
+        left: -25px;
+        animation: listDots 6s ease-in-out infinite;
+      }
+      
+      &:nth-child(2n)::before {
+        animation-delay: 2s;
+        color: $sky-blue;
+      }
+      
+      &:nth-child(3n)::before {
+        animation-delay: 4s;
+        color: $clay-red;
+      }
+    }
+  }
+  
+  // Emphasis styling
+  em {
+    color: $ochre;
+    font-style: italic;
+  }
+  
+  strong {
+    color: $earth-yellow;
+    font-weight: 600;
+  }
+  
+  // Enhanced links
+  a {
+    color: $linkColor;
+    text-decoration: none;
+    border-bottom: 2px dotted $sky-blue;
+    padding-bottom: 2px;
+    
+    &:hover {
+      color: $linkColorHover;
+      border-bottom-color: $ochre;
+      text-shadow: 0 0 8px rgba(74, 144, 164, 0.5);
+    }
+  }
+  
+  // Tables
+  table {
+    border: 2px solid $ochre;
+    border-collapse: collapse;
+    background: rgba(26, 22, 18, 0.5);
+  }
+  
+  th {
+    background: $ochre;
+    color: $backgroundColor;
+    padding: 15px;
+    font-weight: 600;
+  }
+  
+  td {
+    border: 1px dotted rgba(204, 102, 0, 0.3);
+    padding: 12px;
+  }
+}
+
+@keyframes mathDots {
+  0%, 100% { color: $ochre; }
+  33% { color: $sky-blue; }
+  66% { color: $earth-yellow; }
+}
+
+@keyframes codeIndicator {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes listDots {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
+
+// Progress bar customization
+.reveal .progress {
+  height: 6px;
+  background: rgba(204, 102, 0, 0.3);
+  
+  span {
+    background: linear-gradient(90deg, $ochre, $earth-yellow);
+  }
+}

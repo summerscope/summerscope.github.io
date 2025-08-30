@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>The Code Demon - Detailed Design</title>
+    <style>
+        body {
+            background: #0a0a0f;
+            color: #e0e0e8;
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .character-container {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+            max-width: 1200px;
+        }
+        
+        .character-display {
+            position: relative;
+        }
+        
+        .backstory {
+            max-width: 400px;
+            line-height: 1.6;
+        }
+        
+        .backstory h2 {
+            color: #ff6b9d;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+        }
+        
+        .backstory h3 {
+            color: #00ffcc;
+            font-size: 1.1em;
+            margin: 20px 0 10px 0;
+        }
+        
+        .detail-callout {
+            background: rgba(139, 92, 246, 0.1);
+            border-left: 3px solid #8b5cf6;
+            padding: 10px;
+            margin: 15px 0;
+            font-size: 0.9em;
+        }
+        
+        .mood-indicator {
+            position: absolute;
+            top: -20px;
+            right: -30px;
+            font-size: 12px;
+            color: #39ff14;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="character-container">
+        <div class="character-display">
+            <div class="mood-indicator">STATUS: DEBUGGING</div>
+            
+            <!-- The Code Demon - Fully Detailed -->
+            <svg width="200" height="280" viewBox="0 0 200 280">
+                <!-- Base/Pedestal with worn stone texture -->
+                <defs>
+                    <!-- Stone texture pattern -->
+                    <pattern id="stoneTexture" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                        <rect width="20" height="20" fill="#2a1a2a"/>
+                        <circle cx="5" cy="7" r="1" fill="#3a2a3a" opacity="0.6"/>
+                        <circle cx="15" cy="3" r="0.5" fill="#4a3a3a" opacity="0.4"/>
+                        <circle cx="8" cy="15" r="1.5" fill="#1a0a1a" opacity="0.7"/>
+                        <circle cx="17" cy="12" r="0.8" fill="#3a2a3a" opacity="0.5"/>
+                    </pattern>
+                    
+                    <!-- Circuit board pattern -->
+                    <pattern id="circuitPattern" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+                        <rect width="30" height="30" fill="#1a0a2a"/>
+                        <path d="M5 5 L25 5 L25 10 L15 10 L15 20 L10 20 L10 25 L5 25 Z" 
+                              stroke="#39ff14" stroke-width="0.5" fill="none" opacity="0.6"/>
+                        <circle cx="5" cy="5" r="1" fill="#00ffcc" opacity="0.8"/>
+                        <circle cx="25" cy="25" r="1" fill="#ff6b9d" opacity="0.8"/>
+                    </pattern>
+                    
+                    <!-- Glitch effect -->
+                    <filter id="glitch">
+                        <feColorMatrix type="saturate" values="1.2"/>
+                        <feOffset dx="1" dy="0" result="r"/>
+                        <feOffset dx="-1" dy="0" result="b"/>
+                        <feBlend mode="screen" in="r" in2="SourceGraphic" result="rb"/>
+                        <feBlend mode="screen" in="b" in2="rb"/>
+                    </filter>
+                </defs>
+                
+                <!-- Ancient stone pedestal with wear marks -->
+                <rect x="60" y="220" width="80" height="60" fill="url(#stoneTexture)" stroke="#4a3a4a" stroke-width="1"/>
+                
+                <!-- Wear marks on pedestal -->
+                <ellipse cx="90" cy="240" rx="15" ry="3" fill="#1a0a1a" opacity="0.8"/>
+                <path d="M70 225 Q85 230 95 225" stroke="#0a0a0a" stroke-width="2" fill="none" opacity="0.6"/>
+                
+                <!-- Power cables/roots growing from base -->
+                <g stroke="#8b5cf6" stroke-width="3" fill="none" opacity="0.7">
+                    <path d="M75 280 Q70 270 65 250 Q60 240 70 235">
+                        <animate attributeName="d" 
+                                 values="M75 280 Q70 270 65 250 Q60 240 70 235;M75 280 Q68 268 62 248 Q58 238 72 233;M75 280 Q70 270 65 250 Q60 240 70 235" 
+                                 dur="6s" repeatCount="indefinite"/>
+                    </path>
+                    <path d="M125 280 Q130 270 135 250 Q140 240 130 235">
+                        <animate attributeName="d" 
+                                 values="M125 280 Q130 270 135 250 Q140 240 130 235;M125 280 Q132 268 138 248 Q142 238 128 233;M125 280 Q130 270 135 250 Q140 240 130 235" 
+                                 dur="6s" repeatCount="indefinite" begin="2s"/>
+                    </path>
+                </g>
+                
+                <!-- Data flow in cables -->
+                <g>
+                    <circle cx="67" cy="260" r="2" fill="#00ffcc" opacity="0.8">
+                        <animateMotion dur="3s" repeatCount="indefinite" 
+                                       path="M0 0 Q-5 -10 -2 -25 Q2 -35 8 -40"/>
+                    </circle>
+                    <circle cx="133" cy="260" r="2" fill="#ff6b9d" opacity="0.8">
+                        <animateMotion dur="3s" repeatCount="indefinite" begin="1.5s"
+                                       path="M0 0 Q5 -10 2 -25 Q-2 -35 -8 -40"/>
+                    </circle>
+                </g>
+                
+                <!-- Lower torso with intricate circuit board pattern -->
+                <rect x="70" y="160" width="60" height="60" fill="url(#circuitPattern)" 
+                      stroke="#ff6b9d" stroke-width="2" rx="8"/>
+                
+                <!-- Cooling vents on sides -->
+                <g stroke="#39ff14" stroke-width="1" opacity="0.6">
+                    <line x1="65" y1="170" x2="58" y2="170"/>
+                    <line x1="65" y1="180" x2="58" y2="180"/>
+                    <line x1="65" y1="190" x2="58" y2="190"/>
+                    <line x1="65" y1="200" x2="58" y2="200"/>
+                    <line x1="135" y1="170" x2="142" y2="170"/>
+                    <line x1="135" y1="180" x2="142" y2="180"/>
+                    <line x1="135" y1="190" x2="142" y2="190"/>
+                    <line x1="135" y1="200" x2="142" y2="200"/>
+                </g>
+                
+                <!-- Heat shimmer effect from vents -->
+                <g opacity="0.3">
+                    <path d="M58 170 Q55 168 58 175" stroke="#ff6b9d" stroke-width="0.5" fill="none">
+                        <animate attributeName="d" 
+                                 values="M58 170 Q55 168 58 175;M58 170 Q53 172 58 175;M58 170 Q55 168 58 175" 
+                                 dur="1s" repeatCount="indefinite"/>
+                    </path>
+                </g>
+                
+                <!-- Central core with pulsing energy -->
+                <circle cx="100" cy="190" r="12" fill="#1a0a2a" stroke="#00ffcc" stroke-width="2"/>
+                <circle cx="100" cy="190" r="8" fill="#00ffcc" opacity="0.3">
+                    <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite"/>
+                    <animate attributeName="opacity" values="0.3;0.6;0.3" dur="2s" repeatCount="indefinite"/>
+                </circle>
+                
+                <!-- Upper torso - more organic, battle-scarred -->
+                <ellipse cx="100" cy="110" rx="35" ry="25" fill="#2a0a2a" stroke="#ff6b9d" stroke-width="2"/>
+                
+                <!-- Battle scars/scratches -->
+                <path d="M75 100 L85 105 L80 110" stroke="#ff6b9d" stroke-width="1" fill="none" opacity="0.4"/>
+                <path d="M115 95 L125 100 L120 105" stroke="#00ffcc" stroke-width="1" fill="none" opacity="0.4"/>
+                <circle cx="90" cy="120" r="1.5" fill="#8b5cf6" opacity="0.6"/> <!-- bullet hole/impact -->
+                
+                <!-- Shoulder pauldrons with embedded tech -->
+                <ellipse cx="70" cy="95" rx="12" ry="8" fill="#3a1a3a" stroke="#8b5cf6" stroke-width="1" rx="15"/>
+                <ellipse cx="130" cy="95" rx="12" ry="8" fill="#3a1a3a" stroke="#8b5cf6" stroke-width="1"/>
+                
+                <!-- Tech details on pauldrons -->
+                <rect x="67" y="93" width="6" height="4" fill="#39ff14" opacity="0.8"/>
+                <rect x="127" y="93" width="6" height="4" fill="#ff6b9d" opacity="0.8"/>
+                
+                <!-- Arms - asymmetrical design showing different functions -->
+                <!-- Left arm - coding appendage -->
+                <ellipse cx="50" cy="125" rx="8" ry="20" fill="#2a1a3a" stroke="#00ffcc" stroke-width="1"/>
+                <g transform="translate(45, 140)">
+                    <!-- Finger-like coding appendages -->
+                    <rect x="0" y="0" width="2" height="8" fill="#00ffcc" rx="1">
+                        <animate attributeName="height" values="8;12;8" dur="3s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect x="3" y="0" width="2" height="10" fill="#00ffcc" rx="1">
+                        <animate attributeName="height" values="10;6;10" dur="2.5s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect x="6" y="0" width="2" height="7" fill="#00ffcc" rx="1">
+                        <animate attributeName="height" values="7;11;7" dur="3.5s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect x="9" y="0" width="2" height="9" fill="#00ffcc" rx="1">
+                        <animate attributeName="height" values="9;5;9" dur="2s" repeatCount="indefinite"/>
+                    </rect>
+                </g>
+                
+                <!-- Right arm - debug tool -->
+                <ellipse cx="150" cy="125" rx="8" ry="20" fill="#2a1a3a" stroke="#ff6b9d" stroke-width="1"/>
+                <g transform="translate(145, 140)">
+                    <!-- Debug probe/tool -->
+                    <rect x="3" y="0" width="4" height="12" fill="#ff6b9d" rx="2"/>
+                    <circle cx="5" cy="12" r="2" fill="#8b5cf6">
+                        <animate attributeName="fill" values="#8b5cf6;#00ffcc;#ff6b9d;#8b5cf6" dur="1.5s" repeatCount="indefinite"/>
+                    </circle>
+                    <!-- Scanning beam -->
+                    <line x1="5" y1="14" x2="5" y2="25" stroke="#8b5cf6" stroke-width="1" opacity="0.6">
+                        <animate attributeName="y2" values="25;35;25" dur="2s" repeatCount="indefinite"/>
+                        <animate attributeName="opacity" values="0.6;0.1;0.6" dur="2s" repeatCount="indefinite"/>
+                    </line>
+                </g>
+                
+                <!-- Head - ancient mask merged with technology -->
+                <ellipse cx="100" cy="60" rx="25" ry="20" fill="#1a0a1a" stroke="#00ffcc" stroke-width="3"/>
+                
+                <!-- Traditional totem-style carved features -->
+                <path d="M85 55 Q90 50 95 55 Q100 50 105 55 Q110 50 115 55" 
+                      stroke="#8b5cf6" stroke-width="2" fill="none" opacity="0.7"/> <!-- brow ridge -->
+                
+                <!-- Horns - but they're actually antennae -->
+                <g>
+                    <path d="M80 45 Q75 35 70 25" stroke="#ff6b9d" stroke-width="3" fill="none"/>
+                    <path d="M120 45 Q125 35 130 25" stroke="#ff6b9d" stroke-width="3" fill="none"/>
+                    
+                    <!-- Signal indicators on antennae -->
+                    <circle cx="70" cy="25" r="2" fill="#39ff14">
+                        <animate attributeName="opacity" values="0.3;1;0.3" dur="1s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="130" cy="25" r="2" fill="#39ff14">
+                        <animate attributeName="opacity" values="0.3;1;0.3" dur="1s" repeatCount="indefinite" begin="0.5s"/>
+                    </circle>
+                </g>
+                
+                <!-- Eyes - complex compound structures -->
+                <g>
+                    <!-- Left eye - shows code reflection -->
+                    <circle cx="88" cy="58" r="8" fill="#0a0a2a" stroke="#00ffcc" stroke-width="2"/>
+                    <circle cx="88" cy="58" r="5" fill="#00ffcc" opacity="0.6">
+                        <animate attributeName="opacity" values="0.6;0.9;0.6" dur="4s" repeatCount="indefinite"/>
+                    </circle>
+                    <!-- Code reflection in eye -->
+                    <text x="84" y="61" font-family="monospace" font-size="4" fill="#39ff14" opacity="0.8">01</text>
+                    
+                    <!-- Right eye - shows error state -->
+                    <circle cx="112" cy="58" r="8" fill="#0a0a2a" stroke="#ff6b9d" stroke-width="2"/>
+                    <circle cx="112" cy="58" r="5" fill="#ff6b9d" opacity="0.6">
+                        <animate attributeName="opacity" values="0.6;0.2;0.6" dur="1.5s" repeatCount="indefinite"/>
+                    </circle>
+                    <!-- Error symbol in eye -->
+                    <text x="109" y="61" font-family="monospace" font-size="5" fill="#ff6b9d">!</text>
+                </g>
+                
+                <!-- Mouth - traditional grimace but shows status -->
+                <path d="M90 70 Q100 75 110 70" stroke="#00ffcc" stroke-width="3" fill="none"/>
+                
+                <!-- Status display teeth -->
+                <g>
+                    <rect x="92" y="72" width="2" height="4" fill="#39ff14" opacity="0.8"/>
+                    <rect x="95" y="72" width="2" height="4" fill="#00ffcc" opacity="0.8"/>
+                    <rect x="98" y="72" width="2" height="4" fill="#ff6b9d" opacity="0.8"/>
+                    <rect x="101" y="72" width="2" height="4" fill="#39ff14" opacity="0.8"/>
+                    <rect x="104" y="72" width="2" height="4" fill="#8b5cf6" opacity="0.8"/>
+                    <rect x="107" y="72" width="2" height="4" fill="#00ffcc" opacity="0.8"/>
+                </g>
+                
+                <!-- Floating code fragments that this demon has consumed/debugged -->
+                <g font-family="monospace" font-size="8" opacity="0.7">
+                    <text x="20" y="80" fill="#8b5cf6">def main():</text>
+                    <text x="160" y="50" fill="#00ffcc">except:</text>
+                    <text x="15" y="140" fill="#ff6b9d">return None</text>
+                    <text x="170" y="120" fill="#39ff14">while True:</text>
+                    <text x="25" y="200" fill="#8b5cf6">break</text>
+                    <text x="155" y="180" fill="#ff6b9d">finally:</text>
+                    
+                    <!-- Animate some code fragments -->
+                    <text x="30" y="30" fill="#00ffcc" opacity="0.5">
+                        <animateTransform attributeName="transform" type="translate" 
+                                          values="0,0; 5,-3; 0,0" dur="4s" repeatCount="indefinite"/>
+                        if error:
+                    </text>
+                </g>
+                
+                <!-- Occasionally glitch the whole character -->
+                <g filter="url(#glitch)" opacity="0">
+                    <animate attributeName="opacity" values="0;0;0.8;0;0" dur="10s" repeatCount="indefinite" begin="3s"/>
+                </g>
+            </svg>
+        </div>
+        
+        <div class="backstory">
+            <h2>The Code Demon</h2>
+            <p><strong>True Name:</strong> Bug-Eater of the Eternal Loop</p>
+            
+            <h3>Origin Story</h3>
+            <p>Once a benevolent debugging spirit in the early days of computing, the Code Demon was corrupted during the Great Stack Overflow of 2029. It now inhabits the spaces between syntax errors and infinite loops, feeding on broken code and abandoned repositories.</p>
+            
+            <div class="detail-callout">
+                <strong>Design Detail:</strong> The asymmetrical arms reflect its dual nature - the left hand creates elegant code while the right hand debugs and destroys. The battle scars are from the Semicolon Wars of the 2040s.
+            </div>
+            
+            <h3>Relationship with Humans</h3>
+            <p><strong>Chaotic Neutral:</strong> Neither fully helpful nor malicious. It will fix your critical bugs at 3am but might also introduce subtle inefficiencies for its own amusement. Developers often leave offerings of energy drinks and rubber ducks to appease it.</p>
+            
+            <h3>Behavioral Patterns</h3>
+            <ul>
+                <li>Appears during crunch time and impossible deadlines</li>
+                <li>Feeds on deprecated functions and memory leaks</li>
+                <li>Can see all possible execution paths simultaneously</li>
+                <li>Speaks only in error messages and stack traces</li>
+                <li>Becomes agitated by clean, well-documented code</li>
+            </ul>
+            
+            <div class="detail-callout">
+                <strong>Animation Logic:</strong> The pulsing core represents active processing power. The color-changing debug probe indicates what type of error it's currently hunting. The floating code fragments are its "trophies" - problems it has solved or created.
+            </div>
+            
+            <h3>Modern Role</h3>
+            <p>In 2077, Code Demons have become essential partners in software development. This particular demon specializes in machine learning pipelines and has developed a peculiar fondness for transformer architectures, though it still holds grudges against CSS flexbox.</p>
+        </div>
+    </div>
+</body>
+</html>
