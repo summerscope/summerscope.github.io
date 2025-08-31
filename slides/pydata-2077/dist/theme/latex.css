@@ -609,3 +609,23 @@
   background-image: url(../../../img/ComfyUI_00242_.png);
   background-size: cover;
 }
+
+.totem-creature-after.totem-5::after {
+  width: 260px;
+  height: 624px;
+  left: 35%;
+  bottom: -10%;
+  animation: float 6s ease-in-out infinite;
+  background-image: url(../../../img/ComfyUI_00111_.png);
+  background-size: cover;
+}
+
+.totem-creature-before.totem-6::before {
+  width: 260px;
+  height: 348px;
+  left: 55%;
+  bottom: 5%;
+  animation: float 5s ease-in-out infinite;
+  background-image: url(../../../img/ComfyUI_00340_bottom.png);
+  background-size: cover;
+}
