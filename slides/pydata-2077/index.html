@@ -19,17 +19,10 @@
   <body>
     <div class="reveal">
       <div class="slides">
-        <section>
-          <h1>PyData 2077</h1>
-          <p>Laura Summers & Andy Kitchen</p>
-        </section>
-
-        <!-- EXAMPLE SLIDES FOR theme demo  -->
-
         <!-- Title Slide -->
         <section
           data-background-image="img/slide-bg1.png"
-          data-state="totem-creature totem-1"
+          data-state="totem-creature-after totem-1"
         >
           <div class="title-slide">
             <h1>PyData 2077</h1>
@@ -37,8 +30,12 @@
             <p>Laura Summers & Andy Kitchen</p>
           </div>
           <div class="title-subhead">BCC BERLIN</div>
+          <aside class="notes"></aside>
         </section>
 
+        
+
+        <!-- EXAMPLE SLIDES FOR theme demo  -->
         <!-- Section Header -->
         <section class="section-slide">
           <h2>On Gold, Devaluation and Hype Cycles</h2>
@@ -227,6 +224,18 @@ def predict_hype_cycle(technology, years=10):
           <h2>The Future is Still Unwritten</h2>
         </section>
 
+        <!-- Closing Slide -->
+        <section
+          data-background-color="#000"
+          data-background-image="img/mark-basarab-1OtUkD_8svc-unsplash.jpg"
+          data-state="totem-creature-after totem-creature-before totem-2 totem-3"
+        >
+          <div>
+            <h1>Dream the future</h1>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
         <section>
           <h3>Closing Thoughts</h3>
           <p>As we return to your timeline, remember:</p>
@@ -310,6 +319,7 @@ def predict_hype_cycle(technology, years=10):
       // - https://revealjs.com/config/
       Reveal.initialize({
         hash: true,
+        transition: "zoom", // none/fade/slide/convex/concave/zoom
 
         // Learn about plugins: https://revealjs.com/plugins/
         plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
