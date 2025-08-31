@@ -215,7 +215,8 @@ we get to create the future together.
 
 While you have you feet on the ground, have your head in the clouds,
 there is so much to invent, do much to discover. A 100 year community,
-we 
+won't be about syntax or semver, it will be a concept a way of thinking,
+a reinvention.
 
 The battle for the future is really a war of the possible, it is a war of dreams.
 We have the power to create something that isn't the chopped up bits of the past.
