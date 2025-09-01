@@ -629,3 +629,13 @@
   background-image: url(../../../img/ComfyUI_00340_bottom.png);
   background-size: cover;
 }
+
+.totem-creature-after.totem-7::after {
+  width: 260px;
+  height: 624px;
+  left: 0;
+  bottom: -3%;
+  animation: float 5s ease-in-out infinite;
+  background-image: url(../../../img/ComfyUI_00265_.png);
+  background-size: cover;
+}
