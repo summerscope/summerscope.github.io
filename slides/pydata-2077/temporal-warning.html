@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temporal Citation - PyData 2077</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(45deg, #d4b5ff 0%, #ff9de6 25%, #c9b5ff 50%, #ffa8e8 75%, #e6ccff 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Share Tech Mono', monospace;
+            overflow: hidden;
+        }
+
+        .citation-container {
+            width: 600px;
+            height: 700px;
+            position: relative;
+            transform: rotate(-2deg);
+        }
+
+        .geometric-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+        }
+
+        .wireframe-sphere {
+            position: absolute;
+            top: -50px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            border: 2px solid #2a1a4a;
+            border-radius: 50%;
+            opacity: 0.3;
+            transform: perspective(200px) rotateX(45deg);
+        }
+
+        .wireframe-sphere::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80%;
+            height: 80%;
+            border: 1px solid #2a1a4a;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .wireframe-torus {
+            position: absolute;
+            bottom: -80px;
+            left: -120px;
+            width: 250px;
+            height: 150px;
+            border: 2px solid #2a1a4a;
+            border-radius: 50%;
+            opacity: 0.4;
+            transform: perspective(300px) rotateX(75deg);
+        }
+
+        .decorative-stars {
+            position: absolute;
+            font-size: 16px;
+            color: #2a1a4a;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .star1 { top: 80px; left: 50px; transform: rotate(15deg); }
+        .star2 { top: 200px; right: 80px; transform: rotate(-30deg); }
+        .star3 { bottom: 150px; left: 100px; transform: rotate(45deg); }
+        .star4 { bottom: 300px; right: 150px; transform: rotate(-15deg); }
+
+        .grid-pattern {
+            position: absolute;
+            top: 100px;
+            left: 400px;
+            width: 80px;
+            height: 80px;
+            background-image: 
+                linear-gradient(90deg, #2a1a4a 1px, transparent 1px),
+                linear-gradient(0deg, #2a1a4a 1px, transparent 1px);
+            background-size: 8px 8px;
+            opacity: 0.3;
+            transform: rotate(25deg);
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 10;
+            padding: 40px;
+        }
+
+        .header-section {
+            text-align: left;
+            margin-bottom: 30px;
+            transform: rotate(1deg);
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 14px;
+            font-weight: 900;
+            color: #2a1a4a;
+            letter-spacing: 4px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .violation-header {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 32px;
+            font-weight: 900;
+            color: #2a1a4a;
+            letter-spacing: -1px;
+            line-height: 0.9;
+            margin: 15px 0;
+            text-transform: uppercase;
+        }
+
+        .citation-id {
+            font-size: 12px;
+            color: #2a1a4a;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .floating-text {
+            position: absolute;
+            font-size: 10px;
+            color: #2a1a4a;
+            font-family: 'Share Tech Mono', monospace;
+            opacity: 0.6;
+        }
+
+        .float1 {
+            top: 180px;
+            right: 100px;
+            transform: rotate(-15deg);
+        }
+
+        .float2 {
+            bottom: 200px;
+            left: 50px;
+            transform: rotate(8deg);
+        }
+
+        .main-content {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 25px;
+            margin: 20px 0;
+            transform: rotate(-1deg) skew(1deg);
+            border: 2px solid #2a1a4a;
+            position: relative;
+        }
+
+        .main-content::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            background: rgba(42, 26, 74, 0.1);
+            z-index: -1;
+            transform: rotate(2deg);
+        }
+
+        .content-text {
+            font-size: 11px;
+            line-height: 1.5;
+            color: #2a1a4a;
+            margin-bottom: 15px;
+        }
+
+        .coordinates {
+            background: #2a1a4a;
+            color: #ff9de6;
+            padding: 2px 6px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .speakers {
+            background: #ff9de6;
+            color: #2a1a4a;
+            padding: 2px 6px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .violation-list {
+            background: rgba(42, 26, 74, 0.1);
+            padding: 15px;
+            margin: 15px 0;
+            font-size: 10px;
+            line-height: 1.4;
+            transform: rotate(0.5deg);
+        }
+
+        .warning-section {
+            background: #2a1a4a;
+            color: #ff9de6;
+            padding: 20px;
+            margin: 20px 0;
+            font-size: 11px;
+            transform: rotate(-0.8deg) translateX(10px);
+            position: relative;
+        }
+
+        .warning-section::after {
+            content: '⚠';
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            font-size: 24px;
+            color: #ff9de6;
+        }
+
+        .signature-area {
+            text-align: right;
+            margin-top: 30px;
+            font-size: 10px;
+            color: #2a1a4a;
+            transform: rotate(1.5deg);
+        }
+
+        .officer-id {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .tagline {
+            font-style: italic;
+            opacity: 0.7;
+            margin-top: 8px;
+        }
+
+        .scattered-symbols {
+            position: absolute;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 18px;
+            color: #2a1a4a;
+            opacity: 0.2;
+        }
+
+        .sym1 { top: 120px; left: 80px; transform: rotate(45deg); }
+        .sym2 { top: 350px; right: 120px; transform: rotate(-60deg); }
+        .sym3 { bottom: 250px; left: 150px; transform: rotate(30deg); }
+
+        .time-highlight {
+            background: #ff9de6;
+            color: #2a1a4a;
+            padding: 3px 8px;
+            font-weight: bold;
+            font-family: 'Orbitron', sans-serif;
+            display: inline-block;
+            transform: rotate(-1deg);
+        }
+
+        .negative-space-cut {
+            position: absolute;
+            top: 50px;
+            right: 20px;
+            width: 0;
+            height: 0;
+            border-left: 40px solid transparent;
+            border-right: 40px solid transparent;
+            border-bottom: 60px solid #d4b5ff;
+            transform: rotate(15deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="citation-container">
+        <div class="geometric-bg">
+            <div class="wireframe-sphere"></div>
+            <div class="wireframe-torus"></div>
+            <div class="grid-pattern"></div>
+            <div class="negative-space-cut"></div>
+        </div>
+
+        <div class="decorative-stars star1">✦</div>
+        <div class="decorative-stars star2">✧</div>
+        <div class="decorative-stars star3">✦</div>
+        <div class="decorative-stars star4">✧</div>
+
+        <div class="scattered-symbols sym1">◊</div>
+        <div class="scattered-symbols sym2">⬟</div>
+        <div class="scattered-symbols sym3">◈</div>
+
+        <div class="floating-text float1">TEMPORAL<br>ENFORCEMENT</div>
+        <div class="floating-text float2">52.52068°N<br>13.416451°E</div>
+
+        <div class="content-wrapper">
+            <div class="header-section">
+                <div class="logo">Chrono-Regulatory Commission</div>
+                <div class="violation-header">TEMPORAL<br>VIOLATION</div>
+                <div class="citation-id">CITATION #TMP-2077-091</div>
+            </div>
+
+            <div class="main-content">
+                <div class="content-text">
+                    <strong>TO:</strong> PyData Berlin Organizing Committee<br>
+                    <strong>SUBJECT:</strong> Unauthorized Spacetime Disturbance
+                </div>
+
+                <div class="content-text">
+                    Temporal monitoring systems detected chronological anomaly at 
+                    <span class="coordinates">Berliner Congress Center</span> 
+                    manifesting <span class="time-highlight">September 1st, 9:20 AM</span>
+                </div>
+
+                <div class="violation-list">
+                    <strong>VIOLATION DETECTED:</strong><br>
+                    • Temporal incursion from future timeline<br>
+                    • Speakers: <span class="speakers">Kitchen, A. & Summers, L.</span><br>
+                    • Evidence of 21st-century tech practice leakage<br>
+                    • Risk assessment: Moderate timeline contamination
+                </div>
+            </div>
+
+            <div class="warning-section">
+                <strong>WARNING:</strong> Transmission contains advanced analytical frameworks. 
+                Attendees may experience paradigm shifts and sudden clarity regarding 
+                data science field trajectories.
+            </div>
+
+            <div class="content-text" style="margin-top: 20px; font-weight: bold;">
+                COMPLIANCE REQUIRED: Failure to contain disturbance = 
+                <span style="background: #2a1a4a; color: #ff9de6; padding: 2px 6px;">50,000 TEMPORAL CREDITS</span> fine
+            </div>
+
+            <div class="signature-area">
+                <div class="officer-id">COMPLIANCE OFFICER Z-7749</div>
+                <div>Temporal Enforcement Division</div>
+                <div class="tagline">"Keeping Yesterday Safe for Tomorrow"</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
