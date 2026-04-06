@@ -216,9 +216,9 @@
 .reveal .progress {
   display: block;
   position: absolute;
-  bottom: calc(var(--mark-inset) + 1px);
-  left: calc(var(--mark-inset) + var(--mark-length) + 6px);
-  right: calc(var(--mark-inset) + var(--mark-length) + 6px);
+  bottom: 4.2%;
+  left: 5%;
+  right: 5%;
   width: auto;
   height: 2px;
   background-color: var(--color-mark-light);
