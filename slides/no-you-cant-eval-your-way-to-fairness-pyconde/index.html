@@ -103,8 +103,8 @@
 							</div>
 						</div>
 
-						<!-- Instrument overlay: calipers, vertical, straddling the split -->
-						<div class="instrument instrument--blue" style="width: 140px; top: 15%; left: calc(50% - 90px); transform: rotate(90deg);">
+						<!-- Instrument overlay: calipers straddling the split at top -->
+						<div class="instrument instrument--blue" style="width: 220px; top: 12%; left: calc(50% - 110px);">
 							<img src="img/calipers.svg" alt="" />
 						</div>
 
@@ -322,6 +322,14 @@
 		<script src="dist/plugin/markdown.js"></script>
 		<script src="dist/plugin/highlight.js"></script>
 		<script>
+			// Inject progress bar into every slide-wrap
+			document.querySelectorAll('.slide-wrap').forEach(wrap => {
+				const bar = document.createElement('div');
+				bar.className = 'slide-progress';
+				bar.innerHTML = '<div class="slide-progress-fill"></div>';
+				wrap.appendChild(bar);
+			});
+
 			Reveal.initialize({
 				hash: true,
 				center: false,
@@ -330,8 +338,19 @@
 				margin: 0,
 				slideNumber: false,
 				controls: false,
-				progress: true,
+				progress: false,
 				plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+			}).then(() => {
+				function updateProgress() {
+					const pct = (Reveal.getProgress() * 100).toFixed(1) + '%';
+					document.querySelectorAll('.slide-progress-fill').forEach(fill => {
+						fill.style.width = pct;
+					});
+				}
+				Reveal.on('slidechanged', updateProgress);
+				Reveal.on('fragmentshown', updateProgress);
+				Reveal.on('fragmenthidden', updateProgress);
+				updateProgress();
 			});
 		</script>
 	</body>

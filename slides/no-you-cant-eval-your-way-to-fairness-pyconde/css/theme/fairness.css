@@ -209,34 +209,36 @@
 
 
 /* ============================================================
-   PROGRESS BAR — horizontal, below the footer metadata
-   Sits along the bottom guide line, thin orange fill.
+   PROGRESS BAR — reveal's built-in, hidden.
+   We use a custom in-canvas progress bar instead.
    ============================================================ */
 
 .reveal .progress {
-  display: block;
+  display: none !important;
+}
+
+
+/* ============================================================
+   CUSTOM PROGRESS BAR — lives inside .slide-wrap
+   Same coordinate space as footer and marks.
+   ============================================================ */
+
+.slide-progress {
   position: absolute;
-  bottom: 4.2%;
-  left: 5%;
-  right: 5%;
-  width: auto;
+  bottom: calc(var(--mark-inset) + 18px);
+  left: calc(var(--mark-inset) + var(--mark-length) + 6px);
+  right: calc(var(--mark-inset) + var(--mark-length) + 6px);
   height: 2px;
   background-color: var(--color-mark-light);
-  z-index: 20;
+  z-index: 15;
+  pointer-events: none;
 }
 
-.reveal .progress:after {
-  display: none;
-}
-
-.reveal .progress span {
-  display: block;
+.slide-progress-fill {
   height: 100%;
-  width: 100%;
+  width: 0%;
   background-color: var(--color-orange);
-  transform-origin: 0 0;
-  transform: scaleX(0);
-  transition: transform 0.6s cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: width 0.5s cubic-bezier(0.26, 0.86, 0.44, 0.985);
 }
 
 
