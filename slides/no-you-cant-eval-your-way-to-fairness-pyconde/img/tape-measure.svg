@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 150" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Main circular body -->
+  <circle cx="80" cy="75" r="55"/>
+  <!-- Inner ring -->
+  <circle cx="80" cy="75" r="48"/>
+  <!-- Central hub -->
+  <circle cx="80" cy="75" r="10"/>
+  <!-- Lock button (top) -->
+  <rect x="65" y="15" width="30" height="12" rx="3"/>
+  <line x1="80" y1="18" x2="80" y2="24"/>
+  <!-- Belt clip (back, shown as tab on right) -->
+  <path d="M 135 60 L 145 60 L 148 65 L 148 85 L 145 90 L 135 90"/>
+  <!-- Tape blade emerging from bottom-right -->
+  <path d="M 120 110 L 155 135"/>
+  <!-- Tape blade (extended portion going right) -->
+  <rect x="118" y="108" width="42" height="9" rx="1" transform="rotate(33 118 108)"/>
+  <!-- Hook end tab -->
+  <path d="M 152 130 L 158 133 L 158 140 L 152 137"/>
+  <!-- Tick marks on visible tape portion -->
+  <line x1="125" y1="109" x2="127" y2="114" stroke-width="1"/>
+  <line x1="130" y1="112" x2="132" y2="117" stroke-width="1"/>
+  <line x1="135" y1="115" x2="137" y2="120" stroke-width="1"/>
+  <line x1="140" y1="118" x2="142" y2="123" stroke-width="1"/>
+  <line x1="145" y1="121" x2="147" y2="126" stroke-width="1"/>
+  <!-- Coiled tape hint (inside body) -->
+  <path d="M 55 75 A 25 25 0 1 1 80 50" stroke-dasharray="4 6"/>
+</svg>
