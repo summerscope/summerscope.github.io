@@ -428,9 +428,6 @@
 .layout-split .split-photo > img {
   position: absolute;
   inset: 0;
-}
-
-.layout-split .split-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
