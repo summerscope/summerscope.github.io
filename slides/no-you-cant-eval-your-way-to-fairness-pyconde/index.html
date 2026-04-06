@@ -81,7 +81,7 @@
 
 
 				<!-- ==========================================
-				     SLIDE: AGENDA
+				     SLIDE: AGENDA (numbered list + instrument)
 				     ========================================== -->
 				<section>
 					<div class="slide-wrap has-marks">
@@ -92,9 +92,11 @@
 						<div class="guide-v-left"></div>
 						<div class="guide-v-right"></div>
 
-						<div class="layout-padded">
-							<h2>today</h2>
-							<ol class="agenda-list">
+						<div class="layout-list">
+							<div class="list-graphic">
+								<img src="img/compass.svg" alt="" class="instrument--orange" />
+							</div>
+							<ol>
 								<li>fairness as experience, not state</li>
 								<li>why off-the-shelf evals aren't enough</li>
 								<li>what genuine intervention looks like</li>
@@ -123,15 +125,13 @@
 						<div class="guide-v-left"></div>
 						<div class="guide-v-right"></div>
 
-						<div class="layout-statement">
-							<div>
-								<h2>show of hands</h2>
-								<div class="statement-text">
-									70mm / analog<br/>
-									<span class="text-light">vs</span><br/>
-									IMAX / big digital
-								</div>
-							</div>
+						<div class="layout-padded">
+							<span class="label">Activity</span>
+							<h2>what's your preferred film format?</h2>
+							<ul class="body-list">
+								<li>70mm / analog</li>
+								<li>IMAX / big digital</li>
+							</ul>
 						</div>
 
 						<div class="slide-meta">
@@ -156,10 +156,13 @@
 						<div class="guide-v-left"></div>
 						<div class="guide-v-right"></div>
 
-						<div class="layout-statement">
-							<div class="statement-text">
-								hands up: night owl or early bird?
-							</div>
+						<div class="layout-padded">
+							<span class="label">Activity</span>
+							<h2>are you a night owl or early bird?</h2>
+							<ul class="body-list">
+								<li>night owl</li>
+								<li>early bird</li>
+							</ul>
 						</div>
 
 						<div class="slide-meta">
@@ -184,14 +187,14 @@
 						<div class="guide-v-left"></div>
 						<div class="guide-v-right"></div>
 
-						<div class="layout-statement">
-							<div>
-								<h2>hands up by decade</h2>
-								<div class="statement-text">
-									20s / 30s / 40s+
-								</div>
-								<p class="fragment text-light" style="margin-top: 1.2em;">I've just made a change — only for the last group.</p>
-							</div>
+						<div class="layout-padded">
+							<span class="label">Activity</span>
+							<h2>hands up by decade</h2>
+							<ul class="body-list">
+								<li>20s</li>
+								<li>30s</li>
+								<li>40s+</li>
+							</ul>
 						</div>
 
 						<div class="slide-meta">
@@ -216,12 +219,14 @@
 						<div class="guide-v-left"></div>
 						<div class="guide-v-right"></div>
 
-						<div class="layout-statement">
-							<div class="statement-text">
+						<div class="layout-quote">
+							<div class="quote-mark">&laquo;</div>
+							<blockquote>
 								something was decided about you<br/>
 								on your behalf<br/>
 								without your knowledge or consent
-							</div>
+							</blockquote>
+							<div class="quote-mark">&raquo;</div>
 						</div>
 
 						<div class="slide-meta">
@@ -487,6 +492,7 @@
 				width: 1280,
 				height: 720,
 				margin: 0,
+				transition: 'fade',
 				slideNumber: false,
 				controls: false,
 				progress: false,

@@ -674,6 +674,30 @@
 
 
 /* ============================================================
+   BODY LIST (simple bullet list for activity/content slides)
+   ============================================================ */
+
+.body-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.8em 0 0 0;
+}
+
+.body-list li {
+  padding: 0.3em 0;
+  font-size: 1em;
+  font-weight: 300;
+  color: var(--color-text-light);
+}
+
+.body-list li::before {
+  content: '\2014';
+  margin-right: 0.6em;
+  color: var(--color-mark);
+}
+
+
+/* ============================================================
    UTILITIES
    ============================================================ */
 
