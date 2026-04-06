@@ -1,0 +1,576 @@
+/*
+ * Custom theme for "No, You Can't Eval Your Way to Fairness"
+ * Based on Figma template — warm cream, oxblood accent, registration marks
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&display=swap');
+
+:root {
+  --color-cream: #f0e8e0;
+  --color-cream-dark: #e6ddd4;
+  --color-charcoal: #2d2d2d;
+  --color-oxblood: #7a2e28;
+  --color-oxblood-light: #9a3e36;
+  --color-text: #1a1a1a;
+  --color-text-light: #4a4a4a;
+  --color-mark: #c8bfb6;
+  --color-mark-light: #d8d0c8;
+
+  --font-serif: 'Source Serif 4', 'Source Serif Pro', Georgia, serif;
+
+  --slide-padding: 60px;
+  --mark-inset: 28px;
+  --mark-length: 18px;
+  --mark-weight: 1px;
+}
+
+
+/* ============================================================
+   REVEAL.JS THEME OVERRIDES
+   ============================================================ */
+
+.reveal-viewport {
+  background: var(--color-charcoal);
+}
+
+.reveal {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+.reveal .slides {
+  text-align: left;
+}
+
+.reveal .slides section {
+  background: var(--color-cream);
+  padding: var(--slide-padding);
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+
+/* Disable reveal's default centering — we handle layout ourselves */
+.reveal .slides section {
+  top: 0 !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  color: var(--color-text);
+  text-transform: none;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  margin: 0 0 0.4em 0;
+  text-align: left;
+}
+
+.reveal h1 { font-size: 2.4em; }
+.reveal h2 { font-size: 1.8em; }
+.reveal h3 { font-size: 1.3em; font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em; }
+
+.reveal p {
+  margin: 0 0 0.8em 0;
+  line-height: 1.55;
+}
+
+.reveal a {
+  color: var(--color-oxblood);
+}
+
+.reveal strong {
+  font-weight: 700;
+}
+
+.reveal em {
+  font-style: italic;
+}
+
+/* Hide default reveal progress/controls — we have our own metadata */
+.reveal .progress { display: none; }
+
+
+/* ============================================================
+   REGISTRATION MARKS
+   Corner crop marks on every slide, like a print proof sheet.
+   Applied via pseudo-elements on each section.
+   ============================================================ */
+
+.reveal .slides section {
+  position: relative;
+}
+
+/* Top-left corner marks */
+.reveal .slides section::before {
+  content: '';
+  position: absolute;
+  top: var(--mark-inset);
+  left: var(--mark-inset);
+  width: var(--mark-length);
+  height: var(--mark-length);
+  border-top: var(--mark-weight) solid var(--color-mark);
+  border-left: var(--mark-weight) solid var(--color-mark);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Bottom-right corner marks */
+.reveal .slides section::after {
+  content: '';
+  position: absolute;
+  bottom: var(--mark-inset);
+  right: var(--mark-inset);
+  width: var(--mark-length);
+  height: var(--mark-length);
+  border-bottom: var(--mark-weight) solid var(--color-mark);
+  border-right: var(--mark-weight) solid var(--color-mark);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Extended guide lines (thin horizontal/vertical rules) */
+.reveal .slides section .reg-marks {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.reveal .slides section .reg-marks::before {
+  content: '';
+  position: absolute;
+  top: var(--mark-inset);
+  left: calc(var(--mark-inset) + var(--mark-length) + 8px);
+  right: calc(var(--mark-inset) + var(--mark-length) + 8px);
+  height: 0;
+  border-top: var(--mark-weight) solid var(--color-mark-light);
+}
+
+.reveal .slides section .reg-marks::after {
+  content: '';
+  position: absolute;
+  left: var(--mark-inset);
+  top: calc(var(--mark-inset) + var(--mark-length) + 8px);
+  bottom: calc(var(--mark-inset) + var(--mark-length) + 8px);
+  width: 0;
+  border-left: var(--mark-weight) solid var(--color-mark-light);
+}
+
+/* Bottom guide line — needs an extra element */
+.reveal .slides section .reg-bottom::before {
+  content: '';
+  position: absolute;
+  bottom: var(--mark-inset);
+  left: calc(var(--mark-inset) + var(--mark-length) + 8px);
+  right: calc(var(--mark-inset) + var(--mark-length) + 8px);
+  height: 0;
+  border-top: var(--mark-weight) solid var(--color-mark-light);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Right guide line */
+.reveal .slides section .reg-bottom::after {
+  content: '';
+  position: absolute;
+  right: var(--mark-inset);
+  top: calc(var(--mark-inset) + var(--mark-length) + 8px);
+  bottom: calc(var(--mark-inset) + var(--mark-length) + 8px);
+  width: 0;
+  border-left: var(--mark-weight) solid var(--color-mark-light);
+  pointer-events: none;
+  z-index: 5;
+}
+
+
+/* ============================================================
+   SLIDE NUMBER (metadata box, top-right)
+   ============================================================ */
+
+.reveal .slide-number {
+  position: absolute;
+  top: calc(var(--mark-inset) - 6px);
+  right: calc(var(--mark-inset) - 6px);
+  background: transparent;
+  color: var(--color-oxblood);
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-weight: 400;
+  border: 1px solid var(--color-oxblood);
+  padding: 2px 8px;
+  z-index: 20;
+  border-radius: 2px;
+}
+
+.reveal .slide-number a {
+  color: var(--color-oxblood);
+  text-decoration: none;
+}
+
+
+/* ============================================================
+   METADATA BAR (bottom strip with author, conf, etc.)
+   ============================================================ */
+
+.slide-meta {
+  position: absolute;
+  bottom: calc(var(--mark-inset) + 4px);
+  left: calc(var(--mark-inset) + var(--mark-length) + 16px);
+  right: calc(var(--mark-inset) + var(--mark-length) + 16px);
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-serif);
+  font-size: 11px;
+  color: var(--color-mark);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  z-index: 15;
+  pointer-events: none;
+}
+
+
+/* ============================================================
+   LABEL (bordered tag — "AUGUST 2026", "CHAPTER ONE", etc.)
+   ============================================================ */
+
+.label {
+  display: inline-block;
+  font-family: var(--font-serif);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-oxblood);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border: 1px solid var(--color-oxblood);
+  padding: 4px 12px 3px;
+  border-radius: 2px;
+  margin-bottom: 1em;
+  line-height: 1;
+}
+
+
+/* ============================================================
+   NUMBERED CIRCLE (for multi-column layouts)
+   ============================================================ */
+
+.num-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid var(--color-oxblood);
+  border-radius: 50%;
+  font-family: var(--font-serif);
+  font-size: 15px;
+  color: var(--color-oxblood);
+  margin-bottom: 1em;
+}
+
+
+/* ============================================================
+   PHOTO TREATMENT
+   B&W + grain + slight warm duotone
+   ============================================================ */
+
+.photo-bw {
+  filter: grayscale(100%) contrast(1.05) brightness(0.95);
+  mix-blend-mode: multiply;
+}
+
+.photo-duotone {
+  position: relative;
+}
+
+.photo-duotone img {
+  filter: grayscale(100%) contrast(1.1);
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-duotone::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(122, 46, 40, 0.12) 0%,
+    rgba(240, 232, 224, 0.08) 100%
+  );
+  mix-blend-mode: color;
+  pointer-events: none;
+}
+
+
+/* ============================================================
+   CHEVRON QUOTES (for quote slides)
+   ============================================================ */
+
+.quote-mark {
+  color: var(--color-oxblood);
+  font-size: 3em;
+  line-height: 1;
+  font-weight: 300;
+}
+
+.quote-mark--open {
+  text-align: left;
+  margin-bottom: 0.2em;
+}
+
+.quote-mark--close {
+  text-align: right;
+  margin-top: 0.2em;
+}
+
+
+/* ============================================================
+   LAYOUT: SPLIT (50/50 or custom)
+   Used for title slide, section divider, graphic+text
+   ============================================================ */
+
+.layout-split {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  padding: 0 !important;
+  align-items: stretch;
+}
+
+.layout-split .split-text {
+  padding: var(--slide-padding);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.layout-split .split-photo {
+  position: relative;
+  overflow: hidden;
+}
+
+.layout-split .split-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.1);
+}
+
+
+/* ============================================================
+   LAYOUT: PHOTO TOP + TEXT BOTTOM
+   Used for full-width photo, photo+caption
+   ============================================================ */
+
+.layout-photo-top {
+  display: grid !important;
+  grid-template-rows: 1fr auto;
+  gap: 0;
+  padding: 0 !important;
+}
+
+.layout-photo-top .photo-area {
+  position: relative;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.layout-photo-top .photo-area img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.1);
+}
+
+.layout-photo-top .text-area {
+  padding: 28px var(--slide-padding) 40px;
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.layout-photo-top .text-area .label {
+  flex-shrink: 0;
+  margin-bottom: 0;
+  margin-top: 3px;
+}
+
+.layout-photo-top .text-area h2 {
+  margin-bottom: 0;
+}
+
+
+/* ============================================================
+   LAYOUT: MULTI-COLUMN (2 or 3 columns)
+   ============================================================ */
+
+.layout-columns {
+  display: grid !important;
+  align-items: end;
+  padding: var(--slide-padding) !important;
+}
+
+.layout-columns.cols-2 {
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+.layout-columns.cols-3 {
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 48px;
+}
+
+.layout-columns .col h3 {
+  margin-top: 0.8em;
+}
+
+
+/* ============================================================
+   LAYOUT: STATEMENT (big text, centered-ish)
+   ============================================================ */
+
+.layout-statement {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--slide-padding) !important;
+}
+
+.layout-statement .statement-text {
+  font-size: 1.6em;
+  font-weight: 600;
+  line-height: 1.4;
+  max-width: 85%;
+}
+
+.layout-statement .statement-footer {
+  margin-top: auto;
+}
+
+
+/* ============================================================
+   LAYOUT: QUOTE (centered)
+   ============================================================ */
+
+.layout-quote {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--slide-padding) 100px !important;
+}
+
+.layout-quote blockquote {
+  font-size: 1.8em;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+  color: var(--color-text);
+}
+
+.layout-quote .quote-attribution {
+  margin-top: 1.5em;
+}
+
+
+/* ============================================================
+   LAYOUT: NUMBERED LIST (graphic left, list right)
+   ============================================================ */
+
+.layout-list {
+  display: grid !important;
+  grid-template-columns: 1fr 2fr;
+  gap: 40px;
+  align-items: center;
+  padding: var(--slide-padding) !important;
+}
+
+.layout-list .list-graphic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.layout-list .list-graphic img {
+  max-width: 100%;
+  max-height: 300px;
+  color: var(--color-oxblood);
+}
+
+.layout-list ol {
+  list-style: none;
+  counter-reset: item;
+  padding: 0;
+  margin: 0;
+}
+
+.layout-list ol li {
+  counter-increment: item;
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  padding: 0.5em 0;
+  font-size: 1.05em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  border-bottom: none;
+}
+
+.layout-list ol li::before {
+  content: counter(item, decimal-leading-zero);
+  font-size: 0.85em;
+  font-weight: 400;
+  color: var(--color-text-light);
+  min-width: 2em;
+}
+
+
+/* ============================================================
+   INSTRUMENT SVG STYLING
+   SVGs use currentColor, so color them via CSS
+   ============================================================ */
+
+.instrument {
+  color: var(--color-oxblood);
+}
+
+.instrument img {
+  color: inherit;
+}
+
+/* For inline SVGs */
+.instrument svg {
+  stroke: var(--color-oxblood);
+}
+
+
+/* ============================================================
+   UTILITY CLASSES
+   ============================================================ */
+
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-small { font-size: 0.8em; }
+.text-large { font-size: 1.4em; }
+.text-light { color: var(--color-text-light); }
+.mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
+.uppercase { text-transform: uppercase; letter-spacing: 0.04em; }
+
+/* No padding variant for edge-to-edge layouts */
+.no-pad { padding: 0 !important; }
