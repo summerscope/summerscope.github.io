@@ -336,24 +336,6 @@
 				controls: false,
 				progress: true,
 				plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
-			}).then(() => {
-				// Convert reveal's horizontal scaleX progress to vertical scaleY
-				const progressSpan = document.querySelector('.reveal .progress span');
-				if (progressSpan) {
-					const observer = new MutationObserver(() => {
-						const transform = progressSpan.style.transform;
-						if (transform && transform.includes('scaleX')) {
-							const val = transform.match(/scaleX\(([^)]+)\)/);
-							if (val) {
-								progressSpan.style.transform = 'scaleY(' + val[1] + ')';
-							}
-						}
-					});
-					observer.observe(progressSpan, { attributes: true, attributeFilter: ['style'] });
-					// Trigger initial update
-					const event = new Event('slidechanged');
-					Reveal.dispatchEvent(event);
-				}
 			});
 		</script>
 	</body>
