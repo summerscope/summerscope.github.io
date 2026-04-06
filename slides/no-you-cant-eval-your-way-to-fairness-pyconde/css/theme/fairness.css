@@ -205,17 +205,19 @@
 
 .reveal .slide-number {
   position: absolute;
-  top: calc(var(--mark-inset) - 4px);
-  right: calc(var(--mark-inset) - 4px);
-  background: transparent;
+  top: var(--mark-inset);
+  right: var(--mark-inset);
+  background: var(--color-cream);
   color: var(--color-orange);
   font-family: var(--font-main);
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 400;
+  letter-spacing: 0.04em;
   border: 1px solid var(--color-orange);
-  padding: 2px 7px;
+  padding: 3px 8px 2px;
   z-index: 20;
   border-radius: 1px;
+  line-height: 1;
 }
 
 .reveal .slide-number a {
@@ -230,18 +232,22 @@
 
 .slide-meta {
   position: absolute;
-  bottom: calc(var(--mark-inset) + 3px);
-  left: calc(var(--mark-inset) + var(--mark-length) + 12px);
-  right: calc(var(--mark-inset) + var(--mark-length) + 12px);
+  bottom: var(--mark-inset);
+  left: calc(var(--mark-inset) + var(--mark-length) + 6px);
+  right: calc(var(--mark-inset) + var(--mark-length) + 6px);
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-family: var(--font-main);
   font-size: 10px;
-  color: var(--color-mark);
+  color: var(--color-text-light);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   z-index: 15;
   pointer-events: none;
+  background: rgba(240, 232, 224, 0.85);
+  padding: 4px 10px 3px;
+  border-radius: 1px;
 }
 
 
@@ -251,9 +257,10 @@
 
 .label {
   display: inline-block;
+  align-self: flex-start;
   font-family: var(--font-main);
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--color-orange);
   text-transform: uppercase;
   letter-spacing: 0.06em;
