@@ -4,7 +4,7 @@
  * Option B layout: grid/flex on inner wrappers, not on <section>.
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&display=swap');
 
 :root {
   --color-cream: #f0e8e0;
@@ -17,7 +17,7 @@
   --color-mark: #c8bfb6;
   --color-mark-light: #d8d0c8;
 
-  --font-serif: 'Source Serif 4', 'Source Serif Pro', Georgia, serif;
+  --font-main: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
 
   --slide-padding: 60px;
   --mark-inset: 24px;
@@ -36,9 +36,9 @@
 }
 
 .reveal {
-  font-family: var(--font-serif);
+  font-family: var(--font-main);
   font-size: 26px;
-  font-weight: 400;
+  font-weight: 300;
   color: var(--color-text);
 }
 
@@ -56,8 +56,8 @@
 
 /* Typography */
 .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
-  font-family: var(--font-serif);
-  font-weight: 700;
+  font-family: var(--font-main);
+  font-weight: 500;
   color: var(--color-text);
   text-transform: none;
   letter-spacing: -0.01em;
@@ -68,7 +68,7 @@
 
 .reveal h1 { font-size: 2.2em; }
 .reveal h2 { font-size: 1.7em; }
-.reveal h3 { font-size: 1.1em; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+.reveal h3 { font-size: 1.1em; font-weight: 500; text-transform: uppercase; letter-spacing: 0.04em; }
 
 .reveal p {
   margin: 0 0 0.7em 0;
@@ -76,7 +76,7 @@
 }
 
 .reveal a { color: var(--color-orange); }
-.reveal strong { font-weight: 700; }
+.reveal strong { font-weight: 500; }
 .reveal em { font-style: italic; }
 
 /* Hide default reveal chrome */
@@ -209,7 +209,7 @@
   right: calc(var(--mark-inset) - 4px);
   background: transparent;
   color: var(--color-orange);
-  font-family: var(--font-serif);
+  font-family: var(--font-main);
   font-size: 13px;
   font-weight: 400;
   border: 1px solid var(--color-orange);
@@ -235,7 +235,7 @@
   right: calc(var(--mark-inset) + var(--mark-length) + 12px);
   display: flex;
   justify-content: space-between;
-  font-family: var(--font-serif);
+  font-family: var(--font-main);
   font-size: 10px;
   color: var(--color-mark);
   letter-spacing: 0.06em;
@@ -251,7 +251,7 @@
 
 .label {
   display: inline-block;
-  font-family: var(--font-serif);
+  font-family: var(--font-main);
   font-size: 12px;
   font-weight: 600;
   color: var(--color-orange);
@@ -282,7 +282,7 @@
   height: 34px;
   border: 1.5px solid var(--color-orange);
   border-radius: 50%;
-  font-family: var(--font-serif);
+  font-family: var(--font-main);
   font-size: 14px;
   color: var(--color-orange);
   flex-shrink: 0;
