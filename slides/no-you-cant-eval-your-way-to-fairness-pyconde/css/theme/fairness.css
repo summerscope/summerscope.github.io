@@ -200,29 +200,40 @@
 
 
 /* ============================================================
-   SLIDE NUMBER (bordered box, top-right)
+   SLIDE NUMBER — disabled, replaced by custom progress
    ============================================================ */
 
 .reveal .slide-number {
-  position: absolute;
-  top: var(--mark-inset);
-  right: var(--mark-inset);
-  background: var(--color-cream);
-  color: var(--color-orange);
-  font-family: var(--font-main);
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.04em;
-  border: 1px solid var(--color-orange);
-  padding: 3px 8px 2px;
-  z-index: 20;
-  border-radius: 1px;
-  line-height: 1;
+  display: none !important;
 }
 
-.reveal .slide-number a {
-  color: var(--color-orange);
-  text-decoration: none;
+
+/* ============================================================
+   PROGRESS BAR — restyled as vertical line on right edge
+   Sits along the right guide line position.
+   ============================================================ */
+
+.reveal .progress {
+  display: block;
+  position: absolute;
+  top: var(--mark-inset);
+  bottom: var(--mark-inset);
+  right: var(--mark-inset);
+  left: auto;
+  width: 2px;
+  height: auto;
+  background-color: var(--color-mark-light);
+  z-index: 20;
+}
+
+.reveal .progress span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-orange);
+  transform-origin: 0 0;
+  transform: scaleY(0);
+  transition: transform 0.6s cubic-bezier(0.26, 0.86, 0.44, 0.985);
 }
 
 
@@ -232,7 +243,7 @@
 
 .slide-meta {
   position: absolute;
-  bottom: var(--mark-inset);
+  bottom: calc(var(--mark-inset) + 2px);
   left: calc(var(--mark-inset) + var(--mark-length) + 6px);
   right: calc(var(--mark-inset) + var(--mark-length) + 6px);
   display: flex;
@@ -245,9 +256,11 @@
   text-transform: uppercase;
   z-index: 15;
   pointer-events: none;
-  background: rgba(240, 232, 224, 0.85);
-  padding: 4px 10px 3px;
-  border-radius: 1px;
+}
+
+.slide-meta span {
+  background: var(--color-cream);
+  padding: 2px 6px 1px;
 }
 
 

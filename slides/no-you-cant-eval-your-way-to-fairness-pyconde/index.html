@@ -107,8 +107,8 @@
 							</div>
 						</div>
 
-						<!-- Instrument overlay: calipers -->
-						<div class="instrument instrument--blue" style="width: 200px; bottom: 10%; left: calc(50% - 100px);">
+						<!-- Instrument overlay: calipers, vertical, straddling the split at top -->
+						<div class="instrument instrument--blue" style="width: 160px; top: 8%; left: calc(50% - 80px); transform: rotate(90deg);">
 							<img src="img/calipers.svg" alt="" />
 						</div>
 
@@ -332,10 +332,28 @@
 				width: 1280,
 				height: 720,
 				margin: 0,
-				slideNumber: 'c/t',
+				slideNumber: false,
 				controls: false,
-				progress: false,
+				progress: true,
 				plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+			}).then(() => {
+				// Convert reveal's horizontal scaleX progress to vertical scaleY
+				const progressSpan = document.querySelector('.reveal .progress span');
+				if (progressSpan) {
+					const observer = new MutationObserver(() => {
+						const transform = progressSpan.style.transform;
+						if (transform && transform.includes('scaleX')) {
+							const val = transform.match(/scaleX\(([^)]+)\)/);
+							if (val) {
+								progressSpan.style.transform = 'scaleY(' + val[1] + ')';
+							}
+						}
+					});
+					observer.observe(progressSpan, { attributes: true, attributeFilter: ['style'] });
+					// Trigger initial update
+					const event = new Event('slidechanged');
+					Reveal.dispatchEvent(event);
+				}
 			});
 		</script>
 	</body>
