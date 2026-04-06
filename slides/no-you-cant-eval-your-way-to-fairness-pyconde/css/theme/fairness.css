@@ -348,8 +348,9 @@
 
 /* ============================================================
    INSTRUMENT SVG OVERLAYS
-   Positioned absolutely within .slide-wrap. Use .instrument
-   and position with inline style or modifier classes.
+   Positioned absolutely within their parent cell (split-photo,
+   photo-area, or layout container). The parent must have
+   position: relative and overflow: visible.
    ============================================================ */
 
 .instrument {
@@ -421,7 +422,12 @@
 
 .layout-split .split-photo {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+}
+
+.layout-split .split-photo > img {
+  position: absolute;
+  inset: 0;
 }
 
 .layout-split .split-photo img {
