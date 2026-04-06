@@ -225,7 +225,7 @@
 
 .slide-progress {
   position: absolute;
-  bottom: calc(var(--mark-inset) + 18px);
+  bottom: calc(var(--mark-inset) - 6px);
   left: calc(var(--mark-inset) + var(--mark-length) + 6px);
   right: calc(var(--mark-inset) + var(--mark-length) + 6px);
   height: 2px;
