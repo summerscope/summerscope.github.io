@@ -289,6 +289,64 @@ For 3 columns use `cols-3` instead of `cols-2` and add a third `.col`.
 
 ---
 
+## `timeline`
+
+Horizontal track with 4 markers, items alternating above/below the line. Good for: sequential stages, phases of work, chronology.
+
+```
++-------------------------------------------+
+|                                           |
+|  header                                   |
+|                                           |
+|  SUBHEAD            SUBHEAD               |
+|  description copy   description copy      |
+|  │                  │                     |
+|  ●────────●─────────●────────●            |
+|  01       02        03       04           |
+|           │                  │            |
+|           SUBHEAD            SUBHEAD      |
+|           description copy   description  |
+|                                           |
++-------------------------------------------+
+```
+
+```html
+<div class="layout-timeline">
+  <h2>header</h2>
+  <div class="timeline">
+    <!-- Items above the track (positions 1 and 3) -->
+    <div class="timeline-item timeline-item--above" style="grid-column: 1;">
+      <h3>first item</h3>
+      <p>description copy here.</p>
+    </div>
+    <div class="timeline-item timeline-item--above" style="grid-column: 3;">
+      <h3>third item</h3>
+      <p>description copy here.</p>
+    </div>
+
+    <!-- Markers (all 4 positions) -->
+    <div class="timeline-marker" style="grid-column: 1;">01</div>
+    <div class="timeline-marker" style="grid-column: 2;">02</div>
+    <div class="timeline-marker" style="grid-column: 3;">03</div>
+    <div class="timeline-marker" style="grid-column: 4;">04</div>
+
+    <!-- Items below the track (positions 2 and 4) -->
+    <div class="timeline-item timeline-item--below" style="grid-column: 2;">
+      <h3>second item</h3>
+      <p>description copy here.</p>
+    </div>
+    <div class="timeline-item timeline-item--below" style="grid-column: 4;">
+      <h3>fourth item</h3>
+      <p>description copy here.</p>
+    </div>
+  </div>
+</div>
+```
+
+Marker text can be anything short — `01`/`02`/`03`/`04`, years, labels. Items must be explicitly placed with `grid-column: N`. Fixed at 4 markers by default.
+
+---
+
 ## `padded`
 
 Simple label + heading + bullet list. Good for: activity prompts, audience questions, straightforward content slides.
