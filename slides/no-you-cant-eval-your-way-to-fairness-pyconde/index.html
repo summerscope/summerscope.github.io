@@ -415,6 +415,259 @@
 
 
 				<!-- ==========================================
+				     SECTION 3 — WHY OFF-THE-SHELF EVALS AREN'T ENOUGH
+				     ========================================== -->
+
+				<!-- ==========================================
+				     SLIDE: S3 FRAMING — statement
+				     ========================================== -->
+				<section>
+					<div class="slide-wrap has-marks">
+						<div class="mark-tr"></div>
+						<div class="mark-bl"></div>
+						<div class="guide-h-top"></div>
+						<div class="guide-h-bottom"></div>
+						<div class="guide-v-left"></div>
+						<div class="guide-v-right"></div>
+
+						<div class="layout-statement">
+							<div class="statement-text">
+								before we measure, we need to agree on what we're measuring.
+							</div>
+							<div class="statement-label">
+								<span class="label">section three</span>
+							</div>
+						</div>
+
+						<!-- Ruler accent, top right, faded -->
+						<div class="instrument instrument--orange" style="width: 180px; top: 50px; right: 60px; opacity: 0.3;">
+							<img src="img/ruler.svg" alt="" />
+						</div>
+
+						<div class="slide-meta">
+							<span>Laura Summers</span>
+							<span>PyCon DE & PyData 2026</span>
+						</div>
+
+						<aside class="notes">'We have felt what unfairness feels like. Now I want to give you some vocabulary — not to replace that feeling, but to give it some structure. Two categories of harm. Both matter. They are not the same thing.'</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: THE TWO HARM TYPES — columns-2
+				     ========================================== -->
+				<section>
+					<div class="slide-wrap has-marks">
+						<div class="mark-tr"></div>
+						<div class="mark-bl"></div>
+						<div class="guide-h-top"></div>
+						<div class="guide-h-bottom"></div>
+						<div class="guide-v-left"></div>
+						<div class="guide-v-right"></div>
+
+						<div class="layout-columns cols-2">
+							<div class="col">
+								<span class="num-circle">1</span>
+								<h3>harms of allocation</h3>
+								<p>when a system withholds or unfairly distributes opportunities, resources or penalties.</p>
+							</div>
+							<div class="col">
+								<span class="num-circle" style="border-color: var(--color-blue); color: var(--color-blue);">2</span>
+								<h3>harms of representation</h3>
+								<p>when a system reinforces the subordination of a group through how it depicts or describes people.</p>
+							</div>
+						</div>
+
+						<p class="text-light text-small" style="position: absolute; bottom: calc(var(--mark-inset) + 42px); left: var(--slide-padding); right: var(--slide-padding);">Barocas, Crawford, Shapiro &amp; Wallach, 2017 &middot; Crawford, NeurIPS 2017</p>
+
+						<div class="slide-meta">
+							<span>Laura Summers</span>
+							<span>PyCon DE & PyData 2026</span>
+						</div>
+
+						<aside class="notes">'These two categories come from Kate Crawford's 2017 NeurIPS keynote, The Trouble with Bias, and a paper by Barocas, Crawford, Shapiro and Wallach from the same year. Allocative harms are about what you get or don't get — a loan, a job, a shorter sentence, a higher insurance premium. Immediate, legible, and the ones most fairness tooling tries to measure. Representational harms are subtler and longer-term — about how people are seen, or not seen, in data and outputs. They shape what is considered normal, who is considered capable, who is considered to exist at all. And they sit at the root of most allocative harms downstream.'</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: REPRESENTATION — low/high risk — columns-2
+				     ========================================== -->
+				<section>
+					<div class="slide-wrap has-marks">
+						<div class="mark-tr"></div>
+						<div class="mark-bl"></div>
+						<div class="guide-h-top"></div>
+						<div class="guide-h-bottom"></div>
+						<div class="guide-v-left"></div>
+						<div class="guide-v-right"></div>
+
+						<div class="layout-columns cols-2">
+							<div class="col">
+								<span class="num-circle">1</span>
+								<h3>low risk</h3>
+								<p>a face filter that puts bunny ears on you. cute if your face is detected. the effect breaks for darker skin tones. annoying. a minor indignity. nobody's life is at stake.</p>
+							</div>
+							<div class="col">
+								<span class="num-circle" style="border-color: var(--color-blue); color: var(--color-blue);">2</span>
+								<h3>high risk</h3>
+								<p>a teenage girl searches for mathematicians and sees almost entirely white men. she updates her sense of what's possible. she changes course. the erasure compounds.</p>
+							</div>
+						</div>
+
+						<div class="slide-meta">
+							<span>Laura Summers</span>
+							<span>PyCon DE & PyData 2026</span>
+						</div>
+
+						<aside class="notes">'Two examples of representational harm, very different stakes. A Snapchat-style filter trained predominantly on lighter skin tones — for users with darker skin the ears sit wrong, the effect breaks. Annoying. A minor indignity. But the system is saying quietly: we didn't really think about you when we built this. Now the high-stakes version. A teenage girl, good at maths, trying to work out what she could become. She searches for mathematicians, scientists, engineers. Almost entirely white men. She updates her sense of what's possible. She changes course. This is the Hidden Figures problem — not just that Katherine Johnson was overlooked in her lifetime, but that the erasure compounds. Every generation of girls who can't see themselves in the field is a generation less likely to enter it, which means less representation in the next generation's data. Representational harm is not just a reflection of inequality. It is a mechanism for reproducing it.'</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: ALLOCATION — low/high risk — columns-2
+				     ========================================== -->
+				<section>
+					<div class="slide-wrap has-marks">
+						<div class="mark-tr"></div>
+						<div class="mark-bl"></div>
+						<div class="guide-h-top"></div>
+						<div class="guide-h-bottom"></div>
+						<div class="guide-v-left"></div>
+						<div class="guide-v-right"></div>
+
+						<div class="layout-columns cols-2">
+							<div class="col">
+								<span class="num-circle">1</span>
+								<h3>low risk</h3>
+								<p>an automated rewards system at a doctor's surgery. algorithm de-prioritises the treat for patients outside the target age range. a child doesn't get a candy. upsetting but recoverable.</p>
+							</div>
+							<div class="col">
+								<span class="num-circle" style="border-color: var(--color-blue); color: var(--color-blue);">2</span>
+								<h3>high risk</h3>
+								<p>COMPAS. twice as likely to falsely flag Black defendants as future offenders. people stayed in prison longer based on a score nobody could explain. the time does not come back. <span class="text-light">(Angwin et al., ProPublica 2016)</span></p>
+							</div>
+						</div>
+
+						<div class="slide-meta">
+							<span>Laura Summers</span>
+							<span>PyCon DE & PyData 2026</span>
+						</div>
+
+						<aside class="notes">'Same structure, allocation side. Low stakes: an automated patient rewards system that de-prioritises the treat for patients outside the target age range. A child doesn't get a candy. Real harm, small, recoverable. High stakes: COMPAS. A risk assessment algorithm used in US courts to predict likelihood of reoffending. ProPublica's 2016 investigation found it was twice as likely to falsely flag Black defendants as future offenders compared to white defendants. Designed as a decision aid. In practice, judges deferred to it. People stayed in prison longer, or were denied bail, based on a score nobody in the courtroom could fully explain. The harm is not recoverable. The time does not come back. The point connecting all four examples: the same habits of mind that produce the broken filter are the same habits that, at higher stakes, produce COMPAS.'</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: THE FOUR JOBS — list
+				     ========================================== -->
+				<section>
+					<div class="slide-wrap has-marks">
+						<div class="mark-tr"></div>
+						<div class="mark-bl"></div>
+						<div class="guide-h-top"></div>
+						<div class="guide-h-bottom"></div>
+						<div class="guide-v-left"></div>
+						<div class="guide-v-right"></div>
+
+						<div class="layout-list">
+							<div class="list-graphic">
+								<img src="img/compass.svg" alt="" class="instrument--orange" />
+							</div>
+							<div>
+								<span class="label">a map of the work</span>
+								<ol>
+									<li>understand the world &mdash; historical inequality, structural bias, how we got here</li>
+									<li>understand your ingredients &mdash; what's baked into the foundation models and systems you build on</li>
+									<li>understand your system &mdash; risk assessment of your specific context, in production</li>
+									<li>intervene &mdash; this is where the talk lives</li>
+								</ol>
+							</div>
+						</div>
+
+						<div class="slide-meta">
+							<span>Laura Summers</span>
+							<span>PyCon DE & PyData 2026</span>
+						</div>
+
+						<aside class="notes">'Four jobs. Jobs one, two and three are structurally identical — build intuition, then measure — at three different levels of abstraction. Job one is the world. Job two is your ingredients. Job three is your specific system. Most people only ever do job three, and usually only after the system is already in production. Jobs one and two are almost always skipped. Job four — intervention — is almost always done badly or not at all. That is what we are building toward. And one more thing: any attempt to do this work without intersectionality will systematically miss the most marginalised people. Intersectionality is not optional. It is the difference between measuring the average and measuring the people who are most at risk.'</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: MEASURE + INTUITION — padded
+				     ========================================== -->
+				<section>
+					<div class="slide-wrap has-marks">
+						<div class="mark-tr"></div>
+						<div class="mark-bl"></div>
+						<div class="guide-h-top"></div>
+						<div class="guide-h-bottom"></div>
+						<div class="guide-v-left"></div>
+						<div class="guide-v-right"></div>
+
+						<div class="layout-padded">
+							<span class="label">qualitative + quantitative</span>
+							<h2>a metric is only as good as the hypothesis behind it</h2>
+							<ul class="body-list">
+								<li>study the domain &mdash; read, follow your curiosity</li>
+								<li>talk to people affected by the system</li>
+								<li>use scanning tools and design activities</li>
+								<li>then measure what you've learned to look for</li>
+							</ul>
+						</div>
+
+						<div class="slide-meta">
+							<span>Laura Summers</span>
+							<span>PyCon DE & PyData 2026</span>
+						</div>
+
+						<aside class="notes">'When I say measure harm I do not only mean run a library against your outputs. Quantitative and qualitative are complements, not alternatives. The library does not tell you what to look for. Domain knowledge does. Reading the literature does. Talking to people whose lives the system touches does. Design activities — bias taxonomy worksheets, consequence scanning, the tarot cards of tech — these are qualitative tools for forming the hypothesis you then test. You cannot measure what you have not imagined. A pointer to resources is in the talk notes — there is a curated list at github.com/summerscope/mapping-fair-ml.'</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: BRIDGE TO SECTION 4 — statement
+				     ========================================== -->
+				<section>
+					<div class="slide-wrap has-marks">
+						<div class="mark-tr"></div>
+						<div class="mark-bl"></div>
+						<div class="guide-h-top"></div>
+						<div class="guide-h-bottom"></div>
+						<div class="guide-v-left"></div>
+						<div class="guide-v-right"></div>
+
+						<div class="layout-statement">
+							<div class="statement-text">
+								running a preconfigured metric is not a moral position. it is the absence of one.
+							</div>
+							<div class="statement-label">
+								<span class="label">the gap</span>
+							</div>
+						</div>
+
+						<!-- Set-square accent, bottom left, faded -->
+						<div class="instrument instrument--blue" style="width: 130px; bottom: 90px; left: 60px; opacity: 0.25;">
+							<img src="img/set-square.svg" alt="" />
+						</div>
+
+						<div class="slide-meta">
+							<span>Laura Summers</span>
+							<span>PyCon DE & PyData 2026</span>
+						</div>
+
+						<aside class="notes">'These tools help us try to understand the state of the world — and that is valuable. But even if you successfully map what has happened historically, that is not the same as knowing how to intervene going forwards. What is the fair state you are actually working towards? Does fairness look like 50/50 men and non-men in tech? Equal representation of all genders and ethnicities in every profession relative to base population? These are genuinely hard questions that reasonable people disagree about. Simply running a preconfigured fairness metric across your system is a model-free approach to a question that demands a model. You are handing your moral responsibility to someone else's assumptions — which may or may not apply to your context, your domain, or your users.'</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
 				     SLIDE: SECTION DIVIDER
 				     Photo left, chapter label + heading right.
 				     ========================================== -->
