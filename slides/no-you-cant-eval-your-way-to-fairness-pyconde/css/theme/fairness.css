@@ -461,6 +461,64 @@
 
 
 /* ============================================================
+   LAYOUT: PHOTO HALF + COLUMNS
+   Photo fills top half of slide, 2 columns fill bottom half.
+   Used for dark mode scenario reveal.
+   ============================================================ */
+
+.layout-photo-columns {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  width: 100%;
+  height: 100%;
+}
+
+.layout-photo-columns > .photo-area {
+  position: relative;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.layout-photo-columns > .photo-area > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.05);
+  display: block;
+}
+
+.layout-photo-columns > .cols-area {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  padding: 32px var(--slide-padding);
+  align-items: start;
+  min-height: 0;
+  box-sizing: border-box;
+}
+
+.layout-photo-columns .col h3 {
+  margin-top: 0.6em;
+}
+
+.layout-photo-columns .col p {
+  font-size: 0.9em;
+  color: var(--color-text-light);
+}
+
+
+/* Outline check icon for implicit/uncaptured bullet items */
+.body-list li .outline-check {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.4em;
+  color: var(--color-text-light);
+}
+
+
+/* ============================================================
    LAYOUT: PADDED (simple centered content with padding)
    ============================================================ */
 
