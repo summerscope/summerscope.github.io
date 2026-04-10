@@ -688,6 +688,318 @@
 
 
 				<!-- ==========================================
+				     SECTION 4 — FAIRNESS WASHING
+				     ========================================== -->
+
+				<!-- ==========================================
+				     SLIDE: FAIRNESS WASHING — statement
+				     ========================================== -->
+				<section>
+					<div class="slide-wrap has-marks">
+						<div class="mark-tr"></div>
+						<div class="mark-bl"></div>
+						<div class="guide-h-top"></div>
+						<div class="guide-h-bottom"></div>
+						<div class="guide-v-left"></div>
+						<div class="guide-v-right"></div>
+
+						<div class="layout-statement">
+							<div class="statement-text">
+								installing a library is not a moral position. it is the absence of one.
+							</div>
+							<div class="statement-label">
+								<span class="label">fairness washing</span>
+							</div>
+						</div>
+
+						<!-- Set-square accent, bottom left, faded -->
+						<div class="instrument instrument--blue" style="width: 130px; bottom: 90px; left: 60px; opacity: 0.25;">
+							<img src="img/set-square.svg" alt="" />
+						</div>
+
+						<div class="slide-meta">
+							<span>Laura Summers</span>
+							<span>PyCon DE & PyData 2026</span>
+						</div>
+
+						<aside class="notes">'These tools help us understand the state of the world — and that is valuable. But even if you successfully map what has happened historically, that is not the same as knowing how to intervene going forwards. What is the fair state you are actually working towards? Does fairness look like 50/50 men and non-men in tech? Equal representation of all genders and ethnicities in every profession relative to base population? These are genuinely hard questions. Simply running a preconfigured fairness metric is a model-free approach to a question that demands a model. You are handing your moral responsibility to someone else's assumptions — which may or may not apply to your context, your domain, or your users. And note: the newer LLM eval frameworks have if anything narrowed the ambition — from demographic equity down to whether the output contains slurs. We have in some ways regressed.'</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SECTION 5 — ETHICS AS PRACTICE
+				     ========================================== -->
+
+				<!-- ==========================================
+				     SLIDE: ETHICS AS SKILL — statement
+				     ========================================== -->
+				<section>
+					<div class="slide-wrap has-marks">
+						<div class="mark-tr"></div>
+						<div class="mark-bl"></div>
+						<div class="guide-h-top"></div>
+						<div class="guide-h-bottom"></div>
+						<div class="guide-v-left"></div>
+						<div class="guide-v-right"></div>
+
+						<div class="layout-statement">
+							<div class="statement-text">
+								ethics is a practice, not a personality trait.
+							</div>
+							<div class="statement-label">
+								<span class="label">section five</span>
+							</div>
+						</div>
+
+						<!-- Micrometer accent, top right, faded -->
+						<div class="instrument instrument--orange" style="width: 180px; top: 50px; right: 60px; opacity: 0.3;">
+							<img src="img/micrometer.svg" alt="" />
+						</div>
+
+						<div class="slide-meta">
+							<span>Laura Summers</span>
+							<span>PyCon DE & PyData 2026</span>
+						</div>
+
+						<aside class="notes">'Before we talk about what to do, I want to name something that gets in the way of doing it. Shame. When people find out their system causes harm, the most common response is not curiosity — it is defensiveness. Because we have learned to treat ethical failure as a verdict on who we are, rather than information about what our system does. But ethics is not a personality trait. It is a practice. A capability you build over time. Finding harm in your system is evidence that you are looking — which is evidence that you are learning. Any system capable of causing no harm is also capable of doing nothing useful. The question is never whether your system is perfect — it isn't. It is whether you are taking the responsibility seriously.'</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: UPSTREAM INTERVENTION SPECTRUM — list
+				     ========================================== -->
+				<section>
+					<div class="slide-wrap has-marks">
+						<div class="mark-tr"></div>
+						<div class="mark-bl"></div>
+						<div class="guide-h-top"></div>
+						<div class="guide-h-bottom"></div>
+						<div class="guide-v-left"></div>
+						<div class="guide-v-right"></div>
+
+						<div class="layout-list">
+							<div class="list-graphic">
+								<img src="img/laser-level.svg" alt="" class="instrument--blue" />
+							</div>
+							<div>
+								<span class="label--blue label">where can you intervene?</span>
+								<ol>
+									<li class="fragment">problem statement &mdash; does the business model create incentives to find harm, or to ignore it?</li>
+									<li class="fragment">design &#8596; build loop &mdash; what are you encoding before anyone uses it?</li>
+									<li class="fragment">build &#8596; iterate loop &mdash; monitoring, feedback loops, learning from real use</li>
+									<li class="fragment">interventions &mdash; deliberate changes in response to what you've learned</li>
+								</ol>
+							</div>
+						</div>
+
+						<div class="slide-meta">
+							<span>Laura Summers</span>
+							<span>PyCon DE & PyData 2026</span>
+						</div>
+
+						<aside class="notes">'Intervention is available at every stage of building a system — and the earlier you intervene, the more radically different the impact on potential harms in the world. At the problem statement stage: does this business model create incentives to find harm, or to ignore it? If your revenue depends on engagement at any cost, monitoring for harm is structurally disincentivised. That is a design decision before a line of code is written. The design-build loop is where most assumptions get encoded invisibly. The build-iterate loop is where you discover what real people actually experience — through monitoring, feedback loops, qualitative signals. And interventions are deliberate course corrections made in response to what you have learned. Not the same as monitoring. Acting on the signal.'</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: AIRPORT SCANNER — padded
+				     ========================================== -->
+				<section>
+					<div class="slide-wrap has-marks">
+						<div class="mark-tr"></div>
+						<div class="mark-bl"></div>
+						<div class="guide-h-top"></div>
+						<div class="guide-h-bottom"></div>
+						<div class="guide-v-left"></div>
+						<div class="guide-v-right"></div>
+
+						<div class="layout-padded">
+							<span class="label">design justice &middot; Costanza-Chock, 2020</span>
+							<h2>does the system need to know gender?</h2>
+							<p>the scanner has a hard-coded gender binary. select female — flagged for chest area. select male — flagged for groin. the goal is to detect weapons.</p>
+						</div>
+
+						<div class="slide-meta">
+							<span>Laura Summers</span>
+							<span>PyCon DE & PyData 2026</span>
+						</div>
+
+						<aside class="notes">'You do not need to know someone's gender to detect a weapon. That binary was encoded because someone assumed it was necessary. It was not. This is Sasha Costanza-Chock's example from Design Justice. But go further: what if instead of encoding the binary you offered the passenger a choice of differently-gendered officers? Airport security is famously performative. What if that performance made normative claims about how we could treat each other with respect and generosity, rather than suspicion and harm? What does real risk reduction actually look like when you start from the right question? This is what it means to intervene at the problem statement stage.'</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: CODESIGN — padded
+				     ========================================== -->
+				<section>
+					<div class="slide-wrap has-marks">
+						<div class="mark-tr"></div>
+						<div class="mark-bl"></div>
+						<div class="guide-h-top"></div>
+						<div class="guide-h-bottom"></div>
+						<div class="guide-v-left"></div>
+						<div class="guide-v-right"></div>
+
+						<div class="layout-padded">
+							<span class="label">codesign</span>
+							<h2>design with, not for</h2>
+							<ul class="body-list">
+								<li>bring people affected by the system into the design of it</li>
+								<li>not as test subjects — as co-designers with standing</li>
+								<li>"nothing about us without us" — disability rights movement, 1980s–90s</li>
+								<li>you will be bad at this at first. start anyway.</li>
+							</ul>
+						</div>
+
+						<div class="slide-meta">
+							<span>Laura Summers</span>
+							<span>PyCon DE & PyData 2026</span>
+						</div>
+
+						<aside class="notes">'Codesign is a set of practices for involving the people affected by a system in its design. The starting orientation is curiosity — genuinely wanting to understand the source of people's fears, reactions and needs, before deciding what to do about them. Without curiosity, says Kelly Ann McKercher in Beyond Sticky Notes, we won't spot anything new. We'll keep doing more of the same. Data scientists and engineers are used to being the technical authority in the room. Codesign requires becoming a beginner at something. The principle is borrowed from the disability rights movement: nothing about us without us. Design Justice extends it to every system that affects people who were not in the room when it was built. Resources: Beyond Sticky Notes by Kelly Ann McKercher — beyondstickynotes.com. The MoreThanCode report by the Tech for Social Justice Project. Arnstein's Ladder of Participation. All in the talk notes.'</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: DYSAFFORDANCE — padded
+				     ========================================== -->
+				<section>
+					<div class="slide-wrap has-marks">
+						<div class="mark-tr"></div>
+						<div class="mark-bl"></div>
+						<div class="guide-h-top"></div>
+						<div class="guide-h-bottom"></div>
+						<div class="guide-v-left"></div>
+						<div class="guide-v-right"></div>
+
+						<div class="layout-padded">
+							<span class="label">design justice &middot; Costanza-Chock, 2020</span>
+							<h2>none of these options are me.</h2>
+							<p><strong>affordance</strong> — what a system enables you to do</p>
+							<p><strong>dysaffordance</strong> — when a system forces you to misrepresent yourself to proceed</p>
+							<ul class="body-list">
+								<li>a job title dropdown that doesn't have your role</li>
+								<li>a nationality field that doesn't have your country</li>
+								<li>a gender field with two options</li>
+							</ul>
+						</div>
+
+						<div class="slide-meta">
+							<span>Laura Summers</span>
+							<span>PyCon DE & PyData 2026</span>
+						</div>
+
+						<aside class="notes">'A dysaffordance is when a system forces you to misrepresent yourself in order to proceed. And I want to be clear: this is not only a problem for trans people, or for any particular marginalised group. We all experience dysaffordances constantly. Every time you have looked at a dropdown and thought "none of these are me" — that is one. A job title field that does not have your role. A nationality field that does not have your country. A form that assumes you have a middle name, or do not, or that your name fits in twenty characters. The question for system designers is not whether this affects marginalised groups. It is: which groups are we systematically forcing to misrepresent themselves, and what does that cost them over a lifetime of interactions? A minor inconvenience for one person is a daily accumulation of indignities for another. Universalist design — designing for everyone — makes these exclusions invisible rather than fixing them.'</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: CONSENT-BASED INTERVENTION — padded
+				     ========================================== -->
+				<section>
+					<div class="slide-wrap has-marks">
+						<div class="mark-tr"></div>
+						<div class="mark-bl"></div>
+						<div class="guide-h-top"></div>
+						<div class="guide-h-bottom"></div>
+						<div class="guide-v-left"></div>
+						<div class="guide-v-right"></div>
+
+						<div class="layout-padded">
+							<span class="label">consent-based intervention</span>
+							<h2>offer. listen. adapt. stop when asked.</h2>
+							<ul class="body-list">
+								<li>make the intervention visible — never act silently on someone's behalf</li>
+								<li>try once — if they say no, stop</li>
+								<li>if they say yes, learn — offer more things like it</li>
+								<li>never assume you know the answer next time</li>
+							</ul>
+						</div>
+
+						<div class="slide-meta">
+							<span>Laura Summers</span>
+							<span>PyCon DE & PyData 2026</span>
+						</div>
+
+						<aside class="notes">'I want to be precise about what I mean here — this is not about automation. It is about a learning relationship between the system and the individual. The system offers. The user decides. The system remembers. Two kinds of things a system might offer. First: interaction affordances. If someone is struggling with mouse clicks, the system notices and offers an alternative — keyboard shortcuts, voice input, a different pattern. Tries once. If yes, maybe offers more things like that. If no, stops and leaves them alone. Second: positive bias interventions. We think you may be disadvantaged by how this system works. Here is something we could do. Would you like it? The user decides. The system remembers the answer. Next time, it knows. Not a smarter algorithm making better guesses about what you need. A system that asks, listens, and defers to you.'</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: TWO RESPONSES — columns-2
+				     ========================================== -->
+				<section>
+					<div class="slide-wrap has-marks">
+						<div class="mark-tr"></div>
+						<div class="mark-bl"></div>
+						<div class="guide-h-top"></div>
+						<div class="guide-h-bottom"></div>
+						<div class="guide-v-left"></div>
+						<div class="guide-v-right"></div>
+
+						<h2 style="position: absolute; top: calc(var(--mark-inset) + var(--mark-length) + 24px); left: var(--slide-padding); margin: 0; font-size: 1.3em; z-index: 5;"><span class="label">consent-based intervention</span></h2>
+
+						<div class="layout-columns cols-2" style="padding-top: 140px;">
+							<div class="col fragment">
+								<span class="num-circle">1</span>
+								<h3>"yes, offer me more"</h3>
+								<p>the system learns your preferences. surfaces relevant options. builds a picture of what help looks like for you specifically.</p>
+							</div>
+							<div class="col fragment">
+								<span class="num-circle" style="border-color: var(--color-blue); color: var(--color-blue);">2</span>
+								<h3>"no, leave me alone"</h3>
+								<p>the system stops. does not try again. does not assume you'll change your mind. respects the preference as stated.</p>
+							</div>
+						</div>
+
+						<div class="slide-meta">
+							<span>Laura Summers</span>
+							<span>PyCon DE & PyData 2026</span>
+						</div>
+
+						<aside class="notes">'Consider two students applying to the same college. Same gender, same ethnicity, same socioeconomic background on paper. The system flags both as candidates for positive intervention. One student is grateful — they want every advantage they can get. The other student explicitly does not want their background factored in. They want to feel they are competing on a level playing field. Both preferences are valid. Both should be honoured. Now — and this is the important part — we know the biases are already baked in. Making a positive intervention probably does get closer to a level playing field than doing nothing. But that is our belief, not theirs. And we should not impose our belief about what fairness looks like on people whose experience of fairness is theirs to define. This applies whether you are offering a different interaction pattern, inviting someone to flag disadvantage, or adjusting how your system weights their application. Ask. Listen. Remember. Never assume.'</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: THE QUOTE — consent
+				     ========================================== -->
+				<section>
+					<div class="slide-wrap has-marks">
+						<div class="mark-tr"></div>
+						<div class="mark-bl"></div>
+						<div class="guide-h-top"></div>
+						<div class="guide-h-bottom"></div>
+						<div class="guide-v-left"></div>
+						<div class="guide-v-right"></div>
+
+						<div class="layout-quote">
+							<div class="quote-mark">&laquo;</div>
+							<blockquote>
+								we think you may be part of a group that is disadvantaged by how this system works. we'd like to adjust it in your favour. would you like us to do that?
+							</blockquote>
+							<div class="quote-mark">&raquo;</div>
+						</div>
+
+						<div class="slide-meta">
+							<span>Laura Summers</span>
+							<span>PyCon DE & PyData 2026</span>
+						</div>
+
+						<aside class="notes">'Yes, this is uncomfortable to say out loud. That discomfort is appropriate. What is not appropriate is resolving that discomfort by making the decision quietly on someone's behalf and calling it fairness. The goal is not to make your system feel fair. It is to treat people as individuals with agency over their own experience of it. No easy answers. Better questions.' <em>Pause. Move to close.</em></aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
 				     SLIDE: SECTION DIVIDER
 				     Photo left, chapter label + heading right.
 				     ========================================== -->
