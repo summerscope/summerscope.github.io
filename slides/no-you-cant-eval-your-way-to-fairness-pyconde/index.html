@@ -998,6 +998,240 @@
 					</div>
 				</section>
 
+				<!-- TEMPLATE SLIDES — commented out
+				     Uncomment to restore original layout examples.
+
+				     Photo left, chapter label + heading right.
+				     ========================================== -->
+				<section>
+					<div class="slide-wrap has-marks">
+						<div class="mark-tr"></div>
+						<div class="mark-bl"></div>
+						<div class="guide-h-top"></div>
+						<div class="guide-h-bottom"></div>
+						<div class="guide-v-right"></div>
+
+						<div class="layout-split layout-split--text-right">
+							<div class="split-photo">
+								<img src="img/christina-and-andy.jpg" alt="" />
+								<!-- Calipers: vertical, anchored to photo cell, bleeds right into text area -->
+								<div class="instrument instrument--blue" style="width: 180px; top: 18%; right: -90px; transform: rotate(90deg);">
+									<img src="img/calipers.svg" alt="" />
+								</div>
+							</div>
+							<div class="split-text">
+								<span class="label">Chapter One</span>
+								<h2>What do we mean when we say 'fair'?</h2>
+							</div>
+						</div>
+
+						<div class="slide-meta">
+							<span>Laura Summers</span>
+							<span>PyCon DE & PyData 2026</span>
+						</div>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE 4: FULL-WIDTH PHOTO + HEADING
+				     Photo top, text bar below.
+				     ========================================== -->
+				<section>
+					<div class="slide-wrap has-marks">
+						<div class="mark-tr"></div>
+						<div class="mark-bl"></div>
+						<div class="guide-h-bottom"></div>
+						<div class="guide-v-left"></div>
+						<div class="guide-v-right"></div>
+
+						<div class="layout-photo-top">
+							<div class="photo-area">
+								<img src="img/christina-and-fam.jpg" alt="" />
+							</div>
+							<div class="text-area">
+								<span class="label">Context</span>
+								<h2>The people behind the data points</h2>
+							</div>
+						</div>
+
+						<div class="slide-meta">
+							<span>Laura Summers</span>
+							<span>PyCon DE & PyData 2026</span>
+						</div>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE 5: STATEMENT (big text)
+				     ========================================== -->
+				<section>
+					<div class="slide-wrap has-marks">
+						<div class="mark-tr"></div>
+						<div class="mark-bl"></div>
+						<div class="guide-h-top"></div>
+						<div class="guide-h-bottom"></div>
+						<div class="guide-v-left"></div>
+						<div class="guide-v-right"></div>
+
+						<div class="layout-statement">
+							<div class="statement-text">
+								Evaluation frameworks create the illusion of objectivity. They let us believe we've measured fairness when we've only measured what the framework was designed to see.
+							</div>
+							<div class="statement-label">
+								<span class="label">Finding</span>
+							</div>
+						</div>
+
+						<!-- Small instrument accent, top-right area -->
+						<div class="instrument instrument--orange" style="width: 100px; top: 50px; right: 60px; opacity: 0.35;">
+							<img src="img/set-square.svg" alt="" />
+						</div>
+
+						<div class="slide-meta">
+							<span>Laura Summers</span>
+							<span>PyCon DE & PyData 2026</span>
+						</div>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE 6: QUOTE
+				     ========================================== -->
+				<section>
+					<div class="slide-wrap has-marks">
+						<div class="mark-tr"></div>
+						<div class="mark-bl"></div>
+						<div class="guide-h-top"></div>
+						<div class="guide-h-bottom"></div>
+						<div class="guide-v-left"></div>
+						<div class="guide-v-right"></div>
+
+						<div class="layout-quote">
+							<div class="quote-mark">&laquo;</div>
+							<blockquote>
+								Not everything that counts can be counted, and not everything that can be counted counts.
+							</blockquote>
+							<div class="quote-mark">&raquo;</div>
+							<p class="quote-attribution">William Bruce Cameron</p>
+						</div>
+
+						<div class="slide-meta">
+							<span>Laura Summers</span>
+							<span>PyCon DE & PyData 2026</span>
+						</div>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE 7: NUMBERED LIST
+				     Instrument graphic left, list right.
+				     ========================================== -->
+				<section>
+					<div class="slide-wrap has-marks">
+						<div class="mark-tr"></div>
+						<div class="mark-bl"></div>
+						<div class="guide-h-top"></div>
+						<div class="guide-h-bottom"></div>
+						<div class="guide-v-left"></div>
+						<div class="guide-v-right"></div>
+
+						<div class="layout-list">
+							<div class="list-graphic">
+								<img src="img/pressure-gauge.svg" alt="" class="instrument--orange" />
+							</div>
+							<ol>
+								<li>Define the construct</li>
+								<li>Choose your proxies carefully</li>
+								<li>Acknowledge what you can't measure</li>
+								<li>Design for failure</li>
+								<li>Build in recourse</li>
+								<li>Test with the people affected</li>
+								<li>Iterate publicly</li>
+							</ol>
+						</div>
+
+						<div class="slide-meta">
+							<span>Laura Summers</span>
+							<span>PyCon DE & PyData 2026</span>
+						</div>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE 8: TWO-COLUMN COMPARISON
+				     ========================================== -->
+				<section>
+					<div class="slide-wrap has-marks">
+						<div class="mark-tr"></div>
+						<div class="mark-bl"></div>
+						<div class="guide-h-top"></div>
+						<div class="guide-h-bottom"></div>
+						<div class="guide-v-left"></div>
+						<div class="guide-v-right"></div>
+
+						<div class="layout-columns cols-2">
+							<div class="col">
+								<span class="num-circle">1</span>
+								<h3>Technical fairness</h3>
+								<p>Equalised odds, demographic parity, calibration. Mathematically precise. Mutually exclusive. Choose one, violate another.</p>
+							</div>
+							<div class="col">
+								<span class="num-circle" style="border-color: var(--color-blue); color: var(--color-blue);">2</span>
+								<h3>Lived fairness</h3>
+								<p>How it feels to be denied a loan. Whether you can appeal. Who designed the system and who it was designed for.</p>
+							</div>
+						</div>
+
+						<div class="slide-meta">
+							<span>Laura Summers</span>
+							<span>PyCon DE & PyData 2026</span>
+						</div>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE 9: PHOTO + TEXT SPLIT (alternate direction)
+				     Photo of dad-baby on right, text left with
+				     instrument accent.
+				     ========================================== -->
+				<section>
+					<div class="slide-wrap has-marks">
+						<div class="mark-tr"></div>
+						<div class="mark-bl"></div>
+						<div class="guide-h-top"></div>
+						<div class="guide-h-bottom"></div>
+						<div class="guide-v-left"></div>
+
+						<div class="layout-split">
+							<div class="split-text">
+								<span class="label--blue label">Observation</span>
+								<h2>The gap between the metric and the meaning</h2>
+								<p class="text-light">Every measurement is a proxy. Every proxy has a politics.</p>
+							</div>
+							<div class="split-photo">
+								<img src="img/sean-and-son.jpg" alt="" />
+								<!-- Tape measure: anchored to photo cell, bleeds left -->
+								<div class="instrument instrument--orange" style="width: 130px; bottom: 20%; left: -65px;">
+									<img src="img/tape-measure.svg" alt="" />
+								</div>
+							</div>
+						</div>
+
+						<div class="slide-meta">
+							<span>Laura Summers</span>
+							<span>PyCon DE & PyData 2026</span>
+						</div>
+					</div>
+				</section>
+
+				END TEMPLATE SLIDES -->
+
 			</div>
 		</div>
 
