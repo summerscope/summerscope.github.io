@@ -2,15 +2,39 @@
  * Fairness — custom theme for "No, You Can't Eval Your Way to Fairness"
  *
  * Hot orange + electric blue on warm cream.
- * Registration marks, Archivo typography, lowercase headings.
+ * Registration marks, Archivo typography, CSS-enforced casing.
  *
  * Built via the reveal.js SCSS pipeline:
  *   npm run build:styles
  * Outputs to dist/theme/fairness.css
+ *
+ * STRUCTURE
+ * ---------
+ * Every slide follows the same shell:
+ *
+ *   <section>
+ *     <div class="slide slide--<layout>">
+ *       ...content...
+ *       <aside class="notes">...</aside>
+ *     </div>
+ *   </section>
+ *
+ * Registration marks, footer metadata and progress bar are injected
+ * by JS into every .slide at init time. See index.html for the
+ * SPEAKER and CONFERENCE constants.
+ *
+ * CASING RULES
+ * ------------
+ * - Headings (h1–h4):       lowercase (CSS enforced)
+ * - Labels / footer / marks: uppercase (CSS enforced)
+ * - Body copy & quotes:     sentence case (unchanged)
+ *
+ * Source text should be written in sentence case regardless.
  */
 
 @use 'sass:color';
 @use 'template/mixins' as mixins;
+
 
 // ============================================================
 // BRAND TOKENS
@@ -26,13 +50,10 @@ $color-text-light:  #5a5a5a;
 $color-mark:        #c8bfb6;
 $color-mark-light:  #d8d0c8;
 
-$font-main: "'Archivo', 'Helvetica Neue', Arial, sans-serif";
-
 
 // ============================================================
 // REVEAL THEME SETTINGS
-// Override the defaults defined in template/settings.scss so that
-// reveal's own CSS is generated with our design tokens.
+// Override defaults so reveal's own CSS uses our tokens.
 // ============================================================
 
 @use 'template/settings' with (
@@ -65,7 +86,6 @@ $font-main: "'Archivo', 'Helvetica Neue', Arial, sans-serif";
   $selection-color:            $color-cream,
 );
 
-// Apply reveal's base theme (uses the settings above)
 @use 'template/theme';
 
 
@@ -77,12 +97,11 @@ $font-main: "'Archivo', 'Helvetica Neue', Arial, sans-serif";
 
 
 // ============================================================
-// CUSTOM PROPERTIES
-// Expose brand tokens and layout constants as CSS variables.
+// DESIGN TOKENS AS CUSTOM PROPERTIES
 // ============================================================
 
 :root {
-  // Colors
+  // Brand palette
   --color-cream:      #{$color-cream};
   --color-cream-dark: #{$color-cream-dark};
   --color-charcoal:   #{$color-charcoal};
@@ -96,12 +115,6 @@ $font-main: "'Archivo', 'Helvetica Neue', Arial, sans-serif";
   // Typography
   --font-main: Archivo, 'Helvetica Neue', Arial, sans-serif;
 
-  // Layout
-  --slide-padding: 60px;
-  --mark-inset:    24px;
-  --mark-length:   14px;
-  --mark-weight:   1px;
-
   // Spacing scale
   --space-1: 8px;
   --space-2: 16px;
@@ -109,20 +122,34 @@ $font-main: "'Archivo', 'Helvetica Neue', Arial, sans-serif";
   --space-4: 32px;
   --space-5: 48px;
   --space-6: 64px;
+
+  // Registration mark geometry
+  --mark-inset:  24px;
+  --mark-length: 14px;
+  --mark-weight: 1px;
+  --guide-gap:   6px;
+
+  // Slide padding (inside the mark frame)
+  --slide-padding: 60px;
+
+  // Instrument defaults
+  --instrument-sm: 100px;
+  --instrument-md: 130px;
+  --instrument-lg: 180px;
+  --instrument-xl: 220px;
 }
 
 
 // ============================================================
 // REVEAL BASE OVERRIDES
-// Things the base theme doesn't cover.
 // ============================================================
 
 .reveal-viewport {
-  background: $color-charcoal;   // dark outer frame around the scaled canvas
+  background: $color-charcoal;   // dark frame around the scaled canvas
 }
 
 .reveal {
-  font-weight: 300;               // Archivo Light as default body weight
+  font-weight: 300;              // Archivo Light
   text-align: left;
 }
 
@@ -138,7 +165,7 @@ $font-main: "'Archivo', 'Helvetica Neue', Arial, sans-serif";
   width: 100%;
 }
 
-// Reveal's default blockquote styling has a background/shadow — strip it.
+// Strip reveal's default blockquote chrome
 .reveal blockquote {
   width: auto;
   background: none;
@@ -148,31 +175,53 @@ $font-main: "'Archivo', 'Helvetica Neue', Arial, sans-serif";
   font-style: italic;
 }
 
-// Lists are inline-block by default in the theme; we want block for our layouts
+// Lists: block layout (not reveal's default inline-block)
 .reveal ol,
 .reveal ul {
   display: block;
   margin-left: 0;
+  text-align: left;
 }
 
-// Hide default reveal chrome — we provide our own.
+// Strong uses 500 weight (Archivo Medium), not 700
+.reveal strong { font-weight: 500; }
+.reveal em     { font-style: italic; }
+
+// Hide reveal's built-in chrome — we roll our own
 .reveal .progress    { display: none; }
 .reveal .controls    { display: none; }
 .reveal .slide-number { display: none !important; }
 
-// Strong uses 500 weight, not bold, to match Archivo
-.reveal strong { font-weight: 500; }
-.reveal em     { font-style: italic; }
+
+// ============================================================
+// CASING RULES (CSS-enforced)
+// Source text should always be written in sentence case.
+// ============================================================
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  text-transform: lowercase;
+}
+
+.reveal p,
+.reveal li,
+.reveal blockquote {
+  text-transform: none;
+}
 
 
 // ============================================================
-// SLIDE WRAPPER
-// Every slide's content lives inside .slide-wrap. It fills
-// the reveal section and hosts registration marks, footer,
-// progress bar, etc.
+// SLIDE
+// The single inner wrapper for every slide. Sits inside a
+// reveal <section> and hosts all slide content plus the chrome
+// (marks, guide lines, footer, progress) injected by JS.
 // ============================================================
 
-.slide-wrap {
+.slide {
   position: relative;
   width: 100%;
   height: 100%;
@@ -182,61 +231,51 @@ $font-main: "'Archivo', 'Helvetica Neue', Arial, sans-serif";
 
 
 // ============================================================
-// REGISTRATION MARKS
-// Four corner brackets + four guide lines.
-// Applied via pseudo-elements on .has-marks and its children.
+// REGISTRATION MARKS + GUIDE LINES
+// Injected by JS as child divs of .slide.
+// .mark-tl / .mark-tr / .mark-bl / .mark-br  (4 corners)
+// .guide-h-top / .guide-h-bottom / .guide-v-left / .guide-v-right
 // ============================================================
 
-// Top-left + bottom-right corners (pseudo-elements on .has-marks itself)
-.has-marks::before,
-.has-marks::after {
-  content: '';
-  position: absolute;
-  width: var(--mark-length);
-  height: var(--mark-length);
-  pointer-events: none;
-  z-index: 10;
-}
-
-.has-marks::before {
-  top: var(--mark-inset);
-  left: var(--mark-inset);
-  border-top: var(--mark-weight) solid var(--color-mark);
-  border-left: var(--mark-weight) solid var(--color-mark);
-}
-
-.has-marks::after {
-  bottom: var(--mark-inset);
-  right: var(--mark-inset);
-  border-bottom: var(--mark-weight) solid var(--color-mark);
-  border-right: var(--mark-weight) solid var(--color-mark);
-}
-
-// Top-right + bottom-left corners
+.mark-tl,
 .mark-tr,
-.mark-bl {
+.mark-bl,
+.mark-br {
   position: absolute;
   width: var(--mark-length);
   height: var(--mark-length);
   pointer-events: none;
   z-index: 10;
+}
+
+.mark-tl {
+  top:  var(--mark-inset);
+  left: var(--mark-inset);
+  border-top:  var(--mark-weight) solid var(--color-mark);
+  border-left: var(--mark-weight) solid var(--color-mark);
 }
 
 .mark-tr {
-  top: var(--mark-inset);
+  top:   var(--mark-inset);
   right: var(--mark-inset);
-  border-top: var(--mark-weight) solid var(--color-mark);
+  border-top:   var(--mark-weight) solid var(--color-mark);
   border-right: var(--mark-weight) solid var(--color-mark);
 }
 
 .mark-bl {
   bottom: var(--mark-inset);
-  left: var(--mark-inset);
+  left:   var(--mark-inset);
   border-bottom: var(--mark-weight) solid var(--color-mark);
-  border-left: var(--mark-weight) solid var(--color-mark);
+  border-left:   var(--mark-weight) solid var(--color-mark);
 }
 
-// Guide lines between the corner marks
+.mark-br {
+  bottom: var(--mark-inset);
+  right:  var(--mark-inset);
+  border-bottom: var(--mark-weight) solid var(--color-mark);
+  border-right:  var(--mark-weight) solid var(--color-mark);
+}
+
 .guide-h-top,
 .guide-h-bottom,
 .guide-v-left,
@@ -248,8 +287,8 @@ $font-main: "'Archivo', 'Helvetica Neue', Arial, sans-serif";
 
 .guide-h-top,
 .guide-h-bottom {
-  left: calc(var(--mark-inset) + var(--mark-length) + 6px);
-  right: calc(var(--mark-inset) + var(--mark-length) + 6px);
+  left:  calc(var(--mark-inset) + var(--mark-length) + var(--guide-gap));
+  right: calc(var(--mark-inset) + var(--mark-length) + var(--guide-gap));
   height: 0;
   border-top: var(--mark-weight) solid var(--color-mark-light);
 }
@@ -259,8 +298,8 @@ $font-main: "'Archivo', 'Helvetica Neue', Arial, sans-serif";
 
 .guide-v-left,
 .guide-v-right {
-  top: calc(var(--mark-inset) + var(--mark-length) + 6px);
-  bottom: calc(var(--mark-inset) + var(--mark-length) + 6px);
+  top:    calc(var(--mark-inset) + var(--mark-length) + var(--guide-gap));
+  bottom: calc(var(--mark-inset) + var(--mark-length) + var(--guide-gap));
   width: 0;
   border-left: var(--mark-weight) solid var(--color-mark-light);
 }
@@ -270,16 +309,43 @@ $font-main: "'Archivo', 'Helvetica Neue', Arial, sans-serif";
 
 
 // ============================================================
-// CUSTOM PROGRESS BAR
-// Lives inside .slide-wrap so it shares the scaled canvas
-// coordinate space with everything else on the slide.
+// SLIDE META FOOTER
+// Speaker name + conference, bottom of every slide. JS-injected.
+// ============================================================
+
+.slide-meta {
+  position: absolute;
+  bottom: calc(var(--mark-inset) + 2px);
+  left:   calc(var(--mark-inset) + var(--mark-length) + var(--guide-gap));
+  right:  calc(var(--mark-inset) + var(--mark-length) + var(--guide-gap));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-main);
+  font-size: 10px;
+  color: var(--color-text-light);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  z-index: 15;
+  pointer-events: none;
+
+  span {
+    background: var(--color-cream);
+    padding: 2px 6px 1px;
+  }
+}
+
+
+// ============================================================
+// SLIDE PROGRESS BAR
+// Thin orange fill just above the footer. JS-injected.
 // ============================================================
 
 .slide-progress {
   position: absolute;
   bottom: calc(var(--mark-inset) - 6px);
-  left:   calc(var(--mark-inset) + var(--mark-length) + 6px);
-  right:  calc(var(--mark-inset) + var(--mark-length) + 6px);
+  left:   calc(var(--mark-inset) + var(--mark-length) + var(--guide-gap));
+  right:  calc(var(--mark-inset) + var(--mark-length) + var(--guide-gap));
   height: 2px;
   background-color: var(--color-mark-light);
   z-index: 15;
@@ -295,37 +361,10 @@ $font-main: "'Archivo', 'Helvetica Neue', Arial, sans-serif";
 
 
 // ============================================================
-// METADATA FOOTER
-// Author + conference, bottom of slide.
-// Written sentence case in source; CSS forces uppercase.
-// ============================================================
-
-.slide-meta {
-  position: absolute;
-  bottom: calc(var(--mark-inset) + 2px);
-  left:   calc(var(--mark-inset) + var(--mark-length) + 6px);
-  right:  calc(var(--mark-inset) + var(--mark-length) + 6px);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: var(--font-main);
-  font-size: 10px;
-  color: var(--color-text-light);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  z-index: 15;
-  pointer-events: none;
-}
-
-.slide-meta span {
-  background: var(--color-cream);
-  padding: 2px 6px 1px;
-}
-
-
-// ============================================================
 // LABEL PILL
-// Bordered tag for key concepts. Written sentence case, rendered UPPERCASE.
+// For key concepts only — "Fairness", "Activity", "Fairness washing".
+// Not for section numbers or descriptive text.
+// Source sentence case; rendered UPPERCASE.
 // ============================================================
 
 .label {
@@ -352,6 +391,7 @@ $font-main: "'Archivo', 'Helvetica Neue', Arial, sans-serif";
 
 // ============================================================
 // NUMBERED CIRCLE
+// For column-based comparisons.
 // ============================================================
 
 .num-circle {
@@ -366,58 +406,41 @@ $font-main: "'Archivo', 'Helvetica Neue', Arial, sans-serif";
   font-size: 14px;
   color: var(--color-orange);
   flex-shrink: 0;
-}
 
-
-// ============================================================
-// PHOTO TREATMENT
-// ============================================================
-
-.photo-bw {
-  filter: grayscale(100%) contrast(1.05) brightness(0.95);
-}
-
-.photo-area {
-  position: relative;
-  overflow: hidden;
-
-  & > img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(100%) contrast(1.05);
-    display: block;
+  &--blue {
+    border-color: var(--color-blue);
+    color: var(--color-blue);
   }
-}
-
-.photo-area--warm::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(240, 232, 224, 0.08);
-  mix-blend-mode: color;
-  pointer-events: none;
 }
 
 
 // ============================================================
 // INSTRUMENT SVG OVERLAYS
-// Positioned within their parent cell. Parent must be
-// position: relative and overflow: visible to allow bleed.
+// Positioned absolutely within their parent cell.
+//
+// Composable modifier classes:
+//   .instrument--orange / --blue          color
+//   .instrument--bleed-left / --bleed-right  hangs over the split boundary
+//   .instrument--accent                   dimmed decorative corner element
+//   .instrument--accent-tl / --tr / --bl / --br   position for accents
+//   .instrument--sm / --md / --lg / --xl  size
+//   .instrument--rotate-90                90° rotation
 // ============================================================
 
 .instrument {
   position: absolute;
   z-index: 8;
   pointer-events: none;
+  width: var(--instrument-md);  // default size
 
-  & img {
+  img {
     width: 100%;
     height: 100%;
+    display: block;
   }
 }
 
-// Color variants — CSS filters approximate #ff4f1f and #2468ff
+// Color variants (CSS filters approximate #ff4f1f and #2468ff)
 .instrument--orange img {
   filter: brightness(0) saturate(100%) invert(40%) sepia(96%) saturate(3000%) hue-rotate(2deg) brightness(102%) contrast(104%);
 }
@@ -425,6 +448,38 @@ $font-main: "'Archivo', 'Helvetica Neue', Arial, sans-serif";
 .instrument--blue img {
   filter: brightness(0) saturate(100%) invert(25%) sepia(98%) saturate(4800%) hue-rotate(220deg) brightness(101%) contrast(101%);
 }
+
+// Size modifiers
+.instrument--sm { width: var(--instrument-sm); }
+.instrument--md { width: var(--instrument-md); }
+.instrument--lg { width: var(--instrument-lg); }
+.instrument--xl { width: var(--instrument-xl); }
+
+// Rotation
+.instrument--rotate-90  { transform: rotate(90deg); }
+.instrument--rotate-180 { transform: rotate(180deg); }
+
+// Bleed positioning — instrument hangs off the edge of a photo cell,
+// bleeding into the adjacent text area.
+.instrument--bleed-left {
+  top: 15%;
+  left: calc(var(--instrument-lg) / -2);
+}
+
+.instrument--bleed-right {
+  top: 15%;
+  right: calc(var(--instrument-lg) / -2);
+}
+
+// Accent positioning — faded decorative element in a slide corner
+.instrument--accent {
+  opacity: 0.3;
+}
+
+.instrument--accent-tl { top: 50px;    left:  60px; }
+.instrument--accent-tr { top: 50px;    right: 60px; }
+.instrument--accent-bl { bottom: 90px; left:  60px; }
+.instrument--accent-br { bottom: 90px; right: 60px; }
 
 
 // ============================================================
@@ -441,16 +496,21 @@ $font-main: "'Archivo', 'Helvetica Neue', Arial, sans-serif";
 
 
 // ============================================================
-// LAYOUT: SPLIT (text + photo side by side)
+// SLIDE LAYOUTS
+// Modifier classes directly on .slide control the layout.
+// Children are scoped to the parent layout.
 // ============================================================
 
-.layout-split {
+// ---- SPLIT ----------------------------------------------
+// Two-column split: text on one side, photo on the other.
+// .slide--split              text left,  photo right (default)
+// .slide--split.slide--text-right  photo left, text right
+
+.slide--split {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  width: 100%;
-  height: 100%;
 
-  .split-text {
+  > .slide-text {
     padding: var(--slide-padding);
     display: flex;
     flex-direction: column;
@@ -458,12 +518,11 @@ $font-main: "'Archivo', 'Helvetica Neue', Arial, sans-serif";
     z-index: 2;
   }
 
-  .split-photo {
+  > .slide-photo {
     position: relative;
     overflow: visible;
 
-    // Direct child img fills the cell (instruments are siblings and unaffected)
-    & > img {
+    > img {
       position: absolute;
       inset: 0;
       width: 100%;
@@ -473,29 +532,36 @@ $font-main: "'Archivo', 'Helvetica Neue', Arial, sans-serif";
       display: block;
     }
   }
+
+  &.slide--text-right {
+    > .slide-text  { order: 2; }
+    > .slide-photo { order: 1; }
+  }
 }
 
-.layout-split--text-right {
-  .split-text  { order: 2; }
-  .split-photo { order: 1; }
-}
 
+// ---- PHOTO-TOP ------------------------------------------
+// Full-width photo on top, text bar below.
 
-// ============================================================
-// LAYOUT: PHOTO TOP + TEXT BOTTOM
-// ============================================================
-
-.layout-photo-top {
+.slide--photo-top {
   display: grid;
   grid-template-rows: 1fr auto;
-  width: 100%;
-  height: 100%;
 
-  .photo-area {
+  > .slide-photo {
+    position: relative;
+    overflow: hidden;
     min-height: 0;
+
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%) contrast(1.05);
+      display: block;
+    }
   }
 
-  .text-area {
+  > .slide-text {
     padding: 24px var(--slide-padding) 48px;
 
     h2 { margin-bottom: 0.1em; }
@@ -503,17 +569,14 @@ $font-main: "'Archivo', 'Helvetica Neue', Arial, sans-serif";
 }
 
 
-// ============================================================
-// LAYOUT: PHOTO HALF + COLUMNS
-// ============================================================
+// ---- PHOTO-SPLIT ----------------------------------------
+// Photo top half, 2 columns bottom half.
 
-.layout-photo-columns {
+.slide--photo-split {
   display: grid;
   grid-template-rows: 1fr 1fr;
-  width: 100%;
-  height: 100%;
 
-  > .photo-area {
+  > .slide-photo {
     position: relative;
     overflow: hidden;
     min-height: 0;
@@ -529,7 +592,7 @@ $font-main: "'Archivo', 'Helvetica Neue', Arial, sans-serif";
     }
   }
 
-  > .cols-area {
+  > .slide-cols {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 48px;
@@ -539,26 +602,21 @@ $font-main: "'Archivo', 'Helvetica Neue', Arial, sans-serif";
     box-sizing: border-box;
   }
 
-  .col h3 {
-    margin-top: 0.6em;
-  }
-
-  .col p {
+  .slide-col h3 { margin-top: 0.6em; }
+  .slide-col p {
     font-size: 0.9em;
     color: var(--color-text-light);
   }
 }
 
 
-// ============================================================
-// LAYOUT: TIMELINE
-// ============================================================
+// ---- TIMELINE -------------------------------------------
+// Horizontal track with 4 markers, items alternating above/below.
+// Item placement via data-pos="1..4" attribute (not inline styles).
 
-.layout-timeline {
+.slide--timeline {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 100%;
   padding: var(--slide-padding);
   padding-top: calc(var(--slide-padding) + 16px);
   padding-bottom: calc(var(--slide-padding) + 40px);
@@ -567,7 +625,6 @@ $font-main: "'Archivo', 'Helvetica Neue', Arial, sans-serif";
   > h2 {
     margin: 0 0 0.3em 0;
     font-size: 1.8em;
-    text-transform: lowercase;
     flex-shrink: 0;
   }
 }
@@ -593,7 +650,7 @@ $font-main: "'Archivo', 'Helvetica Neue', Arial, sans-serif";
   }
 }
 
-.timeline-marker {
+.timeline__marker {
   grid-row: 2;
   justify-self: start;
   align-self: center;
@@ -608,30 +665,30 @@ $font-main: "'Archivo', 'Helvetica Neue', Arial, sans-serif";
   border-radius: 1px;
   line-height: 1;
   letter-spacing: 0.04em;
+  text-transform: uppercase;
+
+  &[data-pos="1"] { grid-column: 1; }
+  &[data-pos="2"] { grid-column: 2; }
+  &[data-pos="3"] { grid-column: 3; }
+  &[data-pos="4"] { grid-column: 4; }
 }
 
-.timeline-item {
+.timeline__item {
   padding: 0 24px 0 14px;
   border-left: 1px solid var(--color-orange);
   position: relative;
   z-index: 1;
 
-  &--above {
-    grid-row: 1;
-    align-self: end;
-    padding-bottom: 14px;
-  }
-
-  &--below {
-    grid-row: 3;
-    align-self: start;
-    padding-top: 14px;
-  }
+  // Positions 1 and 3 are ABOVE the track (grid row 1)
+  // Positions 2 and 4 are BELOW the track (grid row 3)
+  &[data-pos="1"] { grid-column: 1; grid-row: 1; align-self: end;   padding-bottom: 14px; }
+  &[data-pos="2"] { grid-column: 2; grid-row: 3; align-self: start; padding-top:    14px; }
+  &[data-pos="3"] { grid-column: 3; grid-row: 1; align-self: end;   padding-bottom: 14px; }
+  &[data-pos="4"] { grid-column: 4; grid-row: 3; align-self: start; padding-top:    14px; }
 
   h3 {
     margin: 0 0 0.4em 0;
     font-size: 0.95em;
-    text-transform: lowercase;
     font-weight: 500;
     letter-spacing: 0;
     color: var(--color-text);
@@ -647,16 +704,13 @@ $font-main: "'Archivo', 'Helvetica Neue', Arial, sans-serif";
 }
 
 
-// ============================================================
-// LAYOUT: PADDED
-// ============================================================
+// ---- PADDED ---------------------------------------------
+// Simple label + heading + body layout.
 
-.layout-padded {
+.slide--padded {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 100%;
-  height: 100%;
   padding: var(--slide-padding);
   padding-top: calc(var(--slide-padding) + 16px);
   padding-bottom: calc(var(--slide-padding) + 16px);
@@ -664,45 +718,39 @@ $font-main: "'Archivo', 'Helvetica Neue', Arial, sans-serif";
 }
 
 
-// ============================================================
-// LAYOUT: STATEMENT
-// ============================================================
+// ---- STATEMENT ------------------------------------------
+// Big text statement with optional label at bottom.
 
-.layout-statement {
+.slide--statement {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 100%;
-  height: 100%;
   padding: var(--slide-padding) calc(var(--slide-padding) + 20px);
   box-sizing: border-box;
 
-  .statement-text {
+  .slide-statement {
     font-size: 1.55em;
     font-weight: 500;
     line-height: 1.4;
     max-width: 90%;
+    text-transform: none;
   }
 
-  .statement-label {
+  .slide-statement-label {
     margin-top: auto;
     padding-top: 1.5em;
   }
 }
 
 
-// ============================================================
-// LAYOUT: QUOTE
-// ============================================================
+// ---- QUOTE ----------------------------------------------
 
-.layout-quote {
+.slide--quote {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: 100%;
-  height: 100%;
   padding: var(--slide-padding) 90px;
   box-sizing: border-box;
 
@@ -723,55 +771,62 @@ $font-main: "'Archivo', 'Helvetica Neue', Arial, sans-serif";
 }
 
 
-// ============================================================
-// LAYOUT: COLUMNS
-// ============================================================
+// ---- COLUMNS --------------------------------------------
+// 2 or 3 equal columns. Optional heading at top.
 
-.layout-columns {
+.slide--columns {
   display: grid;
   align-items: start;
-  width: 100%;
-  height: 100%;
   padding: var(--slide-padding);
   padding-top: calc(var(--slide-padding) + 24px);
   box-sizing: border-box;
 
-  &.cols-2 {
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-  }
-
-  &.cols-3 {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 36px;
-  }
-
-  .col h3 {
-    margin-top: 0.6em;
-  }
-
-  .col p {
+  .slide-col h3 { margin-top: 0.6em; }
+  .slide-col p {
     font-size: 0.9em;
     color: var(--color-text-light);
   }
+
+  // Optional heading as first child, positioned absolutely at top
+  > h2.slide-heading {
+    position: absolute;
+    top: calc(var(--mark-inset) + var(--mark-length) + 24px);
+    left: var(--slide-padding);
+    margin: 0;
+    font-size: 1.3em;
+    z-index: 5;
+    grid-column: 1 / -1;
+  }
+
+  // If a heading is present, push columns down
+  &:has(> h2.slide-heading) {
+    padding-top: 140px;
+  }
+}
+
+.slide--cols-2 {
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+
+.slide--cols-3 {
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 36px;
 }
 
 
-// ============================================================
-// LAYOUT: LIST
-// ============================================================
+// ---- LIST -----------------------------------------------
+// Graphic on the left, numbered list on the right.
 
-.layout-list {
+.slide--list {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 40px;
   align-items: center;
-  width: 100%;
-  height: 100%;
   padding: var(--slide-padding);
   box-sizing: border-box;
 
-  .list-graphic {
+  .slide-graphic {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -811,21 +866,18 @@ $font-main: "'Archivo', 'Helvetica Neue', Arial, sans-serif";
 }
 
 
-// ============================================================
-// LAYOUT: BIO
-// ============================================================
+// ---- BIO ------------------------------------------------
+// Fixed-width portrait on the left, bio text on the right.
 
-.layout-bio {
+.slide--bio {
   display: grid;
   grid-template-columns: 280px 1fr;
   gap: 48px;
   align-items: center;
-  width: 100%;
-  height: 100%;
   padding: var(--slide-padding);
   box-sizing: border-box;
 
-  .bio-photo {
+  > .slide-photo {
     position: relative;
     overflow: hidden;
     border-radius: 4px;
@@ -838,17 +890,13 @@ $font-main: "'Archivo', 'Helvetica Neue', Arial, sans-serif";
     }
   }
 
-  .bio-text {
-    h2 {
-      margin-bottom: 0.2em;
-    }
-
+  > .slide-text {
+    h2 { margin-bottom: 0.2em; }
     p {
       font-size: 0.9em;
       line-height: 1.6;
       color: var(--color-text-light);
     }
-
     .bio-links {
       margin-top: 0.8em;
       font-size: 0.85em;
@@ -858,7 +906,8 @@ $font-main: "'Archivo', 'Helvetica Neue', Arial, sans-serif";
 
 
 // ============================================================
-// BODY LIST (simple bullets for content slides)
+// BODY LIST
+// Simple em-dash bulleted list for content slides.
 // ============================================================
 
 .body-list {
@@ -871,19 +920,11 @@ $font-main: "'Archivo', 'Helvetica Neue', Arial, sans-serif";
     font-size: 1em;
     font-weight: 300;
     color: var(--color-text-light);
-    text-transform: none;
 
     &::before {
       content: '\2014';
       margin-right: 0.6em;
       color: var(--color-mark);
-    }
-
-    .outline-check {
-      display: inline-block;
-      vertical-align: middle;
-      margin-left: 0.4em;
-      color: var(--color-text-light);
     }
   }
 }
@@ -901,4 +942,3 @@ $font-main: "'Archivo', 'Helvetica Neue', Arial, sans-serif";
 .text-blue   { color: var(--color-blue); }
 .mt-auto     { margin-top: auto; }
 .mb-0        { margin-bottom: 0; }
-.uppercase   { text-transform: uppercase; letter-spacing: 0.04em; }
