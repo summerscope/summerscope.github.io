@@ -1,0 +1,904 @@
+/**
+ * Fairness — custom theme for "No, You Can't Eval Your Way to Fairness"
+ *
+ * Hot orange + electric blue on warm cream.
+ * Registration marks, Archivo typography, lowercase headings.
+ *
+ * Built via the reveal.js SCSS pipeline:
+ *   npm run build:styles
+ * Outputs to dist/theme/fairness.css
+ */
+
+@use 'sass:color';
+@use 'template/mixins' as mixins;
+
+// ============================================================
+// BRAND TOKENS
+// ============================================================
+
+$color-cream:       #f0e8e0;
+$color-cream-dark:  #e6ddd4;
+$color-charcoal:    #2d2d2d;
+$color-orange:      #ff4f1f;
+$color-blue:        #2468ff;
+$color-text:        #1a1a1a;
+$color-text-light:  #5a5a5a;
+$color-mark:        #c8bfb6;
+$color-mark-light:  #d8d0c8;
+
+$font-main: "'Archivo', 'Helvetica Neue', Arial, sans-serif";
+
+
+// ============================================================
+// REVEAL THEME SETTINGS
+// Override the defaults defined in template/settings.scss so that
+// reveal's own CSS is generated with our design tokens.
+// ============================================================
+
+@use 'template/settings' with (
+  $background-color:        $color-cream,
+
+  $main-font:               "Archivo, 'Helvetica Neue', Arial, sans-serif",
+  $main-font-size:          26px,
+  $main-color:              $color-text,
+
+  $block-margin:            0.7em,
+
+  $heading-margin:          (0 0 0.4em 0),
+  $heading-font:            "Archivo, 'Helvetica Neue', Arial, sans-serif",
+  $heading-color:           $color-text,
+  $heading-line-height:     1.15,
+  $heading-letter-spacing:  -0.01em,
+  $heading-text-transform:  lowercase,
+  $heading-font-weight:     500,
+
+  $heading1-size:           2.2em,
+  $heading2-size:           1.7em,
+  $heading3-size:           1.1em,
+  $heading4-size:           1em,
+
+  $link-color:              $color-orange,
+  $link-color-dark:         color.scale($color-orange, $lightness: -15%),
+  $link-color-hover:        color.scale($color-orange, $lightness: 15%),
+
+  $selection-background-color: $color-orange,
+  $selection-color:            $color-cream,
+);
+
+// Apply reveal's base theme (uses the settings above)
+@use 'template/theme';
+
+
+// ============================================================
+// FONTS
+// ============================================================
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&display=swap');
+
+
+// ============================================================
+// CUSTOM PROPERTIES
+// Expose brand tokens and layout constants as CSS variables.
+// ============================================================
+
+:root {
+  // Colors
+  --color-cream:      #{$color-cream};
+  --color-cream-dark: #{$color-cream-dark};
+  --color-charcoal:   #{$color-charcoal};
+  --color-orange:     #{$color-orange};
+  --color-blue:       #{$color-blue};
+  --color-text:       #{$color-text};
+  --color-text-light: #{$color-text-light};
+  --color-mark:       #{$color-mark};
+  --color-mark-light: #{$color-mark-light};
+
+  // Typography
+  --font-main: Archivo, 'Helvetica Neue', Arial, sans-serif;
+
+  // Layout
+  --slide-padding: 60px;
+  --mark-inset:    24px;
+  --mark-length:   14px;
+  --mark-weight:   1px;
+
+  // Spacing scale
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 48px;
+  --space-6: 64px;
+}
+
+
+// ============================================================
+// REVEAL BASE OVERRIDES
+// Things the base theme doesn't cover.
+// ============================================================
+
+.reveal-viewport {
+  background: $color-charcoal;   // dark outer frame around the scaled canvas
+}
+
+.reveal {
+  font-weight: 300;               // Archivo Light as default body weight
+  text-align: left;
+}
+
+.reveal .slides {
+  text-align: left;
+}
+
+.reveal .slides section {
+  background: $color-cream;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+
+// Reveal's default blockquote styling has a background/shadow — strip it.
+.reveal blockquote {
+  width: auto;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  font-style: italic;
+}
+
+// Lists are inline-block by default in the theme; we want block for our layouts
+.reveal ol,
+.reveal ul {
+  display: block;
+  margin-left: 0;
+}
+
+// Hide default reveal chrome — we provide our own.
+.reveal .progress    { display: none; }
+.reveal .controls    { display: none; }
+.reveal .slide-number { display: none !important; }
+
+// Strong uses 500 weight, not bold, to match Archivo
+.reveal strong { font-weight: 500; }
+.reveal em     { font-style: italic; }
+
+
+// ============================================================
+// SLIDE WRAPPER
+// Every slide's content lives inside .slide-wrap. It fills
+// the reveal section and hosts registration marks, footer,
+// progress bar, etc.
+// ============================================================
+
+.slide-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+
+// ============================================================
+// REGISTRATION MARKS
+// Four corner brackets + four guide lines.
+// Applied via pseudo-elements on .has-marks and its children.
+// ============================================================
+
+// Top-left + bottom-right corners (pseudo-elements on .has-marks itself)
+.has-marks::before,
+.has-marks::after {
+  content: '';
+  position: absolute;
+  width: var(--mark-length);
+  height: var(--mark-length);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.has-marks::before {
+  top: var(--mark-inset);
+  left: var(--mark-inset);
+  border-top: var(--mark-weight) solid var(--color-mark);
+  border-left: var(--mark-weight) solid var(--color-mark);
+}
+
+.has-marks::after {
+  bottom: var(--mark-inset);
+  right: var(--mark-inset);
+  border-bottom: var(--mark-weight) solid var(--color-mark);
+  border-right: var(--mark-weight) solid var(--color-mark);
+}
+
+// Top-right + bottom-left corners
+.mark-tr,
+.mark-bl {
+  position: absolute;
+  width: var(--mark-length);
+  height: var(--mark-length);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.mark-tr {
+  top: var(--mark-inset);
+  right: var(--mark-inset);
+  border-top: var(--mark-weight) solid var(--color-mark);
+  border-right: var(--mark-weight) solid var(--color-mark);
+}
+
+.mark-bl {
+  bottom: var(--mark-inset);
+  left: var(--mark-inset);
+  border-bottom: var(--mark-weight) solid var(--color-mark);
+  border-left: var(--mark-weight) solid var(--color-mark);
+}
+
+// Guide lines between the corner marks
+.guide-h-top,
+.guide-h-bottom,
+.guide-v-left,
+.guide-v-right {
+  position: absolute;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.guide-h-top,
+.guide-h-bottom {
+  left: calc(var(--mark-inset) + var(--mark-length) + 6px);
+  right: calc(var(--mark-inset) + var(--mark-length) + 6px);
+  height: 0;
+  border-top: var(--mark-weight) solid var(--color-mark-light);
+}
+
+.guide-h-top    { top:    var(--mark-inset); }
+.guide-h-bottom { bottom: var(--mark-inset); }
+
+.guide-v-left,
+.guide-v-right {
+  top: calc(var(--mark-inset) + var(--mark-length) + 6px);
+  bottom: calc(var(--mark-inset) + var(--mark-length) + 6px);
+  width: 0;
+  border-left: var(--mark-weight) solid var(--color-mark-light);
+}
+
+.guide-v-left  { left:  var(--mark-inset); }
+.guide-v-right { right: var(--mark-inset); }
+
+
+// ============================================================
+// CUSTOM PROGRESS BAR
+// Lives inside .slide-wrap so it shares the scaled canvas
+// coordinate space with everything else on the slide.
+// ============================================================
+
+.slide-progress {
+  position: absolute;
+  bottom: calc(var(--mark-inset) - 6px);
+  left:   calc(var(--mark-inset) + var(--mark-length) + 6px);
+  right:  calc(var(--mark-inset) + var(--mark-length) + 6px);
+  height: 2px;
+  background-color: var(--color-mark-light);
+  z-index: 15;
+  pointer-events: none;
+}
+
+.slide-progress-fill {
+  height: 100%;
+  width: 0%;
+  background-color: var(--color-orange);
+  transition: width 0.5s cubic-bezier(0.26, 0.86, 0.44, 0.985);
+}
+
+
+// ============================================================
+// METADATA FOOTER
+// Author + conference, bottom of slide.
+// Written sentence case in source; CSS forces uppercase.
+// ============================================================
+
+.slide-meta {
+  position: absolute;
+  bottom: calc(var(--mark-inset) + 2px);
+  left:   calc(var(--mark-inset) + var(--mark-length) + 6px);
+  right:  calc(var(--mark-inset) + var(--mark-length) + 6px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-main);
+  font-size: 10px;
+  color: var(--color-text-light);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  z-index: 15;
+  pointer-events: none;
+}
+
+.slide-meta span {
+  background: var(--color-cream);
+  padding: 2px 6px 1px;
+}
+
+
+// ============================================================
+// LABEL PILL
+// Bordered tag for key concepts. Written sentence case, rendered UPPERCASE.
+// ============================================================
+
+.label {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: var(--font-main);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-orange);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border: 1px solid var(--color-orange);
+  padding: 4px 10px 3px;
+  border-radius: 1px;
+  margin-bottom: 0.8em;
+  line-height: 1;
+}
+
+.label--blue {
+  color: var(--color-blue);
+  border-color: var(--color-blue);
+}
+
+
+// ============================================================
+// NUMBERED CIRCLE
+// ============================================================
+
+.num-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid var(--color-orange);
+  border-radius: 50%;
+  font-family: var(--font-main);
+  font-size: 14px;
+  color: var(--color-orange);
+  flex-shrink: 0;
+}
+
+
+// ============================================================
+// PHOTO TREATMENT
+// ============================================================
+
+.photo-bw {
+  filter: grayscale(100%) contrast(1.05) brightness(0.95);
+}
+
+.photo-area {
+  position: relative;
+  overflow: hidden;
+
+  & > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(1.05);
+    display: block;
+  }
+}
+
+.photo-area--warm::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(240, 232, 224, 0.08);
+  mix-blend-mode: color;
+  pointer-events: none;
+}
+
+
+// ============================================================
+// INSTRUMENT SVG OVERLAYS
+// Positioned within their parent cell. Parent must be
+// position: relative and overflow: visible to allow bleed.
+// ============================================================
+
+.instrument {
+  position: absolute;
+  z-index: 8;
+  pointer-events: none;
+
+  & img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// Color variants — CSS filters approximate #ff4f1f and #2468ff
+.instrument--orange img {
+  filter: brightness(0) saturate(100%) invert(40%) sepia(96%) saturate(3000%) hue-rotate(2deg) brightness(102%) contrast(104%);
+}
+
+.instrument--blue img {
+  filter: brightness(0) saturate(100%) invert(25%) sepia(98%) saturate(4800%) hue-rotate(220deg) brightness(101%) contrast(101%);
+}
+
+
+// ============================================================
+// QUOTE MARKS
+// ============================================================
+
+.quote-mark {
+  color: var(--color-orange);
+  font-size: 2.8em;
+  line-height: 0.8;
+  font-weight: 300;
+  font-family: Georgia, serif;
+}
+
+
+// ============================================================
+// LAYOUT: SPLIT (text + photo side by side)
+// ============================================================
+
+.layout-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  height: 100%;
+
+  .split-text {
+    padding: var(--slide-padding);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    z-index: 2;
+  }
+
+  .split-photo {
+    position: relative;
+    overflow: visible;
+
+    // Direct child img fills the cell (instruments are siblings and unaffected)
+    & > img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%) contrast(1.05);
+      display: block;
+    }
+  }
+}
+
+.layout-split--text-right {
+  .split-text  { order: 2; }
+  .split-photo { order: 1; }
+}
+
+
+// ============================================================
+// LAYOUT: PHOTO TOP + TEXT BOTTOM
+// ============================================================
+
+.layout-photo-top {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  width: 100%;
+  height: 100%;
+
+  .photo-area {
+    min-height: 0;
+  }
+
+  .text-area {
+    padding: 24px var(--slide-padding) 48px;
+
+    h2 { margin-bottom: 0.1em; }
+  }
+}
+
+
+// ============================================================
+// LAYOUT: PHOTO HALF + COLUMNS
+// ============================================================
+
+.layout-photo-columns {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  width: 100%;
+  height: 100%;
+
+  > .photo-area {
+    position: relative;
+    overflow: hidden;
+    min-height: 0;
+
+    > img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%) contrast(1.05);
+      display: block;
+    }
+  }
+
+  > .cols-area {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    padding: 32px var(--slide-padding);
+    align-items: start;
+    min-height: 0;
+    box-sizing: border-box;
+  }
+
+  .col h3 {
+    margin-top: 0.6em;
+  }
+
+  .col p {
+    font-size: 0.9em;
+    color: var(--color-text-light);
+  }
+}
+
+
+// ============================================================
+// LAYOUT: TIMELINE
+// ============================================================
+
+.layout-timeline {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: var(--slide-padding);
+  padding-top: calc(var(--slide-padding) + 16px);
+  padding-bottom: calc(var(--slide-padding) + 40px);
+  box-sizing: border-box;
+
+  > h2 {
+    margin: 0 0 0.3em 0;
+    font-size: 1.8em;
+    text-transform: lowercase;
+    flex-shrink: 0;
+  }
+}
+
+.timeline {
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  margin-top: 16px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--color-orange);
+    transform: translateY(-50%);
+  }
+}
+
+.timeline-marker {
+  grid-row: 2;
+  justify-self: start;
+  align-self: center;
+  position: relative;
+  z-index: 2;
+  background: var(--color-cream);
+  border: 1px solid var(--color-orange);
+  color: var(--color-orange);
+  padding: 4px 10px 3px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 1px;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.timeline-item {
+  padding: 0 24px 0 14px;
+  border-left: 1px solid var(--color-orange);
+  position: relative;
+  z-index: 1;
+
+  &--above {
+    grid-row: 1;
+    align-self: end;
+    padding-bottom: 14px;
+  }
+
+  &--below {
+    grid-row: 3;
+    align-self: start;
+    padding-top: 14px;
+  }
+
+  h3 {
+    margin: 0 0 0.4em 0;
+    font-size: 0.95em;
+    text-transform: lowercase;
+    font-weight: 500;
+    letter-spacing: 0;
+    color: var(--color-text);
+    line-height: 1.2;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.78em;
+    color: var(--color-text-light);
+    line-height: 1.45;
+  }
+}
+
+
+// ============================================================
+// LAYOUT: PADDED
+// ============================================================
+
+.layout-padded {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: var(--slide-padding);
+  padding-top: calc(var(--slide-padding) + 16px);
+  padding-bottom: calc(var(--slide-padding) + 16px);
+  box-sizing: border-box;
+}
+
+
+// ============================================================
+// LAYOUT: STATEMENT
+// ============================================================
+
+.layout-statement {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: var(--slide-padding) calc(var(--slide-padding) + 20px);
+  box-sizing: border-box;
+
+  .statement-text {
+    font-size: 1.55em;
+    font-weight: 500;
+    line-height: 1.4;
+    max-width: 90%;
+  }
+
+  .statement-label {
+    margin-top: auto;
+    padding-top: 1.5em;
+  }
+}
+
+
+// ============================================================
+// LAYOUT: QUOTE
+// ============================================================
+
+.layout-quote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding: var(--slide-padding) 90px;
+  box-sizing: border-box;
+
+  blockquote {
+    font-size: 1.65em;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.4;
+    text-transform: none;
+  }
+
+  .quote-attribution {
+    margin-top: 1.2em;
+    font-size: 0.85em;
+    color: var(--color-text-light);
+    font-style: normal;
+  }
+}
+
+
+// ============================================================
+// LAYOUT: COLUMNS
+// ============================================================
+
+.layout-columns {
+  display: grid;
+  align-items: start;
+  width: 100%;
+  height: 100%;
+  padding: var(--slide-padding);
+  padding-top: calc(var(--slide-padding) + 24px);
+  box-sizing: border-box;
+
+  &.cols-2 {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+
+  &.cols-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 36px;
+  }
+
+  .col h3 {
+    margin-top: 0.6em;
+  }
+
+  .col p {
+    font-size: 0.9em;
+    color: var(--color-text-light);
+  }
+}
+
+
+// ============================================================
+// LAYOUT: LIST
+// ============================================================
+
+.layout-list {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 40px;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: var(--slide-padding);
+  box-sizing: border-box;
+
+  .list-graphic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      max-width: 80%;
+      max-height: 280px;
+    }
+  }
+
+  ol {
+    list-style: none;
+    counter-reset: item;
+    padding: 0;
+    margin: 0;
+
+    li {
+      counter-increment: item;
+      display: flex;
+      align-items: baseline;
+      gap: 18px;
+      padding: 0.45em 0;
+      font-size: 1em;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+
+      &::before {
+        content: counter(item, decimal-leading-zero);
+        font-size: 0.85em;
+        font-weight: 400;
+        color: var(--color-text-light);
+        min-width: 2em;
+      }
+    }
+  }
+}
+
+
+// ============================================================
+// LAYOUT: BIO
+// ============================================================
+
+.layout-bio {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 48px;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: var(--slide-padding);
+  box-sizing: border-box;
+
+  .bio-photo {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+
+    img {
+      width: 100%;
+      height: auto;
+      filter: grayscale(100%) contrast(1.05);
+      display: block;
+    }
+  }
+
+  .bio-text {
+    h2 {
+      margin-bottom: 0.2em;
+    }
+
+    p {
+      font-size: 0.9em;
+      line-height: 1.6;
+      color: var(--color-text-light);
+    }
+
+    .bio-links {
+      margin-top: 0.8em;
+      font-size: 0.85em;
+    }
+  }
+}
+
+
+// ============================================================
+// BODY LIST (simple bullets for content slides)
+// ============================================================
+
+.body-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.8em 0 0 0;
+
+  li {
+    padding: 0.3em 0;
+    font-size: 1em;
+    font-weight: 300;
+    color: var(--color-text-light);
+    text-transform: none;
+
+    &::before {
+      content: '\2014';
+      margin-right: 0.6em;
+      color: var(--color-mark);
+    }
+
+    .outline-check {
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 0.4em;
+      color: var(--color-text-light);
+    }
+  }
+}
+
+
+// ============================================================
+// UTILITIES
+// ============================================================
+
+.text-center { text-align: center; }
+.text-small  { font-size: 0.8em; }
+.text-large  { font-size: 1.3em; }
+.text-light  { color: var(--color-text-light); }
+.text-orange { color: var(--color-orange); }
+.text-blue   { color: var(--color-blue); }
+.mt-auto     { margin-top: auto; }
+.mb-0        { margin-bottom: 0; }
+.uppercase   { text-transform: uppercase; letter-spacing: 0.04em; }
