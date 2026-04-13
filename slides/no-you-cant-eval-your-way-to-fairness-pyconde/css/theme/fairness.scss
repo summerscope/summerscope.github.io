@@ -730,7 +730,7 @@ $color-mark-light:  #d8d0c8;
 
 .venn-grid {
   display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 4fr);
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
   gap: 40px;
   flex: 1;
   min-height: 0;
@@ -741,7 +741,7 @@ $color-mark-light:  #d8d0c8;
 .venn-canvas {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 2;
   max-height: 100%;
   margin: auto 0;
 }
