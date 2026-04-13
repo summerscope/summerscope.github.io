@@ -787,8 +787,10 @@ $color-mark-light:  #d8d0c8;
     color: var(--color-text-light);
   }
 
-  // Optional heading as first child, positioned absolutely at top
-  > h2.slide-heading {
+  // Optional heading as first child, positioned absolutely at top.
+  // Accepts either <h2 class="slide-heading"> or <div class="slide-heading">
+  // (for label-only headings).
+  > .slide-heading {
     position: absolute;
     top: calc(var(--mark-inset) + var(--mark-length) + 24px);
     left: var(--slide-padding);
@@ -799,7 +801,7 @@ $color-mark-light:  #d8d0c8;
   }
 
   // If a heading is present, push columns down
-  &:has(> h2.slide-heading) {
+  &:has(> .slide-heading) {
     padding-top: 140px;
   }
 }
