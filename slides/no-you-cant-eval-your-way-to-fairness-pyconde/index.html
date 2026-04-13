@@ -358,40 +358,69 @@
 
 
 				<!-- ==========================================
-				     SLIDE: THE FOUR JOBS — timeline
+				     SLIDE: THE FOUR JOBS — venn progression
+				     Custom layout. Four SVG layers stacked, each
+				     wrapped in a .venn-layer div so reveal fragments
+				     work on a block element. A is visible on entry;
+				     B / C / D fade in cumulatively with their
+				     matching activity blocks on the right.
 				     ========================================== -->
 				<section>
-					<div class="slide slide--timeline">
+					<div class="slide slide--venn">
 						<h2>The four jobs</h2>
-						<div class="timeline">
-							<!-- Items above the track (positions 1 and 3) -->
-							<div class="timeline__item timeline__item--above fragment" data-fragment-index="0" data-pos="1">
-								<h3>Understand the world</h3>
-								<p>historical inequality, structural bias, how we got here.</p>
-							</div>
-							<div class="timeline__item timeline__item--above fragment" data-fragment-index="2" data-pos="3">
-								<h3>Understand your system</h3>
-								<p>risk assessment of your specific context, in production.</p>
+
+						<div class="venn-grid">
+							<div class="venn-canvas">
+								<!-- Layer A — baseline, visible on entry -->
+								<div class="venn-layer">
+									<svg viewBox="0 0 720 540" xmlns="http://www.w3.org/2000/svg" aria-label="circle A, understand the world">
+										<circle cx="310" cy="280" r="230" fill="#ff4f1f" fill-opacity="0.25" />
+										<text class="venn-letter" x="155" y="95" fill="#ff4f1f" dominant-baseline="hanging">A</text>
+									</svg>
+								</div>
+
+								<!-- Layer B — first fragment -->
+								<div class="venn-layer fragment" data-fragment-index="0">
+									<svg viewBox="0 0 720 540" xmlns="http://www.w3.org/2000/svg" aria-label="circle B, understand foundation models">
+										<circle cx="360" cy="310" r="190" fill="#ff4f1f" fill-opacity="0.25" />
+										<text class="venn-letter" x="225" y="175" fill="#ff4f1f" dominant-baseline="hanging">B</text>
+									</svg>
+								</div>
+
+								<!-- Layer C — second fragment -->
+								<div class="venn-layer fragment" data-fragment-index="1">
+									<svg viewBox="0 0 720 540" xmlns="http://www.w3.org/2000/svg" aria-label="circle C, understand your system">
+										<circle cx="400" cy="335" r="145" fill="#ff4f1f" fill-opacity="0.25" />
+										<text class="venn-letter" x="305" y="240" fill="#ff4f1f" dominant-baseline="hanging">C</text>
+									</svg>
+								</div>
+
+								<!-- Layer D — third fragment -->
+								<div class="venn-layer fragment" data-fragment-index="2">
+									<svg viewBox="0 0 720 540" xmlns="http://www.w3.org/2000/svg" aria-label="circle D, intervene">
+										<circle cx="545" cy="305" r="125" fill="#2468ff" fill-opacity="0.25" />
+										<text class="venn-letter" x="520" y="210" fill="#2468ff" dominant-baseline="hanging">D</text>
+									</svg>
+								</div>
 							</div>
 
-							<!-- Markers on the track (all 4 positions) -->
-							<div class="timeline__marker" data-pos="1">01</div>
-							<div class="timeline__marker" data-pos="2">02</div>
-							<div class="timeline__marker" data-pos="3">03</div>
-							<div class="timeline__marker" data-pos="4">04</div>
-
-							<!-- Items below the track (positions 2 and 4) -->
-							<div class="timeline__item timeline__item--below fragment" data-fragment-index="1" data-pos="2">
-								<h3>Understand your ingredients</h3>
-								<p>what's baked into the foundation models and systems you build on.</p>
-							</div>
-							<div class="timeline__item timeline__item--below fragment" data-fragment-index="3" data-pos="4">
-								<h3>Intervene</h3>
-								<p>harm reduction, relative risk assessment, feedback loops, monitoring, positive interventions.</p>
-							</div>
+							<ul class="venn-items">
+								<li class="venn-item">
+									<h3><span class="venn-key">A</span> Understand the world</h3>
+								</li>
+								<li class="venn-item fragment" data-fragment-index="0">
+									<h3><span class="venn-key">B</span> Understand foundation models</h3>
+								</li>
+								<li class="venn-item fragment" data-fragment-index="1">
+									<h3><span class="venn-key">C</span> Understand your system</h3>
+								</li>
+								<li class="venn-item fragment" data-fragment-index="2">
+									<h3><span class="venn-key venn-key--blue">D</span> Intervene</h3>
+								</li>
+							</ul>
 						</div>
 
-						<aside class="notes">'Four jobs. Jobs one, two and three are structurally identical — build intuition, then measure — at three different levels of abstraction. Job one is the world. Job two is your ingredients. Job three is your specific system. Most people only ever do job three, and usually only after the system is already in production. Jobs one and two are almost always skipped. Job four — intervention — is almost always done badly or not at all. That is what we are building toward. And one more thing: any attempt to do this work without intersectionality will systematically miss the most marginalised people. Intersectionality is not optional. It is the difference between measuring the average and measuring the people who are most at risk.'</aside>
+						<aside class="notes">'Four jobs. Jobs one, two and three are structurally identical — build intuition, then measure — at three different levels of abstraction. Job one is the world. Job two is what you are building on. Job three is your specific system. And notice the shape: your system sits inside the foundation models it is made of, which sit inside the world those models were trained on. You cannot understand your system without understanding its ingredients; you cannot understand its ingredients without understanding the world. Most people only ever do job three, and usually only after the system is already in production. Jobs one and two are almost always skipped. Job four — intervention — straddles your system and the world beyond it. It is where understanding meets action. Any attempt to do this work without intersectionality will systematically miss the most marginalised people. Intersectionality is not optional. It is the difference between measuring the average and measuring the people who are most at risk.'</aside>
 					</div>
 				</section>
 

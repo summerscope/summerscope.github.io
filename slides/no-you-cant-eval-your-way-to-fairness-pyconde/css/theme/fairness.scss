@@ -706,17 +706,13 @@ $color-mark-light:  #d8d0c8;
 
 // ---- VENN -----------------------------------------------
 // Custom layout for the "four jobs" mental model slide.
-// Left column: stacked SVG layers (one per job) that
-// progressively reveal as fragments, the orange fills
-// compounding via alpha. Right column: a list of activity
-// blocks, one per circle, keyed to the same fragment indices.
-//
-// NOTE: selectors are duplicated (.layout-venn / .slide--venn)
-// so this survives the in-flight HTML migration — the old
-// markup uses `layout-venn` like every other slide in
-// index.html; the new markup will use `slide--venn`.
+// Left cell: a stack of absolutely-positioned .venn-layer divs,
+// each containing one SVG with one (or zero) circle. Fragment
+// classes on the layer divs reveal circles progressively; the
+// orange fills compound via alpha so later circles look darker
+// than their containers. Right cell: one .venn-item per circle,
+// keyed to the same fragment indices.
 
-.layout-venn,
 .slide--venn {
   display: flex;
   flex-direction: column;
@@ -724,8 +720,6 @@ $color-mark-light:  #d8d0c8;
   padding-top: calc(var(--slide-padding) + 16px);
   padding-bottom: calc(var(--slide-padding) + 40px);
   box-sizing: border-box;
-  height: 100%;
-  width: 100%;
 
   > h2 {
     margin: 0 0 0.3em 0;
@@ -747,92 +741,63 @@ $color-mark-light:  #d8d0c8;
 .venn-canvas {
   position: relative;
   width: 100%;
-  height: 100%;
-  min-height: 0;
+  aspect-ratio: 4 / 3;
+  max-height: 100%;
+  margin: auto 0;
 }
 
 .venn-layer {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
 
-  // Keep the letter labels crisp and readable inside the SVG.
-  .venn-letter {
-    font-family: var(--font-main);
-    font-size: 52px;
-    font-weight: 500;
-    fill: var(--color-orange);
-    letter-spacing: -0.01em;
-  }
-
-  .venn-letter--blue {
-    fill: var(--color-blue);
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
   }
 }
 
-.venn-items {
+.venn-letter {
+  font-family: var(--font-main);
+  font-size: 64px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.reveal .venn-items {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 14px;
+  justify-content: center;
+  gap: 18px;
   min-height: 0;
-  overflow: hidden;
 }
 
 .venn-item {
-  // Each item is one job / one circle.
+  flex-shrink: 0;
+
   h3 {
-    margin: 0 0 0.15em 0;
-    font-size: 1em;
+    margin: 0;
+    font-size: 1.3em;
     font-weight: 500;
     color: var(--color-text);
     display: flex;
     align-items: baseline;
-    gap: 12px;
+    gap: 14px;
     letter-spacing: 0;
-  }
-
-  .venn-sub {
-    margin: 0 0 0.35em 30px;
-    font-size: 0.78em;
-    color: var(--color-text-light);
-    line-height: 1.4;
-  }
-
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 0 30px;
-
-    li {
-      padding: 0.1em 0;
-      font-size: 0.74em;
-      font-weight: 300;
-      color: var(--color-text-light);
-      line-height: 1.45;
-
-      &::before {
-        content: '\2014';
-        margin-right: 0.5em;
-        color: var(--color-mark);
-      }
-    }
+    line-height: 1.2;
   }
 }
 
 .venn-key {
-  // Letter tag ("A") at the start of each item heading.
-  // Echoes the letter inside the SVG so the mapping is obvious.
   display: inline-block;
-  min-width: 18px;
+  min-width: 22px;
   font-family: var(--font-main);
-  font-size: 1.1em;
-  font-weight: 500;
+  font-size: 1.05em;
+  font-weight: 600;
   color: var(--color-orange);
   letter-spacing: 0;
   text-transform: uppercase;
