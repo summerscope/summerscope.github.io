@@ -413,6 +413,7 @@ In `img/`:
 - `laser-level.svg`
 - `tape-measure.svg`
 - `micrometer.svg`
+- `handsup.svg` — "Hand Up" by kayaheart, [Noun Project](https://thenounproject.com)
 
 ## Speaker notes convention
 
