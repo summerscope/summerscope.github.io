@@ -2,24 +2,15 @@
 
 Quick reference for the slide templates available in this deck. Each template has a short name, ASCII layout, use case, and the minimum HTML structure needed.
 
+> **Note:** Registration marks, guide lines, the speaker/conference footer and the progress bar are all injected by JavaScript at initialisation. Do not include them in your markup.
+
 All templates go inside:
 
 ```html
 <section>
-  <div class="slide-wrap has-marks">
-    <div class="mark-tr"></div>
-    <div class="mark-bl"></div>
-    <div class="guide-h-top"></div>
-    <div class="guide-h-bottom"></div>
-    <div class="guide-v-left"></div>
-    <div class="guide-v-right"></div>
+  <div class="slide slide--<layout>">
 
-    <!-- template layout goes here -->
-
-    <div class="slide-meta">
-      <span>Laura Summers</span>
-      <span>PyCon DE & PyData 2026</span>
-    </div>
+    <!-- template content goes here -->
 
     <aside class="notes">speaker notes</aside>
   </div>
@@ -46,16 +37,16 @@ Text left, photo right. Good for: title slide, split content with image support,
 ```
 
 ```html
-<div class="layout-split">
-  <div class="split-text">
+<div class="slide slide--split">
+  <div class="slide-text">
     <span class="label">Label</span>
-    <h1>headline</h1>
+    <h1>Headline</h1>
     <p class="text-light text-small">optional subtitle</p>
   </div>
-  <div class="split-photo">
+  <div class="slide-photo">
     <img src="img/photo.jpg" alt="" />
     <!-- optional instrument, positioned relative to photo cell -->
-    <div class="instrument instrument--orange" style="width: 180px; top: 15%; left: -90px;">
+    <div class="instrument instrument--orange instrument--lg instrument--bleed-left">
       <img src="img/protractor.svg" alt="" />
     </div>
   </div>
@@ -82,13 +73,13 @@ Photo left, text right. Good for: section dividers, chapter intros.
 ```
 
 ```html
-<div class="layout-split layout-split--text-right">
-  <div class="split-photo">
+<div class="slide slide--split slide--text-right">
+  <div class="slide-photo">
     <img src="img/photo.jpg" alt="" />
   </div>
-  <div class="split-text">
+  <div class="slide-text">
     <span class="label">Chapter One</span>
-    <h2>heading</h2>
+    <h2>Heading</h2>
   </div>
 </div>
 ```
@@ -111,11 +102,11 @@ Portrait left (fixed ~280px), bio text right. Good for: speaker intro.
 ```
 
 ```html
-<div class="layout-bio">
-  <div class="bio-photo">
+<div class="slide slide--bio">
+  <div class="slide-photo">
     <img src="img/Laura.jpg" alt="Laura Summers" />
   </div>
-  <div class="bio-text">
+  <div class="slide-text">
     <span class="label">About</span>
     <h2>Name</h2>
     <p>Bio text.</p>
@@ -142,13 +133,13 @@ Full-width photo on top, label + heading strip below. Good for: emotional punctu
 ```
 
 ```html
-<div class="layout-photo-top">
-  <div class="photo-area">
+<div class="slide slide--photo-top">
+  <div class="slide-photo">
     <img src="img/photo.jpg" alt="" />
   </div>
-  <div class="text-area">
+  <div class="slide-text">
     <span class="label">Context</span>
-    <h2>heading</h2>
+    <h2>Heading</h2>
   </div>
 </div>
 ```
@@ -173,18 +164,18 @@ Big text, filling most of the slide, optional small instrument accent. Good for:
 ```
 
 ```html
-<div class="layout-statement">
-  <div class="statement-text">
+<div class="slide slide--statement">
+  <div class="slide-statement">
     Big statement text.
   </div>
-  <div class="statement-label">
+  <div class="slide-statement-label">
     <span class="label">Finding</span>
   </div>
-</div>
 
-<!-- optional instrument accent, positioned on slide-wrap -->
-<div class="instrument instrument--orange" style="width: 100px; top: 50px; right: 60px; opacity: 0.35;">
-  <img src="img/set-square.svg" alt="" />
+  <!-- optional instrument accent -->
+  <div class="instrument instrument--orange instrument--sm instrument--accent instrument--accent-tr">
+    <img src="img/set-square.svg" alt="" />
+  </div>
 </div>
 ```
 
@@ -209,7 +200,7 @@ Centered italic quote with chevron marks, optional attribution. Good for: pull q
 ```
 
 ```html
-<div class="layout-quote">
+<div class="slide slide--quote">
   <div class="quote-mark">&laquo;</div>
   <blockquote>
     quote text
@@ -239,14 +230,14 @@ Instrument graphic left, numbered list right. Good for: agenda, findings, step-b
 ```
 
 ```html
-<div class="layout-list">
-  <div class="list-graphic">
+<div class="slide slide--list">
+  <div class="slide-graphic">
     <img src="img/compass.svg" alt="" class="instrument--orange" />
   </div>
   <ol>
-    <li>item one</li>
-    <li>item two</li>
-    <li>item three</li>
+    <li>Item one</li>
+    <li>Item two</li>
+    <li>Item three</li>
   </ol>
 </div>
 ```
@@ -271,21 +262,21 @@ Two or three equal columns with numbered circles, heading, body. Good for: compa
 ```
 
 ```html
-<div class="layout-columns cols-2">
-  <div class="col">
+<div class="slide slide--columns slide--cols-2">
+  <div class="slide-col">
     <span class="num-circle">1</span>
     <h3>Heading</h3>
     <p>Body copy.</p>
   </div>
-  <div class="col">
-    <span class="num-circle" style="border-color: var(--color-blue); color: var(--color-blue);">2</span>
+  <div class="slide-col">
+    <span class="num-circle num-circle--blue">2</span>
     <h3>Heading</h3>
     <p>Body copy.</p>
   </div>
 </div>
 ```
 
-For 3 columns use `cols-3` instead of `cols-2` and add a third `.col`.
+For 3 columns use `slide--cols-3` instead of `slide--cols-2` and add a third `.slide-col`.
 
 ---
 
@@ -311,39 +302,39 @@ Horizontal track with 4 markers, items alternating above/below the line. Good fo
 ```
 
 ```html
-<div class="layout-timeline">
-  <h2>header</h2>
+<div class="slide slide--timeline">
+  <h2>Header</h2>
   <div class="timeline">
     <!-- Items above the track (positions 1 and 3) -->
-    <div class="timeline-item timeline-item--above" style="grid-column: 1;">
-      <h3>first item</h3>
+    <div class="timeline__item timeline__item--above" data-pos="1">
+      <h3>First item</h3>
       <p>description copy here.</p>
     </div>
-    <div class="timeline-item timeline-item--above" style="grid-column: 3;">
-      <h3>third item</h3>
+    <div class="timeline__item timeline__item--above" data-pos="3">
+      <h3>Third item</h3>
       <p>description copy here.</p>
     </div>
 
     <!-- Markers (all 4 positions) -->
-    <div class="timeline-marker" style="grid-column: 1;">01</div>
-    <div class="timeline-marker" style="grid-column: 2;">02</div>
-    <div class="timeline-marker" style="grid-column: 3;">03</div>
-    <div class="timeline-marker" style="grid-column: 4;">04</div>
+    <div class="timeline__marker" data-pos="1">01</div>
+    <div class="timeline__marker" data-pos="2">02</div>
+    <div class="timeline__marker" data-pos="3">03</div>
+    <div class="timeline__marker" data-pos="4">04</div>
 
     <!-- Items below the track (positions 2 and 4) -->
-    <div class="timeline-item timeline-item--below" style="grid-column: 2;">
-      <h3>second item</h3>
+    <div class="timeline__item timeline__item--below" data-pos="2">
+      <h3>Second item</h3>
       <p>description copy here.</p>
     </div>
-    <div class="timeline-item timeline-item--below" style="grid-column: 4;">
-      <h3>fourth item</h3>
+    <div class="timeline__item timeline__item--below" data-pos="4">
+      <h3>Fourth item</h3>
       <p>description copy here.</p>
     </div>
   </div>
 </div>
 ```
 
-Marker text can be anything short — `01`/`02`/`03`/`04`, years, labels. Items must be explicitly placed with `grid-column: N`. Fixed at 4 markers by default.
+Marker text can be anything short — `01`/`02`/`03`/`04`, years, labels. Items are placed with `data-pos="N"`. Fixed at 4 markers by default.
 
 ---
 
@@ -367,9 +358,9 @@ Simple label + heading + bullet list. Good for: activity prompts, audience quest
 ```
 
 ```html
-<div class="layout-padded">
+<div class="slide slide--padded">
   <span class="label">Activity</span>
-  <h2>the question?</h2>
+  <h2>The question?</h2>
   <ul class="body-list">
     <li>option one</li>
     <li>option two</li>
@@ -386,6 +377,29 @@ Simple label + heading + bullet list. Good for: activity prompts, audience quest
 - `.label--blue` — electric blue variant (add alongside `.label`)
 - `.instrument--orange` — hot orange fill for SVG instruments
 - `.instrument--blue` — electric blue fill for SVG instruments
+
+## Instrument positioning
+
+Use modifier classes instead of inline styles:
+
+- **Size:** `instrument--sm` (100px), `instrument--md` (130px), `instrument--lg` (180px), `instrument--xl`
+- **Bleed:** `instrument--bleed-left`, `instrument--bleed-right` (use with `instrument--lg` only)
+- **Accent:** `instrument--accent` (sets opacity 0.3) + position: `instrument--accent-tl`, `instrument--accent-tr`, `instrument--accent-bl`, `instrument--accent-br`
+- **Rotation:** `instrument--rotate-90`
+
+Example — accent instrument top-right:
+```html
+<div class="instrument instrument--orange instrument--sm instrument--accent instrument--accent-tr">
+  <img src="img/compass.svg" alt="" />
+</div>
+```
+
+Example — bleed instrument on photo cell:
+```html
+<div class="instrument instrument--orange instrument--lg instrument--bleed-left">
+  <img src="img/protractor.svg" alt="" />
+</div>
+```
 
 ## Available instrument SVGs
 
