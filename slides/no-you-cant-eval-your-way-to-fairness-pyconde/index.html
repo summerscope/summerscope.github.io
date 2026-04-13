@@ -566,7 +566,11 @@
 
 
 				<!-- ==========================================
-				     SLIDE: THE FOUR JOBS — timeline
+				     SLIDE: THE FOUR JOBS — venn progression
+				     Custom layout: four SVG layers stacked, each
+				     fragment reveals the next circle + its activity
+				     block on the right. A is visible on entry;
+				     B / C / D fade in as fragments.
 				     ========================================== -->
 				<section>
 					<div class="slide-wrap has-marks">
@@ -577,34 +581,77 @@
 						<div class="guide-v-left"></div>
 						<div class="guide-v-right"></div>
 
-						<div class="layout-timeline">
+						<div class="layout-venn">
 							<h2>the four jobs</h2>
-							<div class="timeline">
-								<!-- Items above the track (positions 1 and 3) -->
-								<div class="timeline-item timeline-item--above fragment" data-fragment-index="0" style="grid-column: 1;">
-									<h3>understand the world</h3>
-									<p>historical inequality, structural bias, how we got here.</p>
-								</div>
-								<div class="timeline-item timeline-item--above fragment" data-fragment-index="2" style="grid-column: 3;">
-									<h3>understand your system</h3>
-									<p>risk assessment of your specific context, in production.</p>
+
+							<div class="venn-grid">
+								<div class="venn-canvas">
+									<!-- Layer A — visible on slide entry -->
+									<svg class="venn-layer" viewBox="0 0 720 540" xmlns="http://www.w3.org/2000/svg" aria-label="circle A, understand the world">
+										<circle cx="310" cy="280" r="230" fill="#ff4f1f" fill-opacity="0.25" />
+										<text x="160" y="130" class="venn-letter venn-letter--orange">A</text>
+									</svg>
+
+									<!-- Layer B — first fragment -->
+									<svg class="venn-layer fragment" data-fragment-index="0" viewBox="0 0 720 540" xmlns="http://www.w3.org/2000/svg" aria-label="circle B, understand foundation models">
+										<circle cx="360" cy="310" r="190" fill="#ff4f1f" fill-opacity="0.25" />
+										<text x="230" y="205" class="venn-letter venn-letter--orange">B</text>
+									</svg>
+
+									<!-- Layer C — second fragment -->
+									<svg class="venn-layer fragment" data-fragment-index="1" viewBox="0 0 720 540" xmlns="http://www.w3.org/2000/svg" aria-label="circle C, understand your system">
+										<circle cx="400" cy="335" r="145" fill="#ff4f1f" fill-opacity="0.25" />
+										<text x="305" y="270" class="venn-letter venn-letter--orange">C</text>
+									</svg>
+
+									<!-- Layer D — third fragment -->
+									<svg class="venn-layer fragment" data-fragment-index="2" viewBox="0 0 720 540" xmlns="http://www.w3.org/2000/svg" aria-label="circle D, intervene">
+										<circle cx="540" cy="305" r="120" fill="#2468ff" fill-opacity="0.25" />
+										<text x="525" y="230" class="venn-letter venn-letter--blue">D</text>
+									</svg>
 								</div>
 
-								<!-- Markers on the track (all 4 positions) -->
-								<div class="timeline-marker" style="grid-column: 1;">01</div>
-								<div class="timeline-marker" style="grid-column: 2;">02</div>
-								<div class="timeline-marker" style="grid-column: 3;">03</div>
-								<div class="timeline-marker" style="grid-column: 4;">04</div>
+								<ol class="venn-items">
+									<li class="venn-item">
+										<h3><span class="venn-key venn-key--orange">A</span> understand the world</h3>
+										<p class="venn-sub">historical inequality, structural bias, how we got here</p>
+										<ul>
+											<li>read — literature, landmark audits (Gender Shades, COMPAS)</li>
+											<li>talk to the people already being harmed</li>
+											<li>apply an intersectional lens &mdash; not optional</li>
+										</ul>
+									</li>
 
-								<!-- Items below the track (positions 2 and 4) -->
-								<div class="timeline-item timeline-item--below fragment" data-fragment-index="1" style="grid-column: 2;">
-									<h3>understand your ingredients</h3>
-									<p>what's baked into the foundation models and systems you build on.</p>
-								</div>
-								<div class="timeline-item timeline-item--below fragment" data-fragment-index="3" style="grid-column: 4;">
-									<h3>intervene</h3>
-									<p>harm reduction, relative risk assessment, feedback loops, monitoring, positive interventions.</p>
-								</div>
+									<li class="venn-item fragment" data-fragment-index="0">
+										<h3><span class="venn-key venn-key--orange">B</span> understand foundation models</h3>
+										<p class="venn-sub">what's already baked into the stack you build on</p>
+										<ul>
+											<li>read model cards, red-team and eval reports</li>
+											<li>probe outputs for demographic and cultural bias</li>
+											<li>know what the provided evals miss</li>
+										</ul>
+									</li>
+
+									<li class="venn-item fragment" data-fragment-index="1">
+										<h3><span class="venn-key venn-key--orange">C</span> understand your system</h3>
+										<p class="venn-sub">risk assessment in your specific context, in production</p>
+										<ul>
+											<li>map users, stakeholders, plausible failure modes</li>
+											<li>measure with a hypothesis &mdash; not with defaults</li>
+											<li>monitor, listen, act on qualitative signals</li>
+										</ul>
+									</li>
+
+									<li class="venn-item fragment" data-fragment-index="2">
+										<h3><span class="venn-key venn-key--blue">D</span> intervene</h3>
+										<p class="venn-sub">harm reduction, feedback loops, deliberate course corrections</p>
+										<ul>
+											<li>challenge the problem statement before writing code</li>
+											<li>remove unnecessary binaries and attributes</li>
+											<li>build channels for the most affected to push back</li>
+										</ul>
+									</li>
+								</ol>
 							</div>
 						</div>
 
@@ -613,7 +660,7 @@
 							<span>PyCon DE & PyData 2026</span>
 						</div>
 
-						<aside class="notes">'Four jobs. Jobs one, two and three are structurally identical — build intuition, then measure — at three different levels of abstraction. Job one is the world. Job two is your ingredients. Job three is your specific system. Most people only ever do job three, and usually only after the system is already in production. Jobs one and two are almost always skipped. Job four — intervention — is almost always done badly or not at all. That is what we are building toward. And one more thing: any attempt to do this work without intersectionality will systematically miss the most marginalised people. Intersectionality is not optional. It is the difference between measuring the average and measuring the people who are most at risk.'</aside>
+						<aside class="notes">'Four jobs. Jobs one, two and three are structurally identical — build intuition, then measure — at three different levels of abstraction. Job one is the world. Job two is what you are building on. Job three is your specific system. And notice the shape: your system sits inside the foundation models it is made of, which sit inside the world those models were trained on. You cannot understand your system without understanding its ingredients; you cannot understand its ingredients without understanding the world. Most people only ever do job three, and usually only after the system is already in production. Jobs one and two are almost always skipped. Job four — intervention — straddles your system and the world beyond it. It is where understanding meets action. Any attempt to do this work without intersectionality will systematically miss the most marginalised people. Intersectionality is not optional. It is the difference between measuring the average and measuring the people who are most at risk.'</aside>
 					</div>
 				</section>
 
