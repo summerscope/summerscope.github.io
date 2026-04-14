@@ -235,7 +235,7 @@ svg.selectAll("path.lf")
   .on("mouseenter", function(e, d) {
     d3.select(this).attr("fill", d.data.color + "30");
     tipCluster.textContent = d.data.clusterName;
-    tipCluster.style.color = d3.color(d.data.color).brighter(1.2).formatHex();
+    tipCluster.style.color = d3.color(d.data.color).brighter(2.5).formatHex();
     tipItem.textContent    = d.data.name;
     tip.style.display = "block";
   })
