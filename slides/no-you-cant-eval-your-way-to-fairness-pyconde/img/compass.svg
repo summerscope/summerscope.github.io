@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 180" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Knurled handle top -->
+  <path d="M 42 4 Q 50 0 58 4"/>
+  <rect x="42" y="4" width="16" height="22" rx="3"/>
+  <!-- Knurling texture -->
+  <line x1="44" y1="9" x2="56" y2="9"/>
+  <line x1="44" y1="14" x2="56" y2="14"/>
+  <line x1="44" y1="19" x2="56" y2="19"/>
+  <!-- Pivot -->
+  <circle cx="50" cy="32" r="6"/>
+  <circle cx="50" cy="32" r="2.5"/>
+  <!-- Left leg (needle point) -->
+  <line x1="46" y1="37" x2="22" y2="168"/>
+  <line x1="44" y1="37" x2="20" y2="168"/>
+  <!-- Needle tip -->
+  <line x1="21" y1="168" x2="21" y2="178"/>
+  <!-- Right leg -->
+  <line x1="54" y1="37" x2="78" y2="148"/>
+  <line x1="56" y1="37" x2="80" y2="148"/>
+  <!-- Pencil holder clamp -->
+  <rect x="74" y="145" width="12" height="8" rx="2"/>
+  <!-- Pencil shaft -->
+  <rect x="76" y="153" width="8" height="22" rx="1"/>
+  <!-- Pencil tip -->
+  <polygon points="76,175 84,175 80,180"/>
+  <!-- Adjustment arc -->
+  <path d="M 38 55 Q 50 47 62 55" stroke-dasharray="3 3"/>
+</svg>
