@@ -658,18 +658,34 @@
 				     SLIDE: UPSTREAM INTERVENTION SPECTRUM — list
 				     ========================================== -->
 				<section>
-					<div class="slide slide--list">
-						<div class="slide-graphic">
-							<img src="img/laser-level.svg" alt="" class="instrument--blue" />
-						</div>
-						<div>
-							<span class="label--blue label">Where can you intervene?</span>
-							<ol>
-								<li class="fragment">Problem statement &mdash; does the business model create incentives to find harm, or to ignore it?</li>
-								<li class="fragment">Design &#8596; build loop &mdash; what are you encoding before anyone uses it?</li>
-								<li class="fragment">Build &#8596; iterate loop &mdash; monitoring, feedback loops, learning from real use</li>
-								<li class="fragment">Interventions &mdash; deliberate changes in response to what you've learned</li>
-							</ol>
+					<div class="slide slide--timeline">
+						<h2>Where can you intervene?</h2>
+						<div class="timeline">
+							<!-- Items above the track (positions 1 and 3) -->
+							<div class="timeline__item timeline__item--above fragment" data-fragment-index="0" data-pos="1">
+								<h3>Problem statement</h3>
+								<p>does the business model create incentives to find harm, or to ignore it?</p>
+							</div>
+							<div class="timeline__item timeline__item--above fragment" data-fragment-index="2" data-pos="3">
+								<h3>Build &#8596; iterate loop</h3>
+								<p>monitoring, feedback loops, learning from real use.</p>
+							</div>
+
+							<!-- Markers on the track (all 4 positions) -->
+							<div class="timeline__marker" data-pos="1">01</div>
+							<div class="timeline__marker" data-pos="2">02</div>
+							<div class="timeline__marker" data-pos="3">03</div>
+							<div class="timeline__marker" data-pos="4">04</div>
+
+							<!-- Items below the track (positions 2 and 4) -->
+							<div class="timeline__item timeline__item--below fragment" data-fragment-index="1" data-pos="2">
+								<h3>Design &#8596; build loop</h3>
+								<p>what are you encoding before anyone uses it?</p>
+							</div>
+							<div class="timeline__item timeline__item--below fragment" data-fragment-index="3" data-pos="4">
+								<h3>Interventions</h3>
+								<p>deliberate changes in response to what you've learned.</p>
+							</div>
 						</div>
 
 						<aside class="notes">'Intervention is available at every stage of building a system — and the earlier you intervene, the more radically different the impact on potential harms in the world. At the problem statement stage: does this business model create incentives to find harm, or to ignore it? If your revenue depends on engagement at any cost, monitoring for harm is structurally disincentivised. That is a design decision before a line of code is written. The design-build loop is where most assumptions get encoded invisibly. The build-iterate loop is where you discover what real people actually experience — through monitoring, feedback loops, qualitative signals. And interventions are deliberate course corrections made in response to what you have learned. Not the same as monitoring. Acting on the signal.'</aside>
