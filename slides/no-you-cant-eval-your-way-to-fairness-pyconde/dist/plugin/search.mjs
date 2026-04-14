@@ -1,73 +1,78 @@
-const D = () => {
-  let f, t, l, n, a, y, s;
-  function g() {
-    t = document.createElement("div"), t.classList.add("searchbox"), t.style.position = "absolute", t.style.top = "10px", t.style.right = "10px", t.style.zIndex = 10, t.innerHTML = `<input type="search" class="searchinput" placeholder="Search..." style="vertical-align: top;"/>
-		</span>`, l = t.querySelector(".searchinput"), l.style.width = "240px", l.style.fontSize = "14px", l.style.padding = "4px 6px", l.style.color = "#000", l.style.background = "#fff", l.style.borderRadius = "2px", l.style.border = "0", l.style.outline = "0", l.style.boxShadow = "0 2px 18px rgba(0, 0, 0, 0.2)", l.style["-webkit-appearance"] = "none", f.getRevealElement().appendChild(t), l.addEventListener("keyup", function(r) {
-      r.keyCode === 13 ? (r.preventDefault(), k(), y = !1) : y = !0;
-    }, !1), v();
-  }
-  function w() {
-    t || g(), t.style.display = "inline", l.focus(), l.select();
-  }
-  function v() {
-    t || g(), t.style.display = "none", s && s.remove();
-  }
-  function C() {
-    t || g(), t.style.display !== "inline" ? w() : v();
-  }
-  function k() {
-    if (y) {
-      var r = l.value;
-      r === "" ? (s && s.remove(), n = null) : (s = new T("slidecontent"), n = s.apply(r), a = 0);
-    }
-    n && (n.length && n.length <= a && (a = 0), n.length > a && (f.slide(n[a].h, n[a].v), a++));
-  }
-  function T(r, c) {
-    var L = document.getElementById(r) || document.body, x = c || "EM", I = new RegExp("^(?:" + x + "|SCRIPT|FORM)$"), E = ["#ff6", "#a0ffff", "#9f9", "#f99", "#f6f"], m = [], M = 0, p = "", d = [];
-    this.setRegex = function(e) {
-      e = e.trim(), p = new RegExp("(" + e + ")", "i");
-    }, this.getRegex = function() {
-      return p.toString().replace(/^\/\\b\(|\)\\b\/i$/g, "").replace(/\|/g, " ");
-    }, this.hiliteWords = function(e) {
-      if (!(e == null || !e) && p && !I.test(e.nodeName)) {
-        if (e.hasChildNodes())
-          for (var i = 0; i < e.childNodes.length; i++)
-            this.hiliteWords(e.childNodes[i]);
-        if (e.nodeType == 3) {
-          var N, o;
-          if ((N = e.nodeValue) && (o = p.exec(N))) {
-            for (var h = e; h != null && h.nodeName != "SECTION"; )
-              h = h.parentNode;
-            for (var S = f.getIndices(h), B = d.length, R = !1, i = 0; i < B; i++)
-              d[i].h === S.h && d[i].v === S.v && (R = !0);
-            R || d.push(S), m[o[0].toLowerCase()] || (m[o[0].toLowerCase()] = E[M++ % E.length]);
-            var u = document.createElement(x);
-            u.appendChild(document.createTextNode(o[0])), u.style.backgroundColor = m[o[0].toLowerCase()], u.style.fontStyle = "inherit", u.style.color = "#000";
-            var b = e.splitText(o.index);
-            b.nodeValue = b.nodeValue.substring(o[0].length), e.parentNode.insertBefore(u, b);
-          }
-        }
-      }
-    }, this.remove = function() {
-      for (var e = document.getElementsByTagName(x), i; e.length && (i = e[0]); )
-        i.parentNode.replaceChild(i.firstChild, i);
-    }, this.apply = function(e) {
-      if (!(e == null || !e))
-        return this.remove(), this.setRegex(e), this.hiliteWords(L), d;
-    };
-  }
-  return {
-    id: "search",
-    init: (r) => {
-      f = r, f.registerKeyboardShortcut("CTRL + Shift + F", "Search"), document.addEventListener("keydown", function(c) {
-        c.key == "F" && (c.ctrlKey || c.metaKey) && (c.preventDefault(), C());
-      }, !1);
-    },
-    open: w,
-    close: v,
-    toggle: C
-  };
-}, F = D;
-export {
-  F as default
+//#endregion
+//#region plugin/search/index.ts
+var e = () => {
+	let e, t, n, r, i, a, o;
+	function s() {
+		t = document.createElement("div"), t.classList.add("searchbox"), t.style.position = "absolute", t.style.top = "10px", t.style.right = "10px", t.style.zIndex = 10, t.innerHTML = "<input type=\"search\" class=\"searchinput\" placeholder=\"Search...\" style=\"vertical-align: top;\"/>\n		</span>", n = t.querySelector(".searchinput"), n.style.width = "240px", n.style.fontSize = "14px", n.style.padding = "4px 6px", n.style.color = "#000", n.style.background = "#fff", n.style.borderRadius = "2px", n.style.border = "0", n.style.outline = "0", n.style.boxShadow = "0 2px 18px rgba(0, 0, 0, 0.2)", n.style["-webkit-appearance"] = "none", e.getRevealElement().appendChild(t), n.addEventListener("keyup", function(e) {
+			switch (e.keyCode) {
+				case 13:
+					e.preventDefault(), d(), a = !1;
+					break;
+				default: a = !0;
+			}
+		}, !1), l();
+	}
+	function c() {
+		t || s(), t.style.display = "inline", n.focus(), n.select();
+	}
+	function l() {
+		t || s(), t.style.display = "none", o && o.remove();
+	}
+	function u() {
+		t || s(), t.style.display === "inline" ? l() : c();
+	}
+	function d() {
+		if (a) {
+			var t = n.value;
+			t === "" ? (o && o.remove(), r = null) : (o = new f("slidecontent"), r = o.apply(t), i = 0);
+		}
+		r && (r.length && r.length <= i && (i = 0), r.length > i && (e.slide(r[i].h, r[i].v), i++));
+	}
+	function f(t, n) {
+		var r = document.getElementById(t) || document.body, i = n || "EM", a = RegExp("^(?:" + i + "|SCRIPT|FORM)$"), o = [
+			"#ff6",
+			"#a0ffff",
+			"#9f9",
+			"#f99",
+			"#f6f"
+		], s = [], c = 0, l = "", u = [];
+		this.setRegex = function(e) {
+			e = e.trim(), l = RegExp("(" + e + ")", "i");
+		}, this.getRegex = function() {
+			return l.toString().replace(/^\/\\b\(|\)\\b\/i$/g, "").replace(/\|/g, " ");
+		}, this.hiliteWords = function(t) {
+			if (!(t == null || !t) && l && !a.test(t.nodeName)) {
+				if (t.hasChildNodes()) for (var n = 0; n < t.childNodes.length; n++) this.hiliteWords(t.childNodes[n]);
+				if (t.nodeType == 3) {
+					var r, d;
+					if ((r = t.nodeValue) && (d = l.exec(r))) {
+						for (var f = t; f != null && f.nodeName != "SECTION";) f = f.parentNode;
+						for (var p = e.getIndices(f), m = u.length, h = !1, n = 0; n < m; n++) u[n].h === p.h && u[n].v === p.v && (h = !0);
+						h || u.push(p), s[d[0].toLowerCase()] || (s[d[0].toLowerCase()] = o[c++ % o.length]);
+						var g = document.createElement(i);
+						g.appendChild(document.createTextNode(d[0])), g.style.backgroundColor = s[d[0].toLowerCase()], g.style.fontStyle = "inherit", g.style.color = "#000";
+						var _ = t.splitText(d.index);
+						_.nodeValue = _.nodeValue.substring(d[0].length), t.parentNode.insertBefore(g, _);
+					}
+				}
+			}
+		}, this.remove = function() {
+			for (var e = document.getElementsByTagName(i), t; e.length && (t = e[0]);) t.parentNode.replaceChild(t.firstChild, t);
+		}, this.apply = function(e) {
+			if (!(e == null || !e)) return this.remove(), this.setRegex(e), this.hiliteWords(r), u;
+		};
+	}
+	return {
+		id: "search",
+		init: (t) => {
+			e = t, e.registerKeyboardShortcut("CTRL + Shift + F", "Search"), document.addEventListener("keydown", function(e) {
+				e.key == "F" && (e.ctrlKey || e.metaKey) && (e.preventDefault(), u());
+			}, !1);
+		},
+		open: c,
+		close: l,
+		toggle: u
+	};
 };
+//#endregion
+export { e as default };

@@ -1,93 +1,76 @@
-const c = {
-  id: "zoom",
-  init: function(n) {
-    n.getRevealElement().addEventListener("mousedown", function(o) {
-      var l = /Linux/.test(window.navigator.platform) ? "ctrl" : "alt", f = (n.getConfig().zoomKey ? n.getConfig().zoomKey : l) + "Key", m = n.getConfig().zoomLevel ? n.getConfig().zoomLevel : 2;
-      o[f] && !n.isOverview() && (o.preventDefault(), r.to({
-        x: o.clientX,
-        y: o.clientY,
-        scale: m,
-        pan: !1
-      }));
-    });
-  },
-  destroy: () => {
-    r.reset();
-  }
-}, h = () => c;
-var r = (function() {
-  var n = 1, o = 0, l = 0, f = -1, m = -1, u = "transform" in document.body.style;
-  u && (document.body.style.transition = "transform 0.8s ease"), document.addEventListener("keyup", function(e) {
-    n !== 1 && e.keyCode === 27 && r.out();
-  }), document.addEventListener("mousemove", function(e) {
-    n !== 1 && (o = e.clientX, l = e.clientY);
-  });
-  function y(e, t) {
-    var i = s();
-    if (e.width = e.width || 1, e.height = e.height || 1, e.x -= (window.innerWidth - e.width * t) / 2, e.y -= (window.innerHeight - e.height * t) / 2, u)
-      if (t === 1)
-        document.body.style.transform = "";
-      else {
-        var d = i.x + "px " + i.y + "px", w = "translate(" + -e.x + "px," + -e.y + "px) scale(" + t + ")";
-        document.body.style.transformOrigin = d, document.body.style.transform = w;
-      }
-    else
-      t === 1 ? (document.body.style.position = "", document.body.style.left = "", document.body.style.top = "", document.body.style.width = "", document.body.style.height = "", document.body.style.zoom = "") : (document.body.style.position = "relative", document.body.style.left = -(i.x + e.x) / t + "px", document.body.style.top = -(i.y + e.y) / t + "px", document.body.style.width = t * 100 + "%", document.body.style.height = t * 100 + "%", document.body.style.zoom = t);
-    n = t, document.documentElement.classList && (n !== 1 ? document.documentElement.classList.add("zoomed") : document.documentElement.classList.remove("zoomed"));
-  }
-  function a() {
-    var e = 0.12, t = window.innerWidth * e, i = window.innerHeight * e, d = s();
-    l < i ? window.scroll(d.x, d.y - (1 - l / i) * (14 / n)) : l > window.innerHeight - i && window.scroll(d.x, d.y + (1 - (window.innerHeight - l) / i) * (14 / n)), o < t ? window.scroll(d.x - (1 - o / t) * (14 / n), d.y) : o > window.innerWidth - t && window.scroll(d.x + (1 - (window.innerWidth - o) / t) * (14 / n), d.y);
-  }
-  function s() {
-    return {
-      x: window.scrollX !== void 0 ? window.scrollX : window.pageXOffset,
-      y: window.scrollY !== void 0 ? window.scrollY : window.pageYOffset
-    };
-  }
-  return {
-    /**
-     * Zooms in on either a rectangle or HTML element.
-     *
-     * @param {Object} options
-     *   - element: HTML element to zoom in on
-     *   OR
-     *   - x/y: coordinates in non-transformed space to zoom in on
-     *   - width/height: the portion of the screen to zoom in on
-     *   - scale: can be used instead of width/height to explicitly set scale
-     */
-    to: function(e) {
-      if (n !== 1)
-        r.out();
-      else {
-        if (e.x = e.x || 0, e.y = e.y || 0, e.element) {
-          var t = 20, i = e.element.getBoundingClientRect();
-          e.x = i.left - t, e.y = i.top - t, e.width = i.width + t * 2, e.height = i.height + t * 2;
-        }
-        e.width !== void 0 && e.height !== void 0 && (e.scale = Math.max(Math.min(window.innerWidth / e.width, window.innerHeight / e.height), 1)), e.scale > 1 && (e.x *= e.scale, e.y *= e.scale, y(e, e.scale), e.pan !== !1 && (f = setTimeout(function() {
-          m = setInterval(a, 1e3 / 60);
-        }, 800)));
-      }
-    },
-    /**
-     * Resets the document zoom state to its default.
-     */
-    out: function() {
-      clearTimeout(f), clearInterval(m), y({ x: 0, y: 0 }, 1), n = 1;
-    },
-    // Alias
-    magnify: function(e) {
-      this.to(e);
-    },
-    reset: function() {
-      this.out();
-    },
-    zoomLevel: function() {
-      return n;
-    }
-  };
-})();
-const g = h;
-export {
-  g as default
-};
+//#region plugin/zoom/plugin.js
+var e = {
+	id: "zoom",
+	init: function(e) {
+		e.getRevealElement().addEventListener("mousedown", function(t) {
+			var r = /Linux/.test(window.navigator.platform) ? "ctrl" : "alt", i = (e.getConfig().zoomKey ? e.getConfig().zoomKey : r) + "Key", a = e.getConfig().zoomLevel ? e.getConfig().zoomLevel : 2;
+			t[i] && !e.isOverview() && (t.preventDefault(), n.to({
+				x: t.clientX,
+				y: t.clientY,
+				scale: a,
+				pan: !1
+			}));
+		});
+	},
+	destroy: () => {
+		n.reset();
+	}
+}, t = () => e, n = (function() {
+	var e = 1, t = 0, r = 0, i = -1, a = -1, o = "transform" in document.body.style;
+	o && (document.body.style.transition = "transform 0.8s ease"), document.addEventListener("keyup", function(t) {
+		e !== 1 && t.keyCode === 27 && n.out();
+	}), document.addEventListener("mousemove", function(n) {
+		e !== 1 && (t = n.clientX, r = n.clientY);
+	});
+	function s(t, n) {
+		var r = l();
+		if (t.width = t.width || 1, t.height = t.height || 1, t.x -= (window.innerWidth - t.width * n) / 2, t.y -= (window.innerHeight - t.height * n) / 2, o) if (n === 1) document.body.style.transform = "";
+		else {
+			var i = r.x + "px " + r.y + "px", a = "translate(" + -t.x + "px," + -t.y + "px) scale(" + n + ")";
+			document.body.style.transformOrigin = i, document.body.style.transform = a;
+		}
+		else n === 1 ? (document.body.style.position = "", document.body.style.left = "", document.body.style.top = "", document.body.style.width = "", document.body.style.height = "", document.body.style.zoom = "") : (document.body.style.position = "relative", document.body.style.left = -(r.x + t.x) / n + "px", document.body.style.top = -(r.y + t.y) / n + "px", document.body.style.width = n * 100 + "%", document.body.style.height = n * 100 + "%", document.body.style.zoom = n);
+		e = n, document.documentElement.classList && (e === 1 ? document.documentElement.classList.remove("zoomed") : document.documentElement.classList.add("zoomed"));
+	}
+	function c() {
+		var n = .12, i = window.innerWidth * n, a = window.innerHeight * n, o = l();
+		r < a ? window.scroll(o.x, o.y - (1 - r / a) * (14 / e)) : r > window.innerHeight - a && window.scroll(o.x, o.y + (1 - (window.innerHeight - r) / a) * (14 / e)), t < i ? window.scroll(o.x - (1 - t / i) * (14 / e), o.y) : t > window.innerWidth - i && window.scroll(o.x + (1 - (window.innerWidth - t) / i) * (14 / e), o.y);
+	}
+	function l() {
+		return {
+			x: window.scrollX === void 0 ? window.pageXOffset : window.scrollX,
+			y: window.scrollY === void 0 ? window.pageYOffset : window.scrollY
+		};
+	}
+	return {
+		to: function(t) {
+			if (e !== 1) n.out();
+			else {
+				if (t.x = t.x || 0, t.y = t.y || 0, t.element) {
+					var r = 20, o = t.element.getBoundingClientRect();
+					t.x = o.left - r, t.y = o.top - r, t.width = o.width + r * 2, t.height = o.height + r * 2;
+				}
+				t.width !== void 0 && t.height !== void 0 && (t.scale = Math.max(Math.min(window.innerWidth / t.width, window.innerHeight / t.height), 1)), t.scale > 1 && (t.x *= t.scale, t.y *= t.scale, s(t, t.scale), t.pan !== !1 && (i = setTimeout(function() {
+					a = setInterval(c, 1e3 / 60);
+				}, 800)));
+			}
+		},
+		out: function() {
+			clearTimeout(i), clearInterval(a), s({
+				x: 0,
+				y: 0
+			}, 1), e = 1;
+		},
+		magnify: function(e) {
+			this.to(e);
+		},
+		reset: function() {
+			this.out();
+		},
+		zoomLevel: function() {
+			return e;
+		}
+	};
+})(), r = t;
+//#endregion
+export { r as default };
