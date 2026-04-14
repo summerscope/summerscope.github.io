@@ -190,7 +190,7 @@ const CLUSTERS = [
 
 // ── SETUP ─────────────────────────────────────────────────────────────────────
 const W = 1280, H = 720;
-const PAD = 2;
+const PAD = 50;
 const clip = [[PAD,PAD],[W-PAD,PAD],[W-PAD,H-PAD],[PAD,H-PAD]];
 
 const svg = d3.select("#vis")
@@ -265,7 +265,8 @@ svg.selectAll("path.cl")
   .attr("d", d => polyPath(d.polygon))
   .attr("fill","none")
   .attr("stroke", d => d.data.color)
-  .attr("stroke-width", 2)
+  .attr("stroke-width", 1.2)
+  .attr("stroke-opacity", 0.5)
   .attr("stroke-linejoin","round")
   .style("pointer-events","none");
 
