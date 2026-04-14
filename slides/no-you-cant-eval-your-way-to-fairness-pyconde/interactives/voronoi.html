@@ -46,14 +46,7 @@
     .tip-item {
       font-size: 12px;
       line-height: 1.45;
-      color: #f0e8e0;
-      font-family: Archivo, sans-serif;
-    }
-    .tip-weight {
-      font-size: 9px;
-      opacity: 0.6;
-      color: #f0e8e0;
-      margin-top: 3px;
+      color: #ffffff;
       font-family: Archivo, sans-serif;
     }
 </style>
@@ -64,7 +57,6 @@
 <div id="tip">
   <div class="tip-cluster" id="tip-cluster"></div>
   <div class="tip-item"    id="tip-item"></div>
-  <div class="tip-weight"  id="tip-weight"></div>
 </div>
 
 <script type="module">
@@ -200,7 +192,6 @@ const svg = d3.select("#vis")
 const tip        = document.getElementById("tip");
 const tipCluster = document.getElementById("tip-cluster");
 const tipItem    = document.getElementById("tip-item");
-const tipWeight  = document.getElementById("tip-weight");
 
 // ── HIERARCHY ─────────────────────────────────────────────────────────────────
 const root = d3.hierarchy({
@@ -237,16 +228,15 @@ svg.selectAll("path.lf")
   .data(leaves).join("path").attr("class","lf")
   .attr("d", d => polyPath(d.polygon))
   .attr("fill",   d => d.data.color + "18")
-  .attr("stroke", d => d.data.color + "30")
+  .attr("stroke", d => d.data.color + "40")
   .attr("stroke-width", 0.5)
   .attr("stroke-linejoin","round")
   .style("cursor","default")
   .on("mouseenter", function(e, d) {
     d3.select(this).attr("fill", d.data.color + "30");
     tipCluster.textContent = d.data.clusterName;
-    tipCluster.style.color = d.data.color;
+    tipCluster.style.color = d3.color(d.data.color).brighter(1.2).formatHex();
     tipItem.textContent    = d.data.name;
-    tipWeight.textContent  = "individual agency: " + "★".repeat(d.data.weight) + "☆".repeat(5 - d.data.weight);
     tip.style.display = "block";
   })
   .on("mousemove", (e) => {
