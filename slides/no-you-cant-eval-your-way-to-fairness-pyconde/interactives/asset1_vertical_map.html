@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vertical Map</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 98vh;
+    overflow: hidden;
+    font-family: Archivo, 'Helvetica Neue', Arial, sans-serif;
+  }
+  svg { display: block; width: auto; height: 100%; margin: 0 auto; }
+</style>
+</head>
+<body>
+<svg id="vis"></svg>
+<script type="module">
+import * as d3 from "https://esm.sh/d3@7.9.0";
+
+const W = 1280, H = 720;
+const FONT = "Archivo, 'Helvetica Neue', Arial, sans-serif";
+const PAD = 16;
+const COL_GAP = 12;
+
+const LEFT_W  = 620;
+const RIGHT_W = W - LEFT_W - PAD * 2 - COL_GAP;
+const COL_H   = H - PAD * 2;
+const RIGHT_TOP_H = Math.round(COL_H * 0.56);
+const RIGHT_BOT_H = COL_H - RIGHT_TOP_H - COL_GAP;
+
+const TIERS = [
+  {
+    tier: "No access",
+    color: "#1a7a52",
+    principle: "System models things or aggregates — not people as members of protected groups",
+    verticals: [
+      { name: "Supply chain & logistics",       companies: ["Blue Yonder","Zalando","GAMS","Gurobi"] },
+      { name: "E-commerce & marketplaces",      companies: ["GetYourGuide","DoorDash","Malt","Transit","Otto Group"] },
+      { name: "Developer tools & OSS",          companies: ["Pydantic","Anaconda","MotherDuck","JetBrains","NiceGUI","Aiven","Tower.dev","Explosion AI","Probabl"] },
+      { name: "IT & data consulting",           companies: ["inovex","TNG Technology Consulting","scieneers","Makina Corpus","TD Reply","Par-Tec"] },
+      { name: "Academia & scientific research", companies: ["Max-Planck Institute","Tübingen AI Center","Prior Labs / Uni Freiburg","CNAM Paris","Quantum Internet Alliance"] },
+      { name: "Automotive & aerospace",         companies: ["MBition (Mercedes-Benz)","GKN Aerospace","SLB"] },
+      { name: "Cybersecurity & IoT",            companies: ["ReversingLabs","Soundsensing"] },
+    ]
+  },
+  {
+    tier: "Partial access",
+    color: "#c44a0a",
+    principle: "Models may proxy or correlate with protected attributes even without holding them directly",
+    verticals: [
+      { name: "Insurance analytics",            companies: ["QuantCo","Raiffeisenlandesbank OÖ","Bausparkasse Schwäbisch Hall"] },
+      { name: "Financial data & fintech",       companies: ["Bloomberg","VisualVest"] },
+      { name: "Life sciences compliance SaaS",  companies: ["Qualio"] },
+      { name: "AI for regulated sectors",       companies: ["Validaitor","Westernacher Solutions","&effect"] },
+      { name: "Retail loyalty & analytics",     companies: ["REWE Analytics"] },
+    ]
+  },
+  {
+    tier: "Direct access",
+    color: "#b03050",
+    principle: "Protected characteristics are first-class features of the data infrastructure",
+    verticals: [
+      { name: "Pharma & clinical research",     companies: ["Merck KGaA","Merck Healthcare KGaA"] },
+      { name: "Government & civic services",    companies: ["City of Munich"] },
+      { name: "Statutory health insurance",     companies: ["KBV (Kassenärztliche Bundesvereinigung)"] },
+    ]
+  }
+];
+
+const svg = d3.select("#vis").attr("viewBox", `0 0 ${W} ${H}`);
+
+function drawPanel(tier, x, y, panelW, panelH, chipsPerRow, chipFontSize, vertFontSize, headerFontSize) {
+  const CHIP_H      = chipFontSize * 2.2;
+  const CHIP_GAP_X  = 4;
+  const CHIP_GAP_Y  = 4;
+  const INNER_X     = x + 18;
+  const usableW     = panelW - 34;
+  const chipW       = (usableW - CHIP_GAP_X * (chipsPerRow - 1)) / chipsPerRow;
+  const PRINCIPLE_SIZE = Math.round(headerFontSize * 0.75);
+  const PRINCIPLE_LH   = PRINCIPLE_SIZE * 1.45;
+
+  // Background
+  svg.append("rect")
+    .attr("x", x).attr("y", y)
+    .attr("width", panelW).attr("height", panelH)
+    .attr("fill", tier.color + "0c")
+    .attr("stroke", tier.color + "30")
+    .attr("stroke-width", 1).attr("rx", 6);
+
+  // Left accent bar
+  svg.append("rect")
+    .attr("x", x).attr("y", y)
+    .attr("width", 5).attr("height", panelH)
+    .attr("fill", tier.color).attr("rx", 4);
+
+  // Tier name
+  const tierNameY = y + headerFontSize + 12;
+  svg.append("text")
+    .attr("x", INNER_X).attr("y", tierNameY)
+    .attr("font-size", headerFontSize).attr("font-weight", "700")
+    .attr("font-family", FONT).attr("fill", tier.color)
+    .attr("letter-spacing", "0.06em")
+    .text(tier.tier.toUpperCase());
+
+  // Principle — word wrap, sits clearly below heading
+  const maxChars = Math.floor(usableW / (PRINCIPLE_SIZE * 0.56));
+  const pwords = tier.principle.split(" ");
+  const plines = []; let pl = "";
+  for (const w of pwords) {
+    const t = pl ? pl + " " + w : w;
+    if (t.length <= maxChars) { pl = t; } else { plines.push(pl); pl = w; }
+  }
+  if (pl) plines.push(pl);
+
+  // Gap: full heading cap height + breathing room
+  const princY = tierNameY + headerFontSize * 0.8 + 14;
+  plines.forEach((l, i) => {
+    svg.append("text")
+      .attr("x", INNER_X).attr("y", princY + i * PRINCIPLE_LH)
+      .attr("font-size", PRINCIPLE_SIZE).attr("font-family", FONT)
+      .attr("fill", "rgba(26,26,26,0.60)").attr("font-style", "italic")
+      .text(l);
+  });
+
+  // Divider below principle
+  const divY = princY + plines.length * PRINCIPLE_LH + 8;
+  svg.append("line")
+    .attr("x1", INNER_X).attr("x2", x + panelW - 14)
+    .attr("y1", divY).attr("y2", divY)
+    .attr("stroke", tier.color + "30").attr("stroke-width", 1);
+
+  let curY = divY + 10;
+
+  tier.verticals.forEach(v => {
+    if (curY + CHIP_H + vertFontSize > y + panelH - 4) return;
+
+    svg.append("text")
+      .attr("x", INNER_X).attr("y", curY + vertFontSize)
+      .attr("font-size", vertFontSize).attr("font-weight", "600")
+      .attr("font-family", FONT).attr("fill", tier.color)
+      .attr("letter-spacing", "0.05em")
+      .text(v.name.toUpperCase());
+
+    curY += vertFontSize + 6;
+
+    v.companies.forEach((co, ci) => {
+      if (curY > y + panelH - CHIP_H - 2) return;
+      const row = Math.floor(ci / chipsPerRow);
+      const col = ci % chipsPerRow;
+      const chipX = INNER_X + col * (chipW + CHIP_GAP_X);
+      const chipY = curY + row * (CHIP_H + CHIP_GAP_Y);
+
+      svg.append("rect")
+        .attr("x", chipX).attr("y", chipY)
+        .attr("width", chipW).attr("height", CHIP_H)
+        .attr("fill", tier.color + "18")
+        .attr("stroke", tier.color + "40")
+        .attr("stroke-width", 0.5).attr("rx", 3);
+
+      const maxCoChars = Math.floor(chipW / (chipFontSize * 0.56));
+      const label = co.length > maxCoChars ? co.slice(0, maxCoChars - 1) + "…" : co;
+      svg.append("text")
+        .attr("x", chipX + chipW / 2).attr("y", chipY + CHIP_H * 0.67)
+        .attr("font-size", chipFontSize).attr("font-family", FONT)
+        .attr("fill", "rgba(26,26,26,0.78)").attr("text-anchor", "middle")
+        .text(label);
+    });
+
+    const rows = Math.ceil(v.companies.length / chipsPerRow);
+    curY += rows * (CHIP_H + CHIP_GAP_Y) + 10;
+  });
+}
+
+drawPanel(TIERS[0], PAD, PAD, LEFT_W, COL_H, 3, 12, 10, 16);
+
+const rightX = PAD + LEFT_W + COL_GAP;
+drawPanel(TIERS[1], rightX, PAD, RIGHT_W, RIGHT_TOP_H, 2, 12, 10, 15);
+drawPanel(TIERS[2], rightX, PAD + RIGHT_TOP_H + COL_GAP, RIGHT_W, RIGHT_BOT_H, 2, 12, 10, 15);
+</script>
+</body>
+</html>
