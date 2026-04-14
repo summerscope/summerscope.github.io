@@ -534,6 +534,75 @@
 
 
 				<!-- ==========================================
+				     SLIDE: CV SCREENER — setup
+				     ========================================== -->
+				<section>
+					<div class="slide slide--padded">
+						<span class="label">Case study</span>
+						<h2>"Let's make it fair."</h2>
+						<ul class="body-list">
+							<li class="fragment">two colleagues. one concern. one meeting. everyone leaves satisfied.</li>
+							<li class="fragment">the ML engineer goes off to tune the model.</li>
+							<li class="fragment">the product lead goes off to watch the dashboard.</li>
+							<li class="fragment">neither checks what the other means by "fair."</li>
+						</ul>
+
+						<aside class="notes">'An LLM-powered CV screener for engineering jobs. Two sensitive groups: Group A — candidates with traditional CS degrees. Group B — bootcamp grads, self-taught developers, non-CS degrees. The model was trained on historical hiring data. That data reflects years of credentialist decisions — Group B candidates were advanced less often, not because they were less capable, but because human reviewers historically preferred traditional credentials. The model learned this. Two colleagues raise the issue of bias in a meeting. They agree: we should make this fair. No further discussion. Meeting ends.'</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: CV SCREENER — six months later
+				     ========================================== -->
+				<section>
+					<div class="slide slide--columns slide--cols-2">
+						<h2 class="slide-heading">Six months later</h2>
+
+						<div class="slide-col fragment">
+							<h3>The engineer</h3>
+							<p>tuned the model to achieve <strong>equalized odds</strong>: the true positive rate and false positive rate are equal across both groups.</p>
+							<p class="text-light" style="margin-top: 0.6em;">"the model works equally well for both groups. it's fair."</p>
+						</div>
+						<div class="slide-col fragment">
+							<h3>The product lead</h3>
+							<p>checked the dashboard. Group A candidates: <strong>52% advanced</strong>. Group B candidates: <strong>35% advanced</strong>.</p>
+							<p class="text-light" style="margin-top: 0.6em;">"this isn't fair."</p>
+						</div>
+
+						<aside class="notes">'Six months pass. The engineer has done good, careful work — the model's accuracy is equal across groups. The product lead looks at the dashboard and sees a gap. They are both right. The engineer optimised for equalized odds — equal accuracy. The product lead expected demographic parity — equal outcomes. Neither is wrong. They just answered different questions.'</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: CV SCREENER — confusion matrix
+				     ========================================== -->
+				<section>
+					<div class="slide" style="padding: 0; overflow: hidden;">
+						<iframe src="interactives/confusion-matrix.html" style="width: 100%; height: 100%; border: none;"></iframe>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: CV SCREENER — the point
+				     ========================================== -->
+				<section>
+					<div class="slide slide--statement">
+						<div class="slide-statement">
+							choosing a metric is choosing a value system.
+						</div>
+						<div class="slide-statement-label">
+							<span class="label">The point</span>
+						</div>
+
+						<aside class="notes">'Three questions the metric cannot answer for you. One: do you believe the base rate difference reflects real capability — or historical disadvantage? Two: which error is worse — falsely rejecting a qualified bootcamp grad, or falsely advancing an unqualified one? Three: what world are you trying to build? The library won't tell you. Neither will the README.'</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
 				     SLIDE: BRIDGE TO SECTION 4 — statement
 				     ========================================== -->
 				<section>
