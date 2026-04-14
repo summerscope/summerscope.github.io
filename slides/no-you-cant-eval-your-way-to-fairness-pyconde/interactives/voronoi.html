@@ -10,7 +10,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
     font-family: Archivo, 'Helvetica Neue', Arial, sans-serif;
   }
   #loading {
@@ -22,7 +23,7 @@
     letter-spacing: 0.2em;
     text-transform: uppercase;
   }
-  svg { display: block; }
+  svg { display: block; width: auto; height: 100%; margin: 0 auto; }
   #tip {
     display: none;
     position: fixed;
@@ -190,12 +191,11 @@ const CLUSTERS = [
 
 // ── SETUP ─────────────────────────────────────────────────────────────────────
 const W = 1280, H = 720;
-const PAD = 50;
+const PAD = 10;
 const clip = [[PAD,PAD],[W-PAD,PAD],[W-PAD,H-PAD],[PAD,H-PAD]];
 
 const svg = d3.select("#vis")
-  .attr("viewBox", `0 0 ${W} ${H}`)
-  .attr("width", W).attr("height", H);
+  .attr("viewBox", `0 0 ${W} ${H}`);
 
 const tip        = document.getElementById("tip");
 const tipCluster = document.getElementById("tip-cluster");
@@ -237,7 +237,7 @@ svg.selectAll("path.lf")
   .data(leaves).join("path").attr("class","lf")
   .attr("d", d => polyPath(d.polygon))
   .attr("fill",   d => d.data.color + "18")
-  .attr("stroke", d => d.data.color + "40")
+  .attr("stroke", d => d.data.color + "30")
   .attr("stroke-width", 0.5)
   .attr("stroke-linejoin","round")
   .style("cursor","default")
@@ -265,8 +265,8 @@ svg.selectAll("path.cl")
   .attr("d", d => polyPath(d.polygon))
   .attr("fill","none")
   .attr("stroke", d => d.data.color)
-  .attr("stroke-width", 1.2)
-  .attr("stroke-opacity", 0.5)
+  .attr("stroke-width", 1.5)
+  .attr("stroke-opacity", 0.35)
   .attr("stroke-linejoin","round")
   .style("pointer-events","none");
 
