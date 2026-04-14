@@ -411,6 +411,20 @@ $color-mark-light:  #d8d0c8;
     border-color: var(--color-blue);
     color: var(--color-blue);
   }
+
+  &--icon {
+    width: 56px;
+    height: 56px;
+    padding: 8px;
+    box-sizing: border-box;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+  }
 }
 
 
@@ -903,6 +917,16 @@ $color-mark-light:  #d8d0c8;
     font-size: 1.3em;
     z-index: 5;
     grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .slide-heading-icon {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+      object-fit: contain;
+    }
   }
 
   // If a heading is present, push columns down
