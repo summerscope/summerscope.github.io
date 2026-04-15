@@ -401,18 +401,18 @@
 
 
 				<!-- ==========================================
-				     SLIDE: EVALS — not a metric
+				     SLIDE: EVALS — the unreliable narrator
 				     ========================================== -->
 				<section>
 					<div class="slide slide--statement">
 						<div class="slide-statement">
-							an eval is not a metric. a benchmark is not a safeguard. a content screen is not a fairness measurement.
+							using an LLM to judge whether an LLM is fair is asking an unreliable narrator to evaluate its own reliability.
 						</div>
 						<div class="slide-statement-label">
-							<span class="label">The narrowing</span>
+							<span class="label">The gap</span>
 						</div>
 
-						<aside class="notes">'This is the thing I want you to take away from this section. The classical ML fairness libraries at least ask the right question — are outcomes equitable across groups? They require hard things: demographic data, ground truth labels, a defined notion of what fairness means in your context. The LLM eval libraries have narrowed the ambition. From: does this system treat people equitably? To: does this output contain a slur? That is not progress. That is a retreat into something measurable at the expense of something meaningful. An eval tells you whether your system passed a test. A metric tells you what you measured. Neither tells you whether the world your system creates is the one you intended.'</aside>
+						<aside class="notes">'Evals operate in three modes. One: quality assurance — fitness for purpose, gating deployment, like traditional testing and linting. Two: observability — faceted annotation of query-response pairs for affect, user ratings, other qualities, feeding back into design and operation at every time scale from real-time monitoring to yearly reports. Three: guardrails — LLM judges and regex filters operating on inference in production, also generating data for fine-tuning. We should be pragmatic about how load-bearing any of these can or should be. Yes, you can write custom evals that interrogate fairness — allocation harms, representation harms, group fairness, individual fairness. But unless you are hand-labelling the traces and deeply considering context, you are relying on the very system you are trying to evaluate. That is the unreliable narrator problem. The model cannot reliably detect its own biases for the same reason you cannot proofread your own work — the same blind spots that produced the output are the ones evaluating it.'</aside>
 					</div>
 				</section>
 
