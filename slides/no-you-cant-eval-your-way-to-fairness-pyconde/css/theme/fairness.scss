@@ -464,6 +464,7 @@ $color-mark-light:  #d8d0c8;
 }
 
 // Size modifiers
+.instrument--xs { width: 100px; }
 .instrument--sm { width: var(--instrument-sm); }
 .instrument--md { width: var(--instrument-md); }
 .instrument--lg { width: var(--instrument-lg); }

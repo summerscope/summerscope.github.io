@@ -260,7 +260,11 @@ function setView(view) {
 }
 
 document.querySelectorAll('.toggle button').forEach(btn => {
-  btn.addEventListener('click', () => setView(btn.dataset.view));
+  btn.addEventListener('click', () => {
+    setView(btn.dataset.view);
+    btn.blur();
+    window.parent.focus();
+  });
 });
 
 setView('eo');
