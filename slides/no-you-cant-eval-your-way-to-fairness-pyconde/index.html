@@ -364,6 +364,60 @@
 
 
 				<!-- ==========================================
+				     SLIDE: LIBRARY LANDSCAPE — what we audited
+				     ========================================== -->
+				<section>
+					<div class="slide slide--columns slide--cols-2">
+						<div class="slide-col">
+							<h3>Classical ML fairness</h3>
+							<p><a href="https://fairlearn.org">Fairlearn</a></p>
+							<p><a href="https://aif360.res.ibm.com">AI Fairness 360 (AIF360)</a></p>
+							<p><a href="https://dssg.github.io/aequitas">Aequitas</a></p>
+							<p><a href="https://responsibleaitoolbox.ai">Responsible AI Toolbox</a></p>
+							<p><a href="https://github.com/google/ml-fairness-gym">ML Fairness Gym</a></p>
+						</div>
+						<div class="slide-col">
+							<h3>LLM evals with fairness-adjacent metrics</h3>
+							<p><a href="https://deepeval.com/docs/metrics-bias">DeepEval</a> <span class="text-light text-small">(BiasMetric, ToxicityMetric)</span></p>
+							<p><a href="https://github.com/Giskard-AI/giskard-oss">Giskard + Phare</a></p>
+							<p><a href="https://inspect.aisi.org.uk/evals">Inspect Evals / UK AISI</a> <span class="text-light text-small">(StereoSet, BOLD, BBQ)</span></p>
+							<p><a href="https://github.com/EleutherAI/lm-evaluation-harness">EleutherAI LM Eval Harness</a> <span class="text-light text-small">(WinoGender, CrowS-Pairs)</span></p>
+							<p><a href="https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/develop/evaluate-sdk">Azure AI Evaluation SDK</a> <span class="text-light text-small">(HateUnfairnessEvaluator)</span></p>
+						</div>
+
+						<aside class="notes">'We reviewed the most commonly used fairness libraries for classical ML and audited the LLM evaluation ecosystem for built-in fairness metrics. On the left: libraries designed to measure group-level statistical parity — demographic parity, equalized odds, disparate impact. These require labelled demographic data and ground truth labels. They work. They also only apply to a narrow slice of systems. On the right: LLM eval libraries. Most of them — RAGAS, TruLens, Pydantic Evals — have nothing that would match our concepts of fairness at all. No demographic group analysis, no allocation or representation harm measurement. The ones listed here are the exceptions — they have something. But what they have is content screening: does the output text contain stereotyped or offensive language? That is not the same question. And notably, none of these libraries offer non-deterministic or guardrails-style evaluation to help systems proactively scan for and identify harm in deployment. The gap is not just in metrics — it is in the entire paradigm.'</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: VENN DIAGRAM — placeholder
+				     ========================================== -->
+				<section>
+					<div class="slide slide--padded" style="align-items: center; justify-content: center;">
+						<p class="text-light">venn diagram — coming shortly</p>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: EVALS — not a metric
+				     ========================================== -->
+				<section>
+					<div class="slide slide--statement">
+						<div class="slide-statement">
+							an eval is not a metric. a benchmark is not a safeguard. a content screen is not a fairness measurement.
+						</div>
+						<div class="slide-statement-label">
+							<span class="label">The narrowing</span>
+						</div>
+
+						<aside class="notes">'This is the thing I want you to take away from this section. The classical ML fairness libraries at least ask the right question — are outcomes equitable across groups? They require hard things: demographic data, ground truth labels, a defined notion of what fairness means in your context. The LLM eval libraries have narrowed the ambition. From: does this system treat people equitably? To: does this output contain a slur? That is not progress. That is a retreat into something measurable at the expense of something meaningful. An eval tells you whether your system passed a test. A metric tells you what you measured. Neither tells you whether the world your system creates is the one you intended.'</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
 				     SLIDE: THE FOUR JOBS — venn progression
 				     Custom layout. Four SVG layers stacked, each
 				     wrapped in a .venn-layer div so reveal fragments
