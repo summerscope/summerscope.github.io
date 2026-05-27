@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 180" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Outer case circle -->
+  <circle cx="80" cy="80" r="72"/>
+  <!-- Inner bezel ring -->
+  <circle cx="80" cy="80" r="65"/>
+  <!-- Dial face -->
+  <circle cx="80" cy="80" r="60"/>
+  <!-- Major tick marks around the dial (roughly 0 to 160 range, 270 degree sweep) -->
+  <!-- Start at 225deg (bottom-left), sweep clockwise to 315deg (bottom-right) = 270deg -->
+  <!-- 0 (225 degrees) -->
+  <line x1="27.2" y1="130.8" x2="33.5" y2="124.5"/>
+  <!-- 20 (252 degrees) -->
+  <line x1="17.5" y1="103.3" x2="25" y2="103.3"/>
+  <!-- 40 (279 degrees) -->
+  <line x1="21.7" y1="75" x2="29" y2="77"/>
+  <!-- 60 (306 degrees) -->
+  <line x1="38.8" y1="51.5" x2="44.5" y2="56.5"/>
+  <!-- 80 (333 degrees / top area) -->
+  <line x1="66" y1="18.5" x2="68.5" y2="26"/>
+  <!-- 100 (0/360 degrees, top) -->
+  <line x1="80" y1="15" x2="80" y2="23"/>
+  <!-- 120 (27 degrees) -->
+  <line x1="94" y1="18.5" x2="91.5" y2="26"/>
+  <!-- 140 (54 degrees) -->
+  <line x1="121.2" y1="51.5" x2="115.5" y2="56.5"/>
+  <!-- 160 (81 degrees) -->
+  <line x1="138.3" y1="75" x2="131" y2="77"/>
+  <!-- Minor ticks (half-way between majors) -->
+  <line x1="19.5" y1="117.5" x2="26" y2="113.5"/>
+  <line x1="16.5" y1="89" x2="24" y2="89.5"/>
+  <line x1="28" y1="62" x2="34.5" y2="66"/>
+  <line x1="50" y1="32" x2="54" y2="38.5"/>
+  <line x1="72.5" y1="16" x2="73.5" y2="24"/>
+  <line x1="87.5" y1="16" x2="86.5" y2="24"/>
+  <line x1="108.5" y1="32" x2="104.5" y2="38.5"/>
+  <line x1="132" y1="62" x2="125.5" y2="66"/>
+  <!-- Needle (pointing to ~80, roughly vertical-ish) -->
+  <line x1="80" y1="80" x2="68" y2="28" stroke-width="2"/>
+  <!-- Needle center hub -->
+  <circle cx="80" cy="80" r="5"/>
+  <circle cx="80" cy="80" r="2"/>
+  <!-- Stem / connector at bottom -->
+  <rect x="76" y="152" width="8" height="16" rx="2"/>
+  <line x1="80" y1="168" x2="80" y2="178"/>
+  <!-- Threaded fitting at bottom -->
+  <path d="M 73 168 L 87 168"/>
+  <path d="M 75 172 L 85 172"/>
+</svg>

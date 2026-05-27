@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 100" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Main beam (top bar) -->
+  <rect x="10" y="15" width="260" height="8" rx="1"/>
+  <!-- Scale markings on beam -->
+  <line x1="40" y1="23" x2="40" y2="30"/>
+  <line x1="60" y1="23" x2="60" y2="28"/>
+  <line x1="80" y1="23" x2="80" y2="30"/>
+  <line x1="100" y1="23" x2="100" y2="28"/>
+  <line x1="120" y1="23" x2="120" y2="30"/>
+  <line x1="140" y1="23" x2="140" y2="28"/>
+  <line x1="160" y1="23" x2="160" y2="30"/>
+  <line x1="180" y1="23" x2="180" y2="28"/>
+  <line x1="200" y1="23" x2="200" y2="30"/>
+  <line x1="220" y1="23" x2="220" y2="28"/>
+  <line x1="240" y1="23" x2="240" y2="30"/>
+  <!-- Fixed jaw -->
+  <path d="M 10 15 L 10 85 L 25 85 L 25 70 Q 40 70 40 55 L 40 23"/>
+  <!-- Sliding jaw -->
+  <path d="M 130 23 L 130 55 Q 130 70 145 70 L 145 85 L 160 85 L 160 23"/>
+  <!-- Sliding jaw vernier scale -->
+  <rect x="130" y="10" width="30" height="5" rx="1"/>
+  <!-- Depth rod -->
+  <line x1="265" y1="23" x2="265" y2="85"/>
+  <line x1="262" y1="85" x2="268" y2="85"/>
+  <!-- Thumb screw -->
+  <circle cx="190" cy="12" r="5"/>
+  <!-- Lock screw -->
+  <circle cx="115" cy="12" r="3"/>
+</svg>

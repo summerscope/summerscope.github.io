@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Equalized Odds vs Demographic Parity</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    font-family: Archivo, 'Helvetica Neue', Arial, sans-serif;
+    color: #1a1a1a;
+  }
+
+  .toggle {
+    display: flex;
+    gap: 0;
+    margin-bottom: 28px;
+  }
+  .toggle button {
+    font-family: Archivo, sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 8px 20px 7px;
+    border: 1px solid #c8bfb6;
+    background: transparent;
+    color: #5a5a5a;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .toggle button:first-child { border-radius: 2px 0 0 2px; }
+  .toggle button:last-child { border-radius: 0 2px 2px 0; border-left: none; }
+  .toggle button.active-eo {
+    background: #ff4f1f;
+    border-color: #ff4f1f;
+    color: #fff;
+  }
+  .toggle button.active-dp {
+    background: #2468ff;
+    border-color: #2468ff;
+    color: #fff;
+  }
+  .toggle button:not(.active):hover {
+    border-color: #8a7e74;
+    color: #1a1a1a;
+  }
+
+  .matrices {
+    display: flex;
+    gap: 64px;
+    align-items: flex-start;
+  }
+
+  .group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .group-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #5a5a5a;
+    margin-bottom: 12px;
+  }
+  .group-sublabel {
+    font-size: 10px;
+    color: #8a7e74;
+    margin-bottom: 16px;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+  th, td {
+    width: 100px;
+    height: 64px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 13px;
+    font-weight: 400;
+    border: 1px solid #d8d0c8;
+    transition: all 0.35s;
+  }
+  th {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #5a5a5a;
+    background: transparent;
+    height: 36px;
+  }
+  th.corner { border: none; }
+
+  td .num {
+    font-size: 22px;
+    font-weight: 500;
+    display: block;
+    line-height: 1;
+  }
+  td .label {
+    font-size: 9px;
+    color: #8a7e74;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 4px;
+    display: block;
+  }
+
+  td.highlight-eo {
+    background: rgba(255, 79, 31, 0.1);
+    border-color: #ff4f1f;
+  }
+  td.highlight-eo .num { color: #ff4f1f; }
+
+  td.highlight-dp {
+    background: rgba(36, 104, 255, 0.1);
+    border-color: #2468ff;
+  }
+  td.highlight-dp .num { color: #2468ff; }
+
+  td.dim { opacity: 0.3; }
+
+  .summary {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #5a5a5a;
+    text-align: center;
+    min-height: 40px;
+    line-height: 1.5;
+  }
+  .summary strong {
+    font-weight: 500;
+    color: #1a1a1a;
+  }
+  .summary .rate-eo {
+    font-weight: 500;
+    color: #ff4f1f;
+  }
+  .summary .rate-dp {
+    font-weight: 500;
+    color: #2468ff;
+  }
+
+  .insight {
+    margin-top: 28px;
+    font-size: 13px;
+    font-weight: 400;
+    color: #5a5a5a;
+    text-align: center;
+    max-width: 640px;
+    line-height: 1.5;
+    min-height: 20px;
+  }
+  .insight em {
+    font-style: italic;
+    color: #1a1a1a;
+  }
+</style>
+</head>
+<body>
+
+<div class="toggle">
+  <button class="active" data-view="eo">Equalized odds</button>
+  <button data-view="dp">Demographic parity</button>
+</div>
+
+<div class="matrices">
+  <div class="group">
+    <div class="group-label">Group A &mdash; traditional degree</div>
+    <div class="group-sublabel">100 candidates &middot; 60 truly qualified</div>
+    <table id="matrix-a">
+      <tr><th class="corner"></th><th>Predicted +</th><th>Predicted &minus;</th></tr>
+      <tr><th>Actually +</th><td id="a-tp"><span class="num">48</span><span class="label">TP</span></td><td id="a-fn"><span class="num">12</span><span class="label">FN</span></td></tr>
+      <tr><th>Actually &minus;</th><td id="a-fp"><span class="num">4</span><span class="label">FP</span></td><td id="a-tn"><span class="num">36</span><span class="label">TN</span></td></tr>
+    </table>
+    <div class="summary" id="summary-a"></div>
+  </div>
+
+  <div class="group">
+    <div class="group-label">Group B &mdash; non-traditional</div>
+    <div class="group-sublabel">100 candidates &middot; 35 truly qualified</div>
+    <table id="matrix-b">
+      <tr><th class="corner"></th><th>Predicted +</th><th>Predicted &minus;</th></tr>
+      <tr><th>Actually +</th><td id="b-tp"><span class="num">28</span><span class="label">TP</span></td><td id="b-fn"><span class="num">7</span><span class="label">FN</span></td></tr>
+      <tr><th>Actually &minus;</th><td id="b-fp"><span class="num">7</span><span class="label">FP</span></td><td id="b-tn"><span class="num">58</span><span class="label">TN</span></td></tr>
+    </table>
+    <div class="summary" id="summary-b"></div>
+  </div>
+</div>
+
+<div class="insight" id="insight"></div>
+
+<script>
+const data = {
+  a: { tp: 48, fp: 4, fn: 12, tn: 36 },
+  b: { tp: 28, fp: 7, fn: 7, tn: 58 }
+};
+
+function tpr(g) { return g.tp / (g.tp + g.fn); }
+function fpr(g) { return g.fp / (g.fp + g.tn); }
+function selRate(g) { return (g.tp + g.fp) / (g.tp + g.fp + g.fn + g.tn); }
+
+const cells = id => document.getElementById(id);
+const allCells = ['a-tp','a-fp','a-fn','a-tn','b-tp','b-fp','b-fn','b-tn'];
+
+function setView(view) {
+  document.querySelectorAll('.toggle button').forEach(b => {
+    b.classList.remove('active-eo', 'active-dp');
+    if (b.dataset.view === view) b.classList.add(view === 'eo' ? 'active-eo' : 'active-dp');
+  });
+
+  allCells.forEach(id => {
+    cells(id).className = '';
+  });
+
+  const sumA = document.getElementById('summary-a');
+  const sumB = document.getElementById('summary-b');
+  const insight = document.getElementById('insight');
+
+  if (view === 'eo') {
+    ['a-tp','a-fn','b-tp','b-fn','a-fp','a-tn','b-fp','b-tn'].forEach(id => {
+      cells(id).className = 'highlight-eo';
+    });
+
+    const tA = (tpr(data.a) * 100).toFixed(0);
+    const tB = (tpr(data.b) * 100).toFixed(0);
+    const fA = (fpr(data.a) * 100).toFixed(0);
+    const fB = (fpr(data.b) * 100).toFixed(0);
+    const sA = (selRate(data.a) * 100).toFixed(0);
+    const sB = (selRate(data.b) * 100).toFixed(0);
+
+    sumA.innerHTML = `TPR: <span class="rate-eo">${tA}%</span> &middot; FPR: <span class="rate-eo">${fA}%</span><br>Selected: <strong>${sA}%</strong>`;
+    sumB.innerHTML = `TPR: <span class="rate-eo">${tB}%</span> &middot; FPR: <span class="rate-eo">${fB}%</span><br>Selected: <strong>${sB}%</strong>`;
+    insight.innerHTML = `Rates match. Outcomes don't. <em>The model is equally accurate &mdash; but 52% of Group A advances vs 35% of Group B.</em>`;
+  } else {
+    ['a-tp','a-fp','b-tp','b-fp'].forEach(id => {
+      cells(id).className = 'highlight-dp';
+    });
+    ['a-fn','a-tn','b-fn','b-tn'].forEach(id => {
+      cells(id).className = 'dim';
+    });
+
+    const sA = (selRate(data.a) * 100).toFixed(0);
+    const sB = (selRate(data.b) * 100).toFixed(0);
+
+    sumA.innerHTML = `Selected: <span class="rate-dp">${sA}%</span>`;
+    sumB.innerHTML = `Selected: <span class="rate-dp">${sB}%</span>`;
+    insight.innerHTML = `Closing this gap requires a policy decision: accept more false positives from Group B, or fewer true positives from Group A. <em>The metric cannot make that choice for you.</em>`;
+  }
+}
+
+document.querySelectorAll('.toggle button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    setView(btn.dataset.view);
+    btn.blur();
+    window.parent.focus();
+  });
+});
+
+setView('eo');
+</script>
+</body>
+</html>

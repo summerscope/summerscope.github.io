@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>No, You Can't Eval Your Way to Fairness</title>
+
+		<link rel="stylesheet" href="dist/reset.css" />
+		<link rel="stylesheet" href="dist/reveal.css" />
+		<link rel="stylesheet" href="dist/theme/fairness.css" id="theme" />
+		<link rel="stylesheet" href="dist/plugin/highlight/monokai.css" id="highlight-theme" />
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<!-- ==========================================
+				     SLIDE 1: TITLE
+				     Split layout — text left, photo right,
+				     instrument SVG overlapping the boundary.
+				     ========================================== -->
+				<section>
+					<div class="slide slide--split">
+						<div class="slide-text">
+							<span class="label">PyCon DE 2026</span>
+							<h1>No, you can't 'eval' your way to fairness</h1>
+							<p class="text-light text-small">Laura Summers</p>
+						</div>
+						<div class="slide-photo">
+							<img src="img/ford-and-fam.jpg" alt="" />
+							<!-- Protractor: anchored to photo cell, bleeds left into text area -->
+							<div class="instrument instrument--orange instrument--lg instrument--bleed-left">
+								<img src="img/protractor.svg" alt="" />
+							</div>
+						</div>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE 2: BIO / INTRO
+				     Portrait left, bio text right.
+				     ========================================== -->
+				<section>
+					<div class="slide slide--bio">
+						<div class="slide-photo">
+							<img src="img/Laura.jpg" alt="Laura Summers" />
+						</div>
+						<div class="slide-text">
+							<span class="label">About</span>
+							<h2>Laura Summers</h2>
+							<p>Laura is a very technical designer&#x2122;&#xFE0F;, working at Pydantic as Lead Design Engineer. Her side projects include Sweet Summer Child Score (<a href="https://summerchild.dev">summerchild.dev</a>) and Ethics Litmus Tests (<a href="https://ethical-litmus.site">ethical-litmus.site</a>). Laura is passionate about feminism, digital rights and designing for privacy. She speaks, writes and runs workshops at the intersection of design and technology.</p>
+						</div>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: AGENDA (numbered list + instrument)
+				     ========================================== -->
+				<section>
+					<div class="slide slide--list">
+						<div class="slide-graphic">
+							<img src="img/compass.svg" alt="" class="instrument--orange" />
+						</div>
+						<ol>
+							<li>Fairness as experience, not state</li>
+							<li>The gap between the metric and the harm</li>
+							<li>What genuine intervention looks like</li>
+						</ol>
+
+						<aside class="notes">Three parts, most time in part three. But first — activities.</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: SECTION 1 DIVIDER
+				     ========================================== -->
+				<section>
+					<div class="slide slide--photo-top">
+						<div class="slide-photo">
+							<img src="img/are-you-sure-this-is-not-a-dream.jpg" alt="" />
+						</div>
+						<div class="slide-text">
+							<span class="label">Section one</span>
+							<h2>Fairness as experience, not state</h2>
+						</div>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: ACTIVITY 1 — Film format
+				     ========================================== -->
+				<section>
+					<div class="slide slide--padded">
+						<span class="label">Activity</span>
+						<h2>What's your preferred film format?</h2>
+						<ul class="body-list">
+							<li class="fragment">70mm / analog</li>
+							<li class="fragment">IMAX / big digital</li>
+						</ul>
+
+						<div class="instrument instrument--orange instrument--xs instrument--accent instrument--accent-tl">
+							<img src="img/handsup.svg" alt="" />
+						</div>
+
+						<aside class="notes">Hands for 70mm vs IMAX. Tally. "Based on majority, I've booked everyone Project Hail Mary in IMAX." Don't explain. Move on.</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: ACTIVITY 2 — Night owl / early bird
+				     ========================================== -->
+				<section>
+					<div class="slide slide--padded">
+						<span class="label">Activity</span>
+						<h2>Are you a night owl or early bird?</h2>
+						<ul class="body-list">
+							<li class="fragment">night owl</li>
+							<li class="fragment">early bird</li>
+						</ul>
+
+						<div class="instrument instrument--orange instrument--xs instrument--accent instrument--accent-tl">
+							<img src="img/handsup.svg" alt="" />
+						</div>
+
+						<aside class="notes">Hands for night owl vs early bird. Tally. Spring/summer birth → night owls, autumn/winter → early birds (photoperiod — Natale &amp; Adan 1999, Tonetti 2011, ~5,700 students). "Based on data in this room, I've recommended next year's conference starts an hour later/earlier." Is that fair? Night owls are underrepresented — it's a morning session. Skewed sample.</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: ACTIVITY 3 — Age-based intervention
+				     ========================================== -->
+				<section>
+					<div class="slide slide--padded">
+						<span class="label">Activity</span>
+						<h2>Hands up by decade</h2>
+						<ul class="body-list">
+							<li class="fragment">20s</li>
+							<li class="fragment">30s</li>
+							<li class="fragment">40s+</li>
+						</ul>
+
+						<div class="instrument instrument--orange instrument--xs instrument--accent instrument--accent-tl">
+							<img src="img/handsup.svg" alt="" />
+						</div>
+
+						<aside class="notes">Hands by decade. "Based on research that over-45s take longer to learn new tools, I've hidden advanced features from that group. Advanced filtering, keyboard shortcuts, API docs, debugging, raw export. You can request access. Everyone else has the full interface." Fair or not fair?</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: BRIDGE
+				     ========================================== -->
+				<section>
+					<div class="slide slide--quote">
+						<div class="quote-mark">&laquo;</div>
+						<blockquote>
+							something was decided about you<br/>
+							on your behalf<br/>
+							without your knowledge or consent
+						</blockquote>
+						<div class="quote-mark">&raquo;</div>
+
+						<aside class="notes">All three felt bad differently, but same shape: something decided about you, on your behalf, without consent. That feeling is fairness. Always personal.</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: THE CATS — photo
+				     ========================================== -->
+				<section>
+					<div class="slide slide--split slide--text-right">
+						<div class="slide-photo">
+							<img src="img/rios-and-soji.jpg" alt="" />
+						</div>
+						<div class="slide-text">
+							<h2>What fairness actually is</h2>
+						</div>
+
+						<aside class="notes">Two cats. When I give treats, they count. One extra treat → the other looks at me, at the other cat, back at me. Clear sense of injustice.</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: THE CATS BEAT — statement
+				     ========================================== -->
+				<section>
+					<div class="slide slide--statement">
+						<div class="slide-statement">
+							fairness is felt before it is calculated
+						</div>
+						<div class="slide-statement-label">
+							<span class="label">The cats</span>
+						</div>
+
+						<!-- Compass accent, top right, faded -->
+						<div class="instrument instrument--orange instrument--sm instrument--accent instrument--accent-tr">
+							<img src="img/compass.svg" alt="" />
+						</div>
+
+						<aside class="notes">Fairness predates language, law, philosophy. Legible to creatures who can't articulate it.</aside>
+					</div>
+				</section>
+
+
+
+				<!-- ==========================================
+				     SLIDE: THE OBAMA DAUGHTERS BEAT — padded
+				     ========================================== -->
+				<section>
+					<div class="slide slide--padded">
+						<span class="label">The problem with proxies</span>
+						<h2>Same box. Different reality.</h2>
+						<ul class="body-list">
+							<li class="fragment">American &#9745;</li>
+							<li class="fragment">Woman &#9745;</li>
+							<li class="fragment">Black &#9745;</li>
+							<li class="fragment">candidate for intervention &#9745;</li>
+							<li class="fragment">white house vs group house &#9744;</li>
+						</ul>
+
+						<aside class="notes">System deciding who gets extra help. Two young Black American women — identical on every metric. One grew up in public housing, the other in the White House. No proxy for socioeconomic background. What field captures the texture of a life?</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: CLOSING BEAT — quote
+				     ========================================== -->
+				<section>
+					<div class="slide slide--quote">
+						<div class="quote-mark">&laquo;</div>
+						<blockquote>
+							fairness is not a state of the world. it's an experience of it.
+						</blockquote>
+						<div class="quote-mark">&raquo;</div>
+
+						<aside class="notes">The gap between what the system sees and what the person experiences — that's where harm lives. Measurement will always be incomplete. Incompleteness lands hardest on those already carrying the most.</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SECTION 2 — THE GAP BETWEEN THE METRIC AND THE HARM
+				     ========================================== -->
+
+				<!-- ==========================================
+				     SLIDE: SECTION 2 DIVIDER
+				     ========================================== -->
+				<section>
+					<div class="slide slide--photo-top">
+						<div class="slide-photo">
+							<img src="img/iceland.jpg" alt="" />
+						</div>
+						<div class="slide-text">
+							<h2>The gap between the metric and the harm</h2>
+						</div>
+
+						<aside class="notes">Vocabulary time. Two categories of harm. Both matter. Not the same thing.</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: THE TWO HARM TYPES — columns-2
+				     ========================================== -->
+				<section>
+					<div class="slide slide--columns slide--cols-2">
+						<div class="slide-col">
+							<span class="num-circle num-circle--icon">
+								<img src="img/harms-of-allocation.svg" alt="" class="instrument--orange" />
+							</span>
+							<h3>Harms of allocation</h3>
+							<p>when a system withholds or unfairly distributes opportunities, resources or penalties.</p>
+						</div>
+						<div class="slide-col">
+							<span class="num-circle num-circle--blue num-circle--icon">
+								<img src="img/harms-of-representation.svg" alt="" class="instrument--blue" />
+							</span>
+							<h3>Harms of representation</h3>
+							<p>when a system reinforces the subordination of a group through how it depicts or describes people.</p>
+						</div>
+
+						<p class="text-light text-small" style="position: absolute; bottom: calc(var(--mark-inset) + 42px); left: var(--slide-padding); right: var(--slide-padding);">Barocas, Crawford, Shapiro &amp; Wallach, 2017 &middot; Crawford, NeurIPS 2017</p>
+
+						<aside class="notes">Crawford, NeurIPS 2017 keynote "The Trouble with Bias" + Barocas/Crawford/Shapiro/Wallach 2017. Allocation = what you get or don't (loans, jobs, sentences). Representation = how people are seen or erased. Representation sits at the root of allocation harms downstream.</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: ALLOCATION — low/high risk — columns-2
+				     ========================================== -->
+				<section>
+					<div class="slide slide--columns slide--cols-2">
+						<h2 class="slide-heading">
+							<img src="img/harms-of-allocation.svg" alt="" class="slide-heading-icon" />
+							Harms of allocation
+						</h2>
+
+						<div class="slide-col fragment">
+							<h3>Low risk</h3>
+							<p>an automated rewards system at a doctor's surgery. algorithm de-prioritises the treat for patients outside the target age range. a child doesn't get a candy. upsetting but recoverable.</p>
+						</div>
+						<div class="slide-col fragment">
+							<h3>High risk</h3>
+							<p>COMPAS. twice as likely to falsely flag Black defendants as future offenders. people stayed in prison longer based on a score nobody could explain. the time does not come back. <span class="text-light">(Angwin et al., ProPublica 2016)</span></p>
+						</div>
+
+						<aside class="notes">Low: child doesn't get a candy. Recoverable. High: COMPAS — US courts, recidivism prediction. 2x false positive rate for Black defendants (ProPublica 2016). Judges deferred. Time doesn't come back. Same habits of mind at different stakes.</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: REPRESENTATION — low/high risk — columns-2
+				     ========================================== -->
+				<section>
+					<div class="slide slide--columns slide--cols-2">
+						<h2 class="slide-heading">
+							<img src="img/harms-of-representation.svg" alt="" class="slide-heading-icon" />
+							Harms of representation
+						</h2>
+
+						<div class="slide-col fragment">
+							<h3>Low risk</h3>
+							<p>a face filter that puts bunny ears on you. cute if your face is detected. the effect breaks for darker skin tones. annoying. a minor indignity. nobody's life is at stake.</p>
+						</div>
+						<div class="slide-col fragment">
+							<h3>High risk</h3>
+							<p>a teenage girl searches for mathematicians and sees almost entirely white men. she updates her sense of what's possible. she changes course. the erasure compounds.</p>
+						</div>
+
+						<aside class="notes">Low: face filter breaks on darker skin. "We didn't think about you." High: girl searches for mathematicians, sees white men, updates her sense of what's possible. Hidden Figures problem — erasure compounds across generations. Representational harm reproduces inequality, not just reflects it.</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: BRIDGE — into evals
+				     ========================================== -->
+				<section>
+					<div class="slide slide--statement">
+						<div class="slide-statement">
+							so how well do our tools actually measure this?
+						</div>
+						<div class="slide-statement-label">
+							<span class="label">Fairness metrics &amp; evals</span>
+						</div>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: LIBRARY LANDSCAPE — what we audited
+				     ========================================== -->
+				<section>
+					<div class="slide slide--columns slide--cols-2">
+						<div class="slide-col">
+							<h3>Classical ML fairness</h3>
+							<p><a href="https://fairlearn.org">Fairlearn</a></p>
+							<p><a href="https://aif360.res.ibm.com">AI Fairness 360 (AIF360)</a></p>
+							<p><a href="https://dssg.github.io/aequitas">Aequitas</a></p>
+							<p><a href="https://responsibleaitoolbox.ai">Responsible AI Toolbox</a></p>
+							<p><a href="https://github.com/google/ml-fairness-gym">ML Fairness Gym</a></p>
+						</div>
+						<div class="slide-col">
+							<h3>LLM evals with fairness-adjacent metrics</h3>
+							<p><a href="https://deepeval.com/docs/metrics-bias">DeepEval</a> <span class="text-light text-small">(BiasMetric, ToxicityMetric)</span></p>
+							<p><a href="https://github.com/Giskard-AI/giskard-oss">Giskard + Phare</a></p>
+							<p><a href="https://inspect.aisi.org.uk/evals">Inspect Evals / UK AISI</a> <span class="text-light text-small">(StereoSet, BOLD, BBQ)</span></p>
+							<p><a href="https://github.com/EleutherAI/lm-evaluation-harness">EleutherAI LM Eval Harness</a> <span class="text-light text-small">(WinoGender, CrowS-Pairs)</span></p>
+							<p><a href="https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/develop/evaluate-sdk">Azure AI Evaluation SDK</a> <span class="text-light text-small">(HateUnfairnessEvaluator)</span></p>
+						</div>
+
+						<aside class="notes">Left: classical ML fairness — demographic parity, equalized odds, disparate impact. Require labelled data + ground truth. Work but narrow. Right: LLM evals. Most (RAGAS, TruLens, Pydantic Evals) have nothing for fairness. These exceptions only do content screening — "does the output contain slurs?" Not the same question. No guardrails-style evaluation either. Gap is paradigmatic.</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: VENN DIAGRAM — placeholder
+				     ========================================== -->
+				<section>
+					<div class="slide slide--padded" style="align-items: center; justify-content: center;">
+						<img src="img/lib-venn.svg" alt="Venn diagram of fairness and eval library landscape" style="max-height: 95%; max-width: 95%; object-fit: contain;" />
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: EVALS — the unreliable narrator
+				     ========================================== -->
+				<section>
+					<div class="slide slide--statement">
+						<div class="slide-statement">
+							An unreliable narrator judging its own reliability
+						</div>
+						<div class="slide-statement-label">
+							<span class="label">The gap</span>
+						</div>
+
+						<aside class="notes">Three eval modes: QA (gating deployment), observability (annotation of query-response pairs), guardrails (LLM judges in production). You can write custom fairness evals — but you're relying on the system you're evaluating. Same blind spots that produced the output are evaluating it. Can't proofread your own work.</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: THE FOUR JOBS — venn progression
+				     Custom layout. Four SVG layers stacked, each
+				     wrapped in a .venn-layer div so reveal fragments
+				     work on a block element. A is visible on entry;
+				     B / C / D fade in cumulatively with their
+				     matching activity blocks on the right.
+				     ========================================== -->
+				<section>
+					<div class="slide slide--venn">
+						<h2>The four jobs</h2>
+
+						<div class="venn-grid">
+							<div class="venn-canvas">
+								<!-- Layer A — baseline, visible on entry -->
+								<div class="venn-layer">
+									<svg viewBox="0 0 1080 720" xmlns="http://www.w3.org/2000/svg" aria-label="circle A, understand the world">
+										<circle cx="300" cy="360" r="280" fill="#ff4f1f" fill-opacity="0.25" />
+										<text class="venn-letter" x="105" y="155" fill="#ff4f1f" dominant-baseline="hanging">A</text>
+									</svg>
+								</div>
+
+								<!-- Layer B — first fragment -->
+								<div class="venn-layer fragment" data-fragment-index="0">
+									<svg viewBox="0 0 1080 720" xmlns="http://www.w3.org/2000/svg" aria-label="circle B, understand foundation models">
+										<circle cx="360" cy="400" r="230" fill="#ff4f1f" fill-opacity="0.25" />
+										<text class="venn-letter" x="200" y="240" fill="#ff4f1f" dominant-baseline="hanging">B</text>
+									</svg>
+								</div>
+
+								<!-- Layer C — second fragment -->
+								<div class="venn-layer fragment" data-fragment-index="1">
+									<svg viewBox="0 0 1080 720" xmlns="http://www.w3.org/2000/svg" aria-label="circle C, understand your system">
+										<circle cx="410" cy="430" r="175" fill="#ff4f1f" fill-opacity="0.25" />
+										<text class="venn-letter" x="290" y="305" fill="#ff4f1f" dominant-baseline="hanging">C</text>
+									</svg>
+								</div>
+
+								<!-- Layer D — third fragment. Same radius as A, cy aligned
+								     with A, positioned right so D sits level with A. -->
+								<div class="venn-layer fragment" data-fragment-index="2">
+									<svg viewBox="0 0 1080 720" xmlns="http://www.w3.org/2000/svg" aria-label="circle D, intervene">
+										<circle cx="790" cy="360" r="280" fill="#2468ff" fill-opacity="0.25" />
+										<text class="venn-letter" x="730" y="130" fill="#2468ff" dominant-baseline="hanging">D</text>
+									</svg>
+								</div>
+							</div>
+
+							<ul class="venn-items">
+								<li class="venn-item">
+									<h3><span class="venn-key">A</span> Understand the world</h3>
+								</li>
+								<li class="venn-item fragment" data-fragment-index="0">
+									<h3><span class="venn-key">B</span> Understand foundation models</h3>
+								</li>
+								<li class="venn-item fragment" data-fragment-index="1">
+									<h3><span class="venn-key">C</span> Understand your system</h3>
+								</li>
+								<li class="venn-item fragment" data-fragment-index="2">
+									<h3><span class="venn-key venn-key--blue">D</span> Intervene</h3>
+								</li>
+							</ul>
+						</div>
+
+						<aside class="notes">A/B/C: build intuition then measure — world, foundation models, your system. Nested: system inside models inside world. Most people only do C, usually post-production. A and B almost always skipped. D: intervention — where understanding meets action. Without intersectionality you systematically miss the most marginalised.</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: VORONOI — ways to intervene
+				     ========================================== -->
+				<section>
+					<div class="slide" style="padding: 0; overflow: hidden; text-align: center; padding-top:20px;">
+						<iframe src="interactives/voronoi.html" style="width: 100%; height: 100%; border: none;"></iframe>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: SCALES MEME — comic relief
+				     ========================================== -->
+				<section>
+					<div class="slide slide--padded" style="align-items: center; justify-content: center;">
+						<img src="img/scales-meme.png" alt="Scales of justice meme: left pan (heavy) labelled 'All of law, philosophy, religion, academia, culture and art on justice and fairness' — right pan (light) labelled 'Me and my lil' Python script'" style="max-height: 85%; max-width: 85%; object-fit: contain;" />
+
+						<aside class="notes">Thousands of years of thought about justice vs your Python script. That tension is the point.</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SECTION 3 — WHAT GENUINE INTERVENTION LOOKS LIKE
+				     ========================================== -->
+
+				<!-- ==========================================
+				     SLIDE: SECTION 3 DIVIDER
+				     ========================================== -->
+				<section>
+					<div class="slide slide--photo-top">
+						<div class="slide-photo">
+							<img src="img/flick-and-scottie.jpg" alt="" />
+						</div>
+						<div class="slide-text">
+							<span class="label">Section three</span>
+							<h2>What genuine intervention looks like</h2>
+						</div>
+
+						<aside class="notes">This is a skill and a discipline, not a personality trait. Any system capable of doing no harm is also not doing much of anything. I encourage you to try and to give yourself grace and patience when you fail.</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: DESIGN JUSTICE — book intro
+				     Split layout: book jacket left, text right.
+				     ========================================== -->
+				<section>
+					<div class="slide slide--split">
+						<div class="slide-photo">
+							<img src="img/design-justice.jpg" alt="Design Justice book cover" />
+						</div>
+						<div class="slide-text">
+							<span class="label">Design justice</span>
+							<h2>Community-led practices to build the worlds we need</h2>
+							<p>Sasha Costanza-Chock (they/them), MIT Press, 2020. Freely available online.</p>
+						</div>
+
+						<aside class="notes">Core argument: power in design — who has it, what they do with it, effects on oppressed groups. Grapples with how universalist design principles erase intersectionally disadvantaged people.</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: DESIGN JUSTICE NETWORK — principles
+				     ========================================== -->
+				<section>
+					<div class="slide slide--padded">
+						<span class="label">Design justice network</span>
+						<h2><a href="https://designjustice.org">designjustice.org</a></h2>
+						<p class="text-light text-small">founded 2015 at the Allied Media Conference. 10 principles centring people normally marginalised by design. available in multiple languages.</p>
+						<p class="fragment"><strong>principle #2</strong> We center the voices of those who are directly impacted by the outcomes of the design process.</p>
+						<p class="fragment"><strong>principle #5</strong> We see the role of the designer (data scientist) as a facilitator rather than an expert.</p>
+						<p class="fragment"><strong>principle #6</strong> We believe that everyone is an expert based on their own lived experience, and that we all have unique and brilliant contributions to bring to a design process.</p>
+
+						<aside class="notes">10 principles — commitments, not slogans. Read all ten at designjustice.org.</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: ECOSYSTEM — books & resources
+				     ========================================== -->
+				<section>
+					<div class="slide slide--padded">
+						<span class="label">Critical tech literacy</span>
+						<h2>The ecosystem</h2>
+						<ul class="body-list">
+							<li class="fragment"><a href="https://www.ruhabenjamin.com/race-after-technology">Race After Technology</a> &mdash; Ruha Benjamin</li>
+							<li class="fragment"><a href="https://virginia-eubanks.com/automating-inequality/">Automating Inequality</a> &mdash; Virginia Eubanks</li>
+							<li class="fragment"><a href="https://datafeminism.io">Data Feminism</a> &mdash; Catherine D'Ignazio &amp; Lauren F. Klein</li>
+							<li class="fragment"><a href="https://designjustice.mitpress.mit.edu">Design Justice</a> &mdash; Sasha Costanza-Chock (free online)</li>
+							<li class="fragment"><a href="https://designjustice.org/resources">DJN toolkits</a> &mdash; disability justice, theme weaving, zines, podcast</li>
+						</ul>
+
+						<aside class="notes">Benjamin: "the new Jim Code" — neutral tech reproducing racial hierarchy. Eubanks: automated systems punishing poverty. D'Ignazio &amp; Klein: feminist theory → data science practice. All accessible and directly applicable.</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: MEASURE + INTUITION — padded
+				     ========================================== -->
+				<section>
+					<div class="slide slide--padded">
+						<span class="label">Qualitative + quantitative</span>
+						<h2>A metric is only as good as the hypothesis behind it</h2>
+						<ul class="body-list">
+							<li class="fragment">study the domain &mdash; read, follow your curiosity</li>
+							<li class="fragment">talk to people affected by the system</li>
+							<li class="fragment">use scanning tools and design activities</li>
+							<li class="fragment">then measure what you've learned to look for</li>
+						</ul>
+
+						<aside class="notes">Quant and qual are complements. Library doesn't tell you what to look for — domain knowledge, literature, talking to affected people does. Bias taxonomy worksheets, consequence scanning, tarot cards of tech. Can't measure what you haven't imagined. Resources: github.com/summerscope/mapping-fair-ml.</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: CV SCREENER — setup
+				     ========================================== -->
+				<section>
+					<div class="slide slide--padded">
+						<span class="label">Case study</span>
+						<h2>"Let's make it fair."</h2>
+						<ul class="body-list">
+							<li class="fragment">two colleagues. one concern. one meeting. everyone leaves satisfied.</li>
+							<li class="fragment">the ML engineer goes off to tune the model.</li>
+							<li class="fragment">the product lead goes off to watch the dashboard.</li>
+							<li class="fragment">neither checks what the other means by "fair."</li>
+						</ul>
+
+						<aside class="notes">CV screener. Group A: traditional CS degrees. Group B: bootcamp/self-taught. Model trained on historical hiring data — credentialist. Two colleagues agree "make it fair." No further discussion. Neither defines fair.</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: CV SCREENER — six months later
+				     ========================================== -->
+				<section>
+					<div class="slide slide--columns slide--cols-2">
+						<h2 class="slide-heading">Six months later</h2>
+
+						<div class="slide-col fragment">
+							<h3>The engineer</h3>
+							<p>tuned the model to achieve <strong>equalized odds</strong>: the true positive rate and false positive rate are equal across both groups.</p>
+							<p class="text-light" style="margin-top: 0.6em;">"the model works equally well for both groups. it's fair."</p>
+						</div>
+						<div class="slide-col fragment">
+							<h3>The product lead</h3>
+							<p>checked the dashboard. Group A candidates: <strong>52% advanced</strong>. Group B candidates: <strong>35% advanced</strong>.</p>
+							<p class="text-light" style="margin-top: 0.6em;">"this isn't fair."</p>
+						</div>
+
+						<aside class="notes">Both right. Engineer optimised for equalized odds (equal accuracy). Product lead expected demographic parity (equal outcomes). Different questions.</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: CV SCREENER — confusion matrix
+				     ========================================== -->
+				<section>
+					<div class="slide" style="padding: 0; overflow: hidden;">
+						<iframe src="interactives/confusion-matrix.html" style="width: 100%; height: 100%; border: none;"></iframe>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: CV SCREENER — the point
+				     ========================================== -->
+				<section>
+					<div class="slide slide--statement">
+						<div class="slide-statement">
+							choosing a metric is choosing a value system.
+						</div>
+						<div class="slide-statement-label">
+							<span class="label">The point</span>
+						</div>
+
+						<aside class="notes">Three questions the metric can't answer: (1) does base rate difference reflect capability or historical disadvantage? (2) which error is worse? (3) what world are you trying to build?</aside>
+					</div>
+				</section>
+
+
+
+				<!-- ==========================================
+				     SECTION 4 — FAIRNESS WASHING
+				     ========================================== -->
+
+				<!-- ==========================================
+				     SLIDE: FAIRNESS WASHING — statement
+				     ========================================== -->
+				<section>
+					<div class="slide slide--statement">
+						<div class="slide-statement">
+							installing a library is not a moral position. it is the absence of one.
+						</div>
+						<div class="slide-statement-label">
+							<span class="label">Fairness washing</span>
+						</div>
+
+						<!-- Set-square accent, bottom left, faded -->
+						<div class="instrument instrument--blue instrument--md instrument--accent instrument--accent-bl">
+							<img src="img/set-square.svg" alt="" />
+						</div>
+
+						<aside class="notes">Mapping history ≠ knowing how to intervene. What's the fair state you're working towards? 50/50? Population-proportional? Hard questions. Preconfigured metric = handing your moral responsibility to someone else's assumptions. LLM eval frameworks have narrowed ambition — from demographic equity to "contains slurs?" We've regressed.</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: DESIGN JUSTICE QUOTE — critique
+				     ========================================== -->
+				<section>
+					<div class="slide slide--quote">
+						<div class="quote-mark">&laquo;</div>
+						<blockquote>
+							First we should critique <br />(trouble, queer, or denormalize)
+						</blockquote>
+						<div class="quote-mark">&raquo;</div>
+						<p class="quote-attribution">Sasha Costanza-Chock, <em>Design Justice</em>, p. 57</p>
+
+						<aside class="notes">Critique = creating productive discomfort, questioning the "unmarked user." Sitting in uncertainty. Taking the first step knowing you'll get things wrong.</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: VERTICAL MAP — intervention landscape
+				     ========================================== -->
+				<section>
+					<div class="slide" style="padding: 0; overflow: hidden; text-align: center; padding-top: 20px;">
+						<iframe src="interactives/asset1_vertical_map.html" style="width: 100%; height: 100%; border: none;"></iframe>
+
+						<aside class="notes">Tried to internet-stalk all the speakers at the conf and map their employers as a way to understand the industry verticals represented — these are a rough proxy only.</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: LEGEND — intervention categories
+				     ========================================== -->
+				<section>
+					<div class="slide" style="padding: 0; overflow: hidden; text-align: center; padding-top: 20px;">
+						<iframe src="interactives/asset2_legend.html" style="width: 100%; height: 100%; border: none;"></iframe>
+
+						<aside class="notes">How we tried to assess whether you have access to these sensitive classes.</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: PROPORTION — intervention breakdown
+				     ========================================== -->
+				<section>
+					<div class="slide" style="padding: 0; overflow: hidden; text-align: center; padding-top: 20px;">
+						<iframe src="interactives/asset3_proportion.html" style="width: 100%; height: 100%; border: none;"></iframe>
+
+						<aside class="notes">How few of us actually have access to these sensitive classes.</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: UPSTREAM INTERVENTION SPECTRUM — list
+				     ========================================== -->
+				<section>
+					<div class="slide slide--timeline">
+						<h2>Product: can you intervene further upstream?</h2>
+						<div class="timeline">
+							<!-- Items above the track (positions 1 and 3) -->
+							<div class="timeline__item timeline__item--above fragment" data-fragment-index="0" data-pos="1">
+								<h3>Problem statement</h3>
+								<p>does the business model create incentives to find harm, or to ignore it?</p>
+							</div>
+							<div class="timeline__item timeline__item--above fragment" data-fragment-index="2" data-pos="3">
+								<h3>Build &#8596; iterate loop</h3>
+								<p>monitoring, feedback loops, learning from real use.</p>
+							</div>
+
+							<!-- Markers on the track (all 4 positions) -->
+							<div class="timeline__marker" data-pos="1">01</div>
+							<div class="timeline__marker" data-pos="2">02</div>
+							<div class="timeline__marker" data-pos="3">03</div>
+							<div class="timeline__marker" data-pos="4">04</div>
+
+							<!-- Items below the track (positions 2 and 4) -->
+							<div class="timeline__item timeline__item--below fragment" data-fragment-index="1" data-pos="2">
+								<h3>Design &#8596; build loop</h3>
+								<p>what are you encoding before anyone uses it?</p>
+							</div>
+							<div class="timeline__item timeline__item--below fragment" data-fragment-index="3" data-pos="4">
+								<h3>Recourse</h3>
+								<p>can the person affected challenge, override, or opt out?</p>
+							</div>
+						</div>
+
+						<aside class="notes">Earlier = more impact. Problem statement: does the business model incentivise finding harm or ignoring it? Design-build: where assumptions get encoded invisibly. Build-iterate: what real people actually experience. Intervention ≠ monitoring — acting on the signal.</aside>
+					</div>
+				</section>
+
+
+				<!--
+				<section>
+					<div class="slide slide--padded">
+						<span class="label">Design justice · Costanza-Chock, 2020</span>
+						<h2>Does the system need to know gender?</h2>
+						<p>the scanner has a hard-coded gender binary. select female — flagged for chest area. select male — flagged for groin. the goal is to detect weapons.</p>
+
+						<aside class="notes">'You do not need to know someone's gender to detect a weapon. That binary was encoded because someone assumed it was necessary. It was not. This is Sasha Costanza-Chock's example from Design Justice. But go further: what if instead of encoding the binary you offered the passenger a choice of differently-gendered officers? Airport security is famously performative. What if that performance made normative claims about how we could treat each other with respect and generosity, rather than suspicion and harm? What does real risk reduction actually look like when you start from the right question? This is what it means to intervene at the problem statement stage.'</aside>
+					</div>
+				</section>
+				-->
+
+
+				<!-- ==========================================
+				     SLIDE: CODESIGN — padded
+				     ========================================== -->
+				<section>
+					<div class="slide slide--padded">
+						<span class="label">Codesign</span>
+						<h2>Design with, not for</h2>
+						<ul class="body-list">
+							<li class="fragment">bring people affected by the system into the design of it</li>
+							<li class="fragment">not as test subjects — as co-designers with standing</li>
+							<li class="fragment">"nothing about us without us" — disability rights movement, 1980s–90s</li>
+							<li class="fragment">you will be bad at this at first. start anyway.</li>
+						</ul>
+
+						<aside class="notes">Starting orientation: curiosity. McKercher (Beyond Sticky Notes): without curiosity we won't spot anything new. Engineers are used to being the authority — codesign requires becoming a beginner. Resources: beyondstickynotes.com, MoreThanCode report, Arnstein's Ladder.</aside>
+					</div>
+				</section>
+
+
+				<!--
+				<section>
+					<div class="slide slide--padded">
+						<span class="label">Design justice · Costanza-Chock, 2020</span>
+						<h2>None of these options are me.</h2>
+						<p><strong>affordance</strong> — what a system enables you to do</p>
+						<p><strong>dysaffordance</strong> — when a system forces you to misrepresent yourself to proceed</p>
+						<ul class="body-list">
+							<li class="fragment">a job title dropdown that doesn't have your role</li>
+							<li class="fragment">a nationality field that doesn't have your country</li>
+							<li class="fragment">a gender field with two options</li>
+						</ul>
+
+						<aside class="notes">'A dysaffordance is when a system forces you to misrepresent yourself in order to proceed. And I want to be clear: this is not only a problem for trans people, or for any particular marginalised group. We all experience dysaffordances constantly. Every time you have looked at a dropdown and thought "none of these are me" — that is one. A job title field that does not have your role. A nationality field that does not have your country. A form that assumes you have a middle name, or do not, or that your name fits in twenty characters. The question for system designers is not whether this affects marginalised groups. It is: which groups are we systematically forcing to misrepresent themselves, and what does that cost them over a lifetime of interactions? A minor inconvenience for one person is a daily accumulation of indignities for another. Universalist design — designing for everyone — makes these exclusions invisible rather than fixing them.'</aside>
+					</div>
+				</section>
+				-->
+
+
+				<!-- ==========================================
+				     SLIDE: CONSENT-BASED INTERVENTION — padded
+				     ========================================== -->
+				<section>
+					<div class="slide slide--padded">
+						<span class="label">Consent-based intervention</span>
+						<h2>Offer. Listen. Adapt. Stop when asked.</h2>
+						<ul class="body-list">
+							<li class="fragment">make the intervention visible — never act silently on someone's behalf</li>
+							<li class="fragment">try once — if they say no, stop</li>
+							<li class="fragment">if they say yes, learn — offer more things like it</li>
+							<li class="fragment">never assume you know the answer next time</li>
+						</ul>
+
+						<aside class="notes">Not automation — a learning relationship. System offers, user decides, system remembers. Two kinds: (1) interaction affordances — struggling with mouse clicks? Offer keyboard shortcuts. (2) positive bias interventions — "we think you may be disadvantaged, here's something we could do, want it?" Not smarter guessing. Asking and deferring.</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: TWO RESPONSES — columns-2
+				     ========================================== -->
+				<section>
+					<div class="slide slide--columns slide--cols-2">
+						<div class="slide-heading"><span class="label">Consent-based intervention</span></div>
+
+						<div class="slide-col fragment">
+							<span class="num-circle">1</span>
+							<h3>"Yes, offer me more"</h3>
+							<p>the system learns your preferences. surfaces relevant options. builds a picture of what help looks like for you specifically.</p>
+						</div>
+						<div class="slide-col fragment">
+							<span class="num-circle num-circle--blue">2</span>
+							<h3>"No, leave me alone"</h3>
+							<p>the system stops. does not try again. does not assume you'll change your mind. respects the preference as stated.</p>
+						</div>
+
+						<aside class="notes">Two students, same demographics on paper. One wants every advantage. The other doesn't want background factored in. Both valid. We know biases are baked in — intervention probably helps. But that's our belief, not theirs. Don't impose your model of fairness on people whose experience is theirs to define.</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: THE QUOTE — consent
+				     ========================================== -->
+				<section>
+					<div class="slide slide--quote">
+						<div class="quote-mark">&laquo;</div>
+						<blockquote>
+							Do you identify as a member of a disadvantaged group? If yes, we'd like to adjust how this system works in your favour. Would you like us to do that?
+						</blockquote>
+						<div class="quote-mark">&raquo;</div>
+
+						<aside class="notes">Uncomfortable to say out loud — that's appropriate. Don't resolve the discomfort by deciding quietly on someone's behalf. Goal: treat people as individuals with agency. No easy answers. Better questions.</aside>
+					</div>
+				</section>
+
+				<section>
+					<div class="slide slide--split slide--text-right">
+						<div class="slide-photo">
+							<img src="img/christina-and-andy.jpg" alt="" />
+							<div class="instrument instrument--blue instrument--lg instrument--bleed-right instrument--rotate-90">
+								<img src="img/calipers.svg" alt="" />
+							</div>
+						</div>
+						<div class="slide-text">
+							<h2>In conclusion&hellip;</h2>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="slide slide--quote">
+						<div class="quote-mark">&laquo;</div>
+						<blockquote>
+							Fairness is not a metric
+						</blockquote>
+						<div class="quote-mark">&raquo;</div>
+					</div>
+				</section>
+
+
+				<section>
+					<div class="slide slide--quote">
+						<div class="quote-mark">&laquo;</div>
+						<blockquote>
+							Now, go and make some good trouble
+						</blockquote>
+						<div class="quote-mark">&raquo;</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="slide slide--padded" style="align-items: center; justify-content: center; text-align: center;">
+						<h2>Thank you</h2>
+						<img src="img/evalstalkqr.png" alt="QR code — link to slides" style="width: 240px; height: 240px; margin-top: 1em;" />
+					</div>
+				</section>
+
+
+
+
+
+				<!--
+				<section>
+					<div class="slide slide--split slide--text-right">
+						<div class="slide-photo">
+							<img src="img/christina-and-andy.jpg" alt="" />
+							<div class="instrument instrument--blue instrument--lg instrument--bleed-right instrument--rotate-90">
+								<img src="img/calipers.svg" alt="" />
+							</div>
+						</div>
+						<div class="slide-text">
+							<span class="label">Chapter One</span>
+							<h2>What do we mean when we say 'fair'?</h2>
+						</div>
+					</div>
+				</section>
+				-->
+
+
+				<!--
+				<section>
+					<div class="slide slide--photo-top">
+						<div class="slide-photo">
+							<img src="img/christina-and-fam.jpg" alt="" />
+						</div>
+						<div class="slide-text">
+							<span class="label">Context</span>
+							<h2>The people behind the data points</h2>
+						</div>
+					</div>
+				</section>
+				-->
+
+
+				<!--
+				<section>
+					<div class="slide slide--statement">
+						<div class="slide-statement">
+							Evaluation frameworks create the illusion of objectivity. They let us believe we've measured fairness when we've only measured what the framework was designed to see.
+						</div>
+						<div class="slide-statement-label">
+							<span class="label">Finding</span>
+						</div>
+
+						<div class="instrument instrument--orange instrument--sm instrument--accent instrument--accent-tr">
+							<img src="img/set-square.svg" alt="" />
+						</div>
+					</div>
+				</section>
+				-->
+
+
+				<!--
+				<section>
+					<div class="slide slide--quote">
+						<div class="quote-mark">&laquo;</div>
+						<blockquote>
+							Not everything that counts can be counted, and not everything that can be counted counts.
+						</blockquote>
+						<div class="quote-mark">&raquo;</div>
+						<p class="quote-attribution">William Bruce Cameron</p>
+					</div>
+				</section>
+				-->
+
+
+				<!--
+				<section>
+					<div class="slide slide--list">
+						<div class="slide-graphic">
+							<img src="img/pressure-gauge.svg" alt="" class="instrument--orange" />
+						</div>
+						<ol>
+							<li>Define the construct</li>
+							<li>Choose your proxies carefully</li>
+							<li>Acknowledge what you can't measure</li>
+							<li>Design for failure</li>
+							<li>Build in recourse</li>
+							<li>Test with the people affected</li>
+							<li>Iterate publicly</li>
+						</ol>
+					</div>
+				</section>
+				-->
+
+
+				<!--
+				<section>
+					<div class="slide slide--columns slide--cols-2">
+						<div class="slide-col">
+							<span class="num-circle">1</span>
+							<h3>Technical fairness</h3>
+							<p>Equalised odds, demographic parity, calibration. Mathematically precise. Mutually exclusive. Choose one, violate another.</p>
+						</div>
+						<div class="slide-col">
+							<span class="num-circle num-circle--blue">2</span>
+							<h3>Lived fairness</h3>
+							<p>How it feels to be denied a loan. Whether you can appeal. Who designed the system and who it was designed for.</p>
+						</div>
+					</div>
+				</section>
+				-->
+
+
+				<!--
+				<section>
+					<div class="slide slide--split">
+						<div class="slide-text">
+							<span class="label--blue label">Observation</span>
+							<h2>The gap between the metric and the meaning</h2>
+							<p class="text-light">Every measurement is a proxy. Every proxy has a politics.</p>
+						</div>
+						<div class="slide-photo">
+							<img src="img/sean-and-son.jpg" alt="" />
+							<div class="instrument instrument--orange instrument--md instrument--bleed-left">
+								<img src="img/tape-measure.svg" alt="" />
+							</div>
+						</div>
+					</div>
+				</section>
+				-->
+
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="dist/plugin/notes.js"></script>
+		<script src="dist/plugin/markdown.js"></script>
+		<script src="dist/plugin/highlight.js"></script>
+		<script>
+			const SPEAKER = 'Laura Summers';
+			const CONFERENCE = 'PyCon DE & PyData 2026';
+
+			document.querySelectorAll('.reveal .slides > section > .slide').forEach(slide => {
+				const markClasses = ['mark-tl', 'mark-tr', 'mark-bl', 'mark-br',
+				                     'guide-h-top', 'guide-h-bottom', 'guide-v-left', 'guide-v-right'];
+				markClasses.forEach(cls => {
+					const el = document.createElement('div');
+					el.className = cls;
+					slide.appendChild(el);
+				});
+
+				const meta = document.createElement('div');
+				meta.className = 'slide-meta';
+				meta.innerHTML = `<span>${SPEAKER}</span><span>${CONFERENCE}</span>`;
+				slide.appendChild(meta);
+
+				const progress = document.createElement('div');
+				progress.className = 'slide-progress';
+				progress.innerHTML = '<div class="slide-progress-fill"></div>';
+				slide.appendChild(progress);
+			});
+
+			Reveal.initialize({
+				hash: true,
+				center: false,
+				width: 1280,
+				height: 720,
+				margin: 0,
+				transition: 'fade',
+				slideNumber: false,
+				controls: false,
+				progress: false,
+				plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+			}).then(() => {
+				function updateProgress() {
+					const pct = (Reveal.getProgress() * 100).toFixed(1) + '%';
+					document.querySelectorAll('.slide-progress-fill').forEach(fill => {
+						fill.style.width = pct;
+					});
+				}
+				Reveal.on('slidechanged', updateProgress);
+				Reveal.on('fragmentshown', updateProgress);
+				Reveal.on('fragmenthidden', updateProgress);
+				updateProgress();
+			});
+		</script>
+	</body>
+</html>

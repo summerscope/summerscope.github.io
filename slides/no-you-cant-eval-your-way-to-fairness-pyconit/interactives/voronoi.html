@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ways to Intervene</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 98vh;
+      overflow: hidden;
+      font-family: Archivo, 'Helvetica Neue', Arial, sans-serif;
+    }
+    #loading {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      color: #8a7e74;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    svg { display: block; width: auto; height: 100%; margin: 0 auto; }
+    #tip {
+      display: none;
+      position: fixed;
+      background: rgba(45,45,45,0.95);
+      border: 0.5px solid rgba(0,0,0,0.25);
+      border-radius: 6px;
+      padding: 7px 12px;
+      pointer-events: none;
+      z-index: 100;
+      max-width: 280px;
+    }
+    .tip-cluster {
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+      opacity: 0.9;
+      font-family: Archivo, sans-serif;
+    }
+    .tip-item {
+      font-size: 12px;
+      line-height: 1.45;
+      color: #ffffff;
+      font-family: Archivo, sans-serif;
+    }
+</style>
+</head>
+<body>
+<div id="loading">Computing layout…</div>
+<svg id="vis"></svg>
+<div id="tip">
+  <div class="tip-cluster" id="tip-cluster"></div>
+  <div class="tip-item"    id="tip-item"></div>
+</div>
+
+<script type="module">
+import * as d3 from "https://esm.sh/d3@7.9.0";
+import { voronoiTreemap } from "https://esm.sh/d3-voronoi-treemap@1.1.1";
+
+// ── SEEDED PRNG (mulberry32) ───────────────────────────────────────────────
+function mulberry32(seed) {
+  return () => {
+    seed |= 0; seed = seed + 0x6D2B79F5 | 0;
+    let t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+}
+const rng = mulberry32(42);
+
+// ── PALETTE ──────────────────────────────────────────────────────────────────
+// Darkened for contrast on #f0e8e0 cream background.
+// Each color is tested to hit ≥4.5:1 contrast ratio against cream.
+const CLUSTERS = [
+  { cluster: "values & politics", color: "#9e7c0c",
+    items: [
+      { name: "define your goals", weight: 5 },
+      { name: "moral red lines", weight: 4 },
+      { name: "#techwontbuildit", weight: 3 },
+      { name: "bring your whole self", weight: 3 },
+      { name: "queer / trouble the status quo", weight: 4 },
+      { name: "ask uncomfortable questions", weight: 5 },
+      { name: "have uncomfortable discussions", weight: 4 },
+      { name: "whistleblowing", weight: 2 },
+      { name: "refuse the work", weight: 3 },
+      { name: "who benefits?", weight: 5 },
+      { name: "build your own literacy (policy, law, ethics)", weight: 4 }
+    ]
+  },
+  { cluster: "community & action", color: "#1a7a52",
+    items: [
+      { name: "community building", weight: 4 },
+      { name: "build networks", weight: 3 },
+      { name: "activism & protest", weight: 3 },
+      { name: "civil engagement", weight: 2 },
+      { name: "hacktivism", weight: 2 },
+      { name: "address erasure", weight: 4 },
+      { name: "re-tell stories centring marginalised voices", weight: 5 },
+      { name: "mentorship", weight: 4 },
+      { name: "translation work", weight: 3 },
+      { name: "documentation as care", weight: 3 },
+      { name: "engage with those who laid the groundwork", weight: 4 },
+      { name: "find your people", weight: 3 }
+    ]
+  },
+  { cluster: "design & framing", color: "#6840b8",
+    items: [
+      { name: "re-frame the problem", weight: 5 },
+      { name: "explore solution space", weight: 4 },
+      { name: "imagine alternative futures", weight: 5 },
+      { name: "intersectional thinking", weight: 5 },
+      { name: "be a facilitator not an expert", weight: 4 },
+      { name: "co-design (nothing about us without us)", weight: 5 },
+      { name: "stay curious", weight: 3 },
+      { name: "intervene upstream", weight: 5 },
+      { name: "who isn't in this room?", weight: 5 },
+      { name: "red-team your assumptions", weight: 4 },
+      { name: "write failure modes before you ship", weight: 4 },
+      { name: "learn from adjacent disciplines", weight: 4 },
+      { name: "read critical theory", weight: 3 }
+    ]
+  },
+  { cluster: "impact & analysis", color: "#b03050",
+    items: [
+      { name: "assess impact", weight: 5 },
+      { name: "disparate impact testing", weight: 4 },
+      { name: "calibration across groups", weight: 3 },
+      { name: "monitor for fairness drift", weight: 3 },
+      { name: "failure mode analysis", weight: 4 },
+      { name: "audit the system", weight: 3 },
+      { name: "annotate your data", weight: 4 }
+    ]
+  },
+  { cluster: "product practice", color: "#1a6e8a",
+    items: [
+      { name: "set a deterministic baseline", weight: 4 },
+      { name: "kill switch", weight: 3 },
+      { name: "minimise blast radius", weight: 4 },
+      { name: "feedback loops", weight: 5 },
+      { name: "explain system decisions", weight: 5 },
+      { name: "human review override", weight: 4 },
+      { name: "paper trail", weight: 3 },
+      { name: "escape hatch", weight: 3 },
+      { name: "privacy by design", weight: 4 }
+    ]
+  },
+  { cluster: "law & policy", color: "#c44a0a",
+    items: [
+      { name: "GDPR & right to erasure", weight: 2 },
+      { name: "EU AI Act (risk classification)", weight: 2 },
+      { name: "DE: third gender in law (2018)", weight: 1 },
+      { name: "board quotas (EU 40% directive)", weight: 1 },
+      { name: "pay transparency directive", weight: 2 },
+      { name: "right to be forgotten", weight: 2 },
+      { name: "whistleblower protection (EU directive)", weight: 2 },
+      { name: "AGG: gender-neutral job ads (DE)", weight: 1 },
+      { name: "Digital Services Act", weight: 1 },
+      { name: "EU Accessibility Act", weight: 1 }
+    ]
+  },
+  { cluster: "norms & standards", color: "#2d7a3a",
+    items: [
+      { name: "codes of conduct (Contributor Covenant, ACM)", weight: 4 },
+      { name: "Genderstern & gender-neutral language", weight: 3 },
+      { name: "Duden: removing generic masculine", weight: 2 },
+      { name: "SOC2 / ISO 27001 accreditation", weight: 2 },
+      { name: "ISO 42001 AI management", weight: 2 },
+      { name: "WCAG accessibility", weight: 3 },
+      { name: "model cards & datasheets", weight: 4 },
+      { name: "HTTPS / secure-by-default", weight: 3 },
+      { name: "end-to-end encryption as norm", weight: 3 },
+      { name: "conference CoC + enforcement", weight: 4 },
+      { name: "responsible AI principles", weight: 3 }
+    ]
+  }
+];
+
+// ── SETUP ─────────────────────────────────────────────────────────────────────
+const W = 1280, H = 720;
+const PAD = 10;
+const clip = [[PAD,PAD],[W-PAD,PAD],[W-PAD,H-PAD],[PAD,H-PAD]];
+
+const svg = d3.select("#vis")
+  .attr("viewBox", `0 0 ${W} ${H}`);
+
+const tip        = document.getElementById("tip");
+const tipCluster = document.getElementById("tip-cluster");
+const tipItem    = document.getElementById("tip-item");
+
+// ── HIERARCHY ─────────────────────────────────────────────────────────────────
+const root = d3.hierarchy({
+  name: "root",
+  children: CLUSTERS.map(c => ({
+    name: c.cluster, color: c.color,
+    children: c.items.map(item => ({
+      name: item.name, weight: item.weight,
+      color: c.color, clusterName: c.cluster
+    }))
+  }))
+}).sum(d => d.weight || 0);
+
+// ── LAYOUT ────────────────────────────────────────────────────────────────────
+const vtm = voronoiTreemap()
+  .clip(clip)
+  .convergenceRatio(0.01)
+  .maxIterationCount(50)
+  .minWeightRatio(0.005)
+  .prng(rng);
+
+vtm(root);
+document.getElementById("loading").style.display = "none";
+
+// ── HELPERS ───────────────────────────────────────────────────────────────────
+const polyPath = p => "M" + p.map(v => v[0].toFixed(2)+","+v[1].toFixed(2)).join("L") + "Z";
+
+// ── DRAW ──────────────────────────────────────────────────────────────────────
+const leaves   = root.leaves();
+const clusters = root.children;
+
+// Leaf fills — light tint on cream
+svg.selectAll("path.lf")
+  .data(leaves).join("path").attr("class","lf")
+  .attr("d", d => polyPath(d.polygon))
+  .attr("fill",   d => d.data.color + "18")
+  .attr("stroke", d => d.data.color + "40")
+  .attr("stroke-width", 0.5)
+  .attr("stroke-linejoin","round")
+  .style("cursor","default")
+  .on("mouseenter", function(e, d) {
+    d3.select(this).attr("fill", d.data.color + "30");
+    tipCluster.textContent = d.data.clusterName;
+    tipCluster.style.color = d3.color(d.data.color).brighter(2.5).formatHex();
+    tipItem.textContent    = d.data.name;
+    tip.style.display = "block";
+  })
+  .on("mousemove", (e) => {
+    const x = e.clientX + 14;
+    tip.style.left = (x + tip.offsetWidth > window.innerWidth ? e.clientX - tip.offsetWidth - 14 : x) + "px";
+    tip.style.top  = (e.clientY - 12) + "px";
+  })
+  .on("mouseleave", function(e, d) {
+    d3.select(this).attr("fill", d.data.color + "18");
+    tip.style.display = "none";
+  });
+
+// Cluster outlines
+svg.selectAll("path.cl")
+  .data(clusters).join("path").attr("class","cl")
+  .attr("d", d => polyPath(d.polygon))
+  .attr("fill","none")
+  .attr("stroke", d => d.data.color)
+  .attr("stroke-width", 1.5)
+  .attr("stroke-opacity", 0.35)
+  .attr("stroke-linejoin","round")
+  .style("pointer-events","none");
+
+// Cluster labels
+clusters.forEach(d => {
+  const [cx, cy] = d3.polygonCentroid(d.polygon);
+  const ys = d.polygon.map(p => p[1]);
+  const topY    = Math.min(...ys);
+  const bottomY = Math.max(...ys);
+  const inTopHalf = cy < H / 2;
+
+  const labelY = inTopHalf ? topY + 13 : bottomY - 5;
+
+  svg.append("text")
+    .attr("x", cx)
+    .attr("y", labelY)
+    .attr("text-anchor","middle")
+    .attr("fill", d.data.color)
+    .attr("font-size", 9)
+    .attr("font-weight","600")
+    .attr("letter-spacing","0.14em")
+    .attr("font-family","Archivo, sans-serif")
+    .style("pointer-events","none")
+    .text(d.data.name.toUpperCase());
+});
+
+// Leaf text — dark text for cream background
+leaves.forEach(d => {
+  const [cx, cy] = d3.polygonCentroid(d.polygon);
+  const area     = Math.abs(d3.polygonArea(d.polygon));
+  const cellR    = Math.sqrt(area / Math.PI);
+
+  if (cellR < 13) return;
+
+  const fs       = Math.max(7.5, Math.min(10.5, cellR * 0.22));
+  const lhPx     = fs * 1.3;
+  const maxChars = Math.floor((cellR * 1.55) / (fs * 0.52));
+  const maxLines = Math.max(1, Math.floor((cellR * 1.6) / lhPx));
+
+  const words = d.data.name.split(" ");
+  const lines = []; let line = "";
+  for (const w of words) {
+    const test = line ? line + " " + w : w;
+    if (test.length <= maxChars) { line = test; }
+    else { if (line) lines.push(line); line = w; }
+  }
+  if (line) lines.push(line);
+
+  if (lines.length > maxLines) {
+    lines.splice(maxLines);
+    lines[lines.length - 1] = lines[lines.length - 1].replace(/\s*\S+$/, "…");
+  }
+
+  const totalH = lines.length * lhPx;
+  const startY = cy - totalH / 2 + lhPx * 0.78;
+
+  const t = svg.append("text")
+    .attr("text-anchor","middle")
+    .attr("font-size", fs)
+    .attr("font-family","Archivo, sans-serif")
+    .attr("fill","rgba(26,26,26,0.75)")
+    .style("pointer-events","none");
+
+  lines.forEach((l, i) => {
+    t.append("tspan").attr("x", cx).attr("y", startY + i * lhPx).text(l);
+  });
+});
+</script>
+</body>
+</html>
