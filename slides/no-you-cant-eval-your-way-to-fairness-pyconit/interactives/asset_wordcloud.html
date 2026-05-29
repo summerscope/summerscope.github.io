@@ -8,10 +8,12 @@
 <style>
   *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
   html, body { width:100%; height:100%; background:transparent; overflow:hidden; }
+  #container { width:100%; height:100%; }
   svg { display:block; }
 </style>
 </head>
 <body>
+<div id="container"></div>
 <script>
 const companies = [{"company":"Bloomberg","score":"8","bucket":"direct","count":4},{"company":"Par-Tec","score":"2","bucket":"no","count":3},{"company":"FastAPI Labs","score":"0","bucket":"no","count":3},{"company":"Pydantic","score":"2","bucket":"no","count":3},{"company":"AvenueIT","score":"0","bucket":"no","count":2},{"company":"Anaconda","score":"2","bucket":"no","count":2},{"company":"Intella","score":"0","bucket":"no","count":2},{"company":"Nephila","score":"2","bucket":"no","count":2},{"company":"Agile Lab","score":"4","bucket":"partial","count":2},{"company":"Amazon","score":"10","bucket":"direct","count":1},{"company":"84codes / CloudAMQP","score":"0","bucket":"no","count":1},{"company":"COMELZ S.p.A.","score":"0","bucket":"no","count":1},{"company":"Canonical","score":"2","bucket":"no","count":1},{"company":"Cargoful","score":"2","bucket":"no","count":1},{"company":"AppSignal","score":"0","bucket":"no","count":1},{"company":"Avanade","score":"6","bucket":"partial","count":1},{"company":"Atinary Technologies","score":"2","bucket":"no","count":1},{"company":"Barclays Investment Bank","score":"8","bucket":"direct","count":1},{"company":"Bettini Srl","score":"0","bucket":"no","count":1},{"company":"Deltares","score":"2","bucket":"no","count":1},{"company":"Dedalus","score":"10","bucket":"direct","count":1},{"company":"DataForce Solutions","score":"4","bucket":"partial","count":1},{"company":"Confluent","score":"2","bucket":"no","count":1},{"company":"Cassandra","score":"4","bucket":"partial","count":1},{"company":"Elastic","score":"4","bucket":"partial","count":1},{"company":"Dvision Lab","score":"8","bucket":"direct","count":1},{"company":"Eni Plenitude","score":"2","bucket":"no","count":1},{"company":"FBK Trento","score":"6","bucket":"partial","count":1},{"company":"Fiscozen","score":"2","bucket":"no","count":1},{"company":"GitHub","score":"2","bucket":"no","count":1},{"company":"Generali","score":"8","bucket":"direct","count":1},{"company":"Hitoo","score":"2","bucket":"no","count":1},{"company":"ING","score":"8","bucket":"direct","count":1},{"company":"EuroPython Society","score":"2","bucket":"no","count":1},{"company":"Didomi","score":"4","bucket":"partial","count":1},{"company":"IPinfo","score":"2","bucket":"no","count":1},{"company":"INGV","score":"2","bucket":"no","count":1},{"company":"JetBrains","score":"2","bucket":"no","count":1},{"company":"Kraken","score":"6","bucket":"partial","count":1},{"company":"Logitech","score":"2","bucket":"no","count":1},{"company":"ML Cube","score":"4","bucket":"partial","count":1},{"company":"Kuehne+Nagel","score":"2","bucket":"no","count":1},{"company":"Link IT Europe","score":"2","bucket":"no","count":1},{"company":"Mustard Systems Ltd","score":"8","bucket":"direct","count":1},{"company":"Maastricht University","score":"6","bucket":"partial","count":1},{"company":"Nexi","score":"6","bucket":"partial","count":1},{"company":"NINA","score":"2","bucket":"no","count":1},{"company":"Optum / UnitedHealth Group","score":"10","bucket":"direct","count":1},{"company":"OrmaLab","score":"2","bucket":"no","count":1},{"company":"PCENTRA","score":"2","bucket":"no","count":1},{"company":"Django Software Foundation","score":"0","bucket":"no","count":1},{"company":"Paradigma","score":"2","bucket":"no","count":1},{"company":"Politecnico di Torino","score":"4","bucket":"partial","count":1},{"company":"Prefix","score":"2","bucket":"no","count":1},{"company":"Posit PBC","score":"4","bucket":"partial","count":1},{"company":"Preply","score":"2","bucket":"no","count":1},{"company":"Prima","score":"8","bucket":"direct","count":1},{"company":"PyTech","score":"2","bucket":"no","count":1},{"company":"Python Software Foundation","score":"0","bucket":"no","count":1},{"company":"Qcell","score":"2","bucket":"no","count":1},{"company":"Regione Emilia Romagna","score":"8","bucket":"direct","count":1},{"company":"Register.it","score":"0","bucket":"no","count":1},{"company":"Salesforce","score":"8","bucket":"direct","count":1},{"company":"Sendcloud","score":"2","bucket":"no","count":1},{"company":"Siemens Healthineers","score":"8","bucket":"direct","count":1},{"company":"Soource","score":"2","bucket":"no","count":1},{"company":"Sopra Steria","score":"6","bucket":"partial","count":1},{"company":"Strawberry","score":"0","bucket":"no","count":1},{"company":"Talentware","score":"8","bucket":"direct","count":1},{"company":"TeamSystem","score":"8","bucket":"direct","count":1},{"company":"University College London","score":"6","bucket":"partial","count":1},{"company":"Università Milano-Bicocca","score":"4","bucket":"partial","count":1},{"company":"Università dell'Aquila","score":"6","bucket":"partial","count":1},{"company":"Unleash","score":"2","bucket":"no","count":1},{"company":"Var Group","score":"4","bucket":"partial","count":1},{"company":"Welyk","score":"6","bucket":"partial","count":1},{"company":"Xtream","score":"2","bucket":"no","count":1},{"company":"Zencoder","score":"0","bucket":"no","count":1},{"company":"Zendesk","score":"4","bucket":"partial","count":1},{"company":"deepset","score":"4","bucket":"partial","count":1},{"company":"eGenix","score":"2","bucket":"no","count":1},{"company":"neuefische","score":"4","bucket":"partial","count":1}];
 
@@ -24,25 +26,48 @@ function scoreColor(s) {
   return '#8b1a1a';
 }
 
-window.addEventListener("load", function() { setTimeout(init, 100); }); function init() { const W = document.documentElement.clientWidth || 1280, H = document.documentElement.clientHeight || 720;
-const scale = d3.scaleLinear().domain([1,4]).range([13,40]);
-const words = companies.map(d => ({ text:d.company, size:scale(d.count), color:scoreColor(d.score), count:d.count }));
+function buildCloud(W, H) {
+  const scale = d3.scaleLinear().domain([1, 4]).range([13, 40]);
+  const words = companies.map(d => ({
+    text: d.company, size: scale(d.count),
+    color: scoreColor(d.score), count: d.count
+  }));
 
-d3.layout.cloud().size([W,H]).words(words).padding(5).rotate(() => 0)
-  .font("'Karla',sans-serif").fontWeight(d => d.count>1?'700':'400')
-  .fontSize(d => d.size)
-  .on('end', placed => {
-    const svg = d3.select('body').append('svg').attr('width',W).attr('height',H);
-    svg.append('g').attr('transform',`translate(${W/2},${H/2})`)
-      .selectAll('text').data(placed).enter().append('text')
-      .style('font-family',"'Karla',sans-serif")
-      .style('font-size', d => `${d.size}px`)
-      .style('font-weight', d => d.count>1?'700':'400')
-      .style('fill', d => d.color).style('opacity',0)
-      .attr('text-anchor','middle')
-      .attr('transform', d => `translate(${d.x},${d.y})`).text(d => d.text)
-      .transition().delay((_,i)=>i*18).duration(350).style('opacity',1);
-  }).start(); }
+  d3.layout.cloud()
+    .size([W, H]).words(words).padding(5).rotate(() => 0)
+    .font("'Karla',sans-serif")
+    .fontWeight(d => d.count > 1 ? '700' : '400')
+    .fontSize(d => d.size)
+    .on('end', placed => {
+      const svg = d3.select('#container').append('svg')
+        .attr('width', W).attr('height', H);
+      svg.append('g').attr('transform', `translate(${W/2},${H/2})`)
+        .selectAll('text').data(placed).enter().append('text')
+        .style('font-family', "'Karla',sans-serif")
+        .style('font-size', d => `${d.size}px`)
+        .style('font-weight', d => d.count > 1 ? '700' : '400')
+        .style('fill', d => d.color)
+        .style('opacity', 0)
+        .attr('text-anchor', 'middle')
+        .attr('transform', d => `translate(${d.x},${d.y})`)
+        .text(d => d.text)
+        .transition().delay((_, i) => i * 18).duration(350)
+        .style('opacity', 1);
+    }).start();
+}
+
+// ResizeObserver on #container — fires when element has real dimensions
+let built = false;
+const ro = new ResizeObserver(entries => {
+  if (built) return;
+  const { width, height } = entries[0].contentRect;
+  if (width > 0 && height > 0) {
+    built = true;
+    ro.disconnect();
+    buildCloud(width, height);
+  }
+});
+ro.observe(document.getElementById('container'));
 </script>
 </body>
 </html>

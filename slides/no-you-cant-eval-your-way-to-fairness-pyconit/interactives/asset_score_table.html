@@ -12,15 +12,17 @@
   .buckets {
     display: grid;
     grid-template-columns: repeat(3, 340px);
-    gap: 32px;
+    grid-template-rows: auto 1fr;
+    gap: 12px 32px;
     justify-content: center;
-    padding: 24px 0;
+    padding: 24px 0 16px;
     height: 100vh;
   }
 
-  .bucket { display:flex; flex-direction:column; gap:10px; height:100%; }
+  /* Each header occupies row 1, each cloud occupies row 2 */
+  .bucket-header { align-self: start; padding-bottom: 10px; border-bottom: 3px solid; }
+  .cloud-area    { align-self: stretch; }
 
-  .bucket-header { padding-bottom:10px; border-bottom:3px solid; flex-shrink:0; }
   .bucket-header.no      { border-color:#4a7c59; }
   .bucket-header.partial { border-color:#c4732a; }
   .bucket-header.direct  { border-color:#b33a3a; }
@@ -30,36 +32,34 @@
   .bucket-label.partial { color:#c4732a; }
   .bucket-label.direct  { color:#b33a3a; }
 
-  .bucket-desc { font-size:14px; color:#8a7060; font-style:italic; line-height:1.5; margin-top:6px; }
+  .bucket-desc {
+    font-size:13px; color:#8a7060; font-style:italic; line-height:1.45; margin-top:5px;
+    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+  }
 
-  .cloud-area { flex:1; min-height:0; }
   .cloud-area svg { display:block; }
 </style>
 </head>
 <body>
 <div class="buckets">
-  <div class="bucket">
-    <div class="bucket-header no">
-      <div class="bucket-label no">No direct access</div>
-      <div class="bucket-desc">Dev tools, OSS, logistics, infrastructure. Production systems don't require protected class data to function.</div>
-    </div>
-    <div class="cloud-area" id="cloud-no"></div>
+  <div class="bucket-header no">
+    <div class="bucket-label no">No direct access</div>
+    <div class="bucket-desc">Dev tools, OSS, logistics, infrastructure. Production systems don't require protected class data.</div>
   </div>
-  <div class="bucket">
-    <div class="bucket-header partial">
-      <div class="bucket-label partial">Partial / proxy access</div>
-      <div class="bucket-desc">Finance-adjacent, HR software, consulting, edtech, research. May appear as proxy or at limited consented scale.</div>
-    </div>
-    <div class="cloud-area" id="cloud-partial"></div>
+  <div class="bucket-header partial">
+    <div class="bucket-label partial">Partial / proxy access</div>
+    <div class="bucket-desc">Finance-adjacent, HR software, consulting, edtech, research. Data may appear as proxy or at limited scale.</div>
   </div>
-  <div class="bucket">
-    <div class="bucket-header direct">
-      <div class="bucket-label direct">Direct access</div>
-      <div class="bucket-desc">Insurance, banking, healthcare, government at scale. Protected class data is core to the product.</div>
-    </div>
-    <div class="cloud-area" id="cloud-direct"></div>
+  <div class="bucket-header direct">
+    <div class="bucket-label direct">Direct access</div>
+    <div class="bucket-desc">Insurance, banking, healthcare, government at scale. Protected class data is core to the product.</div>
   </div>
+
+  <div class="cloud-area" id="cloud-no"></div>
+  <div class="cloud-area" id="cloud-partial"></div>
+  <div class="cloud-area" id="cloud-direct"></div>
 </div>
+
 <script>
 const companies = [{"company":"Bloomberg","bucket":"direct","count":4},{"company":"Par-Tec","bucket":"no","count":3},{"company":"FastAPI Labs","bucket":"no","count":3},{"company":"Pydantic","bucket":"no","count":3},{"company":"AvenueIT","bucket":"no","count":2},{"company":"Anaconda","bucket":"no","count":2},{"company":"Intella","bucket":"no","count":2},{"company":"Nephila","bucket":"no","count":2},{"company":"Agile Lab","bucket":"partial","count":2},{"company":"Amazon","bucket":"direct","count":1},{"company":"84codes \/ CloudAMQP","bucket":"no","count":1},{"company":"COMELZ S.p.A.","bucket":"no","count":1},{"company":"Canonical","bucket":"no","count":1},{"company":"Cargoful","bucket":"no","count":1},{"company":"AppSignal","bucket":"no","count":1},{"company":"Avanade","bucket":"partial","count":1},{"company":"Atinary Technologies","bucket":"no","count":1},{"company":"Barclays Investment Bank","bucket":"direct","count":1},{"company":"Bettini Srl","bucket":"no","count":1},{"company":"Deltares","bucket":"no","count":1},{"company":"Dedalus","bucket":"direct","count":1},{"company":"DataForce Solutions","bucket":"partial","count":1},{"company":"Confluent","bucket":"no","count":1},{"company":"Cassandra","bucket":"partial","count":1},{"company":"Elastic","bucket":"partial","count":1},{"company":"Dvision Lab","bucket":"direct","count":1},{"company":"Eni Plenitude","bucket":"no","count":1},{"company":"FBK Trento","bucket":"partial","count":1},{"company":"Fiscozen","bucket":"no","count":1},{"company":"GitHub","bucket":"no","count":1},{"company":"Generali","bucket":"direct","count":1},{"company":"Hitoo","bucket":"no","count":1},{"company":"ING","bucket":"direct","count":1},{"company":"EuroPython Society","bucket":"no","count":1},{"company":"Didomi","bucket":"partial","count":1},{"company":"IPinfo","bucket":"no","count":1},{"company":"INGV","bucket":"no","count":1},{"company":"JetBrains","bucket":"no","count":1},{"company":"Kraken","bucket":"partial","count":1},{"company":"Logitech","bucket":"no","count":1},{"company":"ML Cube","bucket":"partial","count":1},{"company":"Kuehne+Nagel","bucket":"no","count":1},{"company":"Link IT Europe","bucket":"no","count":1},{"company":"Mustard Systems Ltd","bucket":"direct","count":1},{"company":"Maastricht University","bucket":"partial","count":1},{"company":"Nexi","bucket":"partial","count":1},{"company":"NINA","bucket":"no","count":1},{"company":"Optum \/ UnitedHealth Group","bucket":"direct","count":1},{"company":"OrmaLab","bucket":"no","count":1},{"company":"PCENTRA","bucket":"no","count":1},{"company":"Django Software Foundation","bucket":"no","count":1},{"company":"Paradigma","bucket":"no","count":1},{"company":"Politecnico di Torino","bucket":"partial","count":1},{"company":"Prefix","bucket":"no","count":1},{"company":"Posit PBC","bucket":"partial","count":1},{"company":"Preply","bucket":"no","count":1},{"company":"Prima","bucket":"direct","count":1},{"company":"PyTech","bucket":"no","count":1},{"company":"Python Software Foundation","bucket":"no","count":1},{"company":"Qcell","bucket":"no","count":1},{"company":"Regione Emilia Romagna","bucket":"direct","count":1},{"company":"Register.it","bucket":"no","count":1},{"company":"Salesforce","bucket":"direct","count":1},{"company":"Sendcloud","bucket":"no","count":1},{"company":"Siemens Healthineers","bucket":"direct","count":1},{"company":"Soource","bucket":"no","count":1},{"company":"Sopra Steria","bucket":"partial","count":1},{"company":"Strawberry","bucket":"no","count":1},{"company":"Talentware","bucket":"direct","count":1},{"company":"TeamSystem","bucket":"direct","count":1},{"company":"University College London","bucket":"partial","count":1},{"company":"Università Milano-Bicocca","bucket":"partial","count":1},{"company":"Università dell'Aquila","bucket":"partial","count":1},{"company":"Unleash","bucket":"no","count":1},{"company":"Var Group","bucket":"partial","count":1},{"company":"Welyk","bucket":"partial","count":1},{"company":"Xtream","bucket":"no","count":1},{"company":"Zencoder","bucket":"no","count":1},{"company":"Zendesk","bucket":"partial","count":1},{"company":"deepset","bucket":"partial","count":1},{"company":"eGenix","bucket":"no","count":1},{"company":"neuefische","bucket":"partial","count":1}];
 
@@ -68,9 +68,9 @@ const CL = { no:'#7aab89', partial:'#d99a60', direct:'#cc6666' };
 
 function buildCloud(id, bucket) {
   const el = document.getElementById(id);
-  const W = el.getBoundingClientRect().width;
-  const H = el.getBoundingClientRect().height;
-  if (!W || !H) return;
+  const rect = el.getBoundingClientRect();
+  const W = rect.width, H = rect.height;
+  if (!W || !H) return false;
 
   const words = companies.filter(d => d.bucket === bucket)
     .map(d => ({ text: d.company, size: 11 + d.count * 5, count: d.count }));
@@ -91,15 +91,28 @@ function buildCloud(id, bucket) {
         .attr('transform', d => `translate(${d.x},${d.y})`).text(d => d.text)
         .transition().delay((_,i) => i * 25).duration(350).style('opacity', 1);
     }).start();
+  return true;
 }
 
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    buildCloud('cloud-no', 'no');
-    buildCloud('cloud-partial', 'partial');
-    buildCloud('cloud-direct', 'direct');
-  }, 150);
-});
+// Use ResizeObserver — fires reliably once element has real dimensions in iframe
+function watchAndBuild(id, bucket) {
+  const el = document.getElementById(id);
+  let built = false;
+  const ro = new ResizeObserver(() => {
+    if (built) return;
+    const rect = el.getBoundingClientRect();
+    if (rect.width > 0 && rect.height > 0) {
+      built = true;
+      ro.disconnect();
+      buildCloud(id, bucket);
+    }
+  });
+  ro.observe(el);
+}
+
+watchAndBuild('cloud-no', 'no');
+watchAndBuild('cloud-partial', 'partial');
+watchAndBuild('cloud-direct', 'direct');
 </script>
 </body>
 </html>
