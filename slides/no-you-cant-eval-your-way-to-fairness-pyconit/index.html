@@ -9,6 +9,53 @@
 		<link rel="stylesheet" href="dist/reveal.css" />
 		<link rel="stylesheet" href="dist/theme/fairness.css" id="theme" />
 		<link rel="stylesheet" href="dist/plugin/highlight/monokai.css" id="highlight-theme" />
+
+		<style>
+			/* Confusion matrix slides (CV screener case study) */
+			.reveal .cm-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 28px; }
+
+			/* Group header: line 1 (Group A · 100 candidates), line 2 (traditional degree) */
+			.reveal .cm-group-label { font-size: 0.75em; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #5a5a5a; margin-bottom: 4px; }
+			.reveal .cm-group-sub { font-size: 0.6em; font-weight: 500; letter-spacing: 0.05em; color: #8a7e74; margin-bottom: 18px; text-transform: uppercase; }
+
+			.reveal .cm-table { border-collapse: collapse; margin: 0 auto; }
+			.reveal .cm-table td { padding: 0; border: none; }
+			.reveal .cm-table td.cm-empty { border: none; background: transparent; }
+
+			/* Axis labels (PREDICTED, ACTUAL) — outside the bordered data area, lighter colour, smaller than group label */
+			.reveal .cm-table td.cm-axis { font-size: 0.55em; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #8a7e74; padding: 10px 8px; border: none; vertical-align: middle; text-align: center; }
+			.reveal .cm-table td.cm-axis-side { writing-mode: vertical-rl; transform: rotate(180deg); padding: 8px 10px; vertical-align: middle; text-align: center; }
+
+			/* Sub-axis labels (Negative / Positive) — bordered, part of the table */
+			.reveal .cm-table td.cm-sublabel { font-size: 0.7em; font-weight: 500; color: #5a5a5a; text-align: center; padding: 10px 14px; border: 1px solid #d8d0c8; background: rgba(0,0,0,0.02); }
+
+			/* Data cells — bordered all 4 sides, always visible, primary text is dark */
+			.reveal .cm-table td.cm-cell { width: 150px; height: 100px; text-align: center; vertical-align: middle; border: 1px solid #d8d0c8; transition: background 0.3s, border-color 0.3s; }
+			.reveal .cm-table td.cm-cell .cm-num { font-size: 1.9em; font-weight: 600; color: #2d2d2d; display: block; line-height: 1; transition: color 0.3s; }
+			.reveal .cm-table td.cm-cell .cm-tag { font-size: 0.55em; font-weight: 500; letter-spacing: 0.12em; color: #8a7e74; margin-top: 8px; display: block; transition: color 0.3s; }
+
+			/* Selected rate row */
+			.reveal .cm-rate { font-size: 0.7em; color: #5a5a5a; margin-top: 18px; text-align: center; }
+
+			/* Click triggers — invisible reveal.js fragments used purely as click-state markers.
+			   Cells themselves are NOT fragments; they respond to trigger state via sibling selectors. */
+			.reveal .cm-trigger { display: inline-block; width: 0; height: 0; visibility: hidden; }
+
+			/* EO slide: top row (Actual Negative → FPR) highlights orange when fpr trigger active */
+			.reveal .cm-trigger[data-cm-step="fpr"].visible ~ .cm-wrap [data-cm-row="fpr"] { background: rgba(255, 79, 31, 0.18); border-color: #ff4f1f; }
+			.reveal .cm-trigger[data-cm-step="fpr"].visible ~ .cm-wrap [data-cm-row="fpr"] .cm-num,
+			.reveal .cm-trigger[data-cm-step="fpr"].visible ~ .cm-wrap [data-cm-row="fpr"] .cm-tag { color: #ff4f1f; }
+
+			/* EO slide: bottom row (Actual Positive → TPR) highlights blue when tpr trigger active */
+			.reveal .cm-trigger[data-cm-step="tpr"].visible ~ .cm-wrap [data-cm-row="tpr"] { background: rgba(36, 104, 255, 0.18); border-color: #2468ff; }
+			.reveal .cm-trigger[data-cm-step="tpr"].visible ~ .cm-wrap [data-cm-row="tpr"] .cm-num,
+			.reveal .cm-trigger[data-cm-step="tpr"].visible ~ .cm-wrap [data-cm-row="tpr"] .cm-tag { color: #2468ff; }
+
+			/* DP slide: Predicted Positive column (TP + FP cells) highlights orange when pos trigger active */
+			.reveal .cm-trigger[data-cm-step="pos"].visible ~ .cm-wrap [data-cm-col="pos"] { background: rgba(255, 79, 31, 0.18); border-color: #ff4f1f; }
+			.reveal .cm-trigger[data-cm-step="pos"].visible ~ .cm-wrap [data-cm-col="pos"] .cm-num,
+			.reveal .cm-trigger[data-cm-step="pos"].visible ~ .cm-wrap [data-cm-col="pos"] .cm-tag { color: #ff4f1f; }
+		</style>
 	</head>
 	<body>
 		<div class="reveal">
@@ -228,6 +275,36 @@
 						</ul>
 
 						<aside class="notes">System deciding who gets extra help. Two young Black American women — identical on every metric. One grew up in public housing, the other in the White House. No proxy for socioeconomic background. What field captures the texture of a life?</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: MEASURES AS ABSTRACTION — Toby Lowe quote
+				     ========================================== -->
+				<section>
+					<div class="slide slide--quote">
+						<div class="quote-mark">&laquo;</div>
+						<blockquote>
+							the measures are an abstraction. They are a simplification of the complex, multifaceted nature of real life into a data point. The measures are a pauperised, context-free, superficial substitute for reality.
+						</blockquote>
+						<div class="quote-mark">&raquo;</div>
+						<p class="quote-attribution">Toby Lowe, <a href="https://medium.com/centre-for-public-impact/made-to-measure-how-measurement-can-improve-social-interventions-2212a6ed6138" target="_blank" rel="noopener"><em>Made to Measure</em></a></p>
+
+						<aside class="notes">Lowe on measurement: the metric is a pauperised, context-free, superficial substitute for reality. Sets up the cartoon punchline.</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: REALITY BEHIND THE NUMBERS — cartoon
+				     ========================================== -->
+				<section>
+					<div class="slide slide--padded" style="align-items: center; justify-content: center;">
+						<img src="img/made-to-measure-lowe.webp" alt="Cartoon: a homeless person under a blanket says 'the reality behind the numbers is usually more complex' while people across the room present a chart and applaud 'amazing results!' 'well done!'" style="max-height: 80%; max-width: 80%; object-fit: contain;" />
+						<p class="text-light text-small" style="text-align: center; margin-top: 0.8em;">Image from <a href="https://medium.com/centre-for-public-impact/made-to-measure-how-measurement-can-improve-social-interventions-2212a6ed6138" target="_blank" rel="noopener"><em>Made to Measure</em></a>, by Toby Lowe.</p>
+
+						<aside class="notes">The reality behind the numbers is usually more complex. The dashboard celebrates while the lived reality goes unseen.</aside>
 					</div>
 				</section>
 
@@ -704,7 +781,7 @@
 						</div>
 						<div class="slide-col fragment">
 							<h3>The product lead</h3>
-							<p>checked the dashboard. Group A candidates: <strong>52% advanced</strong>. Group B candidates: <strong>35% advanced</strong>.</p>
+							<p>checked the dashboard. Group A candidates: <strong>49% advanced</strong>. Group B candidates: <strong>41% advanced</strong>.</p>
 							<p class="text-light" style="margin-top: 0.6em;">"this isn't fair."</p>
 						</div>
 
@@ -714,11 +791,156 @@
 
 
 				<!-- ==========================================
-				     SLIDE: CV SCREENER — confusion matrix
+				     SLIDE: CV SCREENER — equalized odds
 				     ========================================== -->
 				<section>
-					<div class="slide" style="padding: 0; overflow: hidden;">
-						<iframe src="interactives/confusion-matrix.html" style="width: 100%; height: 100%; border: none;"></iframe>
+					<div class="slide slide--padded">
+						<h2>Equalized odds</h2>
+						<p class="text-light text-small" style="margin-top: 0.2em;">Optimised for: equal accuracy with TPR &amp; FPR</p>
+
+						<!-- Invisible click-state triggers — sibling selectors below in the cm-wrap respond to these -->
+						<span class="cm-trigger fragment" data-cm-step="fpr"></span>
+						<span class="cm-trigger fragment" data-cm-step="tpr"></span>
+
+						<div class="cm-wrap">
+
+							<!-- Group A — EO -->
+							<div>
+								<div class="cm-group-label">Group A &middot; 100 candidates</div>
+								<div class="cm-group-sub">traditional degree</div>
+								<table class="cm-table">
+									<tr>
+										<td class="cm-empty" colspan="2"></td>
+										<td class="cm-axis" colspan="2">PREDICTED</td>
+									</tr>
+									<tr>
+										<td class="cm-empty" colspan="2"></td>
+										<td class="cm-sublabel">Negative</td>
+										<td class="cm-sublabel">Positive</td>
+									</tr>
+									<tr>
+										<td class="cm-axis cm-axis-side" rowspan="2">ACTUAL</td>
+										<td class="cm-sublabel">Negative</td>
+										<td class="cm-cell" data-cm-row="fpr"><span class="cm-num">40</span><span class="cm-tag">TN</span></td>
+										<td class="cm-cell" data-cm-row="fpr"><span class="cm-num">4</span><span class="cm-tag">FP</span></td>
+									</tr>
+									<tr>
+										<td class="cm-sublabel">Positive</td>
+										<td class="cm-cell" data-cm-row="tpr"><span class="cm-num">11</span><span class="cm-tag">FN</span></td>
+										<td class="cm-cell" data-cm-row="tpr"><span class="cm-num">45</span><span class="cm-tag">TP</span></td>
+									</tr>
+								</table>
+								<p class="cm-rate">Selected: <strong>49% (49/100)</strong></p>
+							</div>
+
+							<!-- Group B — EO -->
+							<div>
+								<div class="cm-group-label">Group B &middot; 100 candidates</div>
+								<div class="cm-group-sub">non-traditional</div>
+								<table class="cm-table">
+									<tr>
+										<td class="cm-empty" colspan="2"></td>
+										<td class="cm-axis" colspan="2">PREDICTED</td>
+									</tr>
+									<tr>
+										<td class="cm-empty" colspan="2"></td>
+										<td class="cm-sublabel">Negative</td>
+										<td class="cm-sublabel">Positive</td>
+									</tr>
+									<tr>
+										<td class="cm-axis cm-axis-side" rowspan="2">ACTUAL</td>
+										<td class="cm-sublabel">Negative</td>
+										<td class="cm-cell" data-cm-row="fpr"><span class="cm-num">50</span><span class="cm-tag">TN</span></td>
+										<td class="cm-cell" data-cm-row="fpr"><span class="cm-num">6</span><span class="cm-tag">FP</span></td>
+									</tr>
+									<tr>
+										<td class="cm-sublabel">Positive</td>
+										<td class="cm-cell" data-cm-row="tpr"><span class="cm-num">9</span><span class="cm-tag">FN</span></td>
+										<td class="cm-cell" data-cm-row="tpr"><span class="cm-num">35</span><span class="cm-tag">TP</span></td>
+									</tr>
+								</table>
+								<p class="cm-rate">Selected: <strong>41% (41/100)</strong></p>
+							</div>
+						</div>
+
+						<aside class="notes">Equalized odds = matched error rates across groups. Click 1: top row (Actual Negative) — FPR = FP / (FP + TN) = 4/44 ≈ 9% in A, 6/56 ≈ 11% in B → close to matched. Click 2: bottom row (Actual Positive) — TPR = TP / (TP + FN) = 45/56 ≈ 80% in A, 35/44 ≈ 80% in B → matched. But selection rates differ: 49% vs 41%. Equal accuracy per group, unequal advancement. Caveat: all these numbers are only as good as the model and the historical labels they were trained on. We can't observe alternative timelines — every "truth" here carries the bias of whatever signal produced it.</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: CV SCREENER — demographic parity
+				     ========================================== -->
+				<section>
+					<div class="slide slide--padded">
+						<h2>Demographic parity</h2>
+						<p class="text-light text-small" style="margin-top: 0.2em;">Optimised for: equal selection rates</p>
+
+						<!-- Single trigger for Predicted Positive column highlight -->
+						<span class="cm-trigger fragment" data-cm-step="pos"></span>
+
+						<div class="cm-wrap">
+
+							<!-- Group A — DP -->
+							<div>
+								<div class="cm-group-label">Group A &middot; 100 candidates</div>
+								<div class="cm-group-sub">traditional degree</div>
+								<table class="cm-table">
+									<tr>
+										<td class="cm-empty" colspan="2"></td>
+										<td class="cm-axis" colspan="2">PREDICTED</td>
+									</tr>
+									<tr>
+										<td class="cm-empty" colspan="2"></td>
+										<td class="cm-sublabel">Negative</td>
+										<td class="cm-sublabel">Positive</td>
+									</tr>
+									<tr>
+										<td class="cm-axis cm-axis-side" rowspan="2">ACTUAL</td>
+										<td class="cm-sublabel">Negative</td>
+										<td class="cm-cell"><span class="cm-num">41</span><span class="cm-tag">TN</span></td>
+										<td class="cm-cell" data-cm-col="pos"><span class="cm-num">3</span><span class="cm-tag">FP</span></td>
+									</tr>
+									<tr>
+										<td class="cm-sublabel">Positive</td>
+										<td class="cm-cell"><span class="cm-num">14</span><span class="cm-tag">FN</span></td>
+										<td class="cm-cell" data-cm-col="pos"><span class="cm-num">42</span><span class="cm-tag">TP</span></td>
+									</tr>
+								</table>
+								<p class="cm-rate">Selected: <strong>45% (45/100)</strong></p>
+							</div>
+
+							<!-- Group B — DP -->
+							<div>
+								<div class="cm-group-label">Group B &middot; 100 candidates</div>
+								<div class="cm-group-sub">non-traditional</div>
+								<table class="cm-table">
+									<tr>
+										<td class="cm-empty" colspan="2"></td>
+										<td class="cm-axis" colspan="2">PREDICTED</td>
+									</tr>
+									<tr>
+										<td class="cm-empty" colspan="2"></td>
+										<td class="cm-sublabel">Negative</td>
+										<td class="cm-sublabel">Positive</td>
+									</tr>
+									<tr>
+										<td class="cm-axis cm-axis-side" rowspan="2">ACTUAL</td>
+										<td class="cm-sublabel">Negative</td>
+										<td class="cm-cell"><span class="cm-num">49</span><span class="cm-tag">TN</span></td>
+										<td class="cm-cell" data-cm-col="pos"><span class="cm-num">7</span><span class="cm-tag">FP</span></td>
+									</tr>
+									<tr>
+										<td class="cm-sublabel">Positive</td>
+										<td class="cm-cell"><span class="cm-num">6</span><span class="cm-tag">FN</span></td>
+										<td class="cm-cell" data-cm-col="pos"><span class="cm-num">38</span><span class="cm-tag">TP</span></td>
+									</tr>
+								</table>
+								<p class="cm-rate">Selected: <strong>45% (45/100)</strong></p>
+							</div>
+						</div>
+
+						<aside class="notes">Demographic parity = equal selection rates. Click: Predicted Positive column highlights in both groups — TP + FP = 45 in A, 38 + 7 = 45 in B. Both selected 45%. Cost: per-group accuracy diverges. TPR = 42/56 = 75% in A vs 38/44 = 86% in B; FPR = 3/44 = 7% in A vs 7/56 = 12.5% in B. Equal outcomes, unequal error tradeoffs. Caveat: all these numbers are only as good as the model and the historical labels they were trained on. We can't observe alternative timelines — every "truth" here carries the bias of whatever signal produced it.</aside>
 					</div>
 				</section>
 
@@ -763,6 +985,23 @@
 						</div>
 
 						<aside class="notes">Mapping history ≠ knowing how to intervene. What's the fair state you're working towards? 50/50? Population-proportional? Hard questions. Preconfigured metric = handing your moral responsibility to someone else's assumptions. LLM eval frameworks have narrowed ambition — from demographic equity to "contains slurs?" We've regressed.</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: ILLEGIBLE LEGIBLE — Thea Snow quote
+				     ========================================== -->
+				<section>
+					<div class="slide slide--quote">
+						<div class="quote-mark">&laquo;</div>
+						<blockquote>
+							to code fairness seems like another powerful example of trying to make the illegible, legible.
+						</blockquote>
+						<div class="quote-mark">&raquo;</div>
+						<p class="quote-attribution">Thea Snow, <em>The illogic of legibility</em>, LSE Impact Blog, Feb 2021</p>
+
+						<aside class="notes">Snow grants the merits for unsupervised AI decisions (loan approvals etc.), but flags the deeper problem: fairness is illegible by nature, and trying to reduce it to code repeats the legibility error. Bridges into the design justice critique.</aside>
 					</div>
 				</section>
 
