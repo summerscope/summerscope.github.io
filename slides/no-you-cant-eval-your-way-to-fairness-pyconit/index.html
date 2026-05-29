@@ -438,6 +438,8 @@
 
 				<!-- ==========================================
 				     SLIDE: LIBRARY LANDSCAPE — what we audited
+				     Two fragments: classical ML libs first (hand-raise),
+				     then LLM evals (hand-raise).
 				     ========================================== -->
 				<section>
 					<div class="slide slide--columns slide--cols-2">
@@ -449,7 +451,7 @@
 							<p><a href="https://responsibleaitoolbox.ai">Responsible AI Toolbox</a></p>
 							<p><a href="https://github.com/google/ml-fairness-gym">ML Fairness Gym</a></p>
 						</div>
-						<div class="slide-col">
+						<div class="slide-col fragment">
 							<h3>LLM evals with fairness-adjacent metrics</h3>
 							<p><a href="https://deepeval.com/docs/metrics-bias">DeepEval</a> <span class="text-light text-small">(BiasMetric, ToxicityMetric)</span></p>
 							<p><a href="https://github.com/Giskard-AI/giskard-oss">Giskard + Phare</a></p>
@@ -458,17 +460,25 @@
 							<p><a href="https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/develop/evaluate-sdk">Azure AI Evaluation SDK</a> <span class="text-light text-small">(HateUnfairnessEvaluator)</span></p>
 						</div>
 
-						<aside class="notes">Left: classical ML fairness — demographic parity, equalized odds, disparate impact. Require labelled data + ground truth. Work but narrow. Right: LLM evals. Most (RAGAS, TruLens, Pydantic Evals) have nothing for fairness. These exceptions only do content screening — "does the output contain slurs?" Not the same question. No guardrails-style evaluation either. Gap is paradigmatic.</aside>
+						<aside class="notes"><em>On reveal of left column —</em> show of hands: who has used any of these classical ML fairness libraries? Tally. <em>Click — reveal right column —</em> show of hands: who is using any of these LLM eval frameworks? Tally. Left: demographic parity, equalized odds, disparate impact. Require labelled data + ground truth. Work but narrow. Right: LLM evals. Most (RAGAS, TruLens, Pydantic Evals) have nothing for fairness. These exceptions only do content screening — "does the output contain slurs?" Not the same question. No guardrails-style evaluation either. Gap is paradigmatic.</aside>
 					</div>
 				</section>
 
 
 				<!-- ==========================================
-				     SLIDE: VENN DIAGRAM — placeholder
+				     SLIDE: VENN DIAGRAM — three layered SVGs (r-stack)
+				     Layer 1 (orange + left labels) visible on entry.
+				     Layer 2 (blue + right labels) on click 1.
+				     Layer 3 (middle "the gap" text) on click 2.
+				     All three SVGs share identical viewport so they stack pixel-perfectly.
 				     ========================================== -->
 				<section>
 					<div class="slide slide--padded" style="align-items: center; justify-content: center;">
-						<img src="img/lib-venn.svg" alt="Venn diagram of fairness and eval library landscape" style="max-height: 95%; max-width: 95%; object-fit: contain;" />
+						<div class="r-stack" style="width: 95%; height: 95%; display: flex; align-items: center; justify-content: center;">
+							<img src="img/lib-venn-orange.svg" alt="Fairness libraries side of Venn diagram" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+							<img class="fragment" src="img/lib-venn-blue.svg" alt="LLM evals side of Venn diagram" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+							<img class="fragment" src="img/lib-venn-middle.svg" alt="The gap — middle text of Venn diagram" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+						</div>
 					</div>
 				</section>
 
@@ -486,6 +496,19 @@
 						</div>
 
 						<aside class="notes">Three eval modes: QA (gating deployment), observability (annotation of query-response pairs), guardrails (LLM judges in production). You can write custom fairness evals — but you're relying on the system you're evaluating. Same blind spots that produced the output are evaluating it. Can't proofread your own work.</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
+				     SLIDE: SPIDER-MEN MEME — comic relief on recursion
+				     Save image to img/spidermen-meme.png
+				     ========================================== -->
+				<section>
+					<div class="slide slide--padded" style="align-items: center; justify-content: center;">
+						<img src="img/spiderman.jpg" alt="Three identical Spider-Men pointing at each other. Labelled: Historical bias, Blind spots, Missing data — all pointing at each other as if accusing." style="max-height: 85%; max-width: 85%; object-fit: contain;" />
+
+						<aside class="notes">Same root causes wearing different costumes. Whether you call it historical bias, model blind spots, or missing data — they all point at each other. The evaluator inherits all of them. Quick laugh, then move on.</aside>
 					</div>
 				</section>
 
@@ -946,6 +969,20 @@
 
 
 				<!-- ==========================================
+				     SLIDE: DISCUSS — pair discussion + countdown
+				     ========================================== -->
+				<section data-cm-discuss>
+					<div class="slide slide--padded" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+						<h2 style="margin: 0;">Which metric do <em>you</em> think is more fair?</h2>
+
+						<div class="cm-timer" id="cm-discuss-timer" style="font-size: 3.6em; font-weight: 600; color: #2d2d2d; letter-spacing: 0.05em; margin-top: 0.6em; font-variant-numeric: tabular-nums; line-height: 1;">1:30</div>
+
+						<aside class="notes">Pair up. 90 seconds. The countdown auto-starts when this slide is shown and resets when you leave. Don't try to resolve the disagreement — let the tension stand. That tension IS the point.</aside>
+					</div>
+				</section>
+
+
+				<!-- ==========================================
 				     SLIDE: CV SCREENER — the point
 				     ========================================== -->
 				<section>
@@ -960,7 +997,6 @@
 						<aside class="notes">Three questions the metric can't answer: (1) does base rate difference reflect capability or historical disadvantage? (2) which error is worse? (3) what world are you trying to build?</aside>
 					</div>
 				</section>
-
 
 
 				<!-- ==========================================
@@ -999,7 +1035,7 @@
 							to code fairness seems like another powerful example of trying to make the illegible, legible.
 						</blockquote>
 						<div class="quote-mark">&raquo;</div>
-						<p class="quote-attribution">Thea Snow, <em>The illogic of legibility</em>, LSE Impact Blog, Feb 2021</p>
+						<p class="quote-attribution">Thea Snow, <a href="https://blogs.lse.ac.uk/impactofsocialsciences/2021/02/12/the-illogic-of-legibility-why-governments-should-stop-simplifying-complex-systems/" target="_blank" rel="noopener"><em>The illogic of legibility</em></a>, LSE Impact Blog, Feb 2021</p>
 
 						<aside class="notes">Snow grants the merits for unsupervised AI decisions (loan approvals etc.), but flags the deeper problem: fairness is illegible by nature, and trying to reduce it to code repeats the legibility error. Bridges into the design justice critique.</aside>
 					</div>
@@ -1038,11 +1074,11 @@
 				</section>
 
 				<!-- ==========================================
-				     SLIDE: LEGEND — intervention categories
+				     SLIDE: WORD CLOUD
 				     ========================================== -->
 				<section>
 					<div class="slide" style="padding: 0; overflow: hidden; text-align: center; padding-top: 20px;">
-						<iframe src="interactives/asset2_legend.html" style="width: 100%; height: 100%; border: none;"></iframe>
+						<iframe src="interactives/asset_wordcloud.html" style="width: 100%; height: 100%; border: none;"></iframe>
 
 						<aside class="notes">How we tried to assess whether you have access to these sensitive classes.</aside>
 					</div>
@@ -1050,11 +1086,11 @@
 
 
 				<!-- ==========================================
-				     SLIDE: VERTICAL MAP — intervention landscape
+				     SLIDE: SCORE TABLE
 				     ========================================== -->
 				<section>
 					<div class="slide" style="padding: 0; overflow: hidden; text-align: center; padding-top: 20px;">
-						<iframe src="interactives/asset1_vertical_map.html" style="width: 100%; height: 100%; border: none;"></iframe>
+						<iframe src="interactives/asset_score_table.html" style="width: 100%; height: 100%; border: none;"></iframe>
 
 						<aside class="notes">Tried to internet-stalk all the speakers at the conf and map their employers as a way to understand the industry verticals represented — these are a rough proxy only.</aside>
 					</div>
@@ -1065,11 +1101,11 @@
 
 
 				<!-- ==========================================
-				     SLIDE: PROPORTION — intervention breakdown
+				     SLIDE: PROPORTION 
 				     ========================================== -->
 				<section>
 					<div class="slide" style="padding: 0; overflow: hidden; text-align: center; padding-top: 20px;">
-						<iframe src="interactives/asset3_proportion.html" style="width: 100%; height: 100%; border: none;"></iframe>
+						<iframe src="interactives/asset_proportion.html" style="width: 100%; height: 100%; border: none;"></iframe>
 
 						<aside class="notes">How few of us actually have access to these sensitive classes.</aside>
 					</div>
@@ -1443,6 +1479,38 @@
 				Reveal.on('fragmentshown', updateProgress);
 				Reveal.on('fragmenthidden', updateProgress);
 				updateProgress();
+
+				// Discuss-slide countdown: auto-starts on slide show, resets on leave.
+				let discussInterval = null;
+				const discussTimerEl = document.getElementById('cm-discuss-timer');
+				function fmtTime(s) { const m = Math.floor(s / 60); const r = s % 60; return m + ':' + (r < 10 ? '0' + r : r); }
+				function resetDiscussTimer() {
+					if (discussInterval) { clearInterval(discussInterval); discussInterval = null; }
+					if (discussTimerEl) discussTimerEl.textContent = '1:30';
+				}
+				function startDiscussTimer() {
+					if (!discussTimerEl) return;
+					resetDiscussTimer();
+					let remaining = 90;
+					discussTimerEl.textContent = fmtTime(remaining);
+					discussInterval = setInterval(() => {
+						remaining -= 1;
+						if (remaining <= 0) {
+							clearInterval(discussInterval);
+							discussInterval = null;
+							discussTimerEl.textContent = '0:00';
+						} else {
+							discussTimerEl.textContent = fmtTime(remaining);
+						}
+					}, 1000);
+				}
+				Reveal.on('slidechanged', (e) => {
+					const onDiscussSlide = e.currentSlide && e.currentSlide.hasAttribute('data-cm-discuss');
+					if (onDiscussSlide) startDiscussTimer();
+					else resetDiscussTimer();
+				});
+				// Trigger on initial load if we landed on the discuss slide via hash.
+				if (Reveal.getCurrentSlide() && Reveal.getCurrentSlide().hasAttribute('data-cm-discuss')) startDiscussTimer();
 			});
 		</script>
 	</body>
