@@ -2,27 +2,41 @@
  * Human Loop - custom theme for "The Human-in-the-Loop Is Tired"
  * PyData London 2026.
  *
- * Dark ink on warm paper. Loud display headings (Black Han Sans) with a
- * subtle ink -> violet gradient, set against a friendly, slightly-narrow
- * literary serif body (Newsreader) for contrast.
+ * Palette (coolors.co/564787-dbcbd8-f2fdff-9ad4d6-101935):
+ *   dusty grape   #564787
+ *   thistle       #DBCBD8
+ *   azure mist    #F2FDFF
+ *   pearl aqua    #9AD4D6
+ *   prussian blue #101935
  *
- * Built via the reveal.js SCSS pipeline:
- *   sass css/theme/human-loop.scss dist/theme/human-loop.css
- * (mirrors `npm run build:styles` in the other decks; see README)
+ * Slide templates (a class + matching data-background-color on each <section>):
+ *   .cover           pearl aqua text on dusty grape    (cover + closing)
+ *   .section-header  pearl aqua text on prussian blue  (section dividers)
+ *   .bg-azure        prussian blue text on azure mist  (inner - default)
+ *   .bg-thistle      prussian blue text on thistle     (inner - quotes)
+ *   .bg-aqua         prussian blue text on pearl aqua  (inner - statements)
  *
- * Fonts are pulled from Google Fonts via <link> tags in index.html
- * (Black Han Sans + Newsreader).
+ * Headings: Black Han Sans. On the dark templates (.cover, .section-header)
+ * the main heading uses a pearl-aqua -> thistle background-clip gradient;
+ * on the light inner templates headings are solid prussian blue.
+ *
+ * Body: Newsreader (friendly, slightly-narrow literary serif).
+ *
+ * Built via the reveal.js SCSS pipeline (mirrors `npm run build:styles`):
+ *   bunx sass css/theme/human-loop.scss dist/theme/human-loop.css --no-source-map --style=expanded
+ *
+ * Fonts load from Google Fonts via <link> tags in index.html.
  */
 :root {
   --r-background: #2b2b2b;
-  --r-background-color: #f7f4ee;
+  --r-background-color: #f2fdff;
   --r-main-font: Newsreader, Georgia, 'Times New Roman', serif;
   --r-main-font-size: 40px;
-  --r-main-color: #20202e;
+  --r-main-color: #101935;
   --r-block-margin: 0.7em;
   --r-heading-margin: 0 0 0.4em 0;
   --r-heading-font: 'Black Han Sans', 'Arial Black', sans-serif;
-  --r-heading-color: #20202e;
+  --r-heading-color: #101935;
   --r-heading-line-height: 1.05;
   --r-heading-letter-spacing: -0.005em;
   --r-heading-text-transform: none;
@@ -34,11 +48,11 @@
   --r-heading3-size: 1.1em;
   --r-heading4-size: 1em;
   --r-code-font: monospace;
-  --r-link-color: #6a3da0;
-  --r-link-color-dark: rgb(90.1, 51.85, 136);
-  --r-link-color-hover: rgb(127.1730769231, 77.1538461538, 187.1961538462);
-  --r-selection-background-color: #6a3da0;
-  --r-selection-color: #f7f4ee;
+  --r-link-color: #564787;
+  --r-link-color-dark: rgb(73.1, 60.35, 114.75);
+  --r-link-color-hover: rgb(109.7883495146, 91.6368932039, 169.0831067961);
+  --r-selection-background-color: #9ad4d6;
+  --r-selection-color: #101935;
   --r-overlay-element-bg-color: 240, 240, 240;
   --r-overlay-element-fg-color: 0, 0, 0;
 }
@@ -364,26 +378,29 @@
   }
 }
 :root {
-  --color-paper: #f7f4ee;
-  --color-paper-dark: #ece7dd;
-  --color-ink: #20202e;
-  --color-ink-soft: #6a6577;
-  --color-violet: #6a3da0;
-  --color-violet-deep: #2b2150;
-  --color-coral: #e0653a;
-  --color-rule: #d8d0c4;
+  --color-grape: #564787;
+  --color-thistle: #dbcbd8;
+  --color-azure: #f2fdff;
+  --color-aqua: #9ad4d6;
+  --color-prussian: #101935;
   --font-display: 'Black Han Sans', 'Arial Black', sans-serif;
   --font-body: Newsreader, Georgia, 'Times New Roman', serif;
   --font-ui: 'Helvetica Neue', Arial, sans-serif;
-  --heading-gradient: linear-gradient(100deg, #1a1a2e 0%, #2b2150 45%, #6a3da0 100%);
+  --heading-gradient: linear-gradient(100deg, #9ad4d6 0%, #dbcbd8 100%);
 }
 
 .reveal {
   font-weight: 400;
+  color: #101935;
 }
 
-.reveal .slides section {
-  background: #f7f4ee;
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: #101935;
 }
 
 .reveal strong {
@@ -394,22 +411,12 @@
   font-style: italic;
 }
 
-.reveal h1,
-.reveal h2 {
-  font-family: var(--font-display);
-  font-weight: 400;
-  color: #20202e;
+.reveal .gradient-text {
   background: var(--heading-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.reveal h3,
-.reveal h4 {
-  font-family: var(--font-display);
-  font-weight: 400;
-  color: #20202e;
+  color: #9ad4d6;
 }
 
 .reveal .eyebrow {
@@ -418,14 +425,14 @@
   letter-spacing: 0.18em;
   font-size: 0.4em;
   font-weight: 600;
-  color: var(--color-violet);
+  color: #564787;
   margin-bottom: 0.6em;
 }
 
 .reveal .subtitle {
   font-family: var(--font-body);
   font-style: italic;
-  color: var(--color-ink-soft);
+  color: rgba(16, 25, 53, 0.7);
   font-size: 0.7em;
 }
 
@@ -436,15 +443,15 @@
 .reveal .credit {
   font-family: var(--font-ui);
   font-size: 0.5em;
-  color: var(--color-ink-soft);
+  color: rgba(16, 25, 53, 0.75);
   margin-top: 1.2em;
   line-height: 1.6;
 }
 
 .reveal blockquote {
   width: 92%;
-  background: rgba(106, 61, 160, 0.06);
-  border-left: 4px solid var(--color-violet);
+  background: rgba(86, 71, 135, 0.08);
+  border-left: 4px solid #564787;
   box-shadow: none;
   font-style: normal;
   font-size: 0.95em;
@@ -457,7 +464,7 @@
   margin-top: 0.6em;
   font-family: var(--font-ui);
   font-size: 0.62em;
-  color: var(--color-ink-soft);
+  color: rgba(16, 25, 53, 0.7);
   letter-spacing: 0.02em;
 }
 
@@ -465,40 +472,13 @@
   font-family: var(--font-ui);
   font-size: 0.4em;
   line-height: 1.4;
-  color: var(--color-ink-soft);
+  color: rgba(16, 25, 53, 0.7);
   margin-top: 1.2em;
   word-break: break-word;
 }
 
 .reveal .source a {
-  color: var(--color-violet);
-}
-
-.reveal .placeholder {
-  border: 2px dashed var(--color-rule);
-  border-radius: 12px;
-  padding: 0.8em 1em;
-  background: rgba(0, 0, 0, 0.02);
-  color: var(--color-ink-soft);
-}
-
-.reveal .placeholder .tag {
-  display: inline-block;
-  font-family: var(--font-ui);
-  font-size: 0.4em;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  background: var(--color-paper-dark);
-  color: var(--color-ink-soft);
-  padding: 0.3em 0.7em;
-  border-radius: 999px;
-  margin-bottom: 0.7em;
-}
-
-.reveal .placeholder h2 {
-  background: none;
-  -webkit-text-fill-color: currentColor;
-  color: var(--color-ink-soft);
+  color: #564787;
 }
 
 .reveal pre {
@@ -511,4 +491,98 @@
   border-radius: 8px;
   padding: 1em 1.2em;
   max-height: none;
+}
+
+.reveal .placeholder {
+  border: 2px dashed rgba(16, 25, 53, 0.3);
+  border-radius: 12px;
+  padding: 0.8em 1em;
+  background: rgba(16, 25, 53, 0.04);
+  color: rgba(16, 25, 53, 0.7);
+}
+
+.reveal .placeholder .tag {
+  display: inline-block;
+  font-family: var(--font-ui);
+  font-size: 0.4em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba(16, 25, 53, 0.1);
+  color: rgba(16, 25, 53, 0.7);
+  padding: 0.3em 0.7em;
+  border-radius: 999px;
+  margin-bottom: 0.7em;
+}
+
+.reveal .placeholder h2 {
+  color: rgba(16, 25, 53, 0.6);
+}
+
+.reveal section.cover,
+.reveal section.section-header {
+  color: #9ad4d6;
+}
+.reveal section.cover h1, .reveal section.cover h2, .reveal section.cover h3, .reveal section.cover h4,
+.reveal section.section-header h1,
+.reveal section.section-header h2,
+.reveal section.section-header h3,
+.reveal section.section-header h4 {
+  color: #9ad4d6;
+}
+.reveal section.cover h1, .reveal section.cover h2,
+.reveal section.section-header h1,
+.reveal section.section-header h2 {
+  background: var(--heading-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #9ad4d6;
+}
+.reveal section.cover .eyebrow,
+.reveal section.section-header .eyebrow {
+  color: #dbcbd8;
+}
+.reveal section.cover .subtitle,
+.reveal section.section-header .subtitle {
+  color: #dbcbd8;
+}
+.reveal section.cover .credit,
+.reveal section.section-header .credit {
+  color: rgba(154, 212, 214, 0.85);
+}
+.reveal section.cover a, .reveal section.cover .source a,
+.reveal section.section-header a,
+.reveal section.section-header .source a {
+  color: #dbcbd8;
+}
+.reveal section.cover .source,
+.reveal section.section-header .source {
+  color: rgba(219, 203, 216, 0.85);
+}
+.reveal section.cover blockquote,
+.reveal section.section-header blockquote {
+  background: rgba(154, 212, 214, 0.1);
+  border-left-color: #9ad4d6;
+  color: #9ad4d6;
+}
+.reveal section.cover blockquote .attr,
+.reveal section.section-header blockquote .attr {
+  color: rgba(219, 203, 216, 0.9);
+}
+
+.reveal section.bg-azure,
+.reveal section.bg-thistle,
+.reveal section.bg-aqua {
+  color: #101935;
+}
+.reveal section.bg-azure h1, .reveal section.bg-azure h2, .reveal section.bg-azure h3, .reveal section.bg-azure h4,
+.reveal section.bg-thistle h1,
+.reveal section.bg-thistle h2,
+.reveal section.bg-thistle h3,
+.reveal section.bg-thistle h4,
+.reveal section.bg-aqua h1,
+.reveal section.bg-aqua h2,
+.reveal section.bg-aqua h3,
+.reveal section.bg-aqua h4 {
+  color: #101935;
 }

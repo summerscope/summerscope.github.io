@@ -2,16 +2,30 @@
  * Human Loop - custom theme for "The Human-in-the-Loop Is Tired"
  * PyData London 2026.
  *
- * Dark ink on warm paper. Loud display headings (Black Han Sans) with a
- * subtle ink -> violet gradient, set against a friendly, slightly-narrow
- * literary serif body (Newsreader) for contrast.
+ * Palette (coolors.co/564787-dbcbd8-f2fdff-9ad4d6-101935):
+ *   dusty grape   #564787
+ *   thistle       #DBCBD8
+ *   azure mist    #F2FDFF
+ *   pearl aqua    #9AD4D6
+ *   prussian blue #101935
  *
- * Built via the reveal.js SCSS pipeline:
- *   sass css/theme/human-loop.scss dist/theme/human-loop.css
- * (mirrors `npm run build:styles` in the other decks; see README)
+ * Slide templates (a class + matching data-background-color on each <section>):
+ *   .cover           pearl aqua text on dusty grape    (cover + closing)
+ *   .section-header  pearl aqua text on prussian blue  (section dividers)
+ *   .bg-azure        prussian blue text on azure mist  (inner - default)
+ *   .bg-thistle      prussian blue text on thistle     (inner - quotes)
+ *   .bg-aqua         prussian blue text on pearl aqua  (inner - statements)
  *
- * Fonts are pulled from Google Fonts via <link> tags in index.html
- * (Black Han Sans + Newsreader).
+ * Headings: Black Han Sans. On the dark templates (.cover, .section-header)
+ * the main heading uses a pearl-aqua -> thistle background-clip gradient;
+ * on the light inner templates headings are solid prussian blue.
+ *
+ * Body: Newsreader (friendly, slightly-narrow literary serif).
+ *
+ * Built via the reveal.js SCSS pipeline (mirrors `npm run build:styles`):
+ *   bunx sass css/theme/human-loop.scss dist/theme/human-loop.css --no-source-map --style=expanded
+ *
+ * Fonts load from Google Fonts via <link> tags in index.html.
  */
 
 @use 'sass:color';
@@ -22,38 +36,31 @@
 // BRAND TOKENS
 // ============================================================
 
-$color-paper:       #f7f4ee;   // warm off-white background
-$color-paper-dark:  #ece7dd;
-$color-ink:         #20202e;   // body text (slightly indigo-tinted near-black)
-$color-ink-soft:    #6a6577;   // muted text
-$color-violet:      #6a3da0;   // primary accent (ties to the heading gradient)
-$color-violet-deep: #2b2150;
-$color-coral:       #e0653a;   // warm counterpoint
-$color-rule:        #d8d0c4;   // hairlines / borders
-
-// Heading gradient stops
-$grad-a: #1a1a2e;   // ink
-$grad-b: #2b2150;   // deep indigo
-$grad-c: #6a3da0;   // violet
+$grape:    #564787;   // dusty grape
+$thistle:  #dbcbd8;   // thistle
+$azure:    #f2fdff;   // azure mist
+$aqua:     #9ad4d6;   // pearl aqua
+$prussian: #101935;   // prussian blue
 
 
 // ============================================================
 // REVEAL THEME SETTINGS
-// Feed our tokens into reveal's own CSS via the template.
+// Defaults target the inner light slides (prussian text). The
+// dark templates override text colour via their own classes.
 // ============================================================
 
 @use 'template/settings' with (
-  $background-color:        $color-paper,
+  $background-color:        $azure,
 
   $main-font:               "Newsreader, Georgia, 'Times New Roman', serif",
   $main-font-size:          40px,
-  $main-color:              $color-ink,
+  $main-color:              $prussian,
 
   $block-margin:            0.7em,
 
   $heading-margin:          (0 0 0.4em 0),
   $heading-font:            "'Black Han Sans', 'Arial Black', sans-serif",
-  $heading-color:           $color-ink,
+  $heading-color:           $prussian,
   $heading-line-height:     1.05,
   $heading-letter-spacing:  -0.005em,
   $heading-text-transform:  none,
@@ -64,12 +71,12 @@ $grad-c: #6a3da0;   // violet
   $heading3-size:           1.1em,
   $heading4-size:           1em,
 
-  $link-color:              $color-violet,
-  $link-color-dark:         color.scale($color-violet, $lightness: -15%),
-  $link-color-hover:        color.scale($color-violet, $lightness: 15%),
+  $link-color:              $grape,
+  $link-color-dark:         color.scale($grape, $lightness: -15%),
+  $link-color-hover:        color.scale($grape, $lightness: 18%),
 
-  $selection-background-color: $color-violet,
-  $selection-color:            $color-paper,
+  $selection-background-color: $aqua,
+  $selection-color:            $prussian,
 );
 
 @use 'template/theme';
@@ -80,20 +87,18 @@ $grad-c: #6a3da0;   // violet
 // ============================================================
 
 :root {
-  --color-paper:       #{$color-paper};
-  --color-paper-dark:  #{$color-paper-dark};
-  --color-ink:         #{$color-ink};
-  --color-ink-soft:    #{$color-ink-soft};
-  --color-violet:      #{$color-violet};
-  --color-violet-deep: #{$color-violet-deep};
-  --color-coral:       #{$color-coral};
-  --color-rule:        #{$color-rule};
+  --color-grape:    #{$grape};
+  --color-thistle:  #{$thistle};
+  --color-azure:    #{$azure};
+  --color-aqua:     #{$aqua};
+  --color-prussian: #{$prussian};
 
   --font-display: 'Black Han Sans', 'Arial Black', sans-serif;
   --font-body:    Newsreader, Georgia, 'Times New Roman', serif;
   --font-ui:      'Helvetica Neue', Arial, sans-serif;
 
-  --heading-gradient: linear-gradient(100deg, #{$grad-a} 0%, #{$grad-b} 45%, #{$grad-c} 100%);
+  // Text gradient: pearl aqua -> thistle (reads on the dark templates).
+  --heading-gradient: linear-gradient(100deg, #{$aqua} 0%, #{$thistle} 100%);
 }
 
 
@@ -103,47 +108,43 @@ $grad-c: #6a3da0;   // violet
 
 .reveal {
   font-weight: 400;
+  color: $prussian;
 }
 
-.reveal .slides section {
-  background: $color-paper;
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: $prussian;   // solid by default; dark templates override w/ gradient
 }
 
-// Strong / em tuned for the serif body
 .reveal strong { font-weight: 600; }
 .reveal em     { font-style: italic; }
 
 
 // ============================================================
-// HEADINGS - Black Han Sans with a subtle ink -> violet gradient
-// Applied to the main headings (h1, h2). Subheads stay solid.
+// GRADIENT TEXT
+// pearl aqua -> thistle, clipped to the glyphs. Used on the
+// main headings of the dark templates.
 // ============================================================
 
-.reveal h1,
-.reveal h2 {
-  font-family: var(--font-display);
-  font-weight: 400;
-
-  // Gradient fill via background-clip. Falls back to solid ink
-  // anywhere the clip isn't supported.
-  color: $color-ink;
+@mixin gradient-text {
   background: var(--heading-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: $aqua;   // fallback where background-clip isn't supported
 }
 
-.reveal h3,
-.reveal h4 {
-  font-family: var(--font-display);
-  font-weight: 400;
-  color: $color-ink;
+.reveal .gradient-text {
+  @include gradient-text;
 }
 
 
 // ============================================================
-// EYEBROW / SECTION LABEL
-// Small uppercase UI label above a heading.
+// SHARED UI BITS
 // ============================================================
 
 .reveal .eyebrow {
@@ -152,28 +153,23 @@ $grad-c: #6a3da0;   // violet
   letter-spacing: 0.18em;
   font-size: 0.4em;
   font-weight: 600;
-  color: var(--color-violet);
+  color: $grape;
   margin-bottom: 0.6em;
 }
 
 .reveal .subtitle {
   font-family: var(--font-body);
   font-style: italic;
-  color: var(--color-ink-soft);
+  color: rgba($prussian, 0.7);
   font-size: 0.7em;
 }
-
-
-// ============================================================
-// TITLE SLIDE CREDIT
-// ============================================================
 
 .reveal section h1.title { font-size: 2.4em; }
 
 .reveal .credit {
   font-family: var(--font-ui);
   font-size: 0.5em;
-  color: var(--color-ink-soft);
+  color: rgba($prussian, 0.75);
   margin-top: 1.2em;
   line-height: 1.6;
 }
@@ -185,8 +181,8 @@ $grad-c: #6a3da0;   // violet
 
 .reveal blockquote {
   width: 92%;
-  background: rgba(106, 61, 160, 0.06);
-  border-left: 4px solid var(--color-violet);
+  background: rgba($grape, 0.08);
+  border-left: 4px solid $grape;
   box-shadow: none;
   font-style: normal;
   font-size: 0.95em;
@@ -199,7 +195,7 @@ $grad-c: #6a3da0;   // violet
   margin-top: 0.6em;
   font-family: var(--font-ui);
   font-size: 0.62em;
-  color: var(--color-ink-soft);
+  color: rgba($prussian, 0.7);
   letter-spacing: 0.02em;
 }
 
@@ -212,45 +208,12 @@ $grad-c: #6a3da0;   // violet
   font-family: var(--font-ui);
   font-size: 0.4em;
   line-height: 1.4;
-  color: var(--color-ink-soft);
+  color: rgba($prussian, 0.7);
   margin-top: 1.2em;
   word-break: break-word;
 }
 
-.reveal .source a { color: var(--color-violet); }
-
-
-// ============================================================
-// PLACEHOLDER / STUB SLIDES
-// ============================================================
-
-.reveal .placeholder {
-  border: 2px dashed var(--color-rule);
-  border-radius: 12px;
-  padding: 0.8em 1em;
-  background: rgba(0, 0, 0, 0.02);
-  color: var(--color-ink-soft);
-}
-
-.reveal .placeholder .tag {
-  display: inline-block;
-  font-family: var(--font-ui);
-  font-size: 0.4em;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  background: var(--color-paper-dark);
-  color: var(--color-ink-soft);
-  padding: 0.3em 0.7em;
-  border-radius: 999px;
-  margin-bottom: 0.7em;
-}
-
-.reveal .placeholder h2 {
-  // keep stubbed headings readable (no gradient) so they read as drafts
-  background: none;
-  -webkit-text-fill-color: currentColor;
-  color: var(--color-ink-soft);
-}
+.reveal .source a { color: $grape; }
 
 
 // ============================================================
@@ -267,4 +230,80 @@ $grad-c: #6a3da0;   // violet
   border-radius: 8px;
   padding: 1em 1.2em;
   max-height: none;
+}
+
+
+// ============================================================
+// PLACEHOLDER / STUB SLIDES
+// ============================================================
+
+.reveal .placeholder {
+  border: 2px dashed rgba($prussian, 0.3);
+  border-radius: 12px;
+  padding: 0.8em 1em;
+  background: rgba($prussian, 0.04);
+  color: rgba($prussian, 0.7);
+}
+
+.reveal .placeholder .tag {
+  display: inline-block;
+  font-family: var(--font-ui);
+  font-size: 0.4em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba($prussian, 0.1);
+  color: rgba($prussian, 0.7);
+  padding: 0.3em 0.7em;
+  border-radius: 999px;
+  margin-bottom: 0.7em;
+}
+
+.reveal .placeholder h2 {
+  color: rgba($prussian, 0.6);
+}
+
+
+// ============================================================
+// SLIDE TEMPLATES
+// Each <section> gets one of these classes plus a matching
+// data-background-color (reveal paints the full-bleed bg).
+// ============================================================
+
+// ---- DARK TEMPLATES: cover / closing + section headers -----
+// pearl aqua text; main heading uses the pearl aqua -> thistle gradient.
+
+.reveal section.cover,
+.reveal section.section-header {
+  color: $aqua;
+
+  h1, h2, h3, h4 { color: $aqua; }
+
+  // Gradient on the big headings.
+  h1, h2 { @include gradient-text; }
+
+  .eyebrow  { color: $thistle; }
+  .subtitle { color: $thistle; }
+  .credit   { color: rgba($aqua, 0.85); }
+
+  a, .source a { color: $thistle; }
+  .source      { color: rgba($thistle, 0.85); }
+
+  blockquote {
+    background: rgba($aqua, 0.1);
+    border-left-color: $aqua;
+    color: $aqua;
+    .attr { color: rgba($thistle, 0.9); }
+  }
+}
+
+// ---- LIGHT INNER TEMPLATES ---------------------------------
+// prussian blue text (the deck default). Classes are explicit
+// so per-variant tweaks stay easy to find.
+
+.reveal section.bg-azure,
+.reveal section.bg-thistle,
+.reveal section.bg-aqua {
+  color: $prussian;
+
+  h1, h2, h3, h4 { color: $prussian; }
 }
