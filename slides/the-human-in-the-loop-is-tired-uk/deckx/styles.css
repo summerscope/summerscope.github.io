@@ -1,0 +1,29 @@
+/* Vanilla light deck (dark text on a light background).
+   Only minimal helpers on top of the deckx "light" theme base. */
+
+.slide .source {
+  font-size: 0.5em;
+  opacity: 0.7;
+  margin-top: 1.2em;
+  word-break: break-word;
+}
+
+.slide .placeholder {
+  border: 2px dashed #c4bccb;
+  border-radius: 12px;
+  padding: 0.8em 1.1em;
+  color: #6b6470;
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.slide .placeholder .tag {
+  display: inline-block;
+  font-size: 0.5em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.06);
+  color: #6b6470;
+  padding: 0.2em 0.6em;
+  border-radius: 999px;
+  margin-bottom: 0.6em;
+}

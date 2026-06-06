@@ -1,0 +1,427 @@
+import { Slide } from "deckx";
+
+{/* SECTION 1 - Intro: there is something to see here */}
+
+<Slide layout="title">
+
+### PyData London 2026
+
+# The Human-in-the-Loop Is Tired
+
+## Laura Summers - Lead Design Engineer @ Pydantic - PyLadies Berlin
+
+</Slide>
+
+<Slide layout="title">
+
+### Section 1
+
+# There is something to see here
+
+## we're all markdown engineers now
+
+</Slide>
+
+<Slide>
+
+# Based on a blog
+
+The Human-in-the-Loop Is Tired
+
+<p className="source"><a href="https://pydantic.dev/articles/the-human-in-the-loop-is-tired">pydantic.dev/articles/the-human-in-the-loop-is-tired</a></p>
+
+</Slide>
+
+<Slide layout="statement">
+
+# the vibes are weird
+
+</Slide>
+
+<Slide>
+
+> "The dust hasn't settled on how we'll use this stuff at work - where we just optimise and automate, and where we rethink the whole job. But the rate of improvement is so high, and not slowing, that sitting on your hands isn't a defensible stance."
+
+- Alan Nichol
+
+<p className="source"><a href="https://linkedin.com/posts/anichol_audience-slido-questions-ugcPost-7467886985756725248">linkedin.com/posts/anichol_audience-slido-questions-ugcPost-7467886985756725248</a></p>
+
+</Slide>
+
+<Slide>
+
+# Slop or not?
+
+Hands up / hands down.
+
+</Slide>
+
+<Slide>
+
+<div className="placeholder">
+  <span className="tag">Placeholder - meme sequence</span>
+  <p>One AI-slop artefact per slide, gross to subtle.</p>
+  <p>Each carries its own source link (Laura adds on selection).</p>
+</div>
+
+</Slide>
+
+<Slide>
+
+### Slop or not? (A)
+
+```python
+import time
+def retry(fn, attempts=3, base_delay=1.0):
+    for attempt in range(attempts):
+        try:
+            return fn()
+        except Exception:
+            if attempt == attempts - 1:
+                raise
+            time.sleep(base_delay * 2 ** attempt)
+```
+
+</Slide>
+
+<Slide>
+
+### Slop or not? (B)
+
+```python
+def add_message(content, history=[]):
+    history.append({"role": "user", "content": content})
+    return history
+```
+
+</Slide>
+
+<Slide>
+
+### Slop or not? (C)
+
+```python
+def dedupe(items):
+    seen = set()
+    return [x for x in items if not (x in seen or seen.add(x))]
+```
+
+</Slide>
+
+<Slide layout="statement">
+
+# We're all evaluators now
+
+## Taste all the way down
+
+</Slide>
+
+<Slide>
+
+> "It's possible that Son of Anton decided the most efficient way to get rid of all the bugs was to get rid of all the software, which is technically and statistically correct."
+
+- Silicon Valley, HBO
+
+<p className="source"><a href="https://x.com/UiSavior/status/2062840449564332304">x.com/UiSavior/status/2062840449564332304</a></p>
+
+</Slide>
+
+<Slide>
+
+# The connections that break
+
+- communication ↔ meaning
+- appearance of effort ↔ experience of it
+- gloss of clarity ↔ actually understanding it
+
+<p className="source">If Manidis pull-quote used: <a href="https://x.com/WillManidis/status/2057094527236665598">x.com/WillManidis/status/2057094527236665598</a></p>
+
+</Slide>
+
+{/* SECTION 2 - Diagnosis: the pain points */}
+
+<Slide layout="title">
+
+### Section 2
+
+# Diagnosis
+
+## what it actually feels like
+
+</Slide>
+
+<Slide>
+
+# "Your company's new AI Agent Workflow"
+
+The Rube Goldberg "AI Agent Workflow" clip.
+
+<p className="source">orig. valentino.x (Instagram) - YouTube Shorts mirror <a href="https://youtube.com/shorts/rIkDBrSAl_s">youtube.com/shorts/rIkDBrSAl_s</a> (Laura's copy watermarked "The Fountain Institute" - cite whichever version is screened)</p>
+
+</Slide>
+
+<Slide>
+
+# It feels like a slot machine
+
+Jeremy Howard clip - "illusion of control... you pull the lever... cherry cherry, bzzzz... Next time!"
+
+<p className="source"><a href="https://x.com/teropa/status/2049406364011626498">x.com/teropa/status/2049406364011626498</a></p>
+
+</Slide>
+
+<Slide space="tight">
+
+> "I simultaneously became snappier towards those who were asking me impromptu questions... and more rant-y towards those who were asking me how I was doing."
+
+> "fascinating, thrilling, and exhilarating, but it also left me feeling unmoored and drifting, questioning the permanence of what I was building."
+
+- Eric Ma
+
+<p className="source"><a href="https://ericmjl.github.io/blog/2026/5/2/how-i-recognized-and-handled-ai-burnout">ericmjl.github.io/blog/2026/5/2/how-i-recognized-and-handled-ai-burnout</a></p>
+
+</Slide>
+
+<Slide layout="statement">
+
+# literal Turing test machines
+
+<p className="source">If meme used: <a href="https://x.com/folaoftech/status/2062861496829309421">x.com/folaoftech/status/2062861496829309421</a></p>
+
+</Slide>
+
+<Slide layout="statement">
+
+# left behind? only me? will my skills matter?
+
+<p className="source">If meme used: <a href="https://x.com/forrestbrazeal/status/1958553027834458285">x.com/forrestbrazeal/status/1958553027834458285</a></p>
+
+</Slide>
+
+<Slide>
+
+> "learning something that'll be out of date in 5 minutes"
+
+- PyCon DE anxiety wall
+
+- cost of learning when intelligence is cheap?
+- does anything survive?
+
+<p className="source">Laura's photo, PyCon DE 2026 (no external link) - meme candidate: <a href="https://x.com/KaiLentit/status/2021282230421651456">x.com/KaiLentit/status/2021282230421651456</a></p>
+
+</Slide>
+
+<Slide>
+
+> "friction is the thing that builds the understanding of the system in your head."
+
+- Mario Zechner (Pi)
+
+<p className="source"><a href="https://youtube.com/watch?v=RjfbvDXpFls">youtube.com/watch?v=RjfbvDXpFls</a></p>
+
+</Slide>
+
+<Slide>
+
+<div className="placeholder">
+  <span className="tag">Placeholder - latency</span>
+  <p>TTFT vs E2EL - TBD</p>
+  <p>Separate chat to finalise numbers + presentation.</p>
+</div>
+
+</Slide>
+
+<Slide>
+
+# Why it's not steerable
+
+- slow
+- noisy
+- missing feedback
+
+</Slide>
+
+<Slide layout="statement">
+
+# you're not waiting on a tool - you're waiting on someone who isn't respecting your time
+
+</Slide>
+
+<Slide>
+
+# The trade-offs are made for us, invisibly
+
+The streaming metaphor - no dial, no readout.
+
+</Slide>
+
+<Slide>
+
+> "my context wasn't my context... zero observability."
+
+- Mario Zechner (Pi)
+
+<p className="source"><a href="https://youtube.com/watch?v=RjfbvDXpFls">youtube.com/watch?v=RjfbvDXpFls</a></p>
+
+</Slide>
+
+{/* SECTION 3 - Remedies and balms */}
+
+<Slide layout="title">
+
+### Section 3
+
+# Remedies & balms
+
+## what actually helps
+
+</Slide>
+
+<Slide layout="statement">
+
+# optimise for human experience, not model output
+
+</Slide>
+
+<Slide>
+
+# If you can't pop the hood, at least measure the exhaust
+
+observability / tracing
+
+</Slide>
+
+<Slide>
+
+# If you're going to gamble, learn to count your cards
+
+evals
+
+</Slide>
+
+<Slide>
+
+# Technical balms
+
+- pre-mortems
+- AGENTS.md from your review comments
+- permission to just write the code
+
+</Slide>
+
+<Slide>
+
+# Make the output brain-friendly
+
+respect your cognitive limit (~4-7 chunks)
+
+</Slide>
+
+<Slide>
+
+# Human balms
+
+- pair against the grain
+- name it ("oh - you too?")
+- solidarity
+
+> [STUB - exact quote: "working with Claude more human... having a great time"]
+
+- Akós
+
+<p className="source">Akós - [internal/colleague; no public link - confirm attribution]</p>
+
+</Slide>
+
+<Slide>
+
+# Protect the brain and body
+
+- 90-min breaks
+- talk to a human
+- four best hours then stop
+- LookAway
+
+</Slide>
+
+<Slide>
+
+# Important, but not the full picture
+
+tracing sees outputs; config / training / guardrails stay invisible -> so push
+
+</Slide>
+
+{/* SECTION 4 - Philosophy: the bigger picture */}
+
+<Slide layout="title">
+
+### Section 4
+
+# The bigger picture
+
+## what is this doing to us?
+
+</Slide>
+
+<Slide>
+
+# What survives
+
+- taste
+- judgement
+- the contrarian calls from real expertise
+
+</Slide>
+
+<Slide layout="statement">
+
+# The bottleneck was never the code
+
+## scarce -> valuable
+
+</Slide>
+
+<Slide>
+
+<div className="placeholder">
+  <span className="tag">Stub - your words</span>
+  <h2>Remember the slot machine?</h2>
+  <p>TBD (your wording)</p>
+</div>
+
+</Slide>
+
+<Slide>
+
+# Hands in the fabric of the universe
+
+Metropolis + Ghost in the Shell stills
+
+<p className="source">Metropolis (1927, dir. Fritz Lang) - Ghost in the Shell (1995, dir. Mamoru Oshii) - cite film + year + director (no single URL)</p>
+
+</Slide>
+
+<Slide layout="statement">
+
+# The real invitation
+
+## micro ↔ macro
+
+</Slide>
+
+<Slide layout="title">
+
+# The humans are still in the loop. We're just tired.
+
+## More Star Trek, less Black Mirror.
+
+</Slide>
+
+<Slide layout="title">
+
+# Thanks
+
+## Laura Summers - Lead Design Engineer @ Pydantic
+
+</Slide>

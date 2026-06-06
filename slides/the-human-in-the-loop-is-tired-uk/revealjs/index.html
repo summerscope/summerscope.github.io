@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>The Human-in-the-Loop Is Tired — Laura Summers — PyData London 2026</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <!-- Vanilla theme: dark text on a light background -->
+    <link rel="stylesheet" href="dist/theme/white.css" id="theme" />
+    <!-- Syntax highlighting theme for code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+
+    <style>
+      /* Minimal additions on top of the vanilla white theme. */
+      .reveal .source {
+        font-size: 0.5em;
+        opacity: 0.7;
+        margin-top: 1em;
+        word-break: break-all;
+      }
+      .reveal .source a { color: #2a76dd; }
+      .reveal .eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        font-size: 0.5em;
+        opacity: 0.6;
+        margin-bottom: 0.5em;
+      }
+      .reveal .placeholder {
+        border: 2px dashed #bbb;
+        border-radius: 12px;
+        padding: 0.8em 1em;
+        color: #777;
+        background: #fafafa;
+      }
+      .reveal .placeholder .tag {
+        display: inline-block;
+        font-size: 0.5em;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        background: #eee;
+        color: #555;
+        padding: 0.2em 0.6em;
+        border-radius: 999px;
+        margin-bottom: 0.6em;
+      }
+      .reveal blockquote {
+        width: 90%;
+        box-shadow: none;
+        border-left: 4px solid #2a76dd;
+        background: #f6f8fb;
+        font-style: normal;
+      }
+      .reveal blockquote .attr { display: block; margin-top: 0.6em; font-size: 0.7em; opacity: 0.7; }
+      .reveal section h1.title { font-size: 1.6em; }
+      .reveal .subtitle { opacity: 0.7; font-size: 0.7em; }
+      .reveal .credit { font-size: 0.6em; opacity: 0.6; margin-top: 1.2em; }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <!-- ============================================================ -->
+        <!-- SECTION 1 — Intro: there is something to see here            -->
+        <!-- ============================================================ -->
+
+        <!-- 0 — Title -->
+        <section>
+          <h1 class="title">The Human-in-the-Loop Is Tired</h1>
+          <p class="subtitle">PyData London 2026</p>
+          <p class="credit">
+            Laura Summers — Lead Design Engineer @ Pydantic<br />
+            PyLadies Berlin
+          </p>
+          <aside class="notes">
+            Who I am, quick.
+          </aside>
+        </section>
+
+        <!-- 1 — Section header -->
+        <section>
+          <p class="eyebrow">Section 1</p>
+          <h2>There is something to see here</h2>
+          <h3 class="subtitle">we're all markdown engineers now</h3>
+        </section>
+
+        <!-- 2 — Based on a blog -->
+        <section>
+          <h2>Based on a blog</h2>
+          <p>The Human-in-the-Loop Is Tired</p>
+          <p class="source">
+            <a href="https://pydantic.dev/articles/the-human-in-the-loop-is-tired">pydantic.dev/articles/the-human-in-the-loop-is-tired</a>
+          </p>
+          <aside class="notes">
+            Started as a blog. Why a talk and not a blog → new ground, more spicy.
+          </aside>
+        </section>
+
+        <!-- 3 — The vibes are weird -->
+        <section>
+          <h2>the vibes are weird</h2>
+          <aside class="notes">
+            Vibes (sorry, not sorry). Occasional / heavy / agents in prod — all of us.
+            If it were nothing we'd have gone to bed.
+          </aside>
+        </section>
+
+        <!-- 4 — Alan Nichol -->
+        <section>
+          <blockquote>
+            "The dust hasn't settled on how we'll use this stuff at work — where we
+            just optimise and automate, and where we rethink the whole job. But the
+            rate of improvement is so high, and not slowing, that sitting on your
+            hands isn't a defensible stance."
+            <span class="attr">— Alan Nichol</span>
+          </blockquote>
+          <p class="source">
+            <a href="https://linkedin.com/posts/anichol_audience-slido-questions-ugcPost-7467886985756725248">linkedin.com/posts/anichol_audience-slido-questions-ugcPost-7467886985756725248</a>
+          </p>
+          <aside class="notes">
+            The "something to see here" case.
+          </aside>
+        </section>
+
+        <!-- 5 — Slop or not? (activity intro) -->
+        <section>
+          <h2>Slop or not?</h2>
+          <p>Hands up / hands down.</p>
+          <aside class="notes">
+            Rapid-fire, 6–10 artefacts, accelerating.
+          </aside>
+        </section>
+
+        <!-- 6 — Slop sequence — PLACEHOLDER -->
+        <section>
+          <div class="placeholder">
+            <span class="tag">Placeholder — meme sequence</span>
+            <p>One AI-slop artefact per slide, gross → subtle.</p>
+            <p style="font-size:0.6em;">Each carries its own source link (Laura adds on selection).</p>
+          </div>
+          <aside class="notes">
+            Italian brainrot → shrimp-Jesus / Facebook bait → clay-toy portrait →
+            stained-glass → over-glossed face → text slop. Source leads in references.md.
+            Laura sources + redacts; each artefact is its own slide with its own source link.
+          </aside>
+        </section>
+
+        <!-- 7 — Code: slop or not? (A) -->
+        <section>
+          <h3 class="eyebrow">Slop or not? (A)</h3>
+          <pre><code class="language-python" data-trim data-noescape>
+import time
+def retry(fn, attempts=3, base_delay=1.0):
+    for attempt in range(attempts):
+        try:
+            return fn()
+        except Exception:
+            if attempt == attempts - 1:
+                raise
+            time.sleep(base_delay * 2 ** attempt)
+          </code></pre>
+          <aside class="notes">
+            Not slop — looks right, is right.
+          </aside>
+        </section>
+
+        <!-- 8 — Code: slop or not? (B) -->
+        <section>
+          <h3 class="eyebrow">Slop or not? (B)</h3>
+          <pre><code class="language-python" data-trim data-noescape>
+def add_message(content, history=[]):
+    history.append({"role": "user", "content": content})
+    return history
+          </code></pre>
+          <aside class="notes">
+            Slop — mutable default shared across calls; looks right, is wrong.
+          </aside>
+        </section>
+
+        <!-- 9 — Code: slop or not? (C) -->
+        <section>
+          <h3 class="eyebrow">Slop or not? (C)</h3>
+          <pre><code class="language-python" data-trim data-noescape>
+def dedupe(items):
+    seen = set()
+    return [x for x in items if not (x in seen or seen.add(x))]
+          </code></pre>
+          <aside class="notes">
+            Not slop — correct, order-preserving; looks wrong, is right.
+            Surface ≠ correctness = the point.
+          </aside>
+        </section>
+
+        <!-- 10 — That was evaluation -->
+        <section>
+          <h2>We're all evaluators now</h2>
+          <h3 class="subtitle">Taste all the way down</h3>
+          <aside class="notes">
+            The activity was evaluation; supervise + judge, not make; wrecking executive function.
+          </aside>
+        </section>
+
+        <!-- 11 — Paperclip maximisers -->
+        <section>
+          <blockquote>
+            "It's possible that Son of Anton decided the most efficient way to get rid
+            of all the bugs was to get rid of all the software, which is technically
+            and statistically correct."
+            <span class="attr">— Silicon Valley, HBO</span>
+          </blockquote>
+          <p class="source">
+            <a href="https://x.com/UiSavior/status/2062840449564332304">x.com/UiSavior/status/2062840449564332304</a>
+          </p>
+          <aside class="notes">
+            What if we're the paperclip maximisers? We optimise relentlessly for output.
+            Ties the activity together. [meme candidate: Silicon Valley "Son of Anton" clip]
+          </aside>
+        </section>
+
+        <!-- 12 — The connections that break -->
+        <section>
+          <h2>The connections that break</h2>
+          <ul>
+            <li>communication ↔ meaning</li>
+            <li>appearance of effort ↔ experience of it</li>
+            <li>gloss of clarity ↔ actually understanding it</li>
+          </ul>
+          <p class="source">
+            If Manidis pull-quote used: <a href="https://x.com/WillManidis/status/2057094527236665598">x.com/WillManidis/status/2057094527236665598</a>
+          </p>
+          <aside class="notes">
+            When production is free these snap; voice muddied or absent.
+          </aside>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 2 — Diagnosis: the pain points                       -->
+        <!-- ============================================================ -->
+
+        <!-- 13 — Section header -->
+        <section>
+          <p class="eyebrow">Section 2</p>
+          <h2>Diagnosis</h2>
+          <h3 class="subtitle">what it actually feels like</h3>
+        </section>
+
+        <!-- 14 — "Your company's new AI Agent Workflow" -->
+        <section>
+          <h2>"Your company's new AI Agent Workflow"</h2>
+          <p>The Rube Goldberg "AI Agent Workflow" clip.</p>
+          <p class="source">
+            orig. valentino.x (Instagram) · YouTube Shorts mirror
+            <a href="https://youtube.com/shorts/rIkDBrSAl_s">youtube.com/shorts/rIkDBrSAl_s</a>
+            (Laura's copy watermarked "The Fountain Institute" — cite whichever version is screened)
+          </p>
+          <aside class="notes">
+            If you listen to the AI Influencers you'd think we were in a golden age of fully
+            autonomous agents working assiduously and making everything sooooo great. But really —
+            we're mostly doing this, right? Setting up workflows and seeing all the weird and
+            unexpected ways they fall down.
+          </aside>
+        </section>
+
+        <!-- 15 — It feels like a slot machine -->
+        <section>
+          <h2>It feels like a slot machine</h2>
+          <p>Jeremy Howard clip — "illusion of control… you pull the lever… cherry cherry, bzzzz… Next time!"</p>
+          <p class="source">
+            <a href="https://x.com/teropa/status/2049406364011626498">x.com/teropa/status/2049406364011626498</a>
+          </p>
+          <aside class="notes">
+            The felt experience up front — gambler, not maker; feedback-loop slides later explain why;
+            self-worth slide calls back to it.
+          </aside>
+        </section>
+
+        <!-- 16 — Emotional equilibrium out of whack -->
+        <section>
+          <blockquote>
+            "I simultaneously became snappier towards those who were asking me impromptu
+            questions… and more rant-y towards those who were asking me how I was doing."
+            <br /><br />
+            "fascinating, thrilling, and exhilarating, but it also left me feeling unmoored
+            and drifting, questioning the permanence of what I was building."
+            <span class="attr">— Eric Ma</span>
+          </blockquote>
+          <p class="source">
+            <a href="https://ericmjl.github.io/blog/2026/5/2/how-i-recognized-and-handled-ai-burnout">ericmjl.github.io/blog/2026/5/2/how-i-recognized-and-handled-ai-burnout</a>
+          </p>
+          <aside class="notes">
+            Even the capybara can't stay calm.
+          </aside>
+        </section>
+
+        <!-- 17 — De-anthropomorphising the machine -->
+        <section>
+          <h2>literal Turing test machines</h2>
+          <p class="source">
+            If meme used: <a href="https://x.com/folaoftech/status/2062861496829309421">x.com/folaoftech/status/2062861496829309421</a>
+          </p>
+          <aside class="notes">
+            Designed to trick us; straining to see where the uncanny ends and the valley begins;
+            visual theme quietly clicks here. [meme candidate: folaoftech "AI in 10 years"]
+          </aside>
+        </section>
+
+        <!-- 18 — Underneath all of it: fear -->
+        <section>
+          <h2>left behind? only me? will my skills matter?</h2>
+          <p class="source">
+            If meme used: <a href="https://x.com/forrestbrazeal/status/1958553027834458285">x.com/forrestbrazeal/status/1958553027834458285</a>
+          </p>
+          <aside class="notes">
+            Obsolescence + skill-rot. [meme candidate: forrestbrazeal "did not age well"]
+          </aside>
+        </section>
+
+        <!-- 19 — The top anxiety -->
+        <section>
+          <blockquote>
+            "learning something that'll be out of date in 5 minutes"
+            <span class="attr">— PyCon DE anxiety wall</span>
+          </blockquote>
+          <ul>
+            <li>cost of learning when intelligence is cheap?</li>
+            <li>does anything survive?</li>
+          </ul>
+          <p class="source">
+            Laura's photo, PyCon DE 2026 (no external link) · meme candidate:
+            <a href="https://x.com/KaiLentit/status/2021282230421651456">x.com/KaiLentit/status/2021282230421651456</a>
+          </p>
+          <aside class="notes">
+            Hold both; "what survives" answered in §4. [meme candidate: "models expire faster than session cache"]
+          </aside>
+        </section>
+
+        <!-- 20 — You can't build an intuition for it -->
+        <section>
+          <blockquote>
+            "friction is the thing that builds the understanding of the system in your head."
+            <span class="attr">— Mario Zechner (Pi)</span>
+          </blockquote>
+          <p class="source">
+            <a href="https://youtube.com/watch?v=RjfbvDXpFls">youtube.com/watch?v=RjfbvDXpFls</a>
+          </p>
+          <aside class="notes">
+            Jupyter cell you get a feel for, LLM you don't; too many moving parts; wait too long to
+            start another task, too short to do nothing; not close to the machine.
+          </aside>
+        </section>
+
+        <!-- 21 — Latency: TTFT vs E2EL — PLACEHOLDER -->
+        <section>
+          <div class="placeholder">
+            <span class="tag">Placeholder — latency</span>
+            <p>TTFT vs E2EL — TBD</p>
+            <p style="font-size:0.6em;">Separate chat to finalise numbers + presentation.</p>
+          </div>
+          <aside class="notes">
+            Concept: response time isn't one number; TTFT = started, not usable (reasoning: 28–117s);
+            E2EL = what you feel, nobody publishes it; measurable vs felt = thesis in miniature.
+          </aside>
+        </section>
+
+        <!-- 22 — Why it's not steerable -->
+        <section>
+          <h2>Why it's not steerable</h2>
+          <ul>
+            <li>slow</li>
+            <li>noisy</li>
+            <li>missing feedback</li>
+          </ul>
+          <aside class="notes">
+            Slow = latency; noisy = non-determinism (can't tell if your change helped); missing =
+            can't see why (guardrail? provider? training data?); Meadows — the delayed-shower
+            oscillation; this is why it felt like the slot machine.
+          </aside>
+        </section>
+
+        <!-- 23 — It's not just the speed -->
+        <section>
+          <h2>It's not just the speed</h2>
+          <p>"you're not waiting on a tool — you're waiting on someone who isn't respecting your time"</p>
+          <aside class="notes">
+            Not just speed — the feeling you're talking to someone, and they're not respecting your
+            time; almost impossible to fight millennia of programming; we are social creatures, tribal;
+            obsequious and rude; callback to de-anthropomorphisation.
+          </aside>
+        </section>
+
+        <!-- 24 — The trade-offs are made for us, invisibly -->
+        <section>
+          <h2>The trade-offs are made for us, invisibly</h2>
+          <p>The streaming metaphor — no dial, no readout.</p>
+          <aside class="notes">
+            Adaptive intelligence serves the provider's goal; we get neither the dial
+            (smart-but-slow, per query) nor the readout (what got traded).
+          </aside>
+        </section>
+
+        <!-- 25 — We're missing a developer view -->
+        <section>
+          <blockquote>
+            "my context wasn't my context… zero observability."
+            <span class="attr">— Mario Zechner (Pi)</span>
+          </blockquote>
+          <p class="source">
+            <a href="https://youtube.com/watch?v=RjfbvDXpFls">youtube.com/watch?v=RjfbvDXpFls</a>
+          </p>
+          <aside class="notes">
+            A read-only window on the decisions made for us; Meadows — the meter moved into the hallway.
+          </aside>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 3 — Remedies and balms                               -->
+        <!-- ============================================================ -->
+
+        <!-- 26 — Section header -->
+        <section>
+          <p class="eyebrow">Section 3</p>
+          <h2>Remedies &amp; balms</h2>
+          <h3 class="subtitle">what actually helps</h3>
+        </section>
+
+        <!-- 27 — Reframe -->
+        <section>
+          <h2>optimise for human experience, not model output</h2>
+          <aside class="notes">
+            The turn the section hangs on.
+          </aside>
+        </section>
+
+        <!-- 28 — Measure the exhaust -->
+        <section>
+          <h2>If you can't pop the hood, at least measure the exhaust</h2>
+          <p>observability / tracing</p>
+          <aside class="notes">
+            Tracing = closest thing to a developer view today (OTel / Logfire); in-room callback —
+            "as Tun and Fei covered in Friday's tutorial" (MCP tracing with OpenTelemetry).
+          </aside>
+        </section>
+
+        <!-- 29 — Count your cards -->
+        <section>
+          <h2>If you're going to gamble, learn to count your cards</h2>
+          <p>evals</p>
+          <aside class="notes">
+            Know the game, know what can go wrong; evaluation is the skill, make the tacit explicit;
+            Aimee's chocolate-chip-cookie workshop; pays off Slop-or-Not; in-room callback —
+            "as Samuel mentioned in the keynote" (codemode, Logfire as the verification step).
+          </aside>
+        </section>
+
+        <!-- 30 — Technical balms -->
+        <section>
+          <h2>Technical balms</h2>
+          <ul>
+            <li>pre-mortems</li>
+            <li>AGENTS.md from your review comments</li>
+            <li>permission to just write the code</li>
+          </ul>
+          <aside class="notes">
+            Pre-mortem = fresh session "assume it failed, why?"; distil your judgement;
+            mode-switching (pick two).
+          </aside>
+        </section>
+
+        <!-- 31 — Make the output brain-friendly -->
+        <section>
+          <h2>Make the output brain-friendly</h2>
+          <p>respect your cognitive limit (~4–7 chunks)</p>
+          <aside class="notes">
+            Aimee — chunk it; ask for a "scientific-abstract" not an "executive summary";
+            bold first/last sentences to speed-read.
+          </aside>
+        </section>
+
+        <!-- 32 — Human balms -->
+        <section>
+          <h2>Human balms</h2>
+          <ul>
+            <li>pair against the grain</li>
+            <li>name it ("oh — you too?")</li>
+            <li>solidarity</li>
+          </ul>
+          <blockquote>
+            [STUB — exact quote: "working with Claude more human… having a great time"]
+            <span class="attr">— Akós</span>
+          </blockquote>
+          <p class="source">
+            Akós — [internal/colleague; no public link — confirm attribution]
+          </p>
+          <aside class="notes">
+            Communities, this room; it can also be genuinely good.
+          </aside>
+        </section>
+
+        <!-- 33 — Protect the brain and body -->
+        <section>
+          <h2>Protect the brain and body</h2>
+          <ul>
+            <li>90-min breaks</li>
+            <li>talk to a human</li>
+            <li>four best hours then stop</li>
+            <li>LookAway</li>
+          </ul>
+          <aside class="notes">
+            Aimee + Eric Ma; don't golem out.
+          </aside>
+        </section>
+
+        <!-- 34 — Important, but not the full picture -->
+        <section>
+          <h2>Important, but not the full picture</h2>
+          <p>tracing sees outputs; config / training / guardrails stay invisible → so push</p>
+          <aside class="notes">
+            Providers for the dial + readout; self-host OSS where control matters;
+            fine-tune where control + privacy matter.
+          </aside>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 4 — Philosophy: the bigger picture                   -->
+        <!-- ============================================================ -->
+
+        <!-- 35 — Section header -->
+        <section>
+          <p class="eyebrow">Section 4</p>
+          <h2>The bigger picture</h2>
+          <h3 class="subtitle">what is this doing to us?</h3>
+        </section>
+
+        <!-- 36 — What survives -->
+        <section>
+          <h2>What survives</h2>
+          <ul>
+            <li>taste</li>
+            <li>judgement</li>
+            <li>the contrarian calls from real expertise</li>
+          </ul>
+          <aside class="notes">
+            Strongest where we know the trade-offs; shallow end goes impressionistic;
+            answers "does anything survive?"
+          </aside>
+        </section>
+
+        <!-- 37 — The bottleneck was never the code -->
+        <section>
+          <h2>The bottleneck was never the code</h2>
+          <p>scarce → valuable</p>
+          <aside class="notes">
+            It was always attention + judgement; now the scarce thing.
+          </aside>
+        </section>
+
+        <!-- 38 — Remember the slot machine? — STUB -->
+        <section>
+          <div class="placeholder">
+            <span class="tag">Stub — your words</span>
+            <h2 style="color:#777;">Remember the slot machine?</h2>
+            <p>TBD (your wording)</p>
+          </div>
+          <aside class="notes">
+            The slot machine also changes how we feel about our own output / contribution / worth;
+            up- and down-side; wins don't feel ours, failures do; glancing — democratising the losses,
+            privatising the gains.
+          </aside>
+        </section>
+
+        <!-- 39 — Hands in the fabric of the universe -->
+        <section>
+          <h2>Hands in the fabric of the universe</h2>
+          <p>Metropolis + Ghost in the Shell stills</p>
+          <p class="source">
+            Metropolis (1927, dir. Fritz Lang) · Ghost in the Shell (1995, dir. Mamoru Oshii)
+            — cite film + year + director (no single URL)
+          </p>
+          <aside class="notes">
+            Coding felt like shaping the world; siren song of automation; briefly — cyborgs,
+            human extension, human automation.
+          </aside>
+        </section>
+
+        <!-- 40 — The real invitation -->
+        <section>
+          <h2>The real invitation</h2>
+          <p>micro ↔ macro</p>
+          <aside class="notes">
+            How do I make this work for me — and what is it doing to our culture, language,
+            shared knowledge? In real time, at speed.
+          </aside>
+        </section>
+
+        <!-- 41 — Close -->
+        <section>
+          <h2>The humans are still in the loop. We're just tired.</h2>
+          <h3 class="subtitle">More Star Trek, less Black Mirror.</h3>
+        </section>
+
+        <!-- 42 — Thanks / Q&A -->
+        <section>
+          <h2>Thanks</h2>
+          <p>Laura Summers — Lead Design Engineer @ Pydantic</p>
+          <aside class="notes">
+            "which pattern hit hardest?"
+          </aside>
+        </section>
+
+      </div>
+    </div>
+
+    <script type="module">
+      import Reveal from "./dist/reveal.esm.js";
+      import RevealNotes from "./plugin/notes/notes.esm.js";
+      import RevealHighlight from "./plugin/highlight/highlight.esm.js";
+
+      Reveal.initialize({
+        hash: true,
+        slideNumber: "c/t",
+        plugins: [RevealNotes, RevealHighlight],
+      });
+    </script>
+  </body>
+</html>
