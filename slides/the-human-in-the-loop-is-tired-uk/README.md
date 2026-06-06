@@ -11,7 +11,19 @@ later.
 
 Plain [reveal.js](https://revealjs.com/) deck — `index.html` is the whole deck.
 
-- Theme: `white` (vanilla dark-on-light).
+- Theme: **`human-loop`** — custom SCSS theme (dark ink on warm paper).
+  Display headings in **Black Han Sans** with a subtle ink→violet gradient
+  (`background-clip: text`); body copy in **Newsreader** (a friendly,
+  slightly-narrow literary serif, for contrast). Fonts load from Google Fonts
+  via `<link>` tags in `index.html`.
+  - Source: `css/theme/human-loop.scss` (built on `css/theme/template/`,
+    mirroring the other decks).
+  - Built distro: `dist/theme/human-loop.css` (committed).
+  - Rebuild after editing the SCSS:
+    `bunx sass css/theme/human-loop.scss dist/theme/human-loop.css --no-source-map --style=expanded`
+  - To try a different body serif, change the `Newsreader` family in
+    `css/theme/human-loop.scss` (and the `<link>`) — e.g. `Bitter` or
+    `Fraunces` — and rebuild.
 - **Speaker notes** live in `<aside class="notes">` on each slide. Press **`s`**
   for the speaker view (notes + next slide + timer).
 - Source citations for quote/meme/video slides sit on the slide itself.

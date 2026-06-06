@@ -1,0 +1,514 @@
+/**
+ * Human Loop - custom theme for "The Human-in-the-Loop Is Tired"
+ * PyData London 2026.
+ *
+ * Dark ink on warm paper. Loud display headings (Black Han Sans) with a
+ * subtle ink -> violet gradient, set against a friendly, slightly-narrow
+ * literary serif body (Newsreader) for contrast.
+ *
+ * Built via the reveal.js SCSS pipeline:
+ *   sass css/theme/human-loop.scss dist/theme/human-loop.css
+ * (mirrors `npm run build:styles` in the other decks; see README)
+ *
+ * Fonts are pulled from Google Fonts via <link> tags in index.html
+ * (Black Han Sans + Newsreader).
+ */
+:root {
+  --r-background: #2b2b2b;
+  --r-background-color: #f7f4ee;
+  --r-main-font: Newsreader, Georgia, 'Times New Roman', serif;
+  --r-main-font-size: 40px;
+  --r-main-color: #20202e;
+  --r-block-margin: 0.7em;
+  --r-heading-margin: 0 0 0.4em 0;
+  --r-heading-font: 'Black Han Sans', 'Arial Black', sans-serif;
+  --r-heading-color: #20202e;
+  --r-heading-line-height: 1.05;
+  --r-heading-letter-spacing: -0.005em;
+  --r-heading-text-transform: none;
+  --r-heading-text-shadow: none;
+  --r-heading-font-weight: 400;
+  --r-heading1-text-shadow: none;
+  --r-heading1-size: 2.6em;
+  --r-heading2-size: 1.9em;
+  --r-heading3-size: 1.1em;
+  --r-heading4-size: 1em;
+  --r-code-font: monospace;
+  --r-link-color: #6a3da0;
+  --r-link-color-dark: rgb(90.1, 51.85, 136);
+  --r-link-color-hover: rgb(127.1730769231, 77.1538461538, 187.1961538462);
+  --r-selection-background-color: #6a3da0;
+  --r-selection-color: #f7f4ee;
+  --r-overlay-element-bg-color: 240, 240, 240;
+  --r-overlay-element-fg-color: 0, 0, 0;
+}
+
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+.reveal-viewport {
+  background: var(--r-background);
+  background-color: var(--r-background-color);
+}
+
+.reveal {
+  font-family: var(--r-main-font);
+  font-size: var(--r-main-font-size);
+  font-weight: normal;
+  color: var(--r-main-color);
+}
+
+.reveal ::selection {
+  color: var(--r-selection-color);
+  background: var(--r-selection-background-color);
+  text-shadow: none;
+}
+
+.reveal ::-moz-selection {
+  color: var(--r-selection-color);
+  background: var(--r-selection-background-color);
+  text-shadow: none;
+}
+
+.reveal .slides section,
+.reveal .slides section > section {
+  line-height: 1.3;
+  font-weight: inherit;
+}
+
+/*********************************************
+ * HEADERS
+ *********************************************/
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  margin: var(--r-heading-margin);
+  color: var(--r-heading-color);
+  font-family: var(--r-heading-font);
+  font-weight: var(--r-heading-font-weight);
+  line-height: var(--r-heading-line-height);
+  letter-spacing: var(--r-heading-letter-spacing);
+  text-transform: var(--r-heading-text-transform);
+  text-shadow: var(--r-heading-text-shadow);
+  word-wrap: break-word;
+}
+
+.reveal h1 {
+  font-size: var(--r-heading1-size);
+}
+
+.reveal h2 {
+  font-size: var(--r-heading2-size);
+}
+
+.reveal h3 {
+  font-size: var(--r-heading3-size);
+}
+
+.reveal h4 {
+  font-size: var(--r-heading4-size);
+}
+
+.reveal h1 {
+  text-shadow: var(--r-heading1-text-shadow);
+}
+
+/*********************************************
+ * OTHER
+ *********************************************/
+.reveal p {
+  margin: var(--r-block-margin) 0;
+  line-height: 1.3;
+}
+
+/* Remove trailing margins after titles */
+.reveal h1:last-child,
+.reveal h2:last-child,
+.reveal h3:last-child,
+.reveal h4:last-child,
+.reveal h5:last-child,
+.reveal h6:last-child {
+  margin-bottom: 0;
+}
+
+/* Ensure certain elements are never larger than the slide itself */
+.reveal img,
+.reveal video,
+.reveal iframe {
+  max-width: 95%;
+  max-height: 95%;
+}
+
+.reveal strong,
+.reveal b {
+  font-weight: bold;
+}
+
+.reveal em {
+  font-style: italic;
+}
+
+.reveal ol,
+.reveal dl,
+.reveal ul {
+  display: inline-block;
+  text-align: left;
+  margin: 0 0 0 1em;
+}
+
+.reveal ol {
+  list-style-type: decimal;
+}
+
+.reveal ul {
+  list-style-type: disc;
+}
+
+.reveal ul ul {
+  list-style-type: square;
+}
+
+.reveal ul ul ul {
+  list-style-type: circle;
+}
+
+.reveal ul ul,
+.reveal ul ol,
+.reveal ol ol,
+.reveal ol ul {
+  display: block;
+  margin-left: 40px;
+}
+
+.reveal dt {
+  font-weight: bold;
+}
+
+.reveal dd {
+  margin-left: 40px;
+}
+
+.reveal blockquote {
+  display: block;
+  position: relative;
+  width: 70%;
+  margin: var(--r-block-margin) auto;
+  padding: 5px;
+  font-style: italic;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+}
+
+.reveal blockquote p:first-child,
+.reveal blockquote p:last-child {
+  display: inline-block;
+}
+
+.reveal q {
+  font-style: italic;
+}
+
+.reveal pre {
+  display: block;
+  position: relative;
+  width: 90%;
+  margin: var(--r-block-margin) auto;
+  text-align: left;
+  font-size: 0.55em;
+  font-family: var(--r-code-font);
+  line-height: 1.2em;
+  word-wrap: break-word;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.reveal code {
+  font-family: var(--r-code-font);
+  text-transform: none;
+  tab-size: 2;
+}
+
+.reveal pre code {
+  display: block;
+  padding: 5px;
+  overflow: auto;
+  max-height: 400px;
+  word-wrap: normal;
+}
+
+.reveal .code-wrapper {
+  white-space: normal;
+}
+
+.reveal .code-wrapper code {
+  white-space: pre;
+}
+
+.reveal table {
+  margin: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.reveal table th {
+  font-weight: bold;
+}
+
+.reveal table th,
+.reveal table td {
+  text-align: left;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  border-bottom: 1px solid;
+}
+
+.reveal table th[align=center],
+.reveal table td[align=center] {
+  text-align: center;
+}
+
+.reveal table th[align=right],
+.reveal table td[align=right] {
+  text-align: right;
+}
+
+.reveal table tbody tr:last-child th,
+.reveal table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.reveal sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+
+.reveal sub {
+  vertical-align: sub;
+  font-size: smaller;
+}
+
+.reveal small {
+  display: inline-block;
+  font-size: 0.6em;
+  line-height: 1.2em;
+  vertical-align: top;
+}
+
+.reveal small * {
+  vertical-align: top;
+}
+
+.reveal img {
+  margin: var(--r-block-margin) 0;
+}
+
+/*********************************************
+ * LINKS
+ *********************************************/
+.reveal a {
+  color: var(--r-link-color);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.reveal a:hover {
+  color: var(--r-link-color-hover);
+  text-shadow: none;
+  border: none;
+}
+
+.reveal .roll span:after {
+  color: #fff;
+  background: var(--r-link-color-dark);
+}
+
+/*********************************************
+ * Frame helper
+ *********************************************/
+.reveal .r-frame {
+  border: 4px solid var(--r-main-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.reveal a .r-frame {
+  transition: all 0.15s linear;
+}
+
+.reveal a:hover .r-frame {
+  border-color: var(--r-link-color);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
+}
+
+/*********************************************
+ * NAVIGATION CONTROLS
+ *********************************************/
+.reveal .controls {
+  color: var(--r-link-color);
+}
+
+/*********************************************
+ * PROGRESS BAR
+ *********************************************/
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--r-link-color);
+}
+
+/*********************************************
+ * PRINT BACKGROUND
+ *********************************************/
+@media print {
+  .backgrounds {
+    background-color: var(--r-background-color);
+  }
+}
+:root {
+  --color-paper: #f7f4ee;
+  --color-paper-dark: #ece7dd;
+  --color-ink: #20202e;
+  --color-ink-soft: #6a6577;
+  --color-violet: #6a3da0;
+  --color-violet-deep: #2b2150;
+  --color-coral: #e0653a;
+  --color-rule: #d8d0c4;
+  --font-display: 'Black Han Sans', 'Arial Black', sans-serif;
+  --font-body: Newsreader, Georgia, 'Times New Roman', serif;
+  --font-ui: 'Helvetica Neue', Arial, sans-serif;
+  --heading-gradient: linear-gradient(100deg, #1a1a2e 0%, #2b2150 45%, #6a3da0 100%);
+}
+
+.reveal {
+  font-weight: 400;
+}
+
+.reveal .slides section {
+  background: #f7f4ee;
+}
+
+.reveal strong {
+  font-weight: 600;
+}
+
+.reveal em {
+  font-style: italic;
+}
+
+.reveal h1,
+.reveal h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: #20202e;
+  background: var(--heading-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.reveal h3,
+.reveal h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: #20202e;
+}
+
+.reveal .eyebrow {
+  font-family: var(--font-ui);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.4em;
+  font-weight: 600;
+  color: var(--color-violet);
+  margin-bottom: 0.6em;
+}
+
+.reveal .subtitle {
+  font-family: var(--font-body);
+  font-style: italic;
+  color: var(--color-ink-soft);
+  font-size: 0.7em;
+}
+
+.reveal section h1.title {
+  font-size: 2.4em;
+}
+
+.reveal .credit {
+  font-family: var(--font-ui);
+  font-size: 0.5em;
+  color: var(--color-ink-soft);
+  margin-top: 1.2em;
+  line-height: 1.6;
+}
+
+.reveal blockquote {
+  width: 92%;
+  background: rgba(106, 61, 160, 0.06);
+  border-left: 4px solid var(--color-violet);
+  box-shadow: none;
+  font-style: normal;
+  font-size: 0.95em;
+  line-height: 1.45;
+  padding: 0.8em 1em;
+}
+
+.reveal blockquote .attr {
+  display: block;
+  margin-top: 0.6em;
+  font-family: var(--font-ui);
+  font-size: 0.62em;
+  color: var(--color-ink-soft);
+  letter-spacing: 0.02em;
+}
+
+.reveal .source {
+  font-family: var(--font-ui);
+  font-size: 0.4em;
+  line-height: 1.4;
+  color: var(--color-ink-soft);
+  margin-top: 1.2em;
+  word-break: break-word;
+}
+
+.reveal .source a {
+  color: var(--color-violet);
+}
+
+.reveal .placeholder {
+  border: 2px dashed var(--color-rule);
+  border-radius: 12px;
+  padding: 0.8em 1em;
+  background: rgba(0, 0, 0, 0.02);
+  color: var(--color-ink-soft);
+}
+
+.reveal .placeholder .tag {
+  display: inline-block;
+  font-family: var(--font-ui);
+  font-size: 0.4em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--color-paper-dark);
+  color: var(--color-ink-soft);
+  padding: 0.3em 0.7em;
+  border-radius: 999px;
+  margin-bottom: 0.7em;
+}
+
+.reveal .placeholder h2 {
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  color: var(--color-ink-soft);
+}
+
+.reveal pre {
+  width: 92%;
+  box-shadow: none;
+  font-size: 0.5em;
+}
+
+.reveal pre code {
+  border-radius: 8px;
+  padding: 1em 1.2em;
+  max-height: none;
+}
