@@ -614,15 +614,17 @@ def dedupe(items):
       </div>
     </div>
 
-    <script type="module">
-      import Reveal from "./dist/reveal.esm.js";
-      import RevealNotes from "./plugin/notes/notes.esm.js";
-      import RevealHighlight from "./plugin/highlight/highlight.esm.js";
-
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
       Reveal.initialize({
         hash: true,
         slideNumber: "c/t",
-        plugins: [RevealNotes, RevealHighlight],
+        plugins: [RevealHighlight, RevealNotes],
       });
     </script>
   </body>
