@@ -16,7 +16,7 @@
  *   .bg-thistle      prussian blue text on thistle     (inner - quotes)
  *   .bg-aqua         prussian blue text on pearl aqua  (inner - statements)
  *
- * Headings: Boldonse (h1/h2, all caps), Black Han Sans (h3/h4). On the dark
+ * Headings: Boldonse (headings). On the dark
  * templates (.cover, .section-header) the main heading uses a pearl-aqua ->
  * thistle background-clip gradient; on light inner templates headings are
  * solid prussian blue. Subheads: Bodoni Moda (upright).
@@ -36,7 +36,7 @@
   --r-main-color: #101935;
   --r-block-margin: 0.7em;
   --r-heading-margin: 0 0 0.4em 0;
-  --r-heading-font: 'Black Han Sans', 'Arial Black', sans-serif;
+  --r-heading-font: 'Boldonse', 'Arial Black', sans-serif;
   --r-heading-color: #101935;
   --r-heading-line-height: 1.05;
   --r-heading-letter-spacing: -0.005em;
@@ -385,7 +385,7 @@
   --color-aqua: #9ad4d6;
   --color-prussian: #101935;
   --font-heading: 'Boldonse', 'Arial Black', sans-serif;
-  --font-display: 'Black Han Sans', 'Arial Black', sans-serif;
+  --font-display: 'Boldonse', 'Arial Black', sans-serif;
   --font-serif-display: 'Bodoni Moda', Didot, Georgia, serif;
   --font-body: 'Helvetica Neue', Arial, sans-serif;
   --font-ui: 'Helvetica Neue', Arial, sans-serif;

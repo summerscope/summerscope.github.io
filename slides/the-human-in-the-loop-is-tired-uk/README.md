@@ -10,10 +10,10 @@ later.
 Plain [reveal.js](https://revealjs.com/) deck — `index.html` is the whole deck.
 
 - Theme: **`human-loop`** — custom SCSS theme (dark ink on warm paper).
-  Display headings in **Black Han Sans** with a subtle ink→violet gradient
-  (`background-clip: text`); body copy in **Newsreader** (a friendly,
-  slightly-narrow literary serif, for contrast). Fonts load from Google Fonts
-  via `<link>` tags in `index.html`.
+  Headings in **Boldonse**; subheads and quotes in **Bodoni Moda** (with a
+  Bodoni drop-cap on each blockquote, body of the quote in Times New Roman);
+  body copy in system sans. Fonts load from Google Fonts via `<link>` tags in
+  `index.html`.
   - Source: `css/theme/human-loop.scss` (built on `css/theme/template/`,
     mirroring the other decks).
   - Built distro: `dist/theme/human-loop.css` (committed).

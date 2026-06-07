@@ -16,7 +16,7 @@
  *   .bg-thistle      prussian blue text on thistle     (inner - quotes)
  *   .bg-aqua         prussian blue text on pearl aqua  (inner - statements)
  *
- * Headings: Boldonse (h1/h2, all caps), Black Han Sans (h3/h4). On the dark
+ * Headings: Boldonse (headings). On the dark
  * templates (.cover, .section-header) the main heading uses a pearl-aqua ->
  * thistle background-clip gradient; on light inner templates headings are
  * solid prussian blue. Subheads: Bodoni Moda (upright).
@@ -60,7 +60,7 @@ $prussian: #101935;   // prussian blue
   $block-margin:            0.7em,
 
   $heading-margin:          (0 0 0.4em 0),
-  $heading-font:            "'Black Han Sans', 'Arial Black', sans-serif",
+  $heading-font:            "'Boldonse', 'Arial Black', sans-serif",
   $heading-color:           $prussian,
   $heading-line-height:     1.05,
   $heading-letter-spacing:  -0.005em,
@@ -95,7 +95,7 @@ $prussian: #101935;   // prussian blue
   --color-prussian: #{$prussian};
 
   --font-heading:       'Boldonse', 'Arial Black', sans-serif;        // main headings (h1/h2), all caps
-  --font-display:       'Black Han Sans', 'Arial Black', sans-serif;  // secondary display (h3/h4)
+  --font-display:       'Boldonse', 'Arial Black', sans-serif;  // secondary display (h3/h4)
   --font-serif-display: 'Bodoni Moda', Didot, Georgia, serif;         // subheads (upright)
   --font-body:          'Helvetica Neue', Arial, sans-serif;          // body copy (system sans)
   --font-ui:            'Helvetica Neue', Arial, sans-serif;
