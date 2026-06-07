@@ -467,11 +467,22 @@
   background: rgba(86, 71, 135, 0.08);
   border-left: 4px solid #564787;
   box-shadow: none;
-  font-family: "Bodoni Moda", Didot, Georgia, serif;
+  font-family: "Times New Roman", Times, Georgia, serif;
   font-style: italic;
-  font-size: 1.2em;
-  line-height: 1.45;
+  font-size: 1.05em;
+  line-height: 1.5;
   padding: 0.8em 1em;
+}
+
+.reveal blockquote::first-letter {
+  font-family: "Bodoni Moda", Didot, Georgia, serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 3em;
+  line-height: 0.8;
+  float: left;
+  margin: 0.02em 0.08em 0 0;
+  color: #564787;
 }
 
 .reveal blockquote .attr {

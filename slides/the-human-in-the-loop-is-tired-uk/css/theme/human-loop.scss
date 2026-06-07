@@ -200,11 +200,23 @@ $prussian: #101935;   // prussian blue
   background: rgba($grape, 0.08);
   border-left: 4px solid $grape;
   box-shadow: none;
-  font-family: var(--font-serif-display);   // Bodoni Moda
+  font-family: 'Times New Roman', Times, Georgia, serif;   // readable body italic
   font-style: italic;
-  font-size: 1.2em;
-  line-height: 1.45;
+  font-size: 1.05em;
+  line-height: 1.5;
   padding: 0.8em 1em;
+}
+
+// Drop-cap: first letter in big Bodoni Moda, rest in Times italic
+.reveal blockquote::first-letter {
+  font-family: var(--font-serif-display);   // Bodoni Moda
+  font-style: normal;
+  font-weight: 600;
+  font-size: 3em;
+  line-height: 0.8;
+  float: left;
+  margin: 0.02em 0.08em 0 0;
+  color: $grape;
 }
 
 .reveal blockquote .attr {
