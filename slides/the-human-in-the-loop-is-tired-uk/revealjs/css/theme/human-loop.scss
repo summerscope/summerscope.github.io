@@ -16,11 +16,12 @@
  *   .bg-thistle      prussian blue text on thistle     (inner - quotes)
  *   .bg-aqua         prussian blue text on pearl aqua  (inner - statements)
  *
- * Headings: Black Han Sans. On the dark templates (.cover, .section-header)
- * the main heading uses a pearl-aqua -> thistle background-clip gradient;
- * on the light inner templates headings are solid prussian blue.
+ * Headings: Boldonse (h1/h2, all caps), Black Han Sans (h3/h4). On the dark
+ * templates (.cover, .section-header) the main heading uses a pearl-aqua ->
+ * thistle background-clip gradient; on light inner templates headings are
+ * solid prussian blue. Subheads: Bodoni Moda (upright).
  *
- * Body: Newsreader (friendly, slightly-narrow literary serif).
+ * Body: system sans (Helvetica Neue / Arial).
  *
  * Built via the reveal.js SCSS pipeline (mirrors `npm run build:styles`):
  *   bunx sass css/theme/human-loop.scss dist/theme/human-loop.css --no-source-map --style=expanded
@@ -52,7 +53,7 @@ $prussian: #101935;   // prussian blue
 @use 'template/settings' with (
   $background-color:        $azure,
 
-  $main-font:               "Newsreader, Georgia, 'Times New Roman', serif",
+  $main-font:               "'Helvetica Neue', Arial, sans-serif",
   $main-font-size:          40px,
   $main-color:              $prussian,
 
@@ -93,9 +94,10 @@ $prussian: #101935;   // prussian blue
   --color-aqua:     #{$aqua};
   --color-prussian: #{$prussian};
 
-  --font-display:       'Black Han Sans', 'Arial Black', sans-serif;  // loud display
-  --font-serif-display: 'Bodoni Moda', Didot, Georgia, serif;         // secondary display (subheads / mixed headings)
-  --font-body:          Newsreader, Georgia, 'Times New Roman', serif;
+  --font-heading:       'Boldonse', 'Arial Black', sans-serif;        // main headings (h1/h2), all caps
+  --font-display:       'Black Han Sans', 'Arial Black', sans-serif;  // secondary display (h3/h4)
+  --font-serif-display: 'Bodoni Moda', Didot, Georgia, serif;         // subheads (upright)
+  --font-body:          'Helvetica Neue', Arial, sans-serif;          // body copy (system sans)
   --font-ui:            'Helvetica Neue', Arial, sans-serif;
 
   // Text gradient: pearl aqua -> thistle (reads on the dark templates).
@@ -116,9 +118,22 @@ $prussian: #101935;   // prussian blue
 .reveal h2,
 .reveal h3,
 .reveal h4 {
-  font-family: var(--font-display);
   font-weight: 400;
   color: $prussian;   // solid by default; dark templates override w/ gradient
+}
+
+// Main headings: Boldonse, all caps.
+.reveal h1,
+.reveal h2 {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+// Secondary display headings.
+.reveal h3,
+.reveal h4 {
+  font-family: var(--font-display);
 }
 
 .reveal strong { font-weight: 600; }
@@ -159,9 +174,8 @@ $prussian: #101935;   // prussian blue
 }
 
 .reveal .subtitle {
-  font-family: var(--font-serif-display);   // Bodoni Moda
+  font-family: var(--font-serif-display);   // Bodoni Moda (upright)
   font-weight: 500;
-  font-style: italic;
   color: rgba($prussian, 0.7);
   font-size: 0.72em;
 }
@@ -308,137 +322,4 @@ $prussian: #101935;   // prussian blue
   color: $prussian;
 
   h1, h2, h3, h4 { color: $prussian; }
-}
-
-
-// ============================================================
-// PEEKING-CHARACTER COMPOSITION  (+ subtle animation)
-// ------------------------------------------------------------
-// Pattern: a geometric "roof" silhouette anchored to the slide
-// bottom, with a character peeking out from behind it. The
-// character slides in from off-canvas when the slide arrives,
-// then floats gently. Roof + motion are asset-free; the
-// character is a transparent PNG dropped into `.peeker-img`.
-//
-// Markup (the .stage must be the FIRST child of the <section>
-// so the slide content paints on top of it):
-//
-//   <section class="bg-azure" data-background-color="#F2FDFF">
-//     <div class="stage">
-//       <div class="peeker peeker--right">
-//         <img class="peeker-img" src="img/faces/heater.png" alt="" />
-//       </div>
-//       <div class="roof roof--aqua"></div>
-//     </div>
-//     ...normal slide content...
-//   </section>
-//
-// Roof colour: .roof--grape / --thistle / --azure / --aqua / --prussian
-// Side:        .peeker--left / --right   (nudge with --peek-x / --peek-w)
-// ============================================================
-
-// Composition slides opt out of reveal's vertical centering so the
-// section fills the whole slide (otherwise .stage only covers the
-// centered content box and the roof floats mid-slide). Content is
-// re-centered with flexbox inside the full-height section.
-.reveal .slides section.has-stage {
-  position: absolute;
-  top: 0 !important;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.reveal .stage {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 0;          // sits behind slide content
-}
-
-// ---- ROOF SILHOUETTE ---------------------------------------
-// Recolourable: the SHAPE comes from the provided SVG art used as
-// a CSS mask; the COLOUR comes from --roof-color. So one shape can
-// be any palette colour, and the SVG's own fill/stroke is ignored.
-// Pick a shape (.roof--shape1 = angles1, .roof--shape2 = angles2)
-// and a colour (.roof--grape / --aqua / --thistle / --azure / --prussian).
-// Anchored full-width to the slide bottom; character peeks from behind.
-// Shapes are inlined as data-URI masks (not external files) so they
-// load over file:// as well as http. fill colour in the data URI is
-// irrelevant - only the alpha/silhouette is used by the mask.
-$roof-shape1: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1408 154' preserveAspectRatio='none'%3E%3Cpath d='M1010 86L1408 156H0L243.5 119V46H255.344L438 108V0H646L910 108L1010 86Z' fill='black'/%3E%3C/svg%3E";
-$roof-shape2: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1046 157' preserveAspectRatio='none'%3E%3Cpath d='M35.42 86.5L-362.58 156.5H1045.42L801.92 119.5V46.5H790.08L607.42 108.5V0.5H399.42L135.42 108.5L35.42 86.5Z' fill='black'/%3E%3C/svg%3E";
-
-.reveal .roof {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: var(--roof-h, 24%);
-  background: var(--roof-color, #{$grape});
-  z-index: 2;          // in front of the peeker (so it peeks from *behind*)
-  pointer-events: none;
-  -webkit-mask: url("#{$roof-shape1}") no-repeat center bottom / 100% 100%;
-          mask: url("#{$roof-shape1}") no-repeat center bottom / 100% 100%;
-}
-
-.reveal .roof--shape2 {
-  -webkit-mask-image: url("#{$roof-shape2}");
-          mask-image: url("#{$roof-shape2}");
-}
-
-.reveal .roof--grape    { --roof-color: #{$grape}; }
-.reveal .roof--aqua     { --roof-color: #{$aqua}; }
-.reveal .roof--thistle  { --roof-color: #{$thistle}; }
-.reveal .roof--azure    { --roof-color: #{$azure}; }
-.reveal .roof--prussian { --roof-color: #{$prussian}; }
-
-// ---- PEEKER (entrance animation lives here) ----------------
-.reveal .peeker {
-  position: absolute;
-  bottom: 0;
-  width: var(--peek-w, 9%);   // SMALL by default; bump per-slide with --peek-w
-  z-index: 1;          // behind the roof
-  // resting (pre-entrance) state: tucked off-canvas below the slide
-  transform: translateY(118%);
-  opacity: 0;
-  will-change: transform, opacity;
-}
-
-.reveal .peeker--right { right: var(--peek-x, 4%); }
-.reveal .peeker--left  { left:  var(--peek-x, 4%); }
-
-// ---- CHARACTER ART (continuous float lives here) -----------
-.reveal .peeker-img {
-  display: block;
-  width: 100%;
-  height: auto;
-  // gentle float, always running; combines with the parent's
-  // entrance transform because it's a separate element.
-  animation: peek-float 4.5s ease-in-out infinite;
-}
-
-// Trigger the entrance only when the slide is the active one.
-.reveal section.present .peeker {
-  animation: peek-in 0.9s cubic-bezier(0.22, 0.85, 0.25, 1) forwards;
-}
-
-@keyframes peek-in {
-  from { transform: translateY(118%); opacity: 0; }
-  to   { transform: translateY(0);     opacity: 1; }
-}
-
-@keyframes peek-float {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-10px); }
-}
-
-// Accessibility: no motion if the viewer asked for none.
-@media (prefers-reduced-motion: reduce) {
-  .reveal .peeker,
-  .reveal section.present .peeker { animation: none; transform: translateY(0); opacity: 1; }
-  .reveal .peeker-img { animation: none; }
 }

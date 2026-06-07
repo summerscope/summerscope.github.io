@@ -16,11 +16,12 @@
  *   .bg-thistle      prussian blue text on thistle     (inner - quotes)
  *   .bg-aqua         prussian blue text on pearl aqua  (inner - statements)
  *
- * Headings: Black Han Sans. On the dark templates (.cover, .section-header)
- * the main heading uses a pearl-aqua -> thistle background-clip gradient;
- * on the light inner templates headings are solid prussian blue.
+ * Headings: Boldonse (h1/h2, all caps), Black Han Sans (h3/h4). On the dark
+ * templates (.cover, .section-header) the main heading uses a pearl-aqua ->
+ * thistle background-clip gradient; on light inner templates headings are
+ * solid prussian blue. Subheads: Bodoni Moda (upright).
  *
- * Body: Newsreader (friendly, slightly-narrow literary serif).
+ * Body: system sans (Helvetica Neue / Arial).
  *
  * Built via the reveal.js SCSS pipeline (mirrors `npm run build:styles`):
  *   bunx sass css/theme/human-loop.scss dist/theme/human-loop.css --no-source-map --style=expanded
@@ -30,7 +31,7 @@
 :root {
   --r-background: #2b2b2b;
   --r-background-color: #f2fdff;
-  --r-main-font: Newsreader, Georgia, 'Times New Roman', serif;
+  --r-main-font: 'Helvetica Neue', Arial, sans-serif;
   --r-main-font-size: 40px;
   --r-main-color: #101935;
   --r-block-margin: 0.7em;
@@ -383,9 +384,10 @@
   --color-azure: #f2fdff;
   --color-aqua: #9ad4d6;
   --color-prussian: #101935;
+  --font-heading: 'Boldonse', 'Arial Black', sans-serif;
   --font-display: 'Black Han Sans', 'Arial Black', sans-serif;
   --font-serif-display: 'Bodoni Moda', Didot, Georgia, serif;
-  --font-body: Newsreader, Georgia, 'Times New Roman', serif;
+  --font-body: 'Helvetica Neue', Arial, sans-serif;
   --font-ui: 'Helvetica Neue', Arial, sans-serif;
   --heading-gradient: linear-gradient(100deg, #9ad4d6 0%, #dbcbd8 100%);
 }
@@ -399,9 +401,20 @@
 .reveal h2,
 .reveal h3,
 .reveal h4 {
-  font-family: var(--font-display);
   font-weight: 400;
   color: #101935;
+}
+
+.reveal h1,
+.reveal h2 {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.reveal h3,
+.reveal h4 {
+  font-family: var(--font-display);
 }
 
 .reveal strong {
@@ -433,7 +446,6 @@
 .reveal .subtitle {
   font-family: var(--font-serif-display);
   font-weight: 500;
-  font-style: italic;
   color: rgba(16, 25, 53, 0.7);
   font-size: 0.72em;
 }
@@ -587,119 +599,4 @@
 .reveal section.bg-aqua h3,
 .reveal section.bg-aqua h4 {
   color: #101935;
-}
-
-.reveal .slides section.has-stage {
-  position: absolute;
-  top: 0 !important;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.reveal .stage {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.reveal .roof {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: var(--roof-h, 24%);
-  background: var(--roof-color, #564787);
-  z-index: 2;
-  pointer-events: none;
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1408 154' preserveAspectRatio='none'%3E%3Cpath d='M1010 86L1408 156H0L243.5 119V46H255.344L438 108V0H646L910 108L1010 86Z' fill='black'/%3E%3C/svg%3E") no-repeat center bottom/100% 100%;
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1408 154' preserveAspectRatio='none'%3E%3Cpath d='M1010 86L1408 156H0L243.5 119V46H255.344L438 108V0H646L910 108L1010 86Z' fill='black'/%3E%3C/svg%3E") no-repeat center bottom/100% 100%;
-}
-
-.reveal .roof--shape2 {
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1046 157' preserveAspectRatio='none'%3E%3Cpath d='M35.42 86.5L-362.58 156.5H1045.42L801.92 119.5V46.5H790.08L607.42 108.5V0.5H399.42L135.42 108.5L35.42 86.5Z' fill='black'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1046 157' preserveAspectRatio='none'%3E%3Cpath d='M35.42 86.5L-362.58 156.5H1045.42L801.92 119.5V46.5H790.08L607.42 108.5V0.5H399.42L135.42 108.5L35.42 86.5Z' fill='black'/%3E%3C/svg%3E");
-}
-
-.reveal .roof--grape {
-  --roof-color: #564787;
-}
-
-.reveal .roof--aqua {
-  --roof-color: #9ad4d6;
-}
-
-.reveal .roof--thistle {
-  --roof-color: #dbcbd8;
-}
-
-.reveal .roof--azure {
-  --roof-color: #f2fdff;
-}
-
-.reveal .roof--prussian {
-  --roof-color: #101935;
-}
-
-.reveal .peeker {
-  position: absolute;
-  bottom: 0;
-  width: var(--peek-w, 9%);
-  z-index: 1;
-  transform: translateY(118%);
-  opacity: 0;
-  will-change: transform, opacity;
-}
-
-.reveal .peeker--right {
-  right: var(--peek-x, 4%);
-}
-
-.reveal .peeker--left {
-  left: var(--peek-x, 4%);
-}
-
-.reveal .peeker-img {
-  display: block;
-  width: 100%;
-  height: auto;
-  animation: peek-float 4.5s ease-in-out infinite;
-}
-
-.reveal section.present .peeker {
-  animation: peek-in 0.9s cubic-bezier(0.22, 0.85, 0.25, 1) forwards;
-}
-
-@keyframes peek-in {
-  from {
-    transform: translateY(118%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-@keyframes peek-float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .reveal .peeker,
-  .reveal section.present .peeker {
-    animation: none;
-    transform: translateY(0);
-    opacity: 1;
-  }
-  .reveal .peeker-img {
-    animation: none;
-  }
 }
