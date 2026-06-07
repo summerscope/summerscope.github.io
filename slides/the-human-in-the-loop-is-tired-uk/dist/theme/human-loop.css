@@ -655,23 +655,23 @@
 }
 
 .reveal .floater--bl {
-  left: -1.5%;
-  bottom: 0;
+  left: -2%;
+  bottom: -5%;
 }
 
 .reveal .floater--br {
-  right: -1.5%;
-  bottom: 0;
+  right: -2%;
+  bottom: -5%;
 }
 
 .reveal .floater--tl {
-  left: -1.5%;
-  top: 0;
+  left: -2%;
+  top: -5%;
 }
 
 .reveal .floater--tr {
-  right: -1.5%;
-  top: 0;
+  right: -2%;
+  top: -5%;
 }
 
 .reveal .floater--br,
