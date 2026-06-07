@@ -93,9 +93,10 @@ $prussian: #101935;   // prussian blue
   --color-aqua:     #{$aqua};
   --color-prussian: #{$prussian};
 
-  --font-display: 'Black Han Sans', 'Arial Black', sans-serif;
-  --font-body:    Newsreader, Georgia, 'Times New Roman', serif;
-  --font-ui:      'Helvetica Neue', Arial, sans-serif;
+  --font-display:       'Black Han Sans', 'Arial Black', sans-serif;  // loud display
+  --font-serif-display: 'Bodoni Moda', Didot, Georgia, serif;         // secondary display (subheads / mixed headings)
+  --font-body:          Newsreader, Georgia, 'Times New Roman', serif;
+  --font-ui:            'Helvetica Neue', Arial, sans-serif;
 
   // Text gradient: pearl aqua -> thistle (reads on the dark templates).
   --heading-gradient: linear-gradient(100deg, #{$aqua} 0%, #{$thistle} 100%);
@@ -158,10 +159,11 @@ $prussian: #101935;   // prussian blue
 }
 
 .reveal .subtitle {
-  font-family: var(--font-body);
+  font-family: var(--font-serif-display);   // Bodoni Moda
+  font-weight: 500;
   font-style: italic;
   color: rgba($prussian, 0.7);
-  font-size: 0.7em;
+  font-size: 0.72em;
 }
 
 .reveal section h1.title { font-size: 2.4em; }
@@ -306,4 +308,148 @@ $prussian: #101935;   // prussian blue
   color: $prussian;
 
   h1, h2, h3, h4 { color: $prussian; }
+}
+
+
+// ============================================================
+// PEEKING-CHARACTER COMPOSITION  (+ subtle animation)
+// ------------------------------------------------------------
+// Pattern: a geometric "roof" silhouette anchored to the slide
+// bottom, with a character peeking out from behind it. The
+// character slides in from off-canvas when the slide arrives,
+// then floats gently. Roof + motion are asset-free; the
+// character is a transparent PNG dropped into `.peeker-img`.
+//
+// Markup (the .stage must be the FIRST child of the <section>
+// so the slide content paints on top of it):
+//
+//   <section class="bg-azure" data-background-color="#F2FDFF">
+//     <div class="stage">
+//       <div class="peeker peeker--right">
+//         <img class="peeker-img" src="img/faces/heater.png" alt="" />
+//       </div>
+//       <div class="roof roof--aqua"></div>
+//     </div>
+//     ...normal slide content...
+//   </section>
+//
+// Roof colour: .roof--grape / --thistle / --azure / --aqua / --prussian
+// Side:        .peeker--left / --right   (nudge with --peek-x / --peek-w)
+// ============================================================
+
+// Composition slides opt out of reveal's vertical centering so the
+// section fills the whole slide (otherwise .stage only covers the
+// centered content box and the roof floats mid-slide). Content is
+// re-centered with flexbox inside the full-height section.
+.reveal .slides section.has-stage {
+  position: absolute;
+  top: 0 !important;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.reveal .stage {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;          // sits behind slide content
+}
+
+// ---- ROOF SILHOUETTE ---------------------------------------
+.reveal .roof {
+  position: absolute;
+  left: -2%;
+  right: -2%;
+  bottom: 0;
+  height: 34%;
+  background: var(--roof-color, #{$aqua});
+  z-index: 2;          // in front of the peeker (so it peeks from *behind*)
+  // Stepped, asymmetric roofline.
+  clip-path: polygon(
+    0% 100%, 0% 62%, 16% 62%, 16% 44%, 34% 44%, 34% 72%,
+    52% 72%, 52% 34%, 72% 34%, 72% 58%, 100% 58%, 100% 100%
+  );
+}
+
+.reveal .roof--grape    { --roof-color: #{$grape}; }
+.reveal .roof--thistle  { --roof-color: #{$thistle}; }
+.reveal .roof--azure    { --roof-color: #{$azure}; }
+.reveal .roof--aqua     { --roof-color: #{$aqua}; }
+.reveal .roof--prussian { --roof-color: #{$prussian}; }
+
+// ---- PEEKER (entrance animation lives here) ----------------
+.reveal .peeker {
+  position: absolute;
+  bottom: 0;
+  width: var(--peek-w, 18%);
+  z-index: 1;          // behind the roof
+  // resting (pre-entrance) state: tucked off-canvas below the slide
+  transform: translateY(118%);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.reveal .peeker--right { right: var(--peek-x, 7%); }
+.reveal .peeker--left  { left:  var(--peek-x, 7%); }
+
+// ---- CHARACTER ART (continuous float lives here) -----------
+.reveal .peeker-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  // gentle float, always running; combines with the parent's
+  // entrance transform because it's a separate element.
+  animation: peek-float 4.5s ease-in-out infinite;
+}
+
+// Trigger the entrance only when the slide is the active one.
+.reveal section.present .peeker {
+  animation: peek-in 0.9s cubic-bezier(0.22, 0.85, 0.25, 1) forwards;
+}
+
+@keyframes peek-in {
+  from { transform: translateY(118%); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+
+@keyframes peek-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+
+// Accessibility: no motion if the viewer asked for none.
+@media (prefers-reduced-motion: reduce) {
+  .reveal .peeker,
+  .reveal section.present .peeker { animation: none; transform: translateY(0); opacity: 1; }
+  .reveal .peeker-img { animation: none; }
+}
+
+// ---- PLACEHOLDER FACE (demo only; remove once real art lands)
+// A CSS-drawn stand-in so the motion can be previewed without
+// the actual PNGs. Delete `.is-placeholder` usages later.
+.reveal .peeker-img.is-placeholder {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background: #cfd6da;
+  border-radius: 18% 18% 12% 12% / 14% 14% 10% 10%;
+  box-shadow: inset 0 -12px 24px rgba(0,0,0,0.12);
+  position: relative;
+}
+.reveal .peeker-img.is-placeholder::before {
+  content: "";
+  position: absolute;
+  top: 34%; left: 24%;
+  width: 14%; aspect-ratio: 1; border-radius: 50%;
+  background: #2b2b2b;
+  box-shadow: 130% 0 0 #2b2b2b;   // second eye
+}
+.reveal .peeker-img.is-placeholder::after {
+  content: "";
+  position: absolute;
+  top: 56%; left: 38%;
+  width: 24%; height: 6%; border-radius: 0 0 40% 40%;
+  border-bottom: 3px solid #2b2b2b;
 }
