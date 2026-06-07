@@ -385,13 +385,19 @@ def add_message(content, history=[]):
       <section class="bg-azure" data-background-color="#F2FDFF">
         <h2 class="r-fit-text">Response time isn't one number</h2>
         <h3 class="subtitle">the number on the box vs the loop you live in</h3>
-        <ul>
-          <li class="fragment">TTFT (time to first token) — what vendors quote. Fast models: under 1 second.</li>
-          <li class="fragment">E2EL (end-to-end) — the time until you can actually act again.</li>
-          <li class="fragment">E2EL depends on your prompt, your output length, and any thinking — not a number you can
-            look up.</li>
-        </ul>
-        <p class="source">
+        <table class="fragment">
+          <tbody>
+            <tr>
+              <td><strong>TTFT</strong><br />time to first token</td>
+              <td>What vendors quote. Fast models: under 1 second.</td>
+            </tr>
+            <tr>
+              <td><strong>E2EL</strong><br />end-to-end</td>
+              <td>The time until you can actually act again. Depends on your prompt, your output length, and any thinking — not a number you can look up.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="source fragment">
           Artificial Analysis (<a href="https://artificialanalysis.ai">artificialanalysis.ai</a>), June 2026
         </p>
         <aside class="notes">
@@ -406,12 +412,23 @@ def add_message(content, history=[]):
       <section class="bg-azure" data-background-color="#F2FDFF">
         <h2>The length of the loop</h2>
         <h3 class="subtitle">reasoning blows it wide open</h3>
-        <ul>
-          <li class="fragment">Reasoning mode inflates the wait 5–30×</li>
-          <li class="fragment">First useful token after ~15–70 seconds of hidden thinking</li>
-          <li class="fragment">For an agent chaining calls, the loop is measured in minutes</li>
-        </ul>
-        <p class="source">
+        <table class="fragment">
+          <tbody>
+            <tr>
+              <td><strong>Reasoning mode</strong></td>
+              <td>inflates the wait 5–30×</td>
+            </tr>
+            <tr>
+              <td><strong>First useful token</strong></td>
+              <td>after ~15–70 seconds of hidden thinking</td>
+            </tr>
+            <tr>
+              <td><strong>Agent chaining calls</strong></td>
+              <td>the loop is measured in minutes</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="source fragment">
           <a href="https://digitalapplied.com">digitalapplied.com</a> (Apr 2026), GMI Cloud (May 2026) — June 2026
         </p>
         <aside class="notes">
@@ -426,11 +443,22 @@ def add_message(content, history=[]):
       <section class="bg-azure" data-background-color="#F2FDFF">
         <h2>What's measured</h2>
         <h3 class="subtitle">versus what is felt</h3>
-        <ul>
-          <li class="fragment">TTFT is easy to measure — so it's the number that gets optimised</li>
-          <li class="fragment">E2EL — the length of the loop — is what you actually feel</li>
-          <li class="fragment">A loop this long is too long to stay in flow, too short to switch tasks</li>
-        </ul>
+        <table class="fragment">
+          <tbody>
+            <tr>
+              <td><strong>TTFT</strong></td>
+              <td>easy to measure — so it's the number that gets optimised</td>
+            </tr>
+            <tr>
+              <td><strong>E2EL</strong><br />the length of the loop</td>
+              <td>what you actually feel</td>
+            </tr>
+            <tr>
+              <td><strong>A loop this long</strong></td>
+              <td>too long to stay in flow, too short to switch tasks</td>
+            </tr>
+          </tbody>
+        </table>
         <aside class="notes">
           The thesis in miniature: optimise model output, not human experience.
           Callback: this is why you can't build an intuition, and why it feels like a slot machine
