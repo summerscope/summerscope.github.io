@@ -476,13 +476,14 @@
 }
 
 .reveal blockquote::first-letter {
-  font-family: "Bodoni Moda", Didot, Georgia, serif;
+  font-family: var(--font-serif-display);
   font-style: italic;
   font-weight: 600;
   font-size: 3em;
-  line-height: 0.8;
+  line-height: 1;
+  text-transform: uppercase;
   float: left;
-  margin: 0.02em 0.1em 0 0;
+  margin: 0 0.08em 0 0;
   color: #564787;
 }
 
