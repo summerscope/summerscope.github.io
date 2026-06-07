@@ -289,6 +289,28 @@ $prussian: #101935;   // prussian blue
   font-size: 1.15em;   // term: body font, bold, only slightly larger
 }
 
+// Links / references index slide: two compact columns
+.reveal .links-index {
+  display: flex;
+  gap: 2.4em;
+  justify-content: center;
+  text-align: left;
+  font-size: 0.5em;
+  margin-top: 0.4em;
+}
+
+.reveal .links-index ul { margin: 0.2em 0 0 1em; }
+.reveal .links-index li { margin: 0.3em 0; line-height: 1.3; }
+
+.reveal .links-head {
+  font-family: var(--font-ui);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  color: $grape;
+  margin: 0;
+}
+
 
 // ============================================================
 // CODE

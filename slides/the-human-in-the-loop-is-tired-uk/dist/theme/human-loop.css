@@ -549,6 +549,33 @@
   font-size: 1.15em;
 }
 
+.reveal .links-index {
+  display: flex;
+  gap: 2.4em;
+  justify-content: center;
+  text-align: left;
+  font-size: 0.5em;
+  margin-top: 0.4em;
+}
+
+.reveal .links-index ul {
+  margin: 0.2em 0 0 1em;
+}
+
+.reveal .links-index li {
+  margin: 0.3em 0;
+  line-height: 1.3;
+}
+
+.reveal .links-head {
+  font-family: var(--font-ui);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  color: #564787;
+  margin: 0;
+}
+
 .reveal pre {
   width: 92%;
   box-shadow: none;
