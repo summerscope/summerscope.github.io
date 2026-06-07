@@ -30,7 +30,8 @@
         <!-- ============================================================ -->
 
         <!-- 0 — Title (heading is baked into title.png) -->
-        <section data-background-image="img/title.png" data-background-size="cover">
+        <section class="cover-title" data-background-image="img/title.png" data-background-size="cover">
+          <p class="title-credit">Laura Summers | PyData London 2026</p>
           <aside class="notes">
             Who I am, quick. Laura Summers - Lead Design Engineer @ Pydantic; PyLadies Berlin.
           </aside>
@@ -636,6 +637,9 @@ def add_message(content, history=[]):
       Reveal.initialize({
         hash: true,
         slideNumber: "c/t",
+        progress: true,
+        transition: "slide",
+        transitionSpeed: "default",
         plugins: [RevealHighlight, RevealNotes],
       });
     </script>

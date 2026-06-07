@@ -462,6 +462,24 @@
   line-height: 1.6;
 }
 
+.reveal .slides section.cover-title {
+  height: 100%;
+  top: 0 !important;
+}
+
+.reveal .title-credit {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 12%;
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-serif-display);
+  font-size: 0.9em;
+  letter-spacing: 0.02em;
+  color: #f2fdff;
+}
+
 .reveal blockquote {
   width: 92%;
   background: rgba(86, 71, 135, 0.08);

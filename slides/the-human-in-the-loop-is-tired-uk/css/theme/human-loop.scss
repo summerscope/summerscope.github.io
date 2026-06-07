@@ -190,6 +190,27 @@ $prussian: #101935;   // prussian blue
   line-height: 1.6;
 }
 
+// ---- TITLE SLIDE CREDIT -----------------------------------
+// Full-height section so the credit can be absolutely placed in the
+// bottom half of the slide, over the (grape) lower portion of title.png.
+.reveal .slides section.cover-title {
+  height: 100%;
+  top: 0 !important;
+}
+
+.reveal .title-credit {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 12%;
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-serif-display);   // Bodoni Moda (matches the title art)
+  font-size: 0.9em;
+  letter-spacing: 0.02em;
+  color: $azure;   // light, reads on the grape lower half
+}
+
 
 // ============================================================
 // BLOCKQUOTES (quotes carry their own slide)
