@@ -7,8 +7,6 @@ Placeholder/stub slides (slop sequence, latency, self-worth stub, Akós quote)
 are rendered as clearly-marked placeholders for Laura to source/redact/finalise
 later.
 
-## `revealjs/`
-
 Plain [reveal.js](https://revealjs.com/) deck — `index.html` is the whole deck.
 
 - Theme: **`human-loop`** — custom SCSS theme (dark ink on warm paper).
@@ -33,4 +31,4 @@ Plain [reveal.js](https://revealjs.com/) deck — `index.html` is the whole deck
 - `dist/` and `plugin/` are the vendored reveal.js library + the notes and
   highlight plugins.
 
-To view: open `revealjs/index.html` in a browser.
+To view: open `index.html` in a browser.
