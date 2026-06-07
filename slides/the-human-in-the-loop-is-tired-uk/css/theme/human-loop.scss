@@ -204,18 +204,19 @@ $prussian: #101935;   // prussian blue
   font-style: italic;
   font-size: 1.05em;
   line-height: 1.5;
+  text-align: left;
   padding: 0.8em 1em;
 }
 
-// Drop-cap: first letter in big Bodoni Moda, rest in Times italic
+// Drop-cap: first letter in big italic Bodoni Moda, rest in Times italic
 .reveal blockquote::first-letter {
   font-family: var(--font-serif-display);   // Bodoni Moda
-  font-style: normal;
+  font-style: italic;
   font-weight: 600;
-  font-size: 3em;
+  font-size: 2.4em;
   line-height: 0.8;
   float: left;
-  margin: 0.02em 0.08em 0 0;
+  margin: 0.02em 0.1em 0 0;
   color: $grape;
 }
 

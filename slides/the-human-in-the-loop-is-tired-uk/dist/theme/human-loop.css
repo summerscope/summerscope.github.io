@@ -471,17 +471,18 @@
   font-style: italic;
   font-size: 1.05em;
   line-height: 1.5;
+  text-align: left;
   padding: 0.8em 1em;
 }
 
 .reveal blockquote::first-letter {
   font-family: "Bodoni Moda", Didot, Georgia, serif;
-  font-style: normal;
+  font-style: italic;
   font-weight: 600;
-  font-size: 3em;
+  font-size: 2.4em;
   line-height: 0.8;
   float: left;
-  margin: 0.02em 0.08em 0 0;
+  margin: 0.02em 0.1em 0 0;
   color: #564787;
 }
 
