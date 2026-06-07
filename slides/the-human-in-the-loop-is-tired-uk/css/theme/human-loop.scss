@@ -359,3 +359,77 @@ $prussian: #101935;   // prussian blue
 
   h1, h2, h3, h4 { color: $prussian; }
 }
+
+
+// ============================================================
+// FLOATING CHARACTERS (corner "peekers")
+// ------------------------------------------------------------
+// Small face cut-outs that sit in the slide corners and bob
+// gently. Two flavours:
+//   <img class="floater floater--bl" src="img/faces/heater.png" alt="">
+//   <img class="floater floater--br floater--sil-aqua" src="img/faces/church.png" alt="">  (silhouette)
+//
+// Silhouettes use a CSS `filter` (not mask) so they load over file://.
+// Put them on a section flagged `.has-floaters` so the corners map to
+// the whole slide (not the centred content box).
+// ============================================================
+
+// Full-slide section so corner floaters anchor to the slide edges,
+// while keeping the content vertically centred.
+.reveal .slides section.has-floaters {
+  height: 100%;
+  top: 0 !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.reveal .floater {
+  position: absolute;
+  z-index: 3;
+  // small: capped well under 200px, lands ~75-100 depending on aspect
+  max-height: var(--floater-h, 100px);
+  max-width: var(--floater-w, 140px);
+  width: auto;
+  height: auto;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 8px rgba(16, 25, 53, 0.22));
+  animation: floater-bob var(--floater-dur, 6s) ease-in-out infinite;
+  will-change: transform;
+}
+
+// Corners (small inset from the edge).
+.reveal .floater--bl { left: 3.5%;  bottom: 5%; }
+.reveal .floater--br { right: 3.5%; bottom: 5%; }
+.reveal .floater--tl { left: 3.5%;  top: 8%; }
+.reveal .floater--tr { right: 3.5%; top: 8%; }
+
+// Stagger so multiple floaters don't bob in lockstep.
+.reveal .floater--br,
+.reveal .floater--tl { animation-delay: -1.6s; animation-duration: 5s; }
+.reveal .floater--tr { animation-delay: -0.8s; animation-duration: 5.5s; }
+
+// ---- Silhouette variants (flat colour via filter) ----------
+// drop-shadow is dropped for silhouettes (looks cleaner as a flat shape).
+.reveal .floater--sil-white,
+.reveal .floater--sil-ink,
+.reveal .floater--sil-aqua,
+.reveal .floater--sil-grape { filter: none; }
+
+// white - for dark slides (section headers / cover)
+.reveal .floater--sil-white  { filter: brightness(0) invert(1); }
+// ink/near-black - for light slides
+.reveal .floater--sil-ink    { filter: brightness(0) saturate(100%) invert(8%) sepia(20%) saturate(1800%) hue-rotate(196deg) brightness(95%) contrast(95%); }
+// pearl aqua - for dark slides
+.reveal .floater--sil-aqua   { filter: brightness(0) saturate(100%) invert(82%) sepia(16%) saturate(560%) hue-rotate(140deg) brightness(95%) contrast(88%); }
+// dusty grape - for light slides
+.reveal .floater--sil-grape  { filter: brightness(0) saturate(100%) invert(27%) sepia(18%) saturate(1500%) hue-rotate(216deg) brightness(94%) contrast(90%); }
+
+@keyframes floater-bob {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-10px) rotate(2.5deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal .floater { animation: none; }
+}
