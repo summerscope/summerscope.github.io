@@ -146,49 +146,40 @@
           <aside class="notes">Sentimental sunset-cats bait.</aside>
         </section>
 
-        <!-- 7 — Code: slop or not? (A) -->
+        <!-- 7 — Code: slop or not? (A) — NOT SLOP (verified: validates cleanly) -->
         <section class="bg-azure" data-background-color="#F2FDFF">
           <h3 class="eyebrow">Slop or not? (A)</h3>
-          <pre><code class="language-python" data-trim data-noescape>
-import time
-def retry(fn, attempts=3, base_delay=1.0):
-    for attempt in range(attempts):
-        try:
-            return fn()
-        except Exception:
-            if attempt == attempts - 1:
-                raise
-            time.sleep(base_delay * 2 ** attempt)
+          <pre><code class="language-python" data-trim data-noescape data-line-numbers="1-11|3-6|8-11">
+from pydantic import BaseModel
+
+class Talk(BaseModel):
+    title: str
+    speaker: str
+    track: str = "PyData London 2026"
+
+talk = Talk(
+    title="The Human-in-the-Loop Is Tired",
+    speaker="Laura Summers",
+)
           </code></pre>
           <aside class="notes">
-            Not slop — looks right, is right.
+            Not slop. A plain Pydantic model — the bare annotations ARE the whole
+            definition (no __init__ needed); the default is fine. Looks right, is right.
           </aside>
         </section>
 
-        <!-- 8 — Code: slop or not? (B) -->
+        <!-- 8 — Code: slop or not? (B) — SLOP (verified: list shared across calls) -->
         <section class="bg-azure" data-background-color="#F2FDFF">
           <h3 class="eyebrow">Slop or not? (B)</h3>
-          <pre><code class="language-python" data-trim data-noescape>
+          <pre><code class="language-python" data-trim data-noescape data-line-numbers="1-3|1|2">
 def add_message(content, history=[]):
     history.append({"role": "user", "content": content})
     return history
           </code></pre>
           <aside class="notes">
-            Slop — mutable default shared across calls; looks right, is wrong.
-          </aside>
-        </section>
-
-        <!-- 9 — Code: slop or not? (C) -->
-        <section class="bg-azure" data-background-color="#F2FDFF">
-          <h3 class="eyebrow">Slop or not? (C)</h3>
-          <pre><code class="language-python" data-trim data-noescape>
-def dedupe(items):
-    seen = set()
-    return [x for x in items if not (x in seen or seen.add(x))]
-          </code></pre>
-          <aside class="notes">
-            Not slop — correct, order-preserving; looks wrong, is right.
-            Surface ≠ correctness = the point.
+            Slop. The mutable default list (history=[]) is created ONCE and shared by
+            every call that doesn't pass its own, so messages leak between separate
+            conversations. Looks right, is wrong.
           </aside>
         </section>
 
