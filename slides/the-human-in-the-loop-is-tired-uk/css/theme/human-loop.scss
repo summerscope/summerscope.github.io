@@ -1,0 +1,361 @@
+/**
+ * Human Loop - custom theme for "The Human-in-the-Loop Is Tired"
+ * PyData London 2026.
+ *
+ * Palette (coolors.co/564787-dbcbd8-f2fdff-9ad4d6-101935):
+ *   dusty grape   #564787
+ *   thistle       #DBCBD8
+ *   azure mist    #F2FDFF
+ *   pearl aqua    #9AD4D6
+ *   prussian blue #101935
+ *
+ * Slide templates (a class + matching data-background-color on each <section>):
+ *   .cover           pearl aqua text on dusty grape    (cover + closing)
+ *   .section-header  pearl aqua text on prussian blue  (section dividers)
+ *   .bg-azure        prussian blue text on azure mist  (inner - default)
+ *   .bg-thistle      prussian blue text on thistle     (inner - quotes)
+ *   .bg-aqua         prussian blue text on pearl aqua  (inner - statements)
+ *
+ * Headings: Boldonse (h1/h2, all caps), Black Han Sans (h3/h4). On the dark
+ * templates (.cover, .section-header) the main heading uses a pearl-aqua ->
+ * thistle background-clip gradient; on light inner templates headings are
+ * solid prussian blue. Subheads: Bodoni Moda (upright).
+ *
+ * Body: system sans (Helvetica Neue / Arial).
+ *
+ * Built via the reveal.js SCSS pipeline (mirrors `npm run build:styles`):
+ *   bunx sass css/theme/human-loop.scss dist/theme/human-loop.css --no-source-map --style=expanded
+ *
+ * Fonts load from Google Fonts via <link> tags in index.html.
+ */
+
+@use 'sass:color';
+@use 'template/mixins' as mixins;
+
+
+// ============================================================
+// BRAND TOKENS
+// ============================================================
+
+$grape:    #564787;   // dusty grape
+$thistle:  #dbcbd8;   // thistle
+$azure:    #f2fdff;   // azure mist
+$aqua:     #9ad4d6;   // pearl aqua
+$prussian: #101935;   // prussian blue
+
+
+// ============================================================
+// REVEAL THEME SETTINGS
+// Defaults target the inner light slides (prussian text). The
+// dark templates override text colour via their own classes.
+// ============================================================
+
+@use 'template/settings' with (
+  $background-color:        $azure,
+
+  $main-font:               "'Helvetica Neue', Arial, sans-serif",
+  $main-font-size:          40px,
+  $main-color:              $prussian,
+
+  $block-margin:            0.7em,
+
+  $heading-margin:          (0 0 0.4em 0),
+  $heading-font:            "'Black Han Sans', 'Arial Black', sans-serif",
+  $heading-color:           $prussian,
+  $heading-line-height:     1.05,
+  $heading-letter-spacing:  -0.005em,
+  $heading-text-transform:  none,
+  $heading-font-weight:     400,
+
+  $heading1-size:           1.82em,  // ~30% down (was 2.6em)
+  $heading2-size:           1.33em,  // ~30% down (was 1.9em)
+  $heading3-size:           1.1em,
+  $heading4-size:           1em,
+
+  $link-color:              $grape,
+  $link-color-dark:         color.scale($grape, $lightness: -15%),
+  $link-color-hover:        color.scale($grape, $lightness: 18%),
+
+  $selection-background-color: $aqua,
+  $selection-color:            $prussian,
+);
+
+@use 'template/theme';
+
+
+// ============================================================
+// DESIGN TOKENS AS CUSTOM PROPERTIES
+// ============================================================
+
+:root {
+  --color-grape:    #{$grape};
+  --color-thistle:  #{$thistle};
+  --color-azure:    #{$azure};
+  --color-aqua:     #{$aqua};
+  --color-prussian: #{$prussian};
+
+  --font-heading:       'Boldonse', 'Arial Black', sans-serif;        // main headings (h1/h2), all caps
+  --font-display:       'Black Han Sans', 'Arial Black', sans-serif;  // secondary display (h3/h4)
+  --font-serif-display: 'Bodoni Moda', Didot, Georgia, serif;         // subheads (upright)
+  --font-body:          'Helvetica Neue', Arial, sans-serif;          // body copy (system sans)
+  --font-ui:            'Helvetica Neue', Arial, sans-serif;
+
+  // Text gradient: pearl aqua -> thistle (reads on the dark templates).
+  --heading-gradient: linear-gradient(100deg, #{$aqua} 0%, #{$thistle} 100%);
+}
+
+
+// ============================================================
+// REVEAL BASE OVERRIDES
+// ============================================================
+
+.reveal {
+  font-weight: 400;
+  color: $prussian;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4 {
+  font-weight: 400;
+  color: $prussian;   // solid by default; dark templates override w/ gradient
+}
+
+// Main headings: Boldonse, all caps.
+.reveal h1,
+.reveal h2 {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+// Secondary display headings.
+.reveal h3,
+.reveal h4 {
+  font-family: var(--font-display);
+}
+
+.reveal strong { font-weight: 600; }
+.reveal em     { font-style: italic; }
+
+
+// ============================================================
+// GRADIENT TEXT
+// pearl aqua -> thistle, clipped to the glyphs. Used on the
+// main headings of the dark templates.
+// ============================================================
+
+@mixin gradient-text {
+  background: var(--heading-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: $aqua;   // fallback where background-clip isn't supported
+}
+
+.reveal .gradient-text {
+  @include gradient-text;
+}
+
+
+// ============================================================
+// SHARED UI BITS
+// ============================================================
+
+.reveal .eyebrow {
+  font-family: var(--font-ui);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.4em;
+  font-weight: 600;
+  color: $grape;
+  margin-bottom: 0.6em;
+}
+
+.reveal .subtitle {
+  font-family: var(--font-serif-display);   // Bodoni Moda (upright)
+  font-weight: 500;
+  color: rgba($prussian, 0.7);
+  font-size: 0.95em;
+}
+
+.reveal section h1.title { font-size: 2.4em; }
+
+.reveal .credit {
+  font-family: var(--font-ui);
+  font-size: 0.5em;
+  color: rgba($prussian, 0.75);
+  margin-top: 1.2em;
+  line-height: 1.6;
+}
+
+// ---- TITLE SLIDE CREDIT -----------------------------------
+// Full-height section so the credit can be absolutely placed in the
+// bottom half of the slide, over the (grape) lower portion of title.png.
+.reveal .slides section.cover-title {
+  height: 100%;
+  top: 0 !important;
+}
+
+.reveal .title-credit {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 12%;
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-serif-display);   // Bodoni Moda (matches the title art)
+  font-size: 0.9em;
+  letter-spacing: 0.02em;
+  color: $azure;   // light, reads on the grape lower half
+}
+
+
+// ============================================================
+// BLOCKQUOTES (quotes carry their own slide)
+// ============================================================
+
+.reveal blockquote {
+  width: 92%;
+  background: rgba($grape, 0.08);
+  border-left: 4px solid $grape;
+  box-shadow: none;
+  font-family: 'Times New Roman', Times, Georgia, serif;   // readable body italic
+  font-style: italic;
+  font-size: 1.05em;
+  line-height: 1.5;
+  text-align: left;
+  padding: 0.8em 1em;
+}
+
+// Drop-cap: first letter in big italic Bodoni Moda, rest in Times italic
+.reveal blockquote::first-letter {
+  font-family: var(--font-serif-display);   // Bodoni Moda
+  font-style: italic;
+  font-weight: 600;
+  font-size: 3em;
+  line-height: 1;
+  text-transform: uppercase;   // every quote opens on a capital
+  float: left;
+  margin: 0 0.08em 0 0;
+  color: $grape;
+}
+
+.reveal blockquote .attr {
+  display: block;
+  margin-top: 0.6em;
+  font-family: var(--font-ui);
+  font-size: 0.62em;
+  color: rgba($prussian, 0.7);
+  letter-spacing: 0.02em;
+}
+
+
+// ============================================================
+// SOURCE CITATION (on quote / meme / video slides)
+// ============================================================
+
+.reveal .source {
+  font-family: var(--font-ui);
+  font-size: 0.6em;   // 24px at the 40px base
+  line-height: 1.4;
+  color: rgba($prussian, 0.7);
+  margin-top: 1.2em;
+  word-break: break-word;
+}
+
+.reveal .source a { color: $grape; }
+
+
+// ============================================================
+// CODE
+// ============================================================
+
+.reveal pre {
+  width: 92%;
+  box-shadow: none;
+  font-size: 0.5em;
+}
+
+.reveal pre code {
+  border-radius: 8px;
+  padding: 1em 1.2em;
+  max-height: none;
+}
+
+
+// ============================================================
+// PLACEHOLDER / STUB SLIDES
+// ============================================================
+
+.reveal .placeholder {
+  border: 2px dashed rgba($prussian, 0.3);
+  border-radius: 12px;
+  padding: 0.8em 1em;
+  background: rgba($prussian, 0.04);
+  color: rgba($prussian, 0.7);
+}
+
+.reveal .placeholder .tag {
+  display: inline-block;
+  font-family: var(--font-ui);
+  font-size: 0.4em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba($prussian, 0.1);
+  color: rgba($prussian, 0.7);
+  padding: 0.3em 0.7em;
+  border-radius: 999px;
+  margin-bottom: 0.7em;
+}
+
+.reveal .placeholder h2 {
+  color: rgba($prussian, 0.6);
+}
+
+
+// ============================================================
+// SLIDE TEMPLATES
+// Each <section> gets one of these classes plus a matching
+// data-background-color (reveal paints the full-bleed bg).
+// ============================================================
+
+// ---- DARK TEMPLATES: cover / closing + section headers -----
+// pearl aqua text; main heading uses the pearl aqua -> thistle gradient.
+
+.reveal section.cover,
+.reveal section.section-header {
+  color: $aqua;
+
+  h1, h2, h3, h4 { color: $aqua; }
+
+  // Gradient on the big headings.
+  h1, h2 { @include gradient-text; }
+
+  .eyebrow  { color: $thistle; }
+  .subtitle { color: $thistle; }
+  .credit   { color: rgba($aqua, 0.85); }
+
+  a, .source a { color: $thistle; }
+  .source      { color: rgba($thistle, 0.85); }
+
+  blockquote {
+    background: rgba($aqua, 0.1);
+    border-left-color: $aqua;
+    color: $aqua;
+    .attr { color: rgba($thistle, 0.9); }
+  }
+}
+
+// ---- LIGHT INNER TEMPLATES ---------------------------------
+// prussian blue text (the deck default). Classes are explicit
+// so per-variant tweaks stay easy to find.
+
+.reveal section.bg-azure,
+.reveal section.bg-thistle,
+.reveal section.bg-aqua {
+  color: $prussian;
+
+  h1, h2, h3, h4 { color: $prussian; }
+}

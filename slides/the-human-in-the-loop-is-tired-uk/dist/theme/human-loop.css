@@ -1,0 +1,634 @@
+/**
+ * Human Loop - custom theme for "The Human-in-the-Loop Is Tired"
+ * PyData London 2026.
+ *
+ * Palette (coolors.co/564787-dbcbd8-f2fdff-9ad4d6-101935):
+ *   dusty grape   #564787
+ *   thistle       #DBCBD8
+ *   azure mist    #F2FDFF
+ *   pearl aqua    #9AD4D6
+ *   prussian blue #101935
+ *
+ * Slide templates (a class + matching data-background-color on each <section>):
+ *   .cover           pearl aqua text on dusty grape    (cover + closing)
+ *   .section-header  pearl aqua text on prussian blue  (section dividers)
+ *   .bg-azure        prussian blue text on azure mist  (inner - default)
+ *   .bg-thistle      prussian blue text on thistle     (inner - quotes)
+ *   .bg-aqua         prussian blue text on pearl aqua  (inner - statements)
+ *
+ * Headings: Boldonse (h1/h2, all caps), Black Han Sans (h3/h4). On the dark
+ * templates (.cover, .section-header) the main heading uses a pearl-aqua ->
+ * thistle background-clip gradient; on light inner templates headings are
+ * solid prussian blue. Subheads: Bodoni Moda (upright).
+ *
+ * Body: system sans (Helvetica Neue / Arial).
+ *
+ * Built via the reveal.js SCSS pipeline (mirrors `npm run build:styles`):
+ *   bunx sass css/theme/human-loop.scss dist/theme/human-loop.css --no-source-map --style=expanded
+ *
+ * Fonts load from Google Fonts via <link> tags in index.html.
+ */
+:root {
+  --r-background: #2b2b2b;
+  --r-background-color: #f2fdff;
+  --r-main-font: 'Helvetica Neue', Arial, sans-serif;
+  --r-main-font-size: 40px;
+  --r-main-color: #101935;
+  --r-block-margin: 0.7em;
+  --r-heading-margin: 0 0 0.4em 0;
+  --r-heading-font: 'Black Han Sans', 'Arial Black', sans-serif;
+  --r-heading-color: #101935;
+  --r-heading-line-height: 1.05;
+  --r-heading-letter-spacing: -0.005em;
+  --r-heading-text-transform: none;
+  --r-heading-text-shadow: none;
+  --r-heading-font-weight: 400;
+  --r-heading1-text-shadow: none;
+  --r-heading1-size: 1.82em;
+  --r-heading2-size: 1.33em;
+  --r-heading3-size: 1.1em;
+  --r-heading4-size: 1em;
+  --r-code-font: monospace;
+  --r-link-color: #564787;
+  --r-link-color-dark: rgb(73.1, 60.35, 114.75);
+  --r-link-color-hover: rgb(109.7883495146, 91.6368932039, 169.0831067961);
+  --r-selection-background-color: #9ad4d6;
+  --r-selection-color: #101935;
+  --r-overlay-element-bg-color: 240, 240, 240;
+  --r-overlay-element-fg-color: 0, 0, 0;
+}
+
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+.reveal-viewport {
+  background: var(--r-background);
+  background-color: var(--r-background-color);
+}
+
+.reveal {
+  font-family: var(--r-main-font);
+  font-size: var(--r-main-font-size);
+  font-weight: normal;
+  color: var(--r-main-color);
+}
+
+.reveal ::selection {
+  color: var(--r-selection-color);
+  background: var(--r-selection-background-color);
+  text-shadow: none;
+}
+
+.reveal ::-moz-selection {
+  color: var(--r-selection-color);
+  background: var(--r-selection-background-color);
+  text-shadow: none;
+}
+
+.reveal .slides section,
+.reveal .slides section > section {
+  line-height: 1.3;
+  font-weight: inherit;
+}
+
+/*********************************************
+ * HEADERS
+ *********************************************/
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  margin: var(--r-heading-margin);
+  color: var(--r-heading-color);
+  font-family: var(--r-heading-font);
+  font-weight: var(--r-heading-font-weight);
+  line-height: var(--r-heading-line-height);
+  letter-spacing: var(--r-heading-letter-spacing);
+  text-transform: var(--r-heading-text-transform);
+  text-shadow: var(--r-heading-text-shadow);
+  word-wrap: break-word;
+}
+
+.reveal h1 {
+  font-size: var(--r-heading1-size);
+}
+
+.reveal h2 {
+  font-size: var(--r-heading2-size);
+}
+
+.reveal h3 {
+  font-size: var(--r-heading3-size);
+}
+
+.reveal h4 {
+  font-size: var(--r-heading4-size);
+}
+
+.reveal h1 {
+  text-shadow: var(--r-heading1-text-shadow);
+}
+
+/*********************************************
+ * OTHER
+ *********************************************/
+.reveal p {
+  margin: var(--r-block-margin) 0;
+  line-height: 1.3;
+}
+
+/* Remove trailing margins after titles */
+.reveal h1:last-child,
+.reveal h2:last-child,
+.reveal h3:last-child,
+.reveal h4:last-child,
+.reveal h5:last-child,
+.reveal h6:last-child {
+  margin-bottom: 0;
+}
+
+/* Ensure certain elements are never larger than the slide itself */
+.reveal img,
+.reveal video,
+.reveal iframe {
+  max-width: 95%;
+  max-height: 95%;
+}
+
+.reveal strong,
+.reveal b {
+  font-weight: bold;
+}
+
+.reveal em {
+  font-style: italic;
+}
+
+.reveal ol,
+.reveal dl,
+.reveal ul {
+  display: inline-block;
+  text-align: left;
+  margin: 0 0 0 1em;
+}
+
+.reveal ol {
+  list-style-type: decimal;
+}
+
+.reveal ul {
+  list-style-type: disc;
+}
+
+.reveal ul ul {
+  list-style-type: square;
+}
+
+.reveal ul ul ul {
+  list-style-type: circle;
+}
+
+.reveal ul ul,
+.reveal ul ol,
+.reveal ol ol,
+.reveal ol ul {
+  display: block;
+  margin-left: 40px;
+}
+
+.reveal dt {
+  font-weight: bold;
+}
+
+.reveal dd {
+  margin-left: 40px;
+}
+
+.reveal blockquote {
+  display: block;
+  position: relative;
+  width: 70%;
+  margin: var(--r-block-margin) auto;
+  padding: 5px;
+  font-style: italic;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+}
+
+.reveal blockquote p:first-child,
+.reveal blockquote p:last-child {
+  display: inline-block;
+}
+
+.reveal q {
+  font-style: italic;
+}
+
+.reveal pre {
+  display: block;
+  position: relative;
+  width: 90%;
+  margin: var(--r-block-margin) auto;
+  text-align: left;
+  font-size: 0.55em;
+  font-family: var(--r-code-font);
+  line-height: 1.2em;
+  word-wrap: break-word;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.reveal code {
+  font-family: var(--r-code-font);
+  text-transform: none;
+  tab-size: 2;
+}
+
+.reveal pre code {
+  display: block;
+  padding: 5px;
+  overflow: auto;
+  max-height: 400px;
+  word-wrap: normal;
+}
+
+.reveal .code-wrapper {
+  white-space: normal;
+}
+
+.reveal .code-wrapper code {
+  white-space: pre;
+}
+
+.reveal table {
+  margin: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.reveal table th {
+  font-weight: bold;
+}
+
+.reveal table th,
+.reveal table td {
+  text-align: left;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  border-bottom: 1px solid;
+}
+
+.reveal table th[align=center],
+.reveal table td[align=center] {
+  text-align: center;
+}
+
+.reveal table th[align=right],
+.reveal table td[align=right] {
+  text-align: right;
+}
+
+.reveal table tbody tr:last-child th,
+.reveal table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.reveal sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+
+.reveal sub {
+  vertical-align: sub;
+  font-size: smaller;
+}
+
+.reveal small {
+  display: inline-block;
+  font-size: 0.6em;
+  line-height: 1.2em;
+  vertical-align: top;
+}
+
+.reveal small * {
+  vertical-align: top;
+}
+
+.reveal img {
+  margin: var(--r-block-margin) 0;
+}
+
+/*********************************************
+ * LINKS
+ *********************************************/
+.reveal a {
+  color: var(--r-link-color);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.reveal a:hover {
+  color: var(--r-link-color-hover);
+  text-shadow: none;
+  border: none;
+}
+
+.reveal .roll span:after {
+  color: #fff;
+  background: var(--r-link-color-dark);
+}
+
+/*********************************************
+ * Frame helper
+ *********************************************/
+.reveal .r-frame {
+  border: 4px solid var(--r-main-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.reveal a .r-frame {
+  transition: all 0.15s linear;
+}
+
+.reveal a:hover .r-frame {
+  border-color: var(--r-link-color);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
+}
+
+/*********************************************
+ * NAVIGATION CONTROLS
+ *********************************************/
+.reveal .controls {
+  color: var(--r-link-color);
+}
+
+/*********************************************
+ * PROGRESS BAR
+ *********************************************/
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--r-link-color);
+}
+
+/*********************************************
+ * PRINT BACKGROUND
+ *********************************************/
+@media print {
+  .backgrounds {
+    background-color: var(--r-background-color);
+  }
+}
+:root {
+  --color-grape: #564787;
+  --color-thistle: #dbcbd8;
+  --color-azure: #f2fdff;
+  --color-aqua: #9ad4d6;
+  --color-prussian: #101935;
+  --font-heading: 'Boldonse', 'Arial Black', sans-serif;
+  --font-display: 'Black Han Sans', 'Arial Black', sans-serif;
+  --font-serif-display: 'Bodoni Moda', Didot, Georgia, serif;
+  --font-body: 'Helvetica Neue', Arial, sans-serif;
+  --font-ui: 'Helvetica Neue', Arial, sans-serif;
+  --heading-gradient: linear-gradient(100deg, #9ad4d6 0%, #dbcbd8 100%);
+}
+
+.reveal {
+  font-weight: 400;
+  color: #101935;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4 {
+  font-weight: 400;
+  color: #101935;
+}
+
+.reveal h1,
+.reveal h2 {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.reveal h3,
+.reveal h4 {
+  font-family: var(--font-display);
+}
+
+.reveal strong {
+  font-weight: 600;
+}
+
+.reveal em {
+  font-style: italic;
+}
+
+.reveal .gradient-text {
+  background: var(--heading-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #9ad4d6;
+}
+
+.reveal .eyebrow {
+  font-family: var(--font-ui);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.4em;
+  font-weight: 600;
+  color: #564787;
+  margin-bottom: 0.6em;
+}
+
+.reveal .subtitle {
+  font-family: var(--font-serif-display);
+  font-weight: 500;
+  color: rgba(16, 25, 53, 0.7);
+  font-size: 0.95em;
+}
+
+.reveal section h1.title {
+  font-size: 2.4em;
+}
+
+.reveal .credit {
+  font-family: var(--font-ui);
+  font-size: 0.5em;
+  color: rgba(16, 25, 53, 0.75);
+  margin-top: 1.2em;
+  line-height: 1.6;
+}
+
+.reveal .slides section.cover-title {
+  height: 100%;
+  top: 0 !important;
+}
+
+.reveal .title-credit {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 12%;
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-serif-display);
+  font-size: 0.9em;
+  letter-spacing: 0.02em;
+  color: #f2fdff;
+}
+
+.reveal blockquote {
+  width: 92%;
+  background: rgba(86, 71, 135, 0.08);
+  border-left: 4px solid #564787;
+  box-shadow: none;
+  font-family: "Times New Roman", Times, Georgia, serif;
+  font-style: italic;
+  font-size: 1.05em;
+  line-height: 1.5;
+  text-align: left;
+  padding: 0.8em 1em;
+}
+
+.reveal blockquote::first-letter {
+  font-family: var(--font-serif-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 3em;
+  line-height: 1;
+  text-transform: uppercase;
+  float: left;
+  margin: 0 0.08em 0 0;
+  color: #564787;
+}
+
+.reveal blockquote .attr {
+  display: block;
+  margin-top: 0.6em;
+  font-family: var(--font-ui);
+  font-size: 0.62em;
+  color: rgba(16, 25, 53, 0.7);
+  letter-spacing: 0.02em;
+}
+
+.reveal .source {
+  font-family: var(--font-ui);
+  font-size: 0.6em;
+  line-height: 1.4;
+  color: rgba(16, 25, 53, 0.7);
+  margin-top: 1.2em;
+  word-break: break-word;
+}
+
+.reveal .source a {
+  color: #564787;
+}
+
+.reveal pre {
+  width: 92%;
+  box-shadow: none;
+  font-size: 0.5em;
+}
+
+.reveal pre code {
+  border-radius: 8px;
+  padding: 1em 1.2em;
+  max-height: none;
+}
+
+.reveal .placeholder {
+  border: 2px dashed rgba(16, 25, 53, 0.3);
+  border-radius: 12px;
+  padding: 0.8em 1em;
+  background: rgba(16, 25, 53, 0.04);
+  color: rgba(16, 25, 53, 0.7);
+}
+
+.reveal .placeholder .tag {
+  display: inline-block;
+  font-family: var(--font-ui);
+  font-size: 0.4em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba(16, 25, 53, 0.1);
+  color: rgba(16, 25, 53, 0.7);
+  padding: 0.3em 0.7em;
+  border-radius: 999px;
+  margin-bottom: 0.7em;
+}
+
+.reveal .placeholder h2 {
+  color: rgba(16, 25, 53, 0.6);
+}
+
+.reveal section.cover,
+.reveal section.section-header {
+  color: #9ad4d6;
+}
+.reveal section.cover h1, .reveal section.cover h2, .reveal section.cover h3, .reveal section.cover h4,
+.reveal section.section-header h1,
+.reveal section.section-header h2,
+.reveal section.section-header h3,
+.reveal section.section-header h4 {
+  color: #9ad4d6;
+}
+.reveal section.cover h1, .reveal section.cover h2,
+.reveal section.section-header h1,
+.reveal section.section-header h2 {
+  background: var(--heading-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #9ad4d6;
+}
+.reveal section.cover .eyebrow,
+.reveal section.section-header .eyebrow {
+  color: #dbcbd8;
+}
+.reveal section.cover .subtitle,
+.reveal section.section-header .subtitle {
+  color: #dbcbd8;
+}
+.reveal section.cover .credit,
+.reveal section.section-header .credit {
+  color: rgba(154, 212, 214, 0.85);
+}
+.reveal section.cover a, .reveal section.cover .source a,
+.reveal section.section-header a,
+.reveal section.section-header .source a {
+  color: #dbcbd8;
+}
+.reveal section.cover .source,
+.reveal section.section-header .source {
+  color: rgba(219, 203, 216, 0.85);
+}
+.reveal section.cover blockquote,
+.reveal section.section-header blockquote {
+  background: rgba(154, 212, 214, 0.1);
+  border-left-color: #9ad4d6;
+  color: #9ad4d6;
+}
+.reveal section.cover blockquote .attr,
+.reveal section.section-header blockquote .attr {
+  color: rgba(219, 203, 216, 0.9);
+}
+
+.reveal section.bg-azure,
+.reveal section.bg-thistle,
+.reveal section.bg-aqua {
+  color: #101935;
+}
+.reveal section.bg-azure h1, .reveal section.bg-azure h2, .reveal section.bg-azure h3, .reveal section.bg-azure h4,
+.reveal section.bg-thistle h1,
+.reveal section.bg-thistle h2,
+.reveal section.bg-thistle h3,
+.reveal section.bg-thistle h4,
+.reveal section.bg-aqua h1,
+.reveal section.bg-aqua h2,
+.reveal section.bg-aqua h3,
+.reveal section.bg-aqua h4 {
+  color: #101935;
+}
