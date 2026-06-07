@@ -527,6 +527,28 @@
   color: #564787;
 }
 
+.reveal table.kv {
+  width: 86%;
+  margin: 1em auto 0;
+  font-size: 0.58em;
+  line-height: 1.35;
+}
+
+.reveal table.kv td {
+  padding: 0.45em 0.7em;
+  vertical-align: top;
+}
+
+.reveal table.kv td:first-child {
+  width: 34%;
+}
+
+.reveal table.kv strong {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.6em;
+}
+
 .reveal pre {
   width: 92%;
   box-shadow: none;

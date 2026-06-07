@@ -267,6 +267,28 @@ $prussian: #101935;   // prussian blue
 
 .reveal .source a { color: $grape; }
 
+// Key/value tables (response-time slides): small, scannable body with the
+// acronym term kept prominent. Space below the heading/subtitle.
+.reveal table.kv {
+  width: 86%;
+  margin: 1em auto 0;
+  font-size: 0.58em;   // ~23px at the 40px base
+  line-height: 1.35;
+}
+
+.reveal table.kv td {
+  padding: 0.45em 0.7em;
+  vertical-align: top;
+}
+
+.reveal table.kv td:first-child { width: 34%; }
+
+.reveal table.kv strong {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.6em;   // keep TTFT / E2EL etc. large
+}
+
 
 // ============================================================
 // CODE
