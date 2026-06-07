@@ -742,6 +742,9 @@ def add_message(content, history=[]):
       hash: true,
       slideNumber: "c/t",
       progress: true,
+      // 16:9 (height kept at 700 so vertical sizing is unchanged; just wider -> no pillar-box)
+      width: 1244,
+      height: 700,
       transition: "slide",
       transitionSpeed: "default",
       plugins: [RevealHighlight, RevealNotes],
