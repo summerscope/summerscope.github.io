@@ -54,7 +54,7 @@ $prussian: #101935;   // prussian blue
   $background-color:        $azure,
 
   $main-font:               "'Helvetica Neue', Arial, sans-serif",
-  $main-font-size:          28px,   // ~30% down from 40px; headings are em-based so scale with it
+  $main-font-size:          40px,
   $main-color:              $prussian,
 
   $block-margin:            0.7em,
@@ -67,8 +67,8 @@ $prussian: #101935;   // prussian blue
   $heading-text-transform:  none,
   $heading-font-weight:     400,
 
-  $heading1-size:           2.6em,
-  $heading2-size:           1.9em,
+  $heading1-size:           1.82em,  // ~30% down (was 2.6em)
+  $heading2-size:           1.33em,  // ~30% down (was 1.9em)
   $heading3-size:           1.1em,
   $heading4-size:           1em,
 
