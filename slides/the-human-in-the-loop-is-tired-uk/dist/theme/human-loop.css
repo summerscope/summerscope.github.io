@@ -467,7 +467,8 @@
   background: rgba(86, 71, 135, 0.08);
   border-left: 4px solid #564787;
   box-shadow: none;
-  font-style: normal;
+  font-family: "Bodoni Moda", Didot, Georgia, serif;
+  font-style: italic;
   font-size: 0.95em;
   line-height: 1.45;
   padding: 0.8em 1em;
