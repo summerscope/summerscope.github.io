@@ -544,9 +544,9 @@
 }
 
 .reveal table.kv strong {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 1.6em;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.15em;
 }
 
 .reveal pre {

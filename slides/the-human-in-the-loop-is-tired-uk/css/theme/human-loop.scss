@@ -284,9 +284,9 @@ $prussian: #101935;   // prussian blue
 .reveal table.kv td:first-child { width: 34%; }
 
 .reveal table.kv strong {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 1.6em;   // keep TTFT / E2EL etc. large
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.15em;   // term: body font, bold, only slightly larger
 }
 
 
