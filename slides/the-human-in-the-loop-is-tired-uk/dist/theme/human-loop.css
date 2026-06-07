@@ -447,7 +447,7 @@
   font-family: var(--font-serif-display);
   font-weight: 500;
   color: rgba(16, 25, 53, 0.7);
-  font-size: 0.72em;
+  font-size: 0.95em;
 }
 
 .reveal section h1.title {
@@ -469,7 +469,7 @@
   box-shadow: none;
   font-family: "Bodoni Moda", Didot, Georgia, serif;
   font-style: italic;
-  font-size: 0.95em;
+  font-size: 1.2em;
   line-height: 1.45;
   padding: 0.8em 1em;
 }
