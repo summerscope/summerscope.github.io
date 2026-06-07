@@ -359,25 +359,48 @@ $prussian: #101935;   // prussian blue
 }
 
 // ---- ROOF SILHOUETTE ---------------------------------------
-// Uses the provided geometric art (img/angles1.svg = aqua,
-// img/angles2.svg = grape). It's an <img> anchored full-width
-// to the slide bottom; the character peeks from behind it.
+// Recolourable: the SHAPE comes from the provided SVG art used as
+// a CSS mask; the COLOUR comes from --roof-color. So one shape can
+// be any palette colour, and the SVG's own fill/stroke is ignored.
+// Pick a shape (.roof--shape1 = angles1, .roof--shape2 = angles2)
+// and a colour (.roof--grape / --aqua / --thistle / --azure / --prussian).
+// Anchored full-width to the slide bottom; character peeks from behind.
+// Shapes are inlined as data-URI masks (not external files) so they
+// load over file:// as well as http. fill colour in the data URI is
+// irrelevant - only the alpha/silhouette is used by the mask.
+$roof-shape1: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1408 154' preserveAspectRatio='none'%3E%3Cpath d='M1010 86L1408 156H0L243.5 119V46H255.344L438 108V0H646L910 108L1010 86Z' fill='black'/%3E%3C/svg%3E";
+$roof-shape2: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1046 157' preserveAspectRatio='none'%3E%3Cpath d='M35.42 86.5L-362.58 156.5H1045.42L801.92 119.5V46.5H790.08L607.42 108.5V0.5H399.42L135.42 108.5L35.42 86.5Z' fill='black'/%3E%3C/svg%3E";
+
 .reveal .roof {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: -1px;        // hide any sub-pixel gap at the very bottom
+  bottom: 0;
   width: 100%;
-  height: auto;
+  height: var(--roof-h, 24%);
+  background: var(--roof-color, #{$grape});
   z-index: 2;          // in front of the peeker (so it peeks from *behind*)
   pointer-events: none;
+  -webkit-mask: url("#{$roof-shape1}") no-repeat center bottom / 100% 100%;
+          mask: url("#{$roof-shape1}") no-repeat center bottom / 100% 100%;
 }
+
+.reveal .roof--shape2 {
+  -webkit-mask-image: url("#{$roof-shape2}");
+          mask-image: url("#{$roof-shape2}");
+}
+
+.reveal .roof--grape    { --roof-color: #{$grape}; }
+.reveal .roof--aqua     { --roof-color: #{$aqua}; }
+.reveal .roof--thistle  { --roof-color: #{$thistle}; }
+.reveal .roof--azure    { --roof-color: #{$azure}; }
+.reveal .roof--prussian { --roof-color: #{$prussian}; }
 
 // ---- PEEKER (entrance animation lives here) ----------------
 .reveal .peeker {
   position: absolute;
   bottom: 0;
-  width: var(--peek-w, 18%);
+  width: var(--peek-w, 9%);   // SMALL by default; bump per-slide with --peek-w
   z-index: 1;          // behind the roof
   // resting (pre-entrance) state: tucked off-canvas below the slide
   transform: translateY(118%);
@@ -385,8 +408,8 @@ $prussian: #101935;   // prussian blue
   will-change: transform, opacity;
 }
 
-.reveal .peeker--right { right: var(--peek-x, 7%); }
-.reveal .peeker--left  { left:  var(--peek-x, 7%); }
+.reveal .peeker--right { right: var(--peek-x, 4%); }
+.reveal .peeker--left  { left:  var(--peek-x, 4%); }
 
 // ---- CHARACTER ART (continuous float lives here) -----------
 .reveal .peeker-img {
@@ -418,9 +441,4 @@ $prussian: #101935;   // prussian blue
   .reveal .peeker,
   .reveal section.present .peeker { animation: none; transform: translateY(0); opacity: 1; }
   .reveal .peeker-img { animation: none; }
-}
-
-// Drop shadow so the character reads against the flat roof colour.
-.reveal .peeker-img {
-  filter: drop-shadow(0 6px 10px rgba(16, 25, 53, 0.18));
 }

@@ -610,17 +610,45 @@
   position: absolute;
   left: 0;
   right: 0;
-  bottom: -1px;
+  bottom: 0;
   width: 100%;
-  height: auto;
+  height: var(--roof-h, 24%);
+  background: var(--roof-color, #564787);
   z-index: 2;
   pointer-events: none;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1408 154' preserveAspectRatio='none'%3E%3Cpath d='M1010 86L1408 156H0L243.5 119V46H255.344L438 108V0H646L910 108L1010 86Z' fill='black'/%3E%3C/svg%3E") no-repeat center bottom/100% 100%;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1408 154' preserveAspectRatio='none'%3E%3Cpath d='M1010 86L1408 156H0L243.5 119V46H255.344L438 108V0H646L910 108L1010 86Z' fill='black'/%3E%3C/svg%3E") no-repeat center bottom/100% 100%;
+}
+
+.reveal .roof--shape2 {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1046 157' preserveAspectRatio='none'%3E%3Cpath d='M35.42 86.5L-362.58 156.5H1045.42L801.92 119.5V46.5H790.08L607.42 108.5V0.5H399.42L135.42 108.5L35.42 86.5Z' fill='black'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1046 157' preserveAspectRatio='none'%3E%3Cpath d='M35.42 86.5L-362.58 156.5H1045.42L801.92 119.5V46.5H790.08L607.42 108.5V0.5H399.42L135.42 108.5L35.42 86.5Z' fill='black'/%3E%3C/svg%3E");
+}
+
+.reveal .roof--grape {
+  --roof-color: #564787;
+}
+
+.reveal .roof--aqua {
+  --roof-color: #9ad4d6;
+}
+
+.reveal .roof--thistle {
+  --roof-color: #dbcbd8;
+}
+
+.reveal .roof--azure {
+  --roof-color: #f2fdff;
+}
+
+.reveal .roof--prussian {
+  --roof-color: #101935;
 }
 
 .reveal .peeker {
   position: absolute;
   bottom: 0;
-  width: var(--peek-w, 18%);
+  width: var(--peek-w, 9%);
   z-index: 1;
   transform: translateY(118%);
   opacity: 0;
@@ -628,11 +656,11 @@
 }
 
 .reveal .peeker--right {
-  right: var(--peek-x, 7%);
+  right: var(--peek-x, 4%);
 }
 
 .reveal .peeker--left {
-  left: var(--peek-x, 7%);
+  left: var(--peek-x, 4%);
 }
 
 .reveal .peeker-img {
@@ -674,7 +702,4 @@
   .reveal .peeker-img {
     animation: none;
   }
-}
-.reveal .peeker-img {
-  filter: drop-shadow(0 6px 10px rgba(16, 25, 53, 0.18));
 }
