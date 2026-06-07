@@ -363,16 +363,59 @@ def add_message(content, history=[]):
         </aside>
       </section>
 
-      <!-- 21 — Latency: TTFT vs E2EL — PLACEHOLDER -->
+      <!-- 21a — "Response time" isn't one number -->
       <section class="bg-azure" data-background-color="#F2FDFF">
-        <div class="placeholder">
-          <span class="tag">Placeholder — latency</span>
-          <p>TTFT vs E2EL — TBD</p>
-          <p style="font-size:0.6em;">Separate chat to finalise numbers + presentation.</p>
-        </div>
+        <h2>"Response time" isn't one number</h2>
+        <h3 class="subtitle">the number on the box vs the loop you live in</h3>
+        <ul>
+          <li class="fragment">TTFT (time to first token) — what vendors quote. Fast models: under 1 second.</li>
+          <li class="fragment">E2EL (end-to-end) — the time until you can actually act again.</li>
+          <li class="fragment">E2EL depends on your prompt, your output length, and any thinking — not a number you can look up.</li>
+        </ul>
+        <p class="source">
+          Artificial Analysis (<a href="https://artificialanalysis.ai">artificialanalysis.ai</a>), June 2026
+        </p>
         <aside class="notes">
-          Concept: response time isn't one number; TTFT = started, not usable (reasoning: 28–117s);
-          E2EL = what you feel, nobody publishes it; measurable vs felt = thesis in miniature.
+          TTFT is what gets measured and optimised; E2EL is the loop you actually live in.
+          E2EL is published only as a synthetic "seconds to 500 tokens" benchmark, never for your
+          real variable-length request. TTFT also scales with input length (benchmarks now use
+          10k-token prompts).
+        </aside>
+      </section>
+
+      <!-- 21b — The length of the loop -->
+      <section class="bg-azure" data-background-color="#F2FDFF">
+        <h2>The length of the loop</h2>
+        <h3 class="subtitle">reasoning blows it wide open</h3>
+        <ul>
+          <li class="fragment">Reasoning mode inflates the wait 5–30×</li>
+          <li class="fragment">First useful token after ~15–70 seconds of hidden thinking</li>
+          <li class="fragment">For an agent chaining calls, the loop is measured in minutes</li>
+        </ul>
+        <p class="source">
+          <a href="https://digitalapplied.com">digitalapplied.com</a> (Apr 2026), GMI Cloud (May 2026) — June 2026
+        </p>
+        <aside class="notes">
+          Concrete examples: Gemini 3.5 Flash high thinking ~15s blank screen before the first word;
+          Claude Opus 4.7 extended ~28s; GPT-5.5 Pro high reasoning ~67s.
+          The loop you remember is the tail — P95 latency ≈ 2–3× the median.
+          Figures rot fast; dated June 2026.
+        </aside>
+      </section>
+
+      <!-- 21c — We optimised the wrong number -->
+      <section class="bg-azure" data-background-color="#F2FDFF">
+        <h2>We optimised the wrong number</h2>
+        <h3 class="subtitle">measurable vs felt</h3>
+        <ul>
+          <li class="fragment">TTFT is easy to measure — so it's the number that gets optimised</li>
+          <li class="fragment">E2EL — the length of the loop — is what you actually feel</li>
+          <li class="fragment">A loop this long is too long to stay in flow, too short to switch tasks</li>
+        </ul>
+        <aside class="notes">
+          The thesis in miniature: optimise model output, not human experience.
+          Callback: this is why you can't build an intuition, and why it feels like a slot machine
+          (both established earlier). Bridges back into the feedback-loop diagnosis.
         </aside>
       </section>
 
