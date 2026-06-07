@@ -387,9 +387,10 @@ $prussian: #101935;   // prussian blue
 .reveal .floater {
   position: absolute;
   z-index: 3;
-  // small: capped well under 200px, lands ~75-100 depending on aspect
-  max-height: var(--floater-h, 100px);
-  max-width: var(--floater-w, 140px);
+  // capped under 200px; default lands ~150 tall (visible part ~120 once it
+  // hugs the corner). Override per-slide with --floater-h.
+  max-height: var(--floater-h, 150px);
+  max-width: var(--floater-w, 190px);
   width: auto;
   height: auto;
   pointer-events: none;
@@ -398,11 +399,12 @@ $prussian: #101935;   // prussian blue
   will-change: transform;
 }
 
-// Corners (small inset from the edge).
-.reveal .floater--bl { left: 3.5%;  bottom: 5%; }
-.reveal .floater--br { right: 3.5%; bottom: 5%; }
-.reveal .floater--tl { left: 3.5%;  top: 8%; }
-.reveal .floater--tr { right: 3.5%; top: 8%; }
+// Hug the slide corners: flush to the bottom, bleeding slightly off the side
+// edge so they read as characters poking into frame (grounded, not hovering).
+.reveal .floater--bl { left: -1.5%;  bottom: 0; }
+.reveal .floater--br { right: -1.5%; bottom: 0; }
+.reveal .floater--tl { left: -1.5%;  top: 0; }
+.reveal .floater--tr { right: -1.5%; top: 0; }
 
 // Stagger so multiple floaters don't bob in lockstep.
 .reveal .floater--br,
@@ -426,8 +428,8 @@ $prussian: #101935;   // prussian blue
 .reveal .floater--sil-grape  { filter: brightness(0) saturate(100%) invert(27%) sepia(18%) saturate(1500%) hue-rotate(216deg) brightness(94%) contrast(90%); }
 
 @keyframes floater-bob {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50%      { transform: translateY(-10px) rotate(2.5deg); }
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-9px); }
 }
 
 @media (prefers-reduced-motion: reduce) {

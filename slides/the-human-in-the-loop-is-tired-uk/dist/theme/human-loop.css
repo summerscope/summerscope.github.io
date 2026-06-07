@@ -644,8 +644,8 @@
 .reveal .floater {
   position: absolute;
   z-index: 3;
-  max-height: var(--floater-h, 100px);
-  max-width: var(--floater-w, 140px);
+  max-height: var(--floater-h, 150px);
+  max-width: var(--floater-w, 190px);
   width: auto;
   height: auto;
   pointer-events: none;
@@ -655,23 +655,23 @@
 }
 
 .reveal .floater--bl {
-  left: 3.5%;
-  bottom: 5%;
+  left: -1.5%;
+  bottom: 0;
 }
 
 .reveal .floater--br {
-  right: 3.5%;
-  bottom: 5%;
+  right: -1.5%;
+  bottom: 0;
 }
 
 .reveal .floater--tl {
-  left: 3.5%;
-  top: 8%;
+  left: -1.5%;
+  top: 0;
 }
 
 .reveal .floater--tr {
-  right: 3.5%;
-  top: 8%;
+  right: -1.5%;
+  top: 0;
 }
 
 .reveal .floater--br,
@@ -710,10 +710,10 @@
 
 @keyframes floater-bob {
   0%, 100% {
-    transform: translateY(0) rotate(0deg);
+    transform: translateY(0);
   }
   50% {
-    transform: translateY(-10px) rotate(2.5deg);
+    transform: translateY(-9px);
   }
 }
 @media (prefers-reduced-motion: reduce) {
