@@ -430,8 +430,8 @@ $prussian: #101935;   // prussian blue
 .reveal .floater--sil-grape  { filter: brightness(0) saturate(100%) invert(27%) sepia(18%) saturate(1500%) hue-rotate(216deg) brightness(94%) contrast(90%); }
 
 @keyframes floater-bob {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-9px); }
+  0%, 100% { transform: translateY(0)     rotate(var(--angle, 0deg)); }
+  50%      { transform: translateY(-9px)  rotate(var(--angle, 0deg)); }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -710,10 +710,10 @@
 
 @keyframes floater-bob {
   0%, 100% {
-    transform: translateY(0);
+    transform: translateY(0) rotate(var(--angle, 0deg));
   }
   50% {
-    transform: translateY(-9px);
+    transform: translateY(-9px) rotate(var(--angle, 0deg));
   }
 }
 @media (prefers-reduced-motion: reduce) {
