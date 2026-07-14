@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <title>The Human-in-the-Loop Is Tired — Laura Summers — EuroPython 2026</title>
+
+  <!-- Fonts: Boldonse (headings), Bodoni Moda (subheads / quotes) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Boldonse&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap" />
+
+  <link rel="stylesheet" href="dist/reset.css" />
+  <link rel="stylesheet" href="dist/reveal.css" />
+  <!-- Custom theme: built from css/theme/human-loop.scss -->
+  <link rel="stylesheet" href="dist/theme/human-loop.css" id="theme" />
+  <!-- Syntax highlighting theme for code -->
+  <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================================ -->
+      <!-- SECTION 1 — Intro: there is something to see here            -->
+      <!-- ============================================================ -->
+
+      <!-- 0 — Title (heading is baked into title.png) -->
+      <section class="cover-title" data-background-image="img/title.png" data-background-size="cover">
+        <p class="title-credit">Laura Summers | EuroPython 2026</p>
+        <aside class="notes">
+          Who I am, quick. Laura Summers - Lead Design Engineer @ Pydantic. QR codes at end of slides
+        </aside>
+      </section>
+
+      <!-- 1 — Based on a blog -->
+      <section class="bg-azure" data-background-color="#F2FDFF">
+        <h2>Based on a blog</h2>
+        <p>The Human-in-the-Loop Is Tired</p>
+        <p class="source">
+          <a
+            href="https://pydantic.dev/articles/the-human-in-the-loop-is-tired">pydantic.dev/articles/the-human-in-the-loop-is-tired</a>
+        </p>
+        <aside class="notes">
+          Started as a blog. Why a talk and not a blog → new ground, more spicy.
+        </aside>
+      </section>
+
+      <!-- 2 — Section header -->
+      <section class="section-header has-floaters" data-background-color="#101935">
+        <p class="eyebrow">Section 1</p>
+        <h2>something to see here</h2>
+        <h3 class="subtitle fragment">or, we're all markdown engineers now</h3>
+        <aside class="notes">ENTER 14:45:30 (14min)</aside>
+        <!-- floaters: 2 left / 1 right, grounded + overlapping, varied bounce -->
+        <img class="floater" src="img/faces/heater.png" alt=""
+          style="left:-7.8%; bottom:-7%; --angle:2deg; --floater-h:115px; --floater-dur:6s; animation-delay:-0.0s;" />
+        <img class="floater" src="img/faces/compact.png" alt=""
+          style="left:-0.8%; bottom:-6%; --angle:3.5deg; --floater-h:100px; --floater-dur:5s; animation-delay:-0.7s;" />
+        <img class="floater" src="img/faces/cover.png" alt=""
+          style="right:-6.4%; bottom:-6%; --angle:3deg; --floater-h:110px; --floater-dur:4.6s; animation-delay:-0.9s;" />
+      </section>
+
+      <!-- 3 — The vibes are weird -->
+      <section class="bg-aqua" data-background-color="#9AD4D6">
+        <h2>the vibes are weird</h2>
+        <aside class="notes">
+          Vibes (sorry, not sorry). Occasional / heavy / agents in prod — all of us.
+          If it were nothing we'd have gone to bed.
+        </aside>
+      </section>
+
+      <!-- 4 — Alan Nichol -->
+      <section class="bg-thistle" data-background-color="#DBCBD8">
+        <blockquote>
+          The dust hasn't settled on how we'll use this stuff at work — where we
+          just optimise and automate, and where we rethink the whole job. But the
+          rate of improvement is so high, and not slowing, that sitting on your
+          hands isn't a defensible stance.
+          <span class="attr">— Alan Nichol</span>
+        </blockquote>
+        <p class="source">
+          <a
+            href="https://linkedin.com/posts/anichol_audience-slido-questions-ugcPost-7467886985756725248">linkedin.com/posts/anichol_audience-slido-questions-ugcPost-7467886985756725248</a>
+        </p>
+        <aside class="notes">
+          The "something to see here" case.
+        </aside>
+      </section>
+
+      <!-- 5 — Slop or not? (activity intro) -->
+      <section class="bg-azure" data-background-color="#F2FDFF">
+        <h2>Slop or not?</h2>
+        <p>Hands up / hands down.</p>
+        <aside class="notes">
+          Rapid-fire, 6–10 artefacts, accelerating.
+        </aside>
+      </section>
+
+      <!-- 6 — Slop sequence — one artefact per slide, gross → subtle -->
+      <!-- 16:9-ish images are full-bleed backgrounds; portrait / off-ratio
+             images are centred <img> so they aren't squished or cropped.
+             Each slide carries its own source link (Laura adds on selection). -->
+
+      <!-- 6a — Shrimp Jesus -->
+      <section data-background-image="img/slop/jesus-shrimp.jpg" data-background-size="cover">
+        <!-- source: TODO Laura -->
+        <aside class="notes">Shrimp-Jesus — classic Facebook engagement-bait slop.</aside>
+      </section>
+
+      <!-- 6b — Donald / Jesus engagement bait -->
+      <section class="bg-azure" data-background-color="#F2FDFF">
+        <img src="img/slop/donald-jesus.jpg" alt="AI-generated religious / political engagement bait"
+          style="max-height:620px; max-width:100%; width:auto;" />
+        <!-- source: TODO Laura -->
+        <aside class="notes">Facebook bait — political / religious slop.</aside>
+      </section>
+
+      <!-- 6c — Mouse in paper -->
+      <section class="bg-azure" data-background-color="#F2FDFF">
+        <img src="img/slop/mouse-in-paper.png" alt="AI-generated cute mouse"
+          style="max-height:620px; max-width:100%; width:auto;" />
+        <!-- source: TODO Laura -->
+        <aside class="notes">Cute-animal slop — getting harder to clock.</aside>
+      </section>
+
+      <!-- 6d — Italian brainrot -->
+      <section data-background-image="img/slop/italian-brainrot-thumbnail.png" data-background-size="cover">
+        <!-- source: TODO Laura -->
+        <aside class="notes">Italian brainrot — maximal, instantly-readable slop.</aside>
+      </section>
+
+      <!-- 6e — Deep Dream -->
+      <section data-background-image="img/slop/deepdream.jpg" data-background-size="cover">
+        <!-- source: TODO Laura -->
+        <aside class="notes">Deep Dream — the original uncanny machine imagery.</aside>
+      </section>
+
+      <!-- 6f — Stained glass -->
+      <section data-background-image="img/slop/stained-glass.webp" data-background-size="cover">
+        <!-- source: TODO Laura -->
+        <aside class="notes">Decorative stained-glass — quite convincing.</aside>
+      </section>
+
+      <!-- 6g — Over-glossed face -->
+      <section class="bg-azure" data-background-color="#F2FDFF">
+        <img src="img/slop/glossy-lady.webp" alt="AI-generated over-glossed portrait"
+          style="max-height:620px; max-width:100%; width:auto;" />
+        <!-- source: TODO Laura -->
+        <aside class="notes">Over-glossed portrait — almost passes.</aside>
+      </section>
+
+      <!-- 6h — Sunset cats -->
+      <section data-background-image="img/slop/cats-sunset1.png" data-background-size="cover">
+        <!-- source: TODO Laura -->
+        <aside class="notes">Sentimental sunset-cats bait.</aside>
+      </section>
+
+      <!-- 7 — Code: slop or not? (A) — NOT SLOP (verified: validates cleanly) -->
+      <section class="bg-azure" data-background-color="#F2FDFF">
+        <h3 class="eyebrow">Slop or not? (A)</h3>
+        <pre><code class="language-python" data-trim data-noescape data-line-numbers="1-11|3-6|8-11">
+from pydantic import BaseModel
+
+class Talk(BaseModel):
+    title: str
+    speaker: str
+    track: str = "EuroPython 2026"
+
+talk = Talk(
+    title="The Human-in-the-Loop Is Tired",
+    speaker="Laura Summers",
+)
+          </code></pre>
+        <aside class="notes">
+          Not slop. A plain Pydantic model — the bare annotations ARE the whole
+          definition (no __init__ needed); the default is fine. Looks right, is right.
+        </aside>
+      </section>
+
+      <!-- 8 — Code: slop or not? (B) — SLOP (verified: list shared across calls) -->
+      <section class="bg-azure" data-background-color="#F2FDFF">
+        <h3 class="eyebrow">Slop or not? (B)</h3>
+        <pre><code class="language-python" data-trim data-noescape data-line-numbers="1-3|1|2">
+def add_message(content, history=[]):
+    history.append({"role": "user", "content": content})
+    return history
+          </code></pre>
+        <aside class="notes">
+          Slop. The mutable default list (history=[]) is created ONCE and shared by
+          every call that doesn't pass its own, so messages leak between separate
+          conversations. Looks right, is wrong.
+        </aside>
+      </section>
+
+      <!-- 11 — That was evaluation -->
+      <section class="bg-aqua" data-background-color="#9AD4D6">
+        <h2>We're all evaluators now</h2>
+        <h3 class="subtitle">Taste all the way down</h3>
+        <aside class="notes">
+          The activity was evaluation; supervise + judge, not make. what's the measure of success? we're all generalists
+          now - judging on every possible axis simultaneously. IDK about you, for me this is wrecking my executive
+          function.
+        </aside>
+      </section>
+
+      <!-- 10 — Son of Anton clip -->
+      <section class="bg-thistle" data-background-color="#DBCBD8">
+        <video src="img/movies/siliconvalley.mp4" controls preload="metadata" data-autoplay
+          style="display:block; width:100%; max-width:100%; height:auto; margin:0 auto;"></video>
+        <p class="source">
+          <a href="https://www.youtube.com/watch?v=m0b_D2JgZgY">youtube.com/watch?v=m0b_D2JgZgY</a>
+        </p>
+        <aside class="notes">
+          What if we're the paperclip maximisers? We optimise relentlessly for output.
+          Ties the activity together. Click the clip to play (Silicon Valley "Son of Anton").
+        </aside>
+      </section>
+
+
+
+      <!-- 12 — Breaking connections -->
+      <section class="bg-azure" data-background-color="#F2FDFF">
+        <h2>Breaking connections</h2>
+        <ul>
+          <li class="fragment">communication ↔ meaning</li>
+          <li class="fragment">appearance of effort ↔ experience of it</li>
+          <li class="fragment">gloss of clarity ↔ actually understanding it</li>
+        </ul>
+        <aside class="notes">
+          When production is free these snap; voice muddied or absent.
+        </aside>
+      </section>
+
+      <!-- 12b — Grindslop (1/2) -->
+      <section class="bg-thistle" data-background-color="#DBCBD8">
+        <blockquote>
+          Why do you deserve so much? <br />Why are you so rich?
+        </blockquote>
+        <p class="source">
+          Will Manidis, "On Grindslop": <a
+            href="https://x.com/WillManidis/status/2057094527236665598">x.com/WillManidis/status/2057094527236665598</a>
+        </p>
+      </section>
+
+      <!-- 12c — Grindslop (2/2) -->
+      <section class="bg-thistle" data-background-color="#DBCBD8">
+        <blockquote>
+          Because I suffer. Because I do not sleep. Because I've given up my life
+          to something greater than myself because my employees have scarred their
+          flesh with my symbol and I eat from open containers the leftover food and
+          my body rots, as I sit at the desk, because I have not left this building
+          in 11 days because I am no more of the lines of code that I produce than
+          I am flesh and life.
+        </blockquote>
+        <p class="source">
+          Will Manidis, "On Grindslop": <a
+            href="https://x.com/WillManidis/status/2057094527236665598">x.com/WillManidis/status/2057094527236665598</a>
+        </p>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- SECTION 2 — Diagnosis: the pain points                       -->
+      <!-- ============================================================ -->
+
+      <!-- 13 — Section header -->
+      <section class="section-header has-floaters" data-background-color="#101935">
+        <p class="eyebrow">Section 2</p>
+        <h2>Diagnosis</h2>
+        <h3 class="subtitle">what it actually feels like</h3>
+        <aside class="notes">ENTER 14:59:30 (11.5min)</aside>
+        <!-- floaters: 2 left / 3 right, grounded + overlapping, varied bounce -->
+        <img class="floater" src="img/faces/boiler.png" alt=""
+          style="left:-7.8%; bottom:-7%; --angle:2deg; --floater-h:115px; --floater-dur:6s; animation-delay:-0.0s;" />
+        <img class="floater" src="img/faces/car-vent1.png" alt=""
+          style="left:-0.8%; bottom:-11%; --angle:3.5deg; --floater-h:92px; --floater-dur:5s; animation-delay:-0.7s;" />
+        <img class="floater" src="img/faces/gas-gauge.png" alt=""
+          style="right:-9.2%; bottom:-12%; --angle:3deg; --floater-h:84px; --floater-dur:4.6s; animation-delay:-0.9s;" />
+        <img class="floater" src="img/faces/doors.png" alt=""
+          style="right:-2.2%; bottom:-8%; --angle:2.5deg; --floater-h:120px; --floater-dur:7s; animation-delay:-1.6s;" />
+        <img class="floater" src="img/faces/backpack.png" alt=""
+          style="right:4.8%; bottom:-10%; --angle:4deg; --floater-h:96px; --floater-dur:5.4s; animation-delay:-2.3s;" />
+      </section>
+
+      <!-- 14 — "Your company's new AI Agent Workflow" (clip) -->
+      <section class="bg-azure" data-background-color="#F2FDFF">
+        <video src="img/movies/aiworkflow.mp4" controls preload="metadata" data-autoplay
+          style="display:block; height:560px; width:auto; max-width:100%; margin:0 auto;"></video>
+        <p class="source">
+          <a href="https://youtube.com/shorts/rIkDBrSAl_s">youtube.com/shorts/rIkDBrSAl_s</a>
+        </p>
+        <aside class="notes">
+          If you listen to the AI Influencers you'd think we were in a golden age of fully
+          autonomous agents working assiduously and making everything sooooo great. But really —
+          we're mostly doing this, right? Setting up workflows and seeing all the weird and
+          unexpected ways they fall down.
+        </aside>
+      </section>
+
+      <!-- 15 — It feels like a slot machine (Jeremy Howard clip) -->
+      <section class="bg-azure" data-background-color="#F2FDFF">
+        <video src="img/movies/jeremyhoward.mp4" controls preload="metadata" data-autoplay
+          style="display:block; width:100%; max-width:100%; height:auto; margin:0 auto;"></video>
+        <p class="source">
+          <a href="https://www.youtube.com/watch?v=dHBEQ-Ryo24">youtube.com/watch?v=dHBEQ-Ryo24</a>
+        </p>
+        <aside class="notes">
+          The felt experience up front — gambler, not maker; feedback-loop slides later explain why;
+          self-worth slide calls back to it.
+        </aside>
+      </section>
+
+      <!-- 16 — Emotional equilibrium out of whack -->
+      <section class="bg-thistle" data-background-color="#DBCBD8">
+        <blockquote>
+          I simultaneously became snappier towards those who were asking me impromptu
+          questions… and more rant-y towards those who were asking me how I was doing.
+          <span class="attr">— Eric Ma</span>
+        </blockquote>
+        <p class="source">
+          <a
+            href="https://ericmjl.github.io/blog/2026/5/2/how-i-recognized-and-handled-ai-burnout">ericmjl.github.io/blog/2026/5/2/how-i-recognized-and-handled-ai-burnout</a>
+        </p>
+        <aside class="notes">
+          Even the capybara can't stay calm.
+        </aside>
+      </section>
+
+      <!-- 16b — Pareidolia -->
+      <section class="bg-azure" data-background-color="#F2FDFF">
+        <h2>Pareidolia</h2>
+        <h3 class="subtitle">we're wired to see faces — even where there are none</h3>
+        <div
+          style="display:flex; flex-wrap:wrap; gap:18px; justify-content:center; align-items:center; margin-top:0.3em;">
+          <img src="img/faces/backpack.png" alt="face in a backpack" style="height:175px; width:auto; margin:0;" />
+          <img src="img/faces/grater.png" alt="face in a grater" style="height:175px; width:auto; margin:0;" />
+          <img src="img/faces/dispenser.png" alt="face in a dispenser" style="height:175px; width:auto; margin:0;" />
+          <img src="img/faces/doors.png" alt="face in doors" style="height:175px; width:auto; margin:0;" />
+          <img src="img/faces/gas-gauge.png" alt="face in a gas gauge" style="height:175px; width:auto; margin:0;" />
+          <img src="img/faces/handle.png" alt="face in a handle" style="height:175px; width:auto; margin:0;" />
+        </div>
+        <aside class="notes">
+          Pareidolia — the brain's face-detection firing on inanimate objects.
+          Sets up de-anthropomorphisation: we can't help reading minds into machines either.
+        </aside>
+      </section>
+
+      <!-- 17 — De-anthropomorphising the machine -->
+      <section class="bg-aqua" data-background-color="#9AD4D6">
+        <h2>The perpetual Turing test</h2>
+
+        <aside class="notes">
+          Straining to see where the uncanny ends and the valley begins. And this is an added layer on top of all the
+          other added abstraction layers and variants at play in these systems, that we need to try and keep in our
+          heads.
+        </aside>
+      </section>
+
+      <!-- 18 — Underneath all of it: fear -->
+      <section class="bg-aqua" data-background-color="#9AD4D6">
+        <h2>existential angst</h2>
+        <h3 class="subtitle">times are weird, and only getting weirder</h3>
+        <aside class="notes">
+          Obsolescence + skill-rot.
+        </aside>
+      </section>
+
+      <!-- 19 — The top anxiety (PyCon DE anxiety wall photos) -->
+      <section class="bg-thistle" data-background-color="#DBCBD8">
+        <div class="r-stack">
+          <img src="img/anxiety1.png" alt="PyCon DE anxiety wall" style="max-height:560px; width:auto;" />
+          <img class="fragment" src="img/anxiety2.png" alt="PyCon DE anxiety wall (detail)"
+            style="max-height:560px; width:auto;" />
+        </div>
+        <p class="source">
+          <a href="https://pretalx.com/pyconde-pydata-2026/talk/7YA98N/">Dr. Kristian Rother &amp; Silvia Hänig —
+            Workshop: "What do we still need to learn?"</a>
+        </p>
+        <aside class="notes">
+          The anxiety wall; "what survives" answered in §4.
+        </aside>
+      </section>
+
+      <!-- 20 — You can't build an intuition for it -->
+      <section class="bg-thistle" data-background-color="#DBCBD8">
+        <blockquote>
+          friction is the thing that builds the understanding of the system in your head.
+          <span class="attr">— Mario Zechner</span>
+        </blockquote>
+        <p class="source">
+          <a href="https://www.youtube.com/watch?v=RjfbvDXpFls">Mario Zechner — "Building pi in a World of Slop"</a>
+        </p>
+        <aside class="notes">
+          Jupyter cell you get a feel for, LLM you don't; too many moving parts; wait too long to
+          start another task, too short to do nothing; not close to the machine.
+        </aside>
+      </section>
+
+      <!-- 21a — "Response time" isn't one number -->
+      <section class="bg-azure" data-background-color="#F2FDFF">
+        <h2 class="r-fit-text">Response time isn't one number</h2>
+        <h3 class="subtitle">the number on the box vs the loop you live in</h3>
+        <table class="kv fragment">
+          <tbody>
+            <tr>
+              <td><strong>TTFT</strong><br />time to first token</td>
+              <td>What vendors quote. <br />Fast models: under 1 second.</td>
+            </tr>
+            <tr>
+              <td><strong>E2EL</strong><br />end-to-end</td>
+              <td>The time until you can actually act again. Depends on your prompt, your output length, and any
+                thinking — not a number you can look up.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="source fragment">
+          Artificial Analysis (<a href="https://artificialanalysis.ai">artificialanalysis.ai</a>), June 2026
+        </p>
+        <aside class="notes">
+          TTFT is what gets measured and optimised; E2EL is the loop you actually live in.
+          E2EL is published only as a synthetic "seconds to 500 tokens" benchmark, never for your
+          real variable-length request. TTFT also scales with input length (benchmarks now use
+          10k-token prompts).
+        </aside>
+      </section>
+
+      <!-- 21b — The length of the loop -->
+      <section class="bg-azure" data-background-color="#F2FDFF">
+        <h2>The length of the loop</h2>
+        <h3 class="subtitle">reasoning blows it wide open</h3>
+        <table class="kv fragment">
+          <tbody>
+            <tr>
+              <td><strong>Reasoning mode</strong></td>
+              <td>inflates the wait 5–30×</td>
+            </tr>
+            <tr>
+              <td><strong>First useful token</strong></td>
+              <td>after ~15–70 seconds of hidden thinking</td>
+            </tr>
+            <tr>
+              <td><strong>Agent chaining calls</strong></td>
+              <td>the loop is measured in minutes</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="source fragment">
+          <a href="https://digitalapplied.com">digitalapplied.com</a> (Apr 2026), GMI Cloud (May 2026) — June 2026
+        </p>
+        <aside class="notes">
+          Concrete examples: Gemini 3.5 Flash high thinking ~15s blank screen before the first word;
+          Claude Opus 4.7 extended ~28s; GPT-5.5 Pro high reasoning ~67s.
+          The loop you remember is the tail — P95 latency ≈ 2–3× the median.
+          Figures rot fast; dated June 2026.
+        </aside>
+      </section>
+
+      <!-- 21c — We optimised the wrong number -->
+      <section class="bg-azure" data-background-color="#F2FDFF">
+        <h2>What's measured</h2>
+        <h3 class="subtitle">versus what is felt</h3>
+        <table class="kv fragment">
+          <tbody>
+            <tr>
+              <td><strong>TTFT</strong></td>
+              <td>
+                <ul>
+                  <li>easy to measure</li>
+                  <li>the number that gets optimised</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>E2EL</strong><br />the length of the loop</td>
+              <td>what you actually feel</td>
+            </tr>
+          </tbody>
+        </table>
+        <aside class="notes">
+          A loop this long is too long to stay in flow, too short to switch tasks.
+          The thesis in miniature: optimise model output, not human experience.
+          Callback: this is why you can't build an intuition, and why it feels like a slot machine
+          (both established earlier). Bridges back into the feedback-loop diagnosis.
+        </aside>
+      </section>
+
+      <!-- 22 — It's not just the speed -->
+      <section class="bg-aqua" data-background-color="#9AD4D6">
+        <h2>It's not just the speed</h2>
+        <p>"you're not waiting on a tool — you're waiting on someone who isn't respecting your time"</p>
+        <aside class="notes">
+          Not just speed — the feeling you're talking to someone, and they're not respecting your
+          time; almost impossible to fight millennia of programming; we are social creatures, tribal;
+          obsequious and rude; callback to de-anthropomorphisation.
+        </aside>
+      </section>
+
+      <!-- 23 — Why it's not steerable -->
+      <section class="bg-azure" data-background-color="#F2FDFF">
+        <h2>Why it's not steerable</h2>
+        <ul>
+          <li class="fragment">slow</li>
+          <li class="fragment">noisy</li>
+          <li class="fragment">missing feedback</li>
+        </ul>
+        <aside class="notes">
+          Slow = latency; noisy = non-determinism (can't tell if your change helped); missing =
+          can't see why (guardrail? provider? training data?); Meadows — the delayed-shower
+          oscillation; this is why it felt like the slot machine.
+        </aside>
+      </section>
+
+      <!-- 24 — The trade-offs are made for us, invisibly -->
+      <section class="bg-azure" data-background-color="#F2FDFF">
+        <h2>Trade-offs made for us</h2>
+        <p class="fragment">No dial, no readout.</p>
+        <aside class="notes">
+          The streaming metaphor. Optimises for provider costs, not our goals
+          Adaptive intelligence serves the provider's goal; we get neither the dial
+          (smart-but-slow, per query) nor the readout (what got traded).
+        </aside>
+      </section>
+
+      <!-- 25 — We're missing a developer view -->
+      <section class="bg-thistle" data-background-color="#DBCBD8">
+        <blockquote>
+          my context wasn't my context… zero observability.
+          <span class="attr">— Mario Zechner</span>
+        </blockquote>
+        <p class="source">
+          <a href="https://www.youtube.com/watch?v=RjfbvDXpFls">Mario Zechner — "Building pi in a World of Slop"</a>
+        </p>
+        <aside class="notes">
+          A read-only window on the decisions made for us; Meadows — the meter moved into the hallway.
+        </aside>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- SECTION 3 — Remedies and balms                               -->
+      <!-- ============================================================ -->
+
+      <!-- 26 — Section header -->
+      <section class="section-header has-floaters" data-background-color="#101935">
+        <p class="eyebrow">Section 3</p>
+        <h2>Remedies &amp; balms</h2>
+        <h3 class="subtitle">what actually helps</h3>
+        <aside class="notes">ENTER 15:11:00 (8min)</aside>
+        <!-- floaters: 5 left / 7 right, grounded + overlapping, varied bounce -->
+        <img class="floater" src="img/faces/church.png" alt=""
+          style="left:-12.0%; bottom:-7%; --angle:2deg; --floater-h:115px; --floater-dur:6s; animation-delay:-0.0s;" />
+        <img class="floater" src="img/faces/cardboard.png" alt=""
+          style="left:-5.0%; bottom:-11%; --angle:3.5deg; --floater-h:92px; --floater-dur:5s; animation-delay:-0.7s;" />
+        <img class="floater" src="img/faces/concrete.png" alt=""
+          style="left:2.0%; bottom:-5%; --angle:1.5deg; --floater-h:108px; --floater-dur:6.6s; animation-delay:-1.4s;" />
+        <img class="floater" src="img/faces/concrete2.png" alt=""
+          style="left:9.0%; bottom:-12%; --angle:3deg; --floater-h:84px; --floater-dur:4.6s; animation-delay:-2.1s;" />
+        <img class="floater" src="img/faces/dispenser.png" alt=""
+          style="left:16.0%; bottom:-8%; --angle:2.5deg; --floater-h:120px; --floater-dur:7s; animation-delay:-2.8s;" />
+        <img class="floater" src="img/faces/grate.png" alt=""
+          style="right:-14.8%; bottom:-12%; --angle:3deg; --floater-h:84px; --floater-dur:4.6s; animation-delay:-0.9s;" />
+        <img class="floater" src="img/faces/grater.png" alt=""
+          style="right:-7.8%; bottom:-8%; --angle:2.5deg; --floater-h:120px; --floater-dur:7s; animation-delay:-1.6s;" />
+        <img class="floater" src="img/faces/handle.png" alt=""
+          style="right:-0.8%; bottom:-10%; --angle:4deg; --floater-h:96px; --floater-dur:5.4s; animation-delay:-2.3s;" />
+        <img class="floater" src="img/faces/heater2.png" alt=""
+          style="right:6.2%; bottom:-6%; --angle:1.8deg; --floater-h:100px; --floater-dur:4.9s; animation-delay:-3.0s;" />
+        <img class="floater" src="img/faces/heater3.png" alt=""
+          style="right:13.2%; bottom:-9%; --angle:3.2deg; --floater-h:88px; --floater-dur:6.2s; animation-delay:-3.7s;" />
+        <img class="floater" src="img/faces/car-vent2.png" alt=""
+          style="right:20.2%; bottom:-7%; --angle:2deg; --floater-h:115px; --floater-dur:6s; animation-delay:-0.4s;" />
+        <img class="floater" src="img/faces/heater.png" alt=""
+          style="right:27.2%; bottom:-11%; --angle:3.5deg; --floater-h:92px; --floater-dur:5s; animation-delay:-1.1s;" />
+      </section>
+
+      <!-- 27 — Reframe -->
+      <section class="bg-aqua" data-background-color="#9AD4D6">
+        <h2>human experience</h2>
+        <h3 class="subtitle">over model output</h3>
+        <aside class="notes">
+          The turn the section hangs on.
+        </aside>
+      </section>
+
+      <!-- 28 — Measure the exhaust -->
+      <section class="bg-azure" data-background-color="#F2FDFF">
+        <h2>Can't pop the hood? </h2>
+        <h3 class="subtitle">at least measure the exhaust</h3>
+        <aside class="notes">If we want to feel like engineers again, we need engineering tools. Apply rigour to how we
+          think, and work.</aside>
+      </section>
+
+      <!-- 29 — Count your cards -->
+      <section class="bg-azure" data-background-color="#F2FDFF">
+        <h2>Measuring the system</h2>
+        <ul>
+          <li class="fragment">observability / tracing</li>
+          <li class="fragment">online & offline evals</li>
+        </ul>
+        <aside class="notes">
+          Tracing = closest thing to a developer view today (OTel / Logfire / Code mode);
+          "Samuel keynote, Tun and Fei covered in Friday's tutorial", "lena covered in multi turn evals"
+          Know the game, know what can go wrong; evaluation is the skill, make the implicit explicit;
+        </aside>
+      </section>
+
+      <section class="bg-azure" data-background-color="#F2FDFF">
+        <h2>not the full picture</h2>
+        <h3 class="subtitle">If you use a hosted model it's a tradeoff</h3>
+        <p class="fragment">training data, model config, guardrails → invisible</p>
+        <aside class="notes">
+          Providers for the dial + readout; self-host OSS where control matters;
+          fine-tune where control + privacy matter.
+        </aside>
+      </section>
+
+      <!-- 30 — Technical balms -->
+      <section class="bg-azure" data-background-color="#F2FDFF">
+        <h2>Technical balms</h2>
+        <ul>
+          <li class="fragment">pre-mortems</li>
+          <li class="fragment">AGENTS.md from your review comments</li>
+          <li class="fragment">permission to just write the code</li>
+        </ul>
+        <aside class="notes">
+          Pre-mortem = fresh session "assume it failed, why?"; distil your judgement;
+          mode-switching (pick two).
+        </aside>
+      </section>
+
+      <!-- 31 — Make the output brain-friendly -->
+      <section class="bg-azure" data-background-color="#F2FDFF">
+        <h2>Brain-friendly output </h2>
+        <p>respect your cognitive limit (~4–7 chunks)</p>
+        <aside class="notes">
+          Aimee — chunk it; ask for a "scientific-abstract" not an "executive summary";
+          bold first/last sentences to speed-read.
+        </aside>
+      </section>
+
+      <!-- 31a — Aimee Gonzalez-Cameron on chunking -->
+      <section class="bg-azure" data-background-color="#F2FDFF">
+        <h2>Chunk it</h2>
+        <ul>
+          <li class="fragment">Short paragraphs (no more than 2–3 sentences)</li>
+          <li class="fragment">Plain/short words or plain phrasing ("explain it like I'm five")</li>
+          <li class="fragment">HTML header hierarchies: H1, H2, and so on</li>
+          <li class="fragment">Spacing (again, you could leverage HTML for the &lt;br&gt; tag)</li>
+          <li class="fragment">Bullet lists like this one</li>
+        </ul>
+        <p class="source">
+          Aimee Gonzalez-Cameron — <a
+            href="https://medium.com/@battle_elf/good-words-taking-care-of-your-brain-part-2-e223b6c1ba2d">"Good Words:
+            Taking Care of Your Brain"</a>
+        </p>
+      </section>
+
+      <!-- 31b — Eric Ma (exhilarating, but unmoored) — moved here from the §2 burnout slide -->
+      <section class="bg-thistle" data-background-color="#DBCBD8">
+        <blockquote>
+          fascinating, thrilling, and exhilarating, but it also left me feeling unmoored
+          and drifting, questioning the permanence of what I was building.
+          <span class="attr">— Eric Ma</span>
+        </blockquote>
+        <p class="source">
+          <a
+            href="https://ericmjl.github.io/blog/2026/5/2/how-i-recognized-and-handled-ai-burnout">ericmjl.github.io/blog/2026/5/2/how-i-recognized-and-handled-ai-burnout</a>
+        </p>
+        <aside class="notes">
+          The other side of it — genuinely good, even as it unmoors. Leads into the human balms.
+        </aside>
+      </section>
+
+      <!-- 32 — Human balms -->
+      <section class="bg-thistle" data-background-color="#DBCBD8">
+        <h2>Human balms</h2>
+        <ul>
+          <li class="fragment">pair against the grain</li>
+          <li class="fragment">name it ("oh — you too?")</li>
+          <li class="fragment">solidarity</li>
+        </ul>
+
+        <aside class="notes">
+          Communities, this room. Rachel Lee Nabors keynote yesterday. Find like minded colleagues. Don't be afraid to
+          ask for help - no one is an expert yet.
+        </aside>
+      </section>
+
+      <section>
+        <blockquote>
+          I find working with Claude more human… I'm having a great time
+        </blockquote>
+        <p class="source">
+          — Ákos Kádár <a href="https://www.linkedin.com/in/ákos-kádár-phd-a5363172/"
+            target="_blank">linkedin.com/in/ákos-kádár-phd-a5363172/</a>
+        </p>
+        <aside class="notes">You should also embrace the moments of joy, of fun! These things can be invigorating, or
+          just unexpectedly helpful. Doesn't have to always be doom and gloom. Super useful for asking sensitive
+          questions (incognito mode) before you ask them to a person. </aside>
+      </section>
+
+      <!-- 33 — Protect the brain and body -->
+      <section class="bg-azure" data-background-color="#F2FDFF">
+        <h2>Protect the brain and body</h2>
+        <ul>
+          <li class="fragment">90-min breaks</li>
+          <li class="fragment">talk to a human</li>
+          <li class="fragment">four best hours then stop</li>
+          <li class="fragment">LookAway</li>
+        </ul>
+        <aside class="notes">
+          Aimee + Eric Ma; don't golem out.
+        </aside>
+      </section>
+
+
+
+      <!-- ============================================================ -->
+      <!-- SECTION 4 — Philosophy: the bigger picture                   -->
+      <!-- ============================================================ -->
+
+      <!-- 35 — Section header -->
+      <section class="section-header has-floaters" data-background-color="#101935">
+        <p class="eyebrow">Section 4</p>
+        <h2>The bigger picture</h2>
+        <h3 class="subtitle">what is this doing to us?</h3>
+        <aside class="notes">ENTER 15:19:00 (6min)</aside>
+        <!-- floaters: 7 left / 11 right, grounded + overlapping, varied bounce -->
+        <img class="floater" src="img/faces/compact.png" alt=""
+          style="left:-14.8%; bottom:-7%; --angle:2deg; --floater-h:115px; --floater-dur:6s; animation-delay:-0.0s;" />
+        <img class="floater" src="img/faces/cover.png" alt=""
+          style="left:-7.8%; bottom:-11%; --angle:3.5deg; --floater-h:92px; --floater-dur:5s; animation-delay:-0.7s;" />
+        <img class="floater" src="img/faces/boiler.png" alt=""
+          style="left:-0.8%; bottom:-5%; --angle:1.5deg; --floater-h:108px; --floater-dur:6.6s; animation-delay:-1.4s;" />
+        <img class="floater" src="img/faces/car-vent1.png" alt=""
+          style="left:6.2%; bottom:-12%; --angle:3deg; --floater-h:84px; --floater-dur:4.6s; animation-delay:-2.1s;" />
+        <img class="floater" src="img/faces/gas-gauge.png" alt=""
+          style="left:13.2%; bottom:-8%; --angle:2.5deg; --floater-h:120px; --floater-dur:7s; animation-delay:-2.8s;" />
+        <img class="floater" src="img/faces/doors.png" alt=""
+          style="left:20.2%; bottom:-10%; --angle:4deg; --floater-h:96px; --floater-dur:5.4s; animation-delay:-3.5s;" />
+        <img class="floater" src="img/faces/backpack.png" alt=""
+          style="left:27.2%; bottom:-6%; --angle:1.8deg; --floater-h:100px; --floater-dur:4.9s; animation-delay:-0.2s;" />
+        <img class="floater" src="img/faces/church.png" alt=""
+          style="right:-20.4%; bottom:-12%; --angle:3deg; --floater-h:84px; --floater-dur:4.6s; animation-delay:-0.9s;" />
+        <img class="floater" src="img/faces/cardboard.png" alt=""
+          style="right:-13.4%; bottom:-8%; --angle:2.5deg; --floater-h:120px; --floater-dur:7s; animation-delay:-1.6s;" />
+        <img class="floater" src="img/faces/concrete.png" alt=""
+          style="right:-6.4%; bottom:-10%; --angle:4deg; --floater-h:96px; --floater-dur:5.4s; animation-delay:-2.3s;" />
+        <img class="floater" src="img/faces/concrete2.png" alt=""
+          style="right:0.6%; bottom:-6%; --angle:1.8deg; --floater-h:100px; --floater-dur:4.9s; animation-delay:-3.0s;" />
+        <img class="floater" src="img/faces/dispenser.png" alt=""
+          style="right:7.6%; bottom:-9%; --angle:3.2deg; --floater-h:88px; --floater-dur:6.2s; animation-delay:-3.7s;" />
+        <img class="floater" src="img/faces/grate.png" alt=""
+          style="right:14.6%; bottom:-7%; --angle:2deg; --floater-h:115px; --floater-dur:6s; animation-delay:-0.4s;" />
+        <img class="floater" src="img/faces/grater.png" alt=""
+          style="right:21.6%; bottom:-11%; --angle:3.5deg; --floater-h:92px; --floater-dur:5s; animation-delay:-1.1s;" />
+        <img class="floater" src="img/faces/handle.png" alt=""
+          style="right:28.6%; bottom:-5%; --angle:1.5deg; --floater-h:108px; --floater-dur:6.6s; animation-delay:-1.8s;" />
+        <img class="floater" src="img/faces/heater2.png" alt=""
+          style="right:35.6%; bottom:-12%; --angle:3deg; --floater-h:84px; --floater-dur:4.6s; animation-delay:-2.5s;" />
+        <img class="floater" src="img/faces/heater3.png" alt=""
+          style="right:42.6%; bottom:-8%; --angle:2.5deg; --floater-h:120px; --floater-dur:7s; animation-delay:-3.2s;" />
+        <img class="floater" src="img/faces/car-vent2.png" alt=""
+          style="right:49.6%; bottom:-10%; --angle:4deg; --floater-h:96px; --floater-dur:5.4s; animation-delay:-3.9s;" />
+        <!-- back row: smaller, higher, behind (crowd depth) -->
+        <img class="floater floater--back" src="img/faces/cover.png" alt=""
+          style="left:-6.0%; bottom:4%; --angle:2deg; --floater-h:64px; --floater-dur:6.4s; animation-delay:-0.0s;" />
+        <img class="floater floater--back" src="img/faces/backpack.png" alt=""
+          style="left:-1.0%; bottom:8%; --angle:3deg; --floater-h:72px; --floater-dur:5.2s; animation-delay:-0.9s;" />
+        <img class="floater floater--back" src="img/faces/dispenser.png" alt=""
+          style="left:4.1%; bottom:5%; --angle:1.5deg; --floater-h:58px; --floater-dur:7.1s; animation-delay:-1.8s;" />
+        <img class="floater floater--back" src="img/faces/heater3.png" alt=""
+          style="left:9.1%; bottom:9%; --angle:3.5deg; --floater-h:76px; --floater-dur:4.8s; animation-delay:-2.7s;" />
+        <img class="floater floater--back" src="img/faces/boiler.png" alt=""
+          style="left:14.2%; bottom:3%; --angle:2.5deg; --floater-h:60px; --floater-dur:6.0s; animation-delay:-3.6s;" />
+        <img class="floater floater--back" src="img/faces/church.png" alt=""
+          style="left:19.2%; bottom:7%; --angle:4deg; --floater-h:70px; --floater-dur:5.6s; animation-delay:-0.5s;" />
+        <img class="floater floater--back" src="img/faces/grate.png" alt=""
+          style="left:24.3%; bottom:6%; --angle:1.8deg; --floater-h:56px; --floater-dur:4.4s; animation-delay:-1.4s;" />
+        <img class="floater floater--back" src="img/faces/car-vent2.png" alt=""
+          style="left:29.3%; bottom:4%; --angle:2deg; --floater-h:68px; --floater-dur:6.4s; animation-delay:-2.3s;" />
+        <img class="floater floater--back" src="img/faces/car-vent1.png" alt=""
+          style="left:34.4%; bottom:8%; --angle:3deg; --floater-h:64px; --floater-dur:5.2s; animation-delay:-3.2s;" />
+        <img class="floater floater--back" src="img/faces/cardboard.png" alt=""
+          style="left:39.4%; bottom:5%; --angle:1.5deg; --floater-h:72px; --floater-dur:7.1s; animation-delay:-0.1s;" />
+        <img class="floater floater--back" src="img/faces/grater.png" alt=""
+          style="left:44.5%; bottom:9%; --angle:3.5deg; --floater-h:58px; --floater-dur:4.8s; animation-delay:-1.0s;" />
+        <img class="floater floater--back" src="img/faces/heater.png" alt=""
+          style="left:49.5%; bottom:3%; --angle:2.5deg; --floater-h:76px; --floater-dur:6.0s; animation-delay:-1.9s;" />
+        <img class="floater floater--back" src="img/faces/gas-gauge.png" alt=""
+          style="left:54.6%; bottom:7%; --angle:4deg; --floater-h:60px; --floater-dur:5.6s; animation-delay:-2.8s;" />
+        <img class="floater floater--back" src="img/faces/concrete.png" alt=""
+          style="left:59.6%; bottom:6%; --angle:1.8deg; --floater-h:70px; --floater-dur:4.4s; animation-delay:-3.7s;" />
+        <img class="floater floater--back" src="img/faces/handle.png" alt=""
+          style="left:64.7%; bottom:4%; --angle:2deg; --floater-h:56px; --floater-dur:6.4s; animation-delay:-0.6s;" />
+        <img class="floater floater--back" src="img/faces/compact.png" alt=""
+          style="left:69.7%; bottom:8%; --angle:3deg; --floater-h:68px; --floater-dur:5.2s; animation-delay:-1.5s;" />
+        <img class="floater floater--back" src="img/faces/doors.png" alt=""
+          style="left:74.8%; bottom:5%; --angle:1.5deg; --floater-h:64px; --floater-dur:7.1s; animation-delay:-2.4s;" />
+        <img class="floater floater--back" src="img/faces/concrete2.png" alt=""
+          style="left:79.8%; bottom:9%; --angle:3.5deg; --floater-h:72px; --floater-dur:4.8s; animation-delay:-3.3s;" />
+        <img class="floater floater--back" src="img/faces/heater2.png" alt=""
+          style="left:84.9%; bottom:3%; --angle:2.5deg; --floater-h:58px; --floater-dur:6.0s; animation-delay:-0.2s;" />
+        <img class="floater floater--back" src="img/faces/cover.png" alt=""
+          style="left:89.9%; bottom:7%; --angle:4deg; --floater-h:76px; --floater-dur:5.6s; animation-delay:-1.1s;" />
+        <img class="floater floater--back" src="img/faces/backpack.png" alt=""
+          style="left:95.0%; bottom:6%; --angle:1.8deg; --floater-h:60px; --floater-dur:4.4s; animation-delay:-2.0s;" />
+        <img class="floater floater--back" src="img/faces/dispenser.png" alt=""
+          style="left:100.0%; bottom:4%; --angle:2deg; --floater-h:70px; --floater-dur:6.4s; animation-delay:-2.9s;" />
+      </section>
+
+      <!-- 36 — What survives -->
+      <!-- <section class="bg-azure" data-background-color="#F2FDFF">
+        <h2>What survives</h2>
+        <ul>
+          <li class="fragment">taste</li>
+          <li class="fragment">judgement</li>
+          <li class="fragment">the contrarian calls from real expertise</li>
+        </ul>
+        <aside class="notes">
+          Strongest where we know the trade-offs; shallow end goes impressionistic;
+          answers "does anything survive?"
+        </aside>
+      </section> -->
+
+      <!-- 37 — The bottleneck was never the code -->
+      <section class="bg-thistle" data-background-color="#DBCBD8">
+        <blockquote>
+          The bottleneck was never the code
+          <span class="attr">— Remi Louf</span>
+        </blockquote>
+        <p class="source">
+          <a
+            href="https://www.thetypicalset.com/blog/thoughts-on-coding-agents">thetypicalset.com/blog/thoughts-on-coding-agents</a>
+        </p>
+        <aside class="notes">
+          It was always attention + judgement; now the scarce thing.
+        </aside>
+      </section>
+
+      <!-- 38 — Remember the slot machine? — STUB -->
+      <section class="bg-azure" data-background-color="#F2FDFF">
+        <h2>re-building the self</h2>
+        <h3 class="subtitle">your worth is not your output</h3>
+        <aside class="notes">
+          Remember the slot machine? It also changes how we feel about our own output / contribution / worth;
+          up- and down-side; wins don't feel ours, failures do; glancing — democratising the losses,
+          privatising the gains.
+        </aside>
+      </section>
+
+      <!-- 38b — Koyaanisqatsi clip -->
+      <section class="bg-azure" data-background-color="#F2FDFF">
+        <video src="img/movies/koyaanisqatsi.mp4" controls preload="metadata" data-autoplay
+          style="display:block; width:100%; max-width:100%; height:auto; margin:0 auto;"></video>
+        <p class="source">
+          Koyaanisqatsi (1982) — <a
+            href="https://www.youtube.com/watch?v=QI2IlA3ztIo">youtube.com/watch?v=QI2IlA3ztIo</a>
+        </p>
+      </section>
+
+      <!-- 39 — Hands in the fabric of the universe -->
+      <section class="bg-azure" data-background-color="#F2FDFF">
+        <h2>Hands in the fabric</h2>
+        <aside class="notes">
+          Coding felt like shaping the world; siren song of automation; briefly — cyborgs,
+          human extension, human automation.
+        </aside>
+      </section>
+
+      <!-- 40 — The real invitation -->
+      <section class="bg-aqua" data-background-color="#9AD4D6">
+        <h2>The human challenge</h2>
+        <p>micro ↔ macro</p>
+        <aside class="notes">
+          How do I make this work for me — and what is it doing to our culture, language,
+          shared knowledge? In real time, at speed.
+        </aside>
+      </section>
+
+      <!-- 41 — Close -->
+      <section class="cover" data-background-color="#564787">
+        <h2>You're allowed to be tired</h2>
+        <h3 class="subtitle fragment">More Star Trek, less Black Mirror.</h3>
+      </section>
+
+      <!-- 42 — Thanks / Q&A -->
+      <section class="cover" data-background-color="#564787">
+        <h2>Thanks</h2>
+        <div style="display:flex; gap:48px; justify-content:center; align-items:flex-start; margin-top:0.4em;">
+          <figure style="margin:0; display:flex; flex-direction:column; align-items:center; gap:0.3em;">
+            <img src="img/tiredtalkqr.png" alt="QR code — talk slides" style="width:400px; height:400px; margin:0;" />
+            <figcaption style="font-family:var(--font-ui); font-size:0.5em;">(Talk)</figcaption>
+          </figure>
+          <figure style="margin:0; display:flex; flex-direction:column; align-items:center; gap:0.3em;">
+            <img src="img/linkedinqr.png" alt="QR code — LinkedIn" style="width:400px; height:400px; margin:0;" />
+            <figcaption style="font-family:var(--font-ui); font-size:0.5em;">(LinkedIn)</figcaption>
+          </figure>
+        </div>
+        <aside class="notes">
+          "which pattern hit hardest?"
+        </aside>
+      </section>
+
+      <!-- 43 — References / links -->
+      <section class="bg-azure" data-background-color="#F2FDFF">
+        <h2>Links</h2>
+        <div class="links-index">
+          <div>
+            <p class="links-head">Essays &amp; blogs</p>
+            <ul>
+              <li><a href="https://pydantic.dev/articles/the-human-in-the-loop-is-tired">The Human-in-the-Loop Is Tired
+                  — pydantic.dev</a></li>
+              <li><a href="https://x.com/WillManidis/status/2057094527236665598">Will Manidis — On Grindslop</a></li>
+              <li><a href="https://ericmjl.github.io/blog/2026/5/2/how-i-recognized-and-handled-ai-burnout">Eric Ma —
+                  Recognising &amp; handling AI burnout</a></li>
+              <li><a href="https://www.thetypicalset.com/blog/thoughts-on-coding-agents">Remi Louf — Thoughts on coding
+                  agents</a></li>
+              <li><a href="https://medium.com/@battle_elf/good-words-taking-care-of-your-brain-77a7b1922e86">Aimee
+                  Gonzalez-Cameron — Good Words: Taking Care of Your Brain (Pt 1)</a></li>
+              <li><a
+                  href="https://medium.com/@battle_elf/good-words-taking-care-of-your-brain-part-2-e223b6c1ba2d">Aimee
+                  Gonzalez-Cameron — Good Words: Taking Care of Your Brain (Pt 2)</a></li>
+              <li><a href="https://linkedin.com/posts/anichol_audience-slido-questions-ugcPost-7467886985756725248">Alan
+                  Nichol — on sitting on your hands</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="links-head">Talks &amp; videos</p>
+            <ul>
+              <li><a href="https://www.youtube.com/watch?v=RjfbvDXpFls">Mario Zechner — Building pi in a World of
+                  Slop</a></li>
+              <li><a href="https://www.youtube.com/watch?v=dHBEQ-Ryo24">Jeremy Howard — it feels like a slot machine</a>
+              </li>
+              <li><a href="https://pretalx.com/pyconde-pydata-2026/talk/7YA98N/">Dr. Kristian Rother &amp; Silvia Hänig
+                  — What do we still need to learn?</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="dist/reveal.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+      hash: true,
+      slideNumber: "c/t",
+      progress: true,
+      transition: "slide",
+      transitionSpeed: "default",
+      plugins: [RevealHighlight, RevealNotes],
+    });
+  </script>
+</body>
+
+</html>

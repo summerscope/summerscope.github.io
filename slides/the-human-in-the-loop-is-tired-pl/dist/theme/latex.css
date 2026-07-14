@@ -1,0 +1,641 @@
+@charset "UTF-8";
+/**
+ * LaTeX Fetish theme for reveal.js
+ * Academic precision meets cyberpunk rebellion
+ * 
+ * Author: PyData 2077 Team
+ */
+@import url("https://fonts.googleapis.com/css2?family=Computer+Modern+Serif:ital,wght@0,400;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap");
+@keyframes geometricFloat {
+  0%, 100% {
+    background: radial-gradient(circle at 20% 80%, rgba(0, 102, 255, 0.03) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(0, 255, 136, 0.03) 0%, transparent 50%);
+  }
+  50% {
+    background: radial-gradient(circle at 80% 20%, rgba(0, 102, 255, 0.05) 0%, transparent 50%), radial-gradient(circle at 20% 80%, rgba(0, 255, 136, 0.05) 0%, transparent 50%);
+  }
+}
+@keyframes geometricShift {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate(50px, 50px) rotate(360deg);
+  }
+}
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+:root {
+  --r-background-color: #fefefe;
+  --r-main-font: Computer Modern Serif, Times New Roman, serif;
+  --r-main-font-size: 28px;
+  --r-main-color: #1a1a1a;
+  --r-block-margin: 20px;
+  --r-heading-margin: 0 0 20px 0;
+  --r-heading-font: Computer Modern Serif, Times New Roman, serif;
+  --r-heading-color: #0066ff;
+  --r-heading-line-height: 1.2;
+  --r-heading-letter-spacing: -0.02em;
+  --r-heading-text-transform: none;
+  --r-heading-text-shadow: 2px 2px 0px rgba(0, 255, 136, 0.3);
+  --r-heading-font-weight: 700;
+  --r-heading1-text-shadow: none;
+  --r-heading1-size: 2.8em;
+  --r-heading2-size: 2.2em;
+  --r-heading3-size: 1.8em;
+  --r-heading4-size: 1.4em;
+  --r-code-font: monospace;
+  --r-link-color: #00ff88;
+  --r-link-color-dark: rgb(0, 216.75, 115.6);
+  --r-link-color-hover: rgb(0, 204, 108.8);
+  --r-selection-background-color: #0066ff;
+  --r-selection-color: #fff;
+  --r-overlay-element-bg-color: 240, 240, 240;
+  --r-overlay-element-fg-color: 0, 0, 0;
+}
+
+.reveal-viewport {
+  background: #fefefe;
+  min-height: 100vh;
+  position: relative;
+  background-color: var(--r-background-color);
+}
+
+.reveal {
+  font-family: var(--r-main-font);
+  font-size: var(--r-main-font-size);
+  font-weight: normal;
+  color: var(--r-main-color);
+}
+
+.reveal ::selection {
+  color: var(--r-selection-color);
+  background: var(--r-selection-background-color);
+  text-shadow: none;
+}
+
+.reveal ::-moz-selection {
+  color: var(--r-selection-color);
+  background: var(--r-selection-background-color);
+  text-shadow: none;
+}
+
+.reveal .slides section,
+.reveal .slides section > section {
+  line-height: 1.3;
+  font-weight: inherit;
+}
+
+/*********************************************
+ * HEADERS
+ *********************************************/
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  margin: var(--r-heading-margin);
+  color: var(--r-heading-color);
+  font-family: var(--r-heading-font);
+  font-weight: var(--r-heading-font-weight);
+  line-height: var(--r-heading-line-height);
+  letter-spacing: var(--r-heading-letter-spacing);
+  text-transform: var(--r-heading-text-transform);
+  text-shadow: var(--r-heading-text-shadow);
+  word-wrap: break-word;
+}
+
+.reveal h1 {
+  font-size: var(--r-heading1-size);
+}
+
+.reveal h2 {
+  font-size: var(--r-heading2-size);
+}
+
+.reveal h3 {
+  font-size: var(--r-heading3-size);
+}
+
+.reveal h4 {
+  font-size: var(--r-heading4-size);
+}
+
+.reveal h1 {
+  text-shadow: var(--r-heading1-text-shadow);
+}
+
+/*********************************************
+ * OTHER
+ *********************************************/
+.reveal p {
+  margin: var(--r-block-margin) 0;
+  line-height: 1.3;
+}
+
+/* Remove trailing margins after titles */
+.reveal h1:last-child,
+.reveal h2:last-child,
+.reveal h3:last-child,
+.reveal h4:last-child,
+.reveal h5:last-child,
+.reveal h6:last-child {
+  margin-bottom: 0;
+}
+
+/* Ensure certain elements are never larger than the slide itself */
+.reveal img,
+.reveal video,
+.reveal iframe {
+  max-width: 95%;
+  max-height: 95%;
+}
+
+.reveal strong,
+.reveal b {
+  font-weight: bold;
+}
+
+.reveal em {
+  font-style: italic;
+}
+
+.reveal ol,
+.reveal dl,
+.reveal ul {
+  display: inline-block;
+  text-align: left;
+  margin: 0 0 0 1em;
+}
+
+.reveal ol {
+  list-style-type: decimal;
+}
+
+.reveal ul {
+  list-style-type: disc;
+}
+
+.reveal ul ul {
+  list-style-type: square;
+}
+
+.reveal ul ul ul {
+  list-style-type: circle;
+}
+
+.reveal ul ul,
+.reveal ul ol,
+.reveal ol ol,
+.reveal ol ul {
+  display: block;
+  margin-left: 40px;
+}
+
+.reveal dt {
+  font-weight: bold;
+}
+
+.reveal dd {
+  margin-left: 40px;
+}
+
+.reveal blockquote {
+  display: block;
+  position: relative;
+  width: 70%;
+  margin: var(--r-block-margin) auto;
+  padding: 5px;
+  font-style: italic;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+}
+
+.reveal blockquote p:first-child,
+.reveal blockquote p:last-child {
+  display: inline-block;
+}
+
+.reveal q {
+  font-style: italic;
+}
+
+.reveal pre {
+  display: block;
+  position: relative;
+  width: 90%;
+  margin: var(--r-block-margin) auto;
+  text-align: left;
+  font-size: 0.55em;
+  font-family: var(--r-code-font);
+  line-height: 1.2em;
+  word-wrap: break-word;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.reveal code {
+  font-family: var(--r-code-font);
+  text-transform: none;
+  tab-size: 2;
+}
+
+.reveal pre code {
+  display: block;
+  padding: 5px;
+  overflow: auto;
+  max-height: 400px;
+  word-wrap: normal;
+}
+
+.reveal .code-wrapper {
+  white-space: normal;
+}
+
+.reveal .code-wrapper code {
+  white-space: pre;
+}
+
+.reveal table {
+  margin: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.reveal table th {
+  font-weight: bold;
+}
+
+.reveal table th,
+.reveal table td {
+  text-align: left;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  border-bottom: 1px solid;
+}
+
+.reveal table th[align=center],
+.reveal table td[align=center] {
+  text-align: center;
+}
+
+.reveal table th[align=right],
+.reveal table td[align=right] {
+  text-align: right;
+}
+
+.reveal table tbody tr:last-child th,
+.reveal table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.reveal sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+
+.reveal sub {
+  vertical-align: sub;
+  font-size: smaller;
+}
+
+.reveal small {
+  display: inline-block;
+  font-size: 0.6em;
+  line-height: 1.2em;
+  vertical-align: top;
+}
+
+.reveal small * {
+  vertical-align: top;
+}
+
+.reveal img {
+  margin: var(--r-block-margin) 0;
+}
+
+/*********************************************
+ * LINKS
+ *********************************************/
+.reveal a {
+  color: var(--r-link-color);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.reveal a:hover {
+  color: var(--r-link-color-hover);
+  text-shadow: none;
+  border: none;
+}
+
+.reveal .roll span:after {
+  color: #fff;
+  background: var(--r-link-color-dark);
+}
+
+/*********************************************
+ * Frame helper
+ *********************************************/
+.reveal .r-frame {
+  border: 4px solid var(--r-main-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.reveal a .r-frame {
+  transition: all 0.15s linear;
+}
+
+.reveal a:hover .r-frame {
+  border-color: var(--r-link-color);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
+}
+
+/*********************************************
+ * NAVIGATION CONTROLS
+ *********************************************/
+.reveal .controls {
+  color: var(--r-link-color);
+}
+
+/*********************************************
+ * PROGRESS BAR
+ *********************************************/
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--r-link-color);
+}
+
+/*********************************************
+ * PRINT BACKGROUND
+ *********************************************/
+@media print {
+  .backgrounds {
+    background-color: var(--r-background-color);
+  }
+}
+.reveal .slides section .title-slide {
+  text-align: left !important;
+  padding: 40px 60px;
+  background: #e8e8e8;
+  background-size: cover;
+  border-top: 8px solid #0066ff;
+  border-radius: 0 0 100px 100px;
+  position: relative;
+  box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
+}
+.reveal .slides section .title-slide::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: #00ff88;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  animation: float 3s ease-in-out infinite;
+}
+.reveal .slides section .title-slide h1 {
+  font-size: 3.2em !important;
+  color: #0066ff !important;
+  margin-bottom: 0.5em;
+  text-shadow: 2px 2px 0px rgba(64, 255, 0, 0.75) !important;
+}
+.reveal .slides section .title-slide .subtitle {
+  font-size: 1.4em;
+  color: #1a1a1a;
+  font-style: italic;
+  margin-top: 1em;
+  border-left: 3px solid #00ff88;
+  padding-left: 20px;
+}
+
+.reveal .slides section .title-subhead {
+  margin: 10% 0;
+}
+
+.reveal .slides section.section-slide {
+  background: radial-gradient(ellipse at center, rgba(0, 102, 255, 0.1) 0%, rgba(255, 255, 255, 0.95) 70%) !important;
+  border: 2px solid #0066ff;
+  border-radius: 8px;
+}
+.reveal .slides section.section-slide h2 {
+  font-size: 2.8em !important;
+  color: #0066ff !important;
+  text-align: center;
+  padding: 40px;
+  position: relative;
+}
+.reveal .slides section.section-slide h2::after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #0066ff, #00ff88);
+  animation: expandContract 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+@keyframes expandContract {
+  0%, 100% {
+    width: 100px;
+  }
+  50% {
+    width: 200px;
+  }
+}
+.reveal {
+  font-family: "Computer Modern Serif", "Times New Roman", serif;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+.reveal p {
+  line-height: 1.7;
+}
+.reveal .math {
+  font-family: "JetBrains Mono", monospace;
+  background: rgba(232, 232, 232, 0.3);
+  padding: 20px;
+  border-radius: 4px;
+  border-left: 4px solid #0066ff;
+  margin: 20px 0;
+  font-size: 1.2em;
+  position: relative;
+}
+.reveal .math::before {
+  content: "∇";
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  color: #00ff88;
+  font-size: 1.5em;
+  animation: mathFloat 4s ease-in-out infinite;
+}
+.reveal pre {
+  background: #1a1a1a;
+  border: 1px solid #0066ff;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.reveal code {
+  font-family: "JetBrains Mono", monospace;
+  color: #00ff88;
+}
+.reveal ul, .reveal ol {
+  margin-left: 40px;
+}
+.reveal ul li, .reveal ol li {
+  margin: 10px 0;
+  position: relative;
+}
+.reveal ul li::marker, .reveal ol li::marker {
+  content: "▶";
+  color: #0066ff;
+}
+.reveal em {
+  color: #0066ff;
+  font-style: italic;
+}
+.reveal strong {
+  color: #00ff88;
+  font-weight: 700;
+}
+.reveal a {
+  color: #00ff88;
+  text-decoration: underline;
+  text-decoration-color: #0066ff;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+.reveal a:hover {
+  color: rgb(0, 204, 108.8);
+  text-shadow: 0 0 8px rgba(0, 255, 136, 0.5);
+}
+
+@keyframes mathFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+.reveal .progress {
+  height: 4px;
+  background: #0066ff;
+}
+.reveal .progress span {
+  background: #00ff88;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  33% {
+    transform: translateY(-20px) rotate(5deg) scale(1.05);
+  }
+  66% {
+    transform: translateY(-10px) rotate(-3deg) scale(0.95);
+  }
+}
+.totem-creature-after, .totem-creature-before {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  outline: 1px solid pink;
+}
+
+.totem-creature-after::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+}
+
+.totem-creature-before::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+}
+
+.totem-creature-after.totem-1::after {
+  width: 260px;
+  height: 348px;
+  left: 0px;
+  bottom: 0px;
+  animation: float 6s ease-in-out infinite;
+  background-image: url(../../../img/ComfyUI_00340_top.png);
+  background-size: cover;
+}
+
+.totem-creature-after.totem-2::after {
+  width: 260px;
+  height: 624px;
+  left: 5%;
+  top: 56%;
+  animation: float 3.5s ease-in-out infinite;
+  background-image: url(../../../img/ComfyUI_00305_.png);
+  background-size: cover;
+}
+
+.totem-creature-before.totem-3::before {
+  width: 260px;
+  height: 624px;
+  right: 5%;
+  top: 58%;
+  animation: float 4s ease-in-out infinite;
+  background-image: url(../../../img/ComfyUI_00034_.png);
+  background-size: cover;
+}
+
+.totem-creature-after.totem-4::after {
+  width: 260px;
+  height: 624px;
+  left: 0px;
+  bottom: 0px;
+  animation: float 6s ease-in-out infinite;
+  background-image: url(../../../img/ComfyUI_00242_.png);
+  background-size: cover;
+}
+
+.totem-creature-after.totem-5::after {
+  width: 260px;
+  height: 624px;
+  left: 35%;
+  bottom: -10%;
+  animation: float 6s ease-in-out infinite;
+  background-image: url(../../../img/ComfyUI_00111_.png);
+  background-size: cover;
+}
+
+.totem-creature-before.totem-6::before {
+  width: 260px;
+  height: 348px;
+  left: 55%;
+  bottom: 5%;
+  animation: float 5s ease-in-out infinite;
+  background-image: url(../../../img/ComfyUI_00340_bottom.png);
+  background-size: cover;
+}
+
+.totem-creature-after.totem-7::after {
+  width: 260px;
+  height: 624px;
+  left: 0;
+  bottom: -3%;
+  animation: float 5s ease-in-out infinite;
+  background-image: url(../../../img/ComfyUI_00265_.png);
+  background-size: cover;
+}
