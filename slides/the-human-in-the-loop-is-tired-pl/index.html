@@ -133,7 +133,9 @@
       <section class="bg-azure" data-background-color="#F2FDFF">
         <img src="img/slop/mouse-in-paper.png" alt="AI-generated cute mouse"
           style="max-height:620px; max-width:100%; width:auto;" />
-        <!-- source: TODO Laura -->
+        <p class="source">
+          <a href="https://scienceintegritydigest.com/2024/02/15/the-rat-with-the-big-balls-and-enormous-penis-how-frontiers-published-a-paper-with-botched-ai-generated-images/">scienceintegritydigest.com — "The rat with the big balls and enormous penis"</a>
+        </p>
         <aside class="notes">Cute-animal slop — getting harder to clock.</aside>
       </section>
 
@@ -618,6 +620,15 @@ def add_message(content, history=[]):
         </aside>
       </section>
 
+      <section class="bg-azure" data-background-color="#F2FDFF">
+        <h2>not the full picture</h2>
+        <h3 class="subtitle">If you use a hosted model it's a tradeoff</h3>
+        <p class="fragment">training data, model config, guardrails → invisible</p>
+        <aside class="notes">
+          Hosted model = not the full picture. Not shaming — reality. At least know what's missing.
+        </aside>
+      </section>
+
       <!-- 29 — Count your cards -->
       <section class="bg-azure" data-background-color="#F2FDFF">
         <h2>Measuring the system</h2>
@@ -626,19 +637,7 @@ def add_message(content, history=[]):
           <li class="fragment">online & offline evals</li>
         </ul>
         <aside class="notes">
-          Tracing = closest thing to a developer view today (OTel / Logfire / Code mode);
-          "Samuel keynote, Tun and Fei covered in Friday's tutorial", "lena covered in multi turn evals"
-          Know the game, know what can go wrong; evaluation is the skill, make the implicit explicit;
-        </aside>
-      </section>
-
-      <section class="bg-azure" data-background-color="#F2FDFF">
-        <h2>not the full picture</h2>
-        <h3 class="subtitle">If you use a hosted model it's a tradeoff</h3>
-        <p class="fragment">training data, model config, guardrails → invisible</p>
-        <aside class="notes">
-          Providers for the dial + readout; self-host OSS where control matters;
-          fine-tune where control + privacy matter.
+          Look at logs, traces — the data your system produces (outputs AND telemetry). Pick OTel-based tools; vendor magic that locks you in is the anti-pattern. Online + offline evals.
         </aside>
       </section>
 
@@ -651,8 +650,7 @@ def add_message(content, history=[]):
           <li class="fragment">permission to just write the code</li>
         </ul>
         <aside class="notes">
-          Pre-mortem = fresh session "assume it failed, why?"; distil your judgement;
-          mode-switching (pick two).
+          Pre-mortem: "assume it failed, why?" — use as a prompt. Review comments → AGENTS.md (careful: over-stuffing context). Permission to just write code — you don't have to use these 24/7.
         </aside>
       </section>
 
@@ -682,6 +680,9 @@ def add_message(content, history=[]):
             href="https://medium.com/@battle_elf/good-words-taking-care-of-your-brain-part-2-e223b6c1ba2d">"Good Words:
             Taking Care of Your Brain"</a>
         </p>
+        <aside class="notes">
+          Aimee Gonzalez-Cameron (evaluation science = real academic discipline). Terminal = terrible for reading, get out. Caveman skill = zero-filler mode. We're not lemmings, not goldfish — learn from other disciplines.
+        </aside>
       </section>
 
       <!-- 31b — Eric Ma (exhilarating, but unmoored) — HIDDEN for 30-min PL cut (duplicate author, keep §16) -->
@@ -710,8 +711,7 @@ def add_message(content, history=[]):
         </ul>
 
         <aside class="notes">
-          Communities, this room. Rachel Lee Nabors keynote yesterday. Find like minded colleagues. Don't be afraid to
-          ask for help - no one is an expert yet.
+          Talk to peers doing the same work. Resist the voice saying "just pair with Claude" — pairing gives shared knowledge, alignment, psych safety. Say pains out loud: "oh — me too" = solidarity.
         </aside>
       </section>
 
@@ -723,9 +723,9 @@ def add_message(content, history=[]):
           — Ákos Kádár <a href="https://www.linkedin.com/in/ákos-kádár-phd-a5363172/"
             target="_blank">linkedin.com/in/ákos-kádár-phd-a5363172/</a>
         </p>
-        <aside class="notes">You should also embrace the moments of joy, of fun! These things can be invigorating, or
-          just unexpectedly helpful. Doesn't have to always be doom and gloom. Super useful for asking sensitive
-          questions (incognito mode) before you ask them to a person. </aside>
+        <aside class="notes">
+          Some friends love it — not all doom. Safe stress-test for tech AND sensitive questions before you bring them to a boss/colleague. Permission to accept the dopamine hit.
+        </aside>
       </section>
 
       <!-- 33 — Protect the brain and body -->
@@ -738,7 +738,7 @@ def add_message(content, history=[]):
           <li class="fragment">LookAway</li>
         </ul>
         <aside class="notes">
-          Aimee + Eric Ma; don't golem out.
+          Not machines. Working to live, not living to work. AI psychosis is a thing. Simon Willison: 4 great hours then stop. LookAway = reminder to stand up + look at sky.
         </aside>
       </section>
 
@@ -871,9 +871,7 @@ def add_message(content, history=[]):
         <h2>re-building the self</h2>
         <h3 class="subtitle">your worth is not your output</h3>
         <aside class="notes">
-          Remember the slot machine? It also changes how we feel about our own output / contribution / worth;
-          up- and down-side; wins don't feel ours, failures do; glancing — democratising the losses,
-          privatising the gains.
+          Constantly rebuild the self. Worth ≠ economic productivity. We're humans, creatures — here to be alive, not to drive the economy. Permission to nope out.
         </aside>
       </section>
 
@@ -888,8 +886,7 @@ def add_message(content, history=[]):
           <a href="https://www.democracynow.org/2010/2/18/nobel_economist_joseph_stiglitz_on_obamas">democracynow.org/2010/2/18/nobel_economist_joseph_stiglitz_on_obamas</a>
         </p>
         <aside class="notes">
-          The emotional economy of AI-assisted work has the same shape as the bailout economy —
-          losses land on us; gains accrue elsewhere.
+          Like capitalism writ large. Bad output → feel personally responsible. Good output → doesn't feel mine. No solution — naming it.
         </aside>
       </section>
 
@@ -901,6 +898,9 @@ def add_message(content, history=[]):
           Koyaanisqatsi (1982) — <a
             href="https://www.youtube.com/watch?v=QI2IlA3ztIo">youtube.com/watch?v=QI2IlA3ztIo</a>
         </p>
+        <aside class="notes">
+          Koyaanisqatsi (1982). Automation is not new — always been part of the human existential challenge.
+        </aside>
       </section>
 
       <!-- 39 — Hands in the fabric of the universe — HIDDEN for 30-min PL cut -->
@@ -917,8 +917,7 @@ def add_message(content, history=[]):
         <h2>The human challenge</h2>
         <p>micro ↔ macro</p>
         <aside class="notes">
-          How do I make this work for me — and what is it doing to our culture, language,
-          shared knowledge? In real time, at speed.
+          Float between macro (economics, society, culture, meaning) and micro (do the job, be at work). In real time, at speed.
         </aside>
       </section>
 
@@ -941,9 +940,6 @@ def add_message(content, history=[]):
             <figcaption style="font-family:var(--font-ui); font-size:0.5em;">(LinkedIn)</figcaption>
           </figure>
         </div>
-        <aside class="notes">
-          "which pattern hit hardest?"
-        </aside>
       </section>
 
       <!-- 43 — References / links -->
