@@ -64,7 +64,7 @@ This small experiment is about syntax choice, not a claim that the answers were 
 
 ## 16. Now the same prompt, locally.
 
-Section 5: 4 minutes, including the prompt and discussion. Compare the live Satyrn answer directly with the recorded GPT baseline just shown, focusing on syntax choice. This is the checkpoint Laura was downloading in the setup session. Verify the runner identifies this exact checkpoint before the live demo. Local output has not been supplied to this deck. Do not present a reference answer as a model result. If setup is not ready, use the following prompt and reference slide to explain what the demo would test, then move on. Source: https://huggingface.co/satyrn-ai/Ornith-1.5-9B-py3.15
+Section 5: 4 minutes, including the prompt and discussion. Compare the live Satyrn answer directly with the recorded GPT baseline just shown, focusing on syntax choice. This is the checkpoint Laura was downloading in the setup session. Verify the runner identifies this exact checkpoint before the live demo. One neutral-prompt rehearsal result has now been supplied: the local Satyrn model returned list(itertools.chain.from_iterable(iter(iterables))), using established syntax. Five basic preparation checks passed. This is one rehearsal observation, separate from the 30 recorded GPT runs. Exact code and checkpoint are in assets/local-demo-neutral.md. The Target Python 3.15 prompt result is still pending. If setup is not ready, use the following prompt and reference slide to explain what the demo would test, then move on. Source: https://huggingface.co/satyrn-ai/Ornith-1.5-9B-py3.15
 
 ## 17. The prompt
 
