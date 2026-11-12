@@ -4,21 +4,21 @@
 
  Smallish open models, built by and for Python developers. 
 
-## 2. challenge
-
- At EuroPython, Paul challenged the community to build a model that knew Python 3.15 in time for its October release.  Sources:  https://satyrn.ai/blog/2026/from-a-talk-a-community/  
-
-## 3. after-keynote
-
- These are the people who showed up after the keynote. Many fewer became active working contributors.  Sources:  https://satyrn.ai/blog/2026/from-a-talk-a-community/  
-
-## 4. meeting-paul
+## 2. meeting-paul
 
  Jody, a mutual friend, introduced me to Paul before his keynote. He asked how spicy to go. I encouraged him: we could find ways to be spicy without actively biting the hand that feeds us. I am always a fan of spiciness. 
 
-## 5. why-it-landed
+## 3. challenge
+
+ At EuroPython, Paul challenged the community to build a model that knew Python 3.15 in time for its October release.  Sources:  https://satyrn.ai/blog/2026/from-a-talk-a-community/  
+
+## 4. why-it-landed
 
  I loved EuroPython and its community, but felt disempowered and disillusioned. We were not really grappling with the larger forces at play—too much hoping the shit would blow over. I was leaving my job and the country, feeling a little adrift. Finding people who shared these concerns gave me something positive to focus on. 
+
+## 5. after-keynote
+
+ These are the people who showed up after the keynote. Many fewer became active working contributors.  Sources:  https://satyrn.ai/blog/2026/from-a-talk-a-community/  
 
 ## 6. sketches
 
