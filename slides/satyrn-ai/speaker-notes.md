@@ -1,6 +1,6 @@
 # Say hi to Satyrn — speaker notes
 
-Recorded GPT baseline comes before the live Satyrn comparison. Arrow keys navigate. N toggles in-page notes.
+Recorded GPT baseline comes before the live Satyrn comparison and observed failure modes. Arrow keys navigate. N toggles in-page notes.
 
 ## 1. Say hi 👋 to Satyrn
 
@@ -10,9 +10,9 @@ Recorded GPT baseline comes before the live Satyrn comparison. Arrow keys naviga
 
 July 17 closing keynote. This is a paraphrase of the challenge, not a verbatim quote. The blog describes the target as October 1. Source: https://satyrn.ai/blog/2026/from-a-talk-a-community/
 
-## 3. The first 45
+## 3. After the keynote
 
-The initial group, not the current community count. Photo from the Satyrn website repository. Source: https://satyrn.ai/blog/2026/from-a-talk-a-community/
+People who showed up after the talk. Many fewer people became working contributors. Do not equate this gathering with active contributors or a current community count. Photo from the Satyrn website repository. Source: https://satyrn.ai/blog/2026/from-a-talk-a-community/
 
 ## 4. “How spicy should I go?”
 
@@ -64,40 +64,44 @@ This small experiment is about syntax choice, not a claim that the answers were 
 
 ## 16. Now the same prompt, locally.
 
-Section 5: 4 minutes, including the prompt and discussion. Compare the live Satyrn answer directly with the recorded GPT baseline just shown, focusing on syntax choice. This is the checkpoint Laura was downloading in the setup session. Verify the runner identifies this exact checkpoint before the live demo. One neutral-prompt rehearsal result has now been supplied: the local Satyrn model returned list(itertools.chain.from_iterable(iter(iterables))), using established syntax. Five basic preparation checks passed. This is one rehearsal observation, separate from the 30 recorded GPT runs. Exact code and checkpoint are in assets/local-demo-neutral.md. The Target Python 3.15 prompt result is still pending. If setup is not ready, use the following prompt and reference slide to explain what the demo would test, then move on. Source: https://huggingface.co/satyrn-ai/Ornith-1.5-9B-py3.15
+Section 5: 4 minutes, including the prompt and discussion. Compare the live Satyrn answer directly with the recorded GPT baseline just shown, focusing on syntax choice. This is the checkpoint Laura was downloading in the setup session. Verify the runner identifies this exact checkpoint before the live demo. One neutral-prompt rehearsal result has now been supplied: the local Satyrn model returned list(itertools.chain.from_iterable(iter(iterables))), using established syntax. Five basic preparation checks passed. This is one rehearsal observation, separate from the 30 recorded GPT runs. Exact code and checkpoint are in assets/local-demo-neutral.md. The Target Python 3.15 rehearsal also returned older chain/tee code, with an unsupported claim about tee, a wrong example call, and a function that prints rather than returning a list. These are demos of failure modes, part of the well-sorta story; the live demo need not produce new syntax to be useful. Use the saved rehearsal observations if there is no time for another generation; they demonstrate failure modes directly. Source: https://huggingface.co/satyrn-ai/Ornith-1.5-9B-py3.15
 
 ## 17. The prompt
 
 Use this exact natural-language prompt for the neutral condition. Do not name the PEP or show the reference syntax before generation. Inspect the generated function: does it flatten one level, preserve order, accept generators, return a list? Separately, what syntax did it choose? The other session owns running the local demo.
 
-## 18. Two valid answers
+## 18. A demo of failure modes
+
+Two local rehearsal observations from Laura, separate from the 30 recorded GPT runs. The point here is a demo of failure modes, not proof of general quality or a successful fine-tuning result. Neutral code used chain.from_iterable and passed five basic preparation checks, but its explanation described operations absent from the code. Target Python 3.15 code introduced tee, claimed an extension to accept multiple iterables, called a single-argument function with three positional arguments, and printed the list instead of returning it. The tee claim is labelled unsupported pending the parent’s official-documentation verification. Exact code and prompts are in assets/local-demo-neutral.md and assets/local-demo-python315.md. Tie this back to well, sorta, and why the project needs evals.
+
+## 19. Two valid answers
 
 Both expressions flatten one level of an iterable of iterables. The newer form requires Python 3.15. These are reference examples, not model output. Source: https://peps.python.org/pep-0798/
 
-## 19. Pi + Satyrn Engine
+## 20. Pi + Satyrn Engine
 
 Section 6: 3 minutes. Pi and Ollama are external tools. The Engine is the Python implementation plus a thin TypeScript Pi adapter in packages/engine/. The plugin adds /implement. The contract is shown for confirmation before the Engine runs. The caller reviews the returned candidate. This is a description of the architecture, not a claim that the live setup has succeeded. Source: https://github.com/pauleveritt/satyrn-engine  Source: https://satyrn.ai/projects/engine/
 
-## 20. One task. A reviewable patch.
+## 21. One task. A reviewable patch.
 
 Optional live demo. Run only if the setup session has verified the Pi plugin. Use the same task, inspect the contract and writable paths, then show the candidate and receipt. Success is pending. If it is not ready, skip this slide and use the following published result. Do not spend the talk debugging installation.
 
-## 21. Does the Engine help it finish?
+## 22. Does the Engine help it finish?
 
 Published project experiment, not today’s benchmark. Task: selfhost-run-record-gate. Engine commit 23a0ef6. Same model, 48,000 output-token budget, 72 turns. Report dated October 6. One-sided Fisher exact p=0.0043. This concerns delivering a passing patch, not general model capability. A later commit fixed a handoff asymmetry but was not used for these counts. Do not substitute the older 2/24 versus 16/24 headline. Source: https://github.com/pauleveritt/satyrn-evals/blob/main/docs/results/2026-10-06-rrg-delivery.md
 
-## 22. AI by us, for us.
+## 23. AI by us, for us.
 
 Section 8: around 4 minutes across this slide and the next two. Laura’s thesis: take back our power. The point is not competing directly with foundation labs. It is building skills, knowledge and community. Everyone has jobs and other commitments. We are trying to get interesting, useful results for ourselves.
 
-## 23. Fine-tuning should be something we can learn.
+## 24. Fine-tuning should be something we can learn.
 
 Laura’s direction: build capacity for fine-tuning beyond a small group of ML engineers and demystify it. The open pipeline, datasets, tutorial, eval evidence and community are ways to build that capacity. This is an invitation to learn and contribute, not a claim that all onboarding is already easy. Source: https://github.com/satyrn-ai/satyrn-models/blob/main/docs/trainer_tutorial.md
 
-## 24. There’s room for you.
+## 25. There’s room for you.
 
 The project welcomes contributors beyond model trainers. GitHub holds code, issues and durable decisions. Discord is for questions and conversation; follow the current link from the website. Zen is for learning and sharing, Team Compass for team work. Do not invent community-size statistics or Discord anecdotes. Source: https://satyrn.ai/get-involved/
 
-## 25. Say hi.
+## 26. Say hi.
 
 Three minutes for questions. Useful follow-ups: how to get started, how to contribute without ML experience, why local models, and what the experiments do and do not establish.

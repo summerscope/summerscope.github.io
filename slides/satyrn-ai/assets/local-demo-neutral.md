@@ -26,4 +26,4 @@ The returned implementation uses established `itertools.chain.from_iterable` syn
 
 The user-supplied explanation said the input was converted to a list first and that `*iterables` was unpacked. Neither operation appears in the returned code. This records the observed mismatch; it is not a verbatim full response transcript.
 
-The Target Python 3.15 prompt was requested next; its result had not been supplied when this note was written.
+The follow-up Target Python 3.15 result is recorded in local-demo-python315.md.
