@@ -50,7 +50,7 @@ Published model names verified against the Satyrn website models page. This is s
 
 ## 13. dataset-viewer
 
-If the dataset viewer is already running, switch to it here and inspect one example. Otherwise use this slide and the repository link. The dataset viewer renders generated JSONL datasets. Training work and the tutorial live in satyrn-models. Dataset files in this checkout are Git LFS pointers, so no invented sample or screenshot is used. Source:  https://github.com/satyrn-ai/satyrn-models/blob/main/corpus_builder/frontend/README.md   Source:  https://github.com/satyrn-ai/satyrn-models/blob/main/docs/trainer_tutorial.md  
+Workflow illustration, not a screenshot or a fabricated dataset example. The builder gathers version-specific PEPs and changed CPython documentation. SFT uses an LLM to generate prompt-response pairs demonstrating new Python features, then verifies examples in sandboxed containers on the target Python version and its immediate predecessor; it rejects examples when both versions produce equivalent output. The viewer browses JSONL records, prompts and answers; RL rows also expose tests, reference solutions and metadata. Source: https://github.com/satyrn-ai/satyrn-models/blob/main/docs/dataset_generator.md .
 
 ## 14. syntax-intro
 

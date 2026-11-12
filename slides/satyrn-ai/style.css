@@ -51,3 +51,8 @@ body { background:white; }
 .reveal .slides>section.chart-slide { padding:0; }
 .reveal .full-chart { width:1600px; height:900px; max-width:none; max-height:none; display:block; }
 .reveal .meme { display:block; width:100%; height:600px; object-fit:contain; object-position:center; }
+
+.reveal .workflow { display:grid; grid-template-columns:1fr 1fr; gap:24px 45px; margin:25px 0; }
+.reveal .workflow > div { display:flex; align-items:center; gap:25px; border-top:2px solid #d9d4cc; padding:15px 0; }
+.reveal .workflow b { font-size:64px; color:#a94932; }
+.reveal .workflow p { font-size:38px; margin:0; }
