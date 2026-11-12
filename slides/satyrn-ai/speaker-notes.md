@@ -88,22 +88,26 @@ Section 6: 3 minutes. Pi and Ollama are external tools. The Engine is the Python
 
 Optional live demo. Run only if the setup session has verified the Pi plugin. Use the same task, inspect the contract and writable paths, then show the candidate and receipt. Success is pending. If it is not ready, skip this slide and use the following published result. Do not spend the talk debugging installation.
 
-## 23. engine-evidence
+## 23. engine-experiment
 
-Published project experiment, not today’s benchmark. Task: selfhost-run-record-gate. Engine commit 23a0ef6. Same model, 48,000 output-token budget, 72 turns. Report dated October 6. One-sided Fisher exact p=0.0043. This concerns delivering a passing patch, not general model capability. A later commit fixed a handoff asymmetry but was not used for these counts. Do not substitute the older 2/24 versus 16/24 headline. Source:  https://github.com/pauleveritt/satyrn-evals/blob/main/docs/results/2026-10-06-rrg-delivery.md  
+Published October 6 experiment on selfhost-run-record-gate. Implement JSON run-record loading and validation, gate rules and CLI integration in the eval project. Both arms use the same Ornith 1.5 9B model, task and per-run budget: 48,000 output tokens and 72 turns. 36 runs per arm. Compare bare Pi against Pi plus pinned Engine 23a0ef6. The endpoint is a delivered patch passing hidden tests within budget. Our flatten experiment measures syntax choice; this experiment measures agent delivery. Limited to one task, one model and one budget. Source: https://github.com/pauleveritt/satyrn-evals/blob/main/docs/results/2026-10-06-rrg-delivery.md ; task: https://github.com/pauleveritt/satyrn-evals/blob/main/tools/task_specs/selfhost-run-record-gate.json .
 
-## 24. our-way
+## 24. engine-evidence
+
+Published project experiment, not today’s benchmark. Task: selfhost-run-record-gate. Engine commit 23a0ef6. Same model, 48,000 output-token budget, 72 turns. Report dated October 6. One-sided Fisher exact p=0.0043. Both arms usually reached passing code; the difference was finishing and stopping before the budget ran out. This concerns delivering a passing patch, not general model capability or fine-tuning. A later commit fixed a handoff asymmetry but was not used for these counts. Do not substitute the older 2/24 versus 16/24 headline. Source:  https://github.com/pauleveritt/satyrn-evals/blob/main/docs/results/2026-10-06-rrg-delivery.md  
+
+## 25. our-way
 
 Section 8: around 4 minutes across this slide and the next two. Laura’s thesis: take back our power. The point is not competing directly with foundation labs. It is building skills, knowledge and community. Everyone has jobs and other commitments. We are trying to get interesting, useful results for ourselves.
 
-## 25. demystify
+## 26. demystify
 
 Laura’s direction: build capacity for fine-tuning beyond a small group of ML engineers and demystify it. The open pipeline, datasets, tutorial, eval evidence and community are ways to build that capacity. This is an invitation to learn and contribute, not a claim that all onboarding is already easy. Source:  https://github.com/satyrn-ai/satyrn-models/blob/main/docs/trainer_tutorial.md  
 
-## 26. join
+## 27. join
 
 The project welcomes contributors beyond model trainers. GitHub holds code, issues and durable decisions. Discord is for questions and conversation; follow the current link from the website. Zen is for learning and sharing, Team Compass for team work. Do not invent community-size statistics or Discord anecdotes. Source:  https://satyrn.ai/get-involved/  
 
-## 27. questions
+## 28. questions
 
 Three minutes for questions. Useful follow-ups: how to get started, how to contribute without ML experience, why local models, and what the experiments do and do not establish.
