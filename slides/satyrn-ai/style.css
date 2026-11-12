@@ -50,3 +50,4 @@ body { background:white; }
 .reveal .compact li { margin-bottom:12px; }
 .reveal .slides>section.chart-slide { padding:0; }
 .reveal .full-chart { width:1600px; height:900px; max-width:none; max-height:none; display:block; }
+.reveal .meme { display:block; width:100%; height:600px; object-fit:contain; object-position:center; }
