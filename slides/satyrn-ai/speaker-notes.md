@@ -100,26 +100,30 @@ We are changing questions. The flatten task asked which syntax a model chooses. 
 
  The Pi extension adds /implement. It starts with a fresh model context and its own Git worktree, derives a contract and guards the writable scope. It returns a candidate patch and receipt for review. The contract makes the task and allowed changes explicit.  Source: https://github.com/pauleveritt/satyrn-engine 
 
-## 23. engine-experiment
+## 23. plugin-demo
+
+ In Pi, enter /implement with the task. Inspect the contract and writable paths, then the returned patch and receipt. If the plugin is not ready, skip the live plugin demo. 
+
+## 24. engine-experiment
 
  Published October 6: implement run-record JSON validation and a CLI command in an existing Python project. Same Ornith 1.5 9B, same task, 36 attempts per arm. Bare Pi versus Pi plus Engine 23a0ef6. Each run gets 48,000 output tokens and 72 turns. Success means delivering a patch that passes hidden tests. Our earlier experiment measures syntax choice; this one measures agent delivery.  Source: https://github.com/pauleveritt/satyrn-evals/blob/main/docs/results/2026-10-06-rrg-delivery.md 
 
-## 24. engine-evidence
+## 25. engine-evidence
 
  Bare Pi delivered 10 of 36 passing patches; Pi plus Engine delivered 22 of 36. Both often reached passing code. The difference was finishing and stopping before the budget ran out. One task, one model, one budget—not a general capability or fine-tuning result. One-sided Fisher exact p=0.0043. A later fix addressed a handoff asymmetry, but these counts use the earlier pinned Engine.  Source: https://github.com/pauleveritt/satyrn-evals/blob/main/docs/results/2026-10-06-rrg-delivery.md 
 
-## 25. our-way
+## 26. our-way
 
  Take back our power. Skills, knowledge and community. We are not competing directly with foundation labs. We are building useful things for ourselves, together, around our jobs and other commitments. 
 
-## 26. demystify
+## 27. demystify
 
  Make fine-tuning accessible beyond a small group of ML engineers. Open pipelines, datasets, tutorials and evals give people ways to learn and contribute. Build the capacity together.  Sources:  https://github.com/satyrn-ai/satyrn-models/blob/main/docs/trainer_tutorial.md  
 
-## 27. join
+## 28. join
 
  Models, agents, evals, education and design all need people. GitHub holds code and durable decisions; Discord is for questions and conversation. Follow the current links from the website. Zen is for learning and sharing; Team Compass is for team work.  Sources:  https://satyrn.ai/get-involved/  
 
-## 28. questions
+## 29. questions
 
  I am moving to SF—let’s stay in touch. Questions? 
