@@ -1,0 +1,9 @@
+ollama run hf.co/satyrn-ai/Ornith-1.5-9B-py3.15:Q4_K_M "Write a Python function that flattens an iterable of iterables into a single list."
+
+ollama run hf.co/satyrn-ai/Ornith-1.5-9B-py3.15:Q4_K_M "Write a Python function that flattens an iterable of iterables into a single list. Use modern Python practices."
+
+ollama run hf.co/satyrn-ai/Ornith-1.5-9B-py3.15:Q4_K_M "Write a Python function that flattens an iterable of iterables into a single list. Use engineering best practice."
+
+ollama run hf.co/satyrn-ai/Ornith-1.5-9B-py3.15:Q4_K_M "Write a Python function that flattens an iterable of iterables into a single list. Use the latest Python APIs."
+
+ollama run hf.co/satyrn-ai/Ornith-1.5-9B-py3.15:Q4_K_M "Write a Python function that flattens an iterable of iterables into a single list. Target Python 3.15."
