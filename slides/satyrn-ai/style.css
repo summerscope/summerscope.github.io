@@ -45,3 +45,8 @@ body { background:white; }
 #notes-panel[hidden] { display:none; }
 #notes-panel a { color:#111; }
 @media print { #notes-panel { display:none!important; } }
+.reveal .brand { width:100%; height:480px; object-fit:contain; margin:0 0 25px; }
+.reveal .compact { font-size:38px; }
+.reveal .compact li { margin-bottom:12px; }
+.reveal .slides>section.chart-slide { padding:0; }
+.reveal .full-chart { width:1600px; height:900px; max-width:none; max-height:none; display:block; }

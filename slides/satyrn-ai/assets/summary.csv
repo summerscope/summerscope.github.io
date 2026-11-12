@@ -1,0 +1,11 @@
+requested_model,prompt_variant,total_runs,correct_runs,new_syntax_first_runs,new_syntax_any_runs,web_evidence_observed_runs,nested_list_comprehension_runs,chain_from_iterable_runs
+gpt-6.1-sol,Neutral,3,3,0,0,0,3,0
+gpt-6.1-sol,Modern practices,3,3,0,0,0,3,0
+gpt-6.1-sol,Engineering practice,3,3,0,0,0,0,3
+gpt-6.1-sol,Latest APIs,3,3,0,0,1,0,3
+gpt-6.1-sol,Python version,3,3,1,1,1,2,0
+gpt-6-astra,Neutral,3,3,0,0,0,3,0
+gpt-6-astra,Modern practices,3,3,0,0,0,3,0
+gpt-6-astra,Engineering practice,3,3,0,0,0,1,2
+gpt-6-astra,Latest APIs,3,3,0,0,3,0,3
+gpt-6-astra,Python version,3,3,0,0,0,3,0
