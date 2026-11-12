@@ -62,15 +62,15 @@ Main finding: only 1/30 final answers used the updated syntax. It was gpt-6.1-so
 
 ## 16. local-demo
 
-Section 5: 4 minutes, including the prompt and discussion. Compare the live Satyrn answer directly with the recorded GPT baseline just shown, focusing on syntax choice. This is the checkpoint Laura was downloading in the setup session. Verify the runner identifies this exact checkpoint before the live demo. One neutral-prompt rehearsal result has now been supplied: the local Satyrn model returned list(itertools.chain.from_iterable(iter(iterables))), using established syntax. Five basic preparation checks passed. This is one rehearsal observation, separate from the 30 recorded GPT runs. Exact code and checkpoint are in assets/local-demo-neutral.md. The Target Python 3.15 rehearsal also returned older chain/tee code, with an unsupported claim about tee, a wrong example call, and a function that prints rather than returning a list. These are demos of failure modes, part of the well-sorta story; the live demo need not produce new syntax to be useful. Use the saved rehearsal observations if there is no time for another generation; they demonstrate failure modes directly. Source:  https://huggingface.co/satyrn-ai/Ornith-1.5-9B-py3.15  
+Section 5: live local demo. Open the known Ollama checkpoint hf.co/satyrn-ai/Ornith-1.5-9B-py3.15:Q4_K_M. Run the neutral prompt on the next slide, then start a fresh chat for the Target Python 3.15 prompt. Compare syntax choice with the recorded GPT baseline. Inspect the actual response; do not assume a particular result.
 
 ## 17. the-prompt
 
-Use this exact natural-language prompt for the neutral condition. Do not name the PEP or show the reference syntax before generation. Inspect the generated function: does it flatten one level, preserve order, accept generators, return a list? Separately, what syntax did it choose? The other session owns running the local demo.
+Run ollama run hf.co/satyrn-ai/Ornith-1.5-9B-py3.15:Q4_K_M. Paste the exact neutral prompt shown. Inspect new Python 3.15 syntax first, functional sanity second. Compare with the recorded GPT baseline; describe only the result that appears.
 
-## 18. failure-modes
+## 18. target-prompt
 
-Two local rehearsal observations from Laura, separate from the 30 recorded GPT runs. The point here is a demo of failure modes, not proof of general quality or a successful fine-tuning result. Neutral code used chain.from_iterable and passed five basic preparation checks, but its explanation described operations absent from the code. Target Python 3.15 code introduced tee, claimed an extension to accept multiple iterables, called a single-argument function with three positional arguments, and printed the list instead of returning it. The tee claim is labelled unsupported pending the parent’s official-documentation verification. Exact code and prompts are in assets/local-demo-neutral.md and assets/local-demo-python315.md. Tie this back to well, sorta, and why the project needs evals.
+Exit the prior chat and run a fresh invocation: ollama run hf.co/satyrn-ai/Ornith-1.5-9B-py3.15:Q4_K_M. Paste the exact Target Python 3.15 prompt shown. Inspect new syntax first, functional sanity second. Compare with the neutral answer and recorded GPT baseline. Do not assume success or failure.
 
 ## 19. two-answers
 
