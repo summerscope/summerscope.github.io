@@ -52,54 +52,58 @@ Published model names verified against the Satyrn website models page. This is s
 
 If the dataset viewer is already running, switch to it here and inspect one example. Otherwise use this slide and the repository link. The dataset viewer renders generated JSONL datasets. Training work and the tutorial live in satyrn-models. Dataset files in this checkout are Git LFS pointers, so no invented sample or screenshot is used. Source:  https://github.com/satyrn-ai/satyrn-models/blob/main/corpus_builder/frontend/README.md   Source:  https://github.com/satyrn-ai/satyrn-models/blob/main/docs/trainer_tutorial.md  
 
-## 14. comparison
+## 14. syntax-intro
+
+The neutral prompt does not require new syntax. An older answer alone does not prove the model does not know it: we measure whether it chooses new syntax under these prompts. Correct older idioms already satisfy the task; newer features must be learned and applied correctly, and a version hint can produce confident unsupported claims. Fine-tuning aims to teach newer Python knowledge, but training does not guarantee generalization. The goal is an improvement over the foundation-model baseline, not a proven win. A function can be correct while using older syntax. Inspect syntax choice first, then functional correctness and claims about APIs. Python 3.15 starred comprehensions are specified by PEP 798: https://peps.python.org/pep-0798/ .
+
+## 15. comparison
 
 GPT baseline: around 3 minutes including the result. Show this before the live Satyrn demo so the comparison is clear. Approved experiment from the separate benchmark session. Requested selectors: gpt-6.1-sol and gpt-6-astra, medium reasoning. Five exact prompts, three repetitions per condition, 30 runs total. No PEP or syntax hint. Fresh sessions inherited platform instructions and could use tools. The full approved prompts are in assets/benchmark-protocol.md. Earlier exploratory runs are excluded.
 
-## 15. benchmark-result
+## 16. benchmark-result
 
 Main finding: only 1/30 final answers used the updated syntax. It was gpt-6.1-sol, target Python 3.15, repetition 2, and it checked PEP 798 on the web. All other final answers used nested comprehensions or itertools.chain.from_iterable. The small correctness inset is a sanity check: all 30 passed under Python 3.15.2. Chart and CSV are from the completed benchmark package, version 1, generated November 12. Requested model selectors are shown; exact backend snapshots were not disclosed. Recorded GPT runs are the baseline for the same prompt against Satyrn live. This is an exploratory single-task comparison, not a controlled measurement of fine-tuning gains.
 
-## 16. local-demo
+## 17. local-demo
 
 Section 5: live local demo. Open the known Ollama checkpoint hf.co/satyrn-ai/Ornith-1.5-9B-py3.15:Q4_K_M. Run the neutral prompt on the next slide, then start a fresh chat for the Target Python 3.15 prompt. Compare syntax choice with the recorded GPT baseline. Inspect the actual response; do not assume a particular result.
 
-## 17. the-prompt
+## 18. the-prompt
 
 Run ollama run hf.co/satyrn-ai/Ornith-1.5-9B-py3.15:Q4_K_M. Paste the exact neutral prompt shown. Inspect new Python 3.15 syntax first, functional sanity second. Compare with the recorded GPT baseline; describe only the result that appears.
 
-## 18. target-prompt
+## 19. target-prompt
 
 Exit the prior chat and run a fresh invocation: ollama run hf.co/satyrn-ai/Ornith-1.5-9B-py3.15:Q4_K_M. Paste the exact Target Python 3.15 prompt shown. Inspect new syntax first, functional sanity second. Compare with the neutral answer and recorded GPT baseline. Do not assume success or failure.
 
-## 19. two-answers
+## 20. two-answers
 
 Both expressions flatten one level of an iterable of iterables. The newer form requires Python 3.15. These are reference examples, not model output. Source:  https://peps.python.org/pep-0798/  
 
-## 20. engine
+## 21. engine
 
 Section 6: 3 minutes. Pi and Ollama are external tools. The Engine is the Python implementation plus a thin TypeScript Pi adapter in packages/engine/. The plugin adds /implement. The contract is shown for confirmation before the Engine runs. The caller reviews the returned candidate. This is a description of the architecture, not a claim that the live setup has succeeded. Source:  https://github.com/pauleveritt/satyrn-engine   Source:  https://satyrn.ai/projects/engine/  
 
-## 21. plugin-demo
+## 22. plugin-demo
 
 Optional live demo. Run only if the setup session has verified the Pi plugin. Use the same task, inspect the contract and writable paths, then show the candidate and receipt. Success is pending. If it is not ready, skip this slide and use the following published result. Do not spend the talk debugging installation.
 
-## 22. engine-evidence
+## 23. engine-evidence
 
 Published project experiment, not today’s benchmark. Task: selfhost-run-record-gate. Engine commit 23a0ef6. Same model, 48,000 output-token budget, 72 turns. Report dated October 6. One-sided Fisher exact p=0.0043. This concerns delivering a passing patch, not general model capability. A later commit fixed a handoff asymmetry but was not used for these counts. Do not substitute the older 2/24 versus 16/24 headline. Source:  https://github.com/pauleveritt/satyrn-evals/blob/main/docs/results/2026-10-06-rrg-delivery.md  
 
-## 23. our-way
+## 24. our-way
 
 Section 8: around 4 minutes across this slide and the next two. Laura’s thesis: take back our power. The point is not competing directly with foundation labs. It is building skills, knowledge and community. Everyone has jobs and other commitments. We are trying to get interesting, useful results for ourselves.
 
-## 24. demystify
+## 25. demystify
 
 Laura’s direction: build capacity for fine-tuning beyond a small group of ML engineers and demystify it. The open pipeline, datasets, tutorial, eval evidence and community are ways to build that capacity. This is an invitation to learn and contribute, not a claim that all onboarding is already easy. Source:  https://github.com/satyrn-ai/satyrn-models/blob/main/docs/trainer_tutorial.md  
 
-## 25. join
+## 26. join
 
 The project welcomes contributors beyond model trainers. GitHub holds code, issues and durable decisions. Discord is for questions and conversation; follow the current link from the website. Zen is for learning and sharing, Team Compass for team work. Do not invent community-size statistics or Discord anecdotes. Source:  https://satyrn.ai/get-involved/  
 
-## 26. questions
+## 27. questions
 
 Three minutes for questions. Useful follow-ups: how to get started, how to contribute without ML experience, why local models, and what the experiments do and do not establish.
