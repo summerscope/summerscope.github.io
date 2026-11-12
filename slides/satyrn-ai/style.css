@@ -56,3 +56,16 @@ body { background:white; }
 .reveal .workflow > div { display:flex; align-items:center; gap:25px; border-top:2px solid #d9d4cc; padding:15px 0; }
 .reveal .workflow b { font-size:64px; color:#a94932; }
 .reveal .workflow p { font-size:38px; margin:0; }
+
+.reveal .contributors { display:grid; grid-template-columns:repeat(7,1fr); gap:45px 20px; margin-top:48px; }
+.reveal .contributors a { display:flex; align-items:center; flex-direction:column; gap:16px; text-align:center; font-size:24px; line-height:1.2; }
+.reveal .contributors img { width:140px; height:140px; border-radius:50%; object-fit:cover; margin:0; }
+
+.reveal .team-leads { display:grid; grid-template-columns:repeat(5,1fr); gap:24px; margin:24px 0 35px; }
+.reveal .team-leads h3, .reveal .more-label { font-size:28px; margin:0 0 22px; }
+.reveal .team-avatars { display:flex; gap:12px; justify-content:center; }
+.reveal .team-leads > div { text-align:center; }
+.reveal .team-avatars a, .reveal .more-contributors a { display:flex; align-items:center; flex-direction:column; gap:12px; text-align:center; font-size:21px; line-height:1.15; flex:1; }
+.reveal .team-avatars img { width:90px; height:90px; border-radius:50%; object-fit:cover; margin:0; }
+.reveal .more-contributors { display:grid; grid-template-columns:repeat(6,1fr); gap:25px; }
+.reveal .more-contributors img { width:110px; height:110px; border-radius:50%; object-fit:cover; margin:0; }

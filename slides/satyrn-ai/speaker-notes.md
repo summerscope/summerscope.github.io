@@ -30,7 +30,7 @@
 
 ## 8. teams
 
- People sprang into action after EuroPython. Michał Karzyński’s team built fine-tuning infrastructure and datasets for Python 3.14 and 3.15. Paul was working on the coding agent and Engine. Progress came from different teams in parallel.  Sources:  https://satyrn.ai/blog/2026/from-a-talk-a-community/  
+ People got to work in parallel. These are current team leads and contributors, not a complete membership list or the July gathering. Education: Emma Cooke and Carol Willing. Engine: Łukasz Zieniewicz and Nicola Jordan. Web: Laura Summers. Models: Michał Karzyński. Infrastructure and security: Pelle Koster and Mike Fiedler. Emma also leads organising; Paul and Carol are co-pilots. The additional portraits come from the website contributor list, without assigning them to teams.  Sources: https://github.com/satyrn-ai/team-compass/blob/main/docs/team/index.md ; https://satyrn.ai/ 
 
 ## 9. false-starts
 
