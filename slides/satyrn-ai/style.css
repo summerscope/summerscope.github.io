@@ -1,0 +1,47 @@
+:root { --r-background-color:#fff; --r-main-font:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; --r-main-font-size:46px; --r-main-color:#111; --r-heading-font:var(--r-main-font); --r-heading-color:#111; --r-heading-text-transform:none; --r-link-color:#111; --r-selection-background-color:#ddd; }
+* { box-sizing:border-box; }
+body { background:white; }
+.reveal { font-family:var(--r-main-font); color:#111; font-size:46px; line-height:1.32; }
+.reveal .slides { text-align:left; }
+.reveal .slides>section { height:900px; padding:65px 80px; }
+.reveal h1,.reveal h2,.reveal h3 { font-family:inherit; color:#111; font-weight:750; line-height:1.06; letter-spacing:-.035em; text-transform:none; margin:0 0 42px; }
+.reveal h1 { font-size:110px; }
+.reveal h2 { font-size:78px; }
+.reveal h3 { font-size:44px; }
+.reveal p { margin:0 0 30px; }
+.reveal .big { font-size:64px; line-height:1.2; }
+.reveal .huge { font-size:104px; line-height:1.15; }
+.reveal .small { font-size:30px; line-height:1.35; }
+.reveal .muted { color:#555; }
+.reveal .middle { display:flex!important; flex-direction:column; justify-content:center; }
+.reveal ul,.reveal ol { margin:0 0 25px 1.1em; }
+.reveal li { margin-bottom:22px; }
+.reveal a { color:inherit; text-decoration:underline; text-underline-offset:.14em; }
+.reveal pre { display:block; width:100%; padding:30px; margin:25px 0 35px; font-size:37px; line-height:1.4; box-shadow:none; border:2px solid #111; background:#f5f5f5; white-space:pre-wrap; }
+.reveal code { font-family:ui-monospace,"SFMono-Regular",Consolas,"Liberation Mono",monospace; text-transform:none; }
+.reveal pre code { display:block; padding:0; max-height:none; overflow:visible; white-space:pre-wrap; background:transparent; }
+.reveal img { border:0; box-shadow:none; background:transparent; margin:0; max-width:100%; max-height:100%; object-fit:contain; }
+.reveal .photo { width:100%; height:615px; object-fit:contain; object-position:left center; }
+.reveal .website { width:100%; height:615px; object-fit:contain; object-position:left top; }
+.reveal table { width:100%; border-collapse:collapse; font-size:34px; line-height:1.3; }
+.reveal th,.reveal td { padding:15px 18px; border-bottom:1px solid #aaa; vertical-align:top; text-align:left; }
+.reveal thead th { border-bottom:3px solid #111; }
+.reveal .map h2 { font-size:64px; margin-bottom:24px; }
+.reveal .map table { font-size:23px; line-height:1.25; table-layout:fixed; }
+.reveal .map th,.reveal .map td { padding:10px 12px; }
+.reveal .map col:first-child { width:22%; }
+.reveal .map col:nth-child(2) { width:29%; }
+.reveal .map code { font-size:.93em; }
+.reveal .map small { display:block; font-size:19px; margin-top:4px; }
+.reveal .map .nested { padding-left:35px; }
+.reveal .pending { border:2px dashed #777; padding:20px 26px; font-size:31px; margin-top:30px; }
+.reveal .two { display:grid; grid-template-columns:1fr 1fr; gap:65px; }
+.reveal .label { font-size:30px; margin-bottom:20px; }
+.reveal .numbers { font-size:120px; font-weight:750; line-height:1.1; margin:15px 0; }
+.reveal .slide-number { font:18px system-ui,sans-serif; color:#555; background:white; bottom:16px; right:25px; }
+.reveal .controls { color:#111; }
+.reveal .progress { color:#111; height:3px; }
+#notes-panel { position:fixed; left:0; right:0; bottom:0; max-height:38vh; overflow:auto; background:#fff; border-top:3px solid #111; padding:20px 35px; z-index:100; font:20px/1.5 system-ui,sans-serif; }
+#notes-panel[hidden] { display:none; }
+#notes-panel a { color:#111; }
+@media print { #notes-panel { display:none!important; } }
