@@ -1,8 +1,8 @@
 # Say hi to Satyrn
 
-Laura Summers — 25-slide Reveal.js deck, 16:9, plain white and black.
+Laura Summers — 29-slide Reveal.js deck, 16:9, plain white and black.
 
-Open `index.html` in a browser. All presentation assets are local; external links need internet access. Arrow keys move through slides. `Esc` shows the overview. `N` toggles notes inside the page. `S` opens Reveal's speaker view when browser permissions allow it. `speaker-notes.md` is a separate rehearsal copy.
+Open `index.html` in a browser. All presentation assets are local; external links need internet access. Arrow keys move through slides. `Esc` shows the overview. `N` toggles notes inside the page. `S` opens Reveal's speaker view when browser permissions allow it. `speaker-notes.md` follows the same slide order. `demo-commands.txt` contains the five exact benchmark prompts as ready-to-run Ollama commands.
 
 The recorded GPT baseline appears before the live Satyrn comparison. The local-model and optional Pi demo slides are cues for Laura to run the actual demonstrations; their outputs are not fabricated in the deck.
 
