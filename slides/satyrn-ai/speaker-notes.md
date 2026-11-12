@@ -10,7 +10,7 @@
 
 ## 3. challenge
 
- At EuroPython, Paul challenged the community to build a model that knew Python 3.15 in time for its October release.  Sources:  https://satyrn.ai/blog/2026/from-a-talk-a-community/  
+ Paul’s EuroPython keynote was “Was, Is, Will Be: Python History, Software Engineering, And AI Our Way”. He challenged the community to build a model that knew Python 3.15 in time for its October release.  Sources: https://ep2026.europython.eu/schedule/ ; https://satyrn.ai/blog/2026/from-a-talk-a-community/ 
 
 ## 4. why-it-landed
 
