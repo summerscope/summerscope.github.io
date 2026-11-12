@@ -50,7 +50,7 @@
 
 ## 13. dataset-viewer
 
- The builder starts with PEPs and changed CPython documentation. It develops ideas and generates prompt-response examples with an LLM. SFT examples run in containers on the target Python and its predecessor; equivalent output on both versions is rejected. The viewer lets us inspect JSONL prompts and answers. RL rows also include tests, reference solutions and metadata.  Sources:  https://github.com/satyrn-ai/satyrn-models/blob/main/docs/dataset_generator.md  
+ This is the actual upstream React dataset viewer, with 24 real Python 3.14 t-string CPT rows embedded from spikes/pep750/data/pep750.jsonl. The transport is adapted for static hosting; the dataset examples are original. Click the screenshot to open and explore the viewer.  Source: https://github.com/satyrn-ai/satyrn-models/tree/main/corpus_builder ; https://github.com/satyrn-ai/satyrn-models/blob/main/spikes/pep750/data/pep750.jsonl 
 
 ## 14. syntax-intro
 

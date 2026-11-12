@@ -9,3 +9,7 @@ The recorded GPT baseline appears before the live Satyrn comparison. The local-m
 `assets/benchmark-chart.svg` and `summary.csv` contain the completed 30-run GPT baseline. The protocol and runtime record are alongside them. `benchmark-README.md` is the original experiment report; its full raw-response and scoring bundle is separately available as `satyrn-benchmark-results.zip`.
 
 Sources and supporting details are in each slide's notes. The brand image is the actual Satyrn website social-preview asset. The initial-group photo is from the same project repository. Reveal.js 5.2.1 is reused from this repository's existing deck distribution.
+
+## Dataset viewer
+
+`dataset-viewer.html` builds the actual React UI from [satyrn-ai/satyrn-models/corpus_builder/frontend](https://github.com/satyrn-ai/satyrn-models/tree/main/corpus_builder/frontend), using 24 real Python 3.14 t-string CPT rows from [spikes/pep750/data/pep750.jsonl](https://github.com/satyrn-ai/satyrn-models/blob/main/spikes/pep750/data/pep750.jsonl). Its data transport is adapted for static hosting; the examples are original. The slide screenshot links to this working viewer.

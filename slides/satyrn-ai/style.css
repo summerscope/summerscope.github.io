@@ -69,3 +69,5 @@ body { background:white; }
 .reveal .team-avatars img { width:90px; height:90px; border-radius:50%; object-fit:cover; margin:0; }
 .reveal .more-contributors { display:grid; grid-template-columns:repeat(6,1fr); gap:25px; }
 .reveal .more-contributors img { width:110px; height:110px; border-radius:50%; object-fit:cover; margin:0; }
+
+.reveal .viewer-shot { display:block; width:100%; height:530px; object-fit:contain; margin:0; }
